@@ -16,7 +16,7 @@ To customize your theme:
 - Clone it into the theme directory next to your edx-platform directory and rename the theme directory to your new theme's name.
 - Upload your own image assets.
 - Edit the .scss file in static/sass/ and rename the file with your theme's name.
-- Edit the lms.env.json file in the edx-platform directory of your edx machine and set 'USE_CUSTOM_THEME' to true, and 'THEME_NAME' to your theme's name.
+- Edit the lms.env.json file in the edx-platform directory of your edx machine and set 'FEATURES.USE_CUSTOM_THEME' to true, and 'THEME_NAME' to your theme's name.
 
 
 License
