@@ -9,14 +9,25 @@
 //  Color variables (from Stanford palette unless noted)
 //-----------------
 
+//Gymnasium Theme Colors
+$gym-grey-dark: #262626;
+$gym-dark-color: #262626;
+$gym-light-color: #FFFFFF;
+//End Gym theme colors
+
 //Main Color Variables
-$main-color: #f7691f;
+$main-color: #F89720;
 $dark-color: #ea281f; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
 
+
+
+
+
+
 //Main BG Color Variables
-$main-bg:  #ff00ff //#822537;
+$main-bg:  #f22537;
 $main-bg-60: lighten($main-bg, 18.5%); //Main Border/HR Color
 $main-bg-25: lighten($main-bg, 25%); 
 
@@ -62,7 +73,8 @@ $container-bg: $gray-1;
 $login-register-bg: $gray-1;
 $content-wrapper-bg: $gray-1;
 $header-image: none;
-$header-bg: transparentize(lighten($secondary, 18.5%), .25);
+$header-bg:  $gym-grey-dark;//transparentize(lighten($secondary, 18.5%), .25);
+
 $courseware-header-image: none;
 $courseware-header-bg: transparentize(lighten($secondary, 18.5%), .25);
 $footer-bg: $secondary-25;
@@ -89,8 +101,8 @@ $site-status-color: $bg-color;
 $header-graphic-super-color: $dark-color;
 $header-graphic-sub-color: $lighter-base-font-color;
 
-$header-link-color: $dark-color;
-$header-link-hover: $light-color;
+$header-link-color: $gym-light-color;
+$header-link-hover: $gym-dark-color;
 
 $button-color: $main-color;
 $button-archive-color: $gray-3;
@@ -185,12 +197,12 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/default/images/sunrise.jpg');
+$homepage-bg-image: url('../themes/gymnasium/images/sunrise.jpg');
 
 $login-banner-image: none;
 $register-banner-image: none;
 
-$video-thumb-url: '../themes/default/images/edx.png';
+$video-thumb-url: '../themes/gymnasium/images/gymnasiumLogo.png';
 
 //-----------------
 //  Mixin Styles
@@ -205,4 +217,11 @@ $video-thumb-url: '../themes/default/images/edx.png';
 @mixin footer_references_style {
     margin: 0 !important;
     text-align: right;
+}
+
+
+.gym-top-block
+{
+	height:22px;
+	background-color:#000;
 }
