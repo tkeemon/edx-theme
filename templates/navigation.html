@@ -36,22 +36,15 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
-  <div class="gym-top-block">GYMGYMGYMGYM</div>
   <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
+    <div class="black-background">
+    
+
     <nav>
-    <h1 class="logo">
-      <a href="${marketing_link('ROOT')}">
-        <%block name="navigation_logo">
-            <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
-        </%block>
-      </a>
-    </h1>
 
-    % if course:
-    <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
-    % endif
+    <div class="gym-top-block">
 
-    % if user.is_authenticated():
+      % if user.is_authenticated():
     <ol class="left nav-global authenticated">
       <%block name="navigation_global_links_authenticated">
         % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
@@ -129,6 +122,24 @@ site_status_msg = get_site_status_msg(course_id)
     </li>
     </ol>
     % endif
+
+      <a href="#" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a>
+      <a href="#" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a>
+    </div>
+
+    <h1 class="logo">
+      <a href="${marketing_link('ROOT')}">
+        <%block name="navigation_logo">
+            <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
+        </%block>
+      </a>
+    </h1>
+
+    % if course:
+    <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
+    % endif
+
+    
   </nav>
 </header>
 % if course:

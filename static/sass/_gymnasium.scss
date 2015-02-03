@@ -203,6 +203,8 @@ $login-banner-image: none;
 $register-banner-image: none;
 
 $video-thumb-url: '../themes/gymnasium/images/gymnasiumLogo.png';
+$aquent-icon-image: url('../themes/gymnasium/images/aquent-icon.png');
+$vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 //-----------------
 //  Mixin Styles
@@ -220,8 +222,78 @@ $video-thumb-url: '../themes/gymnasium/images/gymnasiumLogo.png';
 }
 
 
+
+
+//----------------
+// Should be moved to standalone CSS (probably)
+//----------------
+
+header.global
+{
+	height:125px;
+	border:none;
+
+	nav {
+		padding: 0px;
+
+		.nav-courseware
+		{
+			padding-top:4px;
+		}
+	}
+}
+
+.black-background
+{
+	position:absolute;
+	top:0px;
+	width:100%;
+	background-color:black;
+	height:50px;
+	z-index:0;
+}
+
 .gym-top-block
 {
-	height:22px;
-	background-color:#000;
+	height:50px;
+	z-index:1;
+	position:relative
+}
+
+.gym-top-block
+{
+	.gym-nav-icon
+	{
+		background-position:center;
+		display:inline-block;
+	}
+
+	a
+	{
+		margin-left:0;
+		margin-right:0;
+		text-align:left;
+	}
+
+}
+
+.gym-icon
+{
+	width:50px;
+	height:50px;
+	display:inline-block;
+	background-repeat:no-repeat;
+	float:right;
+}
+
+.aquent-icon
+{
+	@extend .gym-icon;
+	background-image:$aquent-icon-image;
+}
+
+.vitamin-t-icon
+{
+	@extend .gym-icon;
+	background-image:$vitamin-t-icon-image;
 }
