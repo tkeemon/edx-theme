@@ -54,7 +54,7 @@ $black-80: #585858;
 //  Font Assignment
 //-----------------
 
-$theme-sans-font: 'Source Sans';
+$theme-sans-font: 'brandon-grotesque', 'Source Sans';
 $sans-serif: $theme-sans-font, $sans-serif;
 $body-font-family: $sans-serif;
 
@@ -197,7 +197,7 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/gymnasium/images/sunrise.jpg');
+$homepage-bg-image: url('../themes/gymnasium/images/home-page-hero-background.png');
 
 $login-banner-image: none;
 $register-banner-image: none;
@@ -228,6 +228,12 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 // Should be moved to standalone CSS (probably)
 //----------------
 
+@import 'home';
+
+/* colors */
+$gym-textblock-color:rgba(45,45,45,0.70);
+$gym-orange: #f89820;
+
 header.global
 {
 	height:125px;
@@ -238,10 +244,18 @@ header.global
 
 		.nav-courseware
 		{
-			padding-top:4px;
+			padding-top:3px;
+		}
+
+		.logo
+		{
+			clear:left;
+			margin-top:30px;
 		}
 	}
 }
+
+
 
 .black-background
 {
@@ -255,7 +269,6 @@ header.global
 
 .gym-top-block
 {
-	height:50px;
 	z-index:1;
 	position:relative
 }
@@ -277,6 +290,20 @@ header.global
 
 }
 
+
+.gym-button
+{
+	border-radius:2px;
+	background-color:$gym-orange;
+	color:white;
+	padding:5px 20px;
+	text-align:center;
+	font-weight:500;
+	box-shadow:none;
+	text-shadow:none;
+	border:transparent;
+	background-image:none;
+}
 .gym-icon
 {
 	width:50px;

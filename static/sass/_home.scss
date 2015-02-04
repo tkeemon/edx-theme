@@ -1,0 +1,38 @@
+$gym-textblock-color:rgba(45,45,45,0.70);
+
+
+.home
+{
+	header
+	{
+		.outer-wrapper
+		{
+			padding: 150px 10px 0px 740px;
+
+			.title
+			{	
+				border:0px;
+				background-color:$gym-textblock-color;
+				color:white;
+
+				h1
+				{
+					text-shadow:none;
+					color:white;
+					text-transform: uppercase;
+				}
+
+				h2
+				{
+					color:white;	
+				}
+			}
+		}
+
+		.media
+		{
+			border: 0px;
+			background:$gym-textblock-color;
+		}
+	}
+}
