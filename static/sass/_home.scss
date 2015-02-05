@@ -5,6 +5,8 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 {
 	header
 	{
+		border-bottom:white;
+
 		.outer-wrapper
 		{
 			padding: 150px 10px 0px 740px;
@@ -25,6 +27,15 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 				h2
 				{
 					color:white;	
+					padding-bottom:1.5em;
+				}
+
+				.gym-button
+				{
+					text-transform:none;
+					width:85%;				
+					padding:15px 20px;
+					display:inline-block;
 				}
 			}
 		}
