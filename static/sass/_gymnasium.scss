@@ -13,6 +13,8 @@
 $gym-grey-dark: #262626;
 $gym-dark-color: #262626;
 $gym-light-color: #FFFFFF;
+
+
 //End Gym theme colors
 
 //Main Color Variables
@@ -54,7 +56,7 @@ $black-80: #585858;
 //  Font Assignment
 //-----------------
 
-$theme-sans-font: 'brandon-grotesque', 'Source Sans';
+$theme-sans-font: "brandon-grotesque";
 $sans-serif: $theme-sans-font, $sans-serif;
 $body-font-family: $sans-serif;
 
@@ -364,6 +366,7 @@ section
 	text-shadow:none;
 	border:transparent;
 	background-image:none;
+	font-size:1.5em;
 }
 
 .gym-button:hover
