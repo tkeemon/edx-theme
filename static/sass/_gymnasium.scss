@@ -228,15 +228,24 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 // Should be moved to standalone CSS (probably)
 //----------------
 
-@import 'home';
-
 /* colors */
 $gym-orange: #f89820;
 $gym-orange-light: #f8971d;
+$gym-orange-light: rgba(248,151,32,0.9);
 $gym-button-hover-color: #dddddd;
 $gym-dark-grey: #222222;
 $gym-dark-gray: $gym-dark-grey;
 
+$gym-medium-grey: #444444;
+$gym-medium-gray: $gym-medium-grey;
+
+$gym-textblock-color:rgba(45,45,45,0.70);
+
+/* individual page styles */
+@import 'home';
+
+
+/* global theme styles */
 header.global
 {
 	height:125px;
@@ -269,6 +278,7 @@ header.global
 	background-color: $gym-dark-gray;
 	border-top: 10px solid $gym-orange-light;
 	color:white;
+	min-height:170px;
 
 	footer
 	{
@@ -301,6 +311,10 @@ header.global
 	}
 }
 
+section
+{
+	padding:0px;
+}
 
 .black-background
 {

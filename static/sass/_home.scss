@@ -1,6 +1,3 @@
-$gym-textblock-color:rgba(45,45,45,0.70);
-
-
 .home
 {
 	header
@@ -44,6 +41,82 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 		{
 			border: 0px;
 			background:$gym-textblock-color;
+		}
+	}
+
+	.container
+	{
+		/*
+		h1::before
+		{
+			width: 0;
+			height: 0;
+			border-bottom: 1em solid red;
+			border-left: 1em solid transparent;
+			display:inline-block;
+			content:" ";
+		}
+		*/
+
+		h1
+		{
+			position: relative;
+  			padding: 5px;
+		}
+		h1::before
+		{
+			content: " ";
+		  	position: absolute;
+		  	border: 3px solid teal;
+		  	border-bottom:0px;
+		  
+		  	top: -4%; bottom: -11%; left: -3%; right: -3%;
+		  	z-index: 0;
+
+		  	-webkit-transform: perspective(30em) rotateX(50deg);
+		  	transform: perspective(30em) rotateX(50deg);
+		}
+
+		/*
+		h1::after
+		{
+			width: 0;
+			height: 0;
+			border-bottom: 1em solid red;
+			border-right: 1em solid transparent;
+			display:inline-block;
+			content:" ";
+		}
+		*/
+	}
+
+	.container.grey
+	{
+		@extend .container;
+
+		background-color:$gym-medium-grey;
+	}
+
+	.highlighted-courses
+	{
+		.courses
+		{
+			.course
+			{
+				border:none;
+
+				.inner-wrapper
+				{
+					border:none;
+				}
+
+				.meta-info
+				{
+					background:rgba(248,151,32,0.9);
+					border:0px;
+				}
+			}
+
 		}
 	}
 }
