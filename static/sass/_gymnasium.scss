@@ -246,15 +246,43 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 /* individual page styles */
 @import 'home';
 
+#secondary-nav
+{
+	height:70px;
+	background-color:$gym-dark-grey;
+	padding-top:10px;
+	a
+	{
+		font-size:15px;
+		color:white;
+	}
+
+
+	.navbar-brand
+	{
+		padding:0px;
+	}
+}
+
+#primary-nav
+{
+	height:50px;
+}
+
 
 /* global theme styles */
 header.global
 {
-	height:125px;
+
 	border:none;
+	height:120px;
+
+	
 
 	nav {
+		max-width:inherit;
 		padding: 0px;
+
 
 		.nav-courseware
 		{
@@ -320,11 +348,9 @@ section
 
 .black-background
 {
-	position:absolute;
 	top:0px;
 	width:100%;
 	background-color:black;
-	height:50px;
 	z-index:0;
 }
 
