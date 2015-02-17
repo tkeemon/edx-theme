@@ -54,9 +54,11 @@ site_status_msg = get_site_status_msg(course_id)
               % endif
             % endif
         </div>
-        <div class="navbar navbar-nav navbar-right">
-          <a href="http://www.vitamintalent.com" target="new" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a>
-          <a href="http://www.aquent.com" target="new" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a>
+        <div class="collapse navbar-collapse">
+          <div class="navbar navbar-nav navbar-right">
+            <a href="http://www.vitamintalent.com" target="new" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a>
+            <a href="http://www.aquent.com" target="new" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a>
+          </div>
         </div>
       </div>
     </nav>
@@ -65,72 +67,78 @@ site_status_msg = get_site_status_msg(course_id)
 
     <nav id="secondary-nav" class="container-fluid">
 
-      <div class="container navbar">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="${marketing_link('ROOT')}">
-            <%block name="navigation_logo">
-                <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
-            </%block>
-          </a>
-        </div>
+      <div class="container">
+        <div class="navbar navbar-default">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="${marketing_link('ROOT')}">
+              <%block name="navigation_logo">
+                  <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
+              </%block>
+            </a>
+          </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Link</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Classrooms</a></li>
-            <li><a href="#">Career Center</a></li>
-        
-            % if user.is_authenticated():
-              <ol class="left nav-global authenticated">
-                <%block name="navigation_global_links_authenticated">
-                  % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-                    <li class="nav-global-01">
-                      <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
-                    </li>
-                  % endif
-                </%block>
-              </ol>
-              <ol class="user">
-                <li class="primary">
-                  <a href="${reverse('dashboard')}" class="user-link">
-                    <span class="avatar"></span>
-                    <span class="sr">${_("Dashboard for:")} </span> ${user.username}
-                  </a>
-                </li>
-                <li class="primary">
-                  <a href="#" class="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr">${_("More options dropdown")}</span> &#9662;</a>
-                  <ul class="dropdown-menu" aria-label="More Options" role="menu">
-                    <%block name="navigation_dropdown_menu_links" >
-                      % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
-                        <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
-                      % endif
-                    </%block>
-                    <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
-                  </ul>
-                </li>
-              </ol>
-            % else:
-              <li>
-                % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                    % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                    <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Log in")}</a>
-                    % else:
-                    <a class="gym-button" href="/login${login_query()}">${_("Log in")}</a>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="secondary-nav-items">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#">Link</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Classrooms</a></li>
+              <li><a href="#">Career Center</a></li>
+          
+              % if user.is_authenticated():
+                <ol class="left nav-global authenticated">
+                  <%block name="navigation_global_links_authenticated">
+                    % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+                      <li class="nav-global-01">
+                        <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
+                      </li>
                     % endif
-                % endif
-              </li>
-            % endif      
-          </ul>
-        </div><!-- /.navbar-collapse -->
+                  </%block>
+                </ol>
+                <ol class="user">
+                  <li class="primary">
+                    <a href="${reverse('dashboard')}" class="user-link">
+                      <span class="avatar"></span>
+                      <span class="sr">${_("Dashboard for:")} </span> ${user.username}
+                    </a>
+                  </li>
+                  <li class="primary">
+                    <a href="#" class="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr">${_("More options dropdown")}</span> &#9662;</a>
+                    <ul class="dropdown-menu" aria-label="More Options" role="menu">
+                      <%block name="navigation_dropdown_menu_links" >
+                        % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
+                          <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
+                        % endif
+                      </%block>
+                      <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
+                    </ul>
+                  </li>
+                </ol>
+              % else:
+                <li>
+                  % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                      % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                      <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Log in")}</a>
+                      % else:
+                      <a class="gym-button" href="/login${login_query()}">${_("Log in")}</a>
+                      % endif
+                  % endif
+                </li>
+              % endif      
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
       </div>
+
+
+
+      
 
       % if course:
         <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>

@@ -69,19 +69,21 @@
       % endif
     </div>
   </header>
-  <section class="container grey">
+  <section class="container-fluid grey">
     <h1>Course Catalog</h1>
     <section class="highlighted-courses">
 
       % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-        <section class="courses">
-            <ul class="courses-listing">
-            %for course in courses:
-              <li class="courses-listing-item">
-                <%include file="course.html" args="course=course" />
-              </li>
-            %endfor
-            </ul>
+        <section class="courses container-fluid">
+            <div class="container">
+              <ul class="courses-listing row">
+              %for course in courses:
+                <li class="courses-listing-item .col-md-6 ">
+                  <%include file="course.html" args="course=course" />
+                </li>
+              %endfor
+              </ul>
+            </div>
         </section>
       % endif
 
