@@ -246,8 +246,17 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 /* individual page styles */
 @import 'home';
 
+#top-navs
+{
+	min-width:none;
+	max-width:none;
+	width:inherit;
+	padding: 0px;
+}
+
 #secondary-nav
 {
+	@extend #top-navs;
 	height:70px;
 	background-color:$gym-dark-grey;
 	padding-top:10px;
@@ -273,7 +282,10 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 
 #primary-nav
 {
+	@extend #top-navs;
 	height:50px;
+	padding-top:11px;
+	
 }
 
 
@@ -283,6 +295,8 @@ header.global
 
 	border:none;
 	width:inherit;
+	height:120px;
+	background-color:$gym-dark-grey;
 
 	.container, .container.grey
 	{
@@ -292,9 +306,6 @@ header.global
 	
 
 	nav {
-		min-width:0px;
-		padding: 0px;
-
 
 		.nav-courseware
 		{
@@ -311,6 +322,12 @@ header.global
 		.cta.cta-register
 		{
 			color:white;
+		}
+
+		.container
+		{
+			padding:0;
+			background:transparent;
 		}
 	}
 }
@@ -414,17 +431,19 @@ section
 
 .gym-icon
 {
-	width:50px;
+	width:35px;
 	height:50px;
 	display:inline-block;
 	background-repeat:no-repeat;
 	vertical-align:middle;
+	background-position-x:center;
 }
 
 .aquent-icon
 {
 	@extend .gym-icon;
 	background-image:$aquent-icon-image;
+
 }
 
 .vitamin-t-icon

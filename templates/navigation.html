@@ -38,26 +38,28 @@ site_status_msg = get_site_status_msg(course_id)
 
   <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
     <nav id="primary-nav" class="black-background container-fluid">
-      <div class="container navbar">
-        <div class="navbar navbar-nav navbar-left">
-          % if not user.is_authenticated():
-              % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                  <span>
-                    <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Sign up for an account")}</a>
-                  </span>
-                % else:
-                  <span class="nav-global-04">
-                    <a class="gym-button cta cta-register" href="/register">${_("Sign up for an account")}</a>
-                  </span>
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar navbar-nav navbar-left">
+            % if not user.is_authenticated():
+                % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                  % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                    <span>
+                      <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Sign up for an account")}</a>
+                    </span>
+                  % else:
+                    <span class="nav-global-04">
+                      <a class="gym-button cta cta-register" href="/register">${_("Sign up for an account")}</a>
+                    </span>
+                  % endif
                 % endif
               % endif
-            % endif
-        </div>
-        <div class="collapse navbar-collapse">
-          <div class="navbar navbar-nav navbar-right">
-            <a href="http://www.vitamintalent.com" target="new" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a>
-            <a href="http://www.aquent.com" target="new" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a>
+          </div>
+          <div class="collapse navbar-collapse">
+            <div class="navbar navbar-nav navbar-right">
+              <a href="http://www.vitamintalent.com" target="new" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a>
+              <a href="http://www.aquent.com" target="new" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -138,7 +140,7 @@ site_status_msg = get_site_status_msg(course_id)
 
 
 
-      
+
 
       % if course:
         <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>

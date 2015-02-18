@@ -97,6 +97,18 @@
 		background-color:$gym-medium-grey;
 	}
 
+	section.container-fluid:nth-child(even)
+	{
+		background-color:white;
+		color:$gym-dark-grey;
+	}
+
+	section.container-fluid:nth-child(odd)
+	{
+		background-color:$gym-dark-grey;
+		color:white;
+	}
+
 	.highlighted-courses
 	{
 		.courses
