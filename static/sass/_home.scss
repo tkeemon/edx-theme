@@ -18,7 +18,7 @@
 			width:auto;
 			height:auto;
 			min-height:0px;
-			margin-top:40px;
+			margin-top:100px;
 			padding:30px;
 			box-sizing:border-box;
 
@@ -164,6 +164,11 @@
 		p
 		{
 			color:$gym-light-grey;
+
+			a
+			{
+				color:$gym-orange;
+			}
 		}
 
 		h1
