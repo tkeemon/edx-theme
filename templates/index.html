@@ -17,22 +17,23 @@
 %>
 <section class="home">
   <header>
-    <div class="outer-wrapper">
-      <div class="title">
-        <hgroup>
-          % if homepage_overlay_html:
-            ${homepage_overlay_html}
-          % else:
-            % if self.stanford_theme_enabled():
-              <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-9">
+          <hgroup class="title">
+            % if homepage_overlay_html:
+              ${homepage_overlay_html}
             % else:
-              <h1>${_("Aquent Gymnasium")}</h1>
+              % if self.stanford_theme_enabled():
+                <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
+              % else:
+                <h1>${_("Aquent Gymnasium")}</h1>
+              % endif
+              <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
             % endif
-            <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
-          % endif
-          <a class="gym-button">Enroll in a Class</a>
-        </hgroup>
-
+            <a class="gym-button">Enroll in a Class</a>
+          </hgroup>
+        </div>
         ## Disable social buttons for non-edX sites
         % if not self.theme_enabled():
           <section class="actions">
@@ -70,35 +71,102 @@
     </div>
   </header>
 
-
-  <section class="container-fluid">
+  <section class="container-fluid subsection">
     <div class="container">
-      <h2>Course Catalog</h2>
-      <section class="highlighted-courses">
-
-        % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-          <section class="courses">
-              <div class="container">
-                <ul class="courses-listing row">
-                %for course in courses:
-                  <li class="courses-listing-item .col-md-6 ">
-                    <%include file="course.html" args="course=course" />
-                  </li>
-                %endfor
-                </ul>
-              </div>
-          </section>
-        % endif
+      <div class="text-center">
+        <h1>Why Gymnasium Works</h1>
       </div>
-    </section>
+
+      <div class="row">
+        <section class="row col-md-10 col-md-offset-1">
+          <div class="col-md-4">
+            <h2>Real World Skills</h2>
+            <p>Gymnasium offers free online courses designed to teach creative professionals in-demand skills.  We know these skills are in demand because our clients tell us what they are looking for, but can't find.</p>
+          </div>
+
+          <div class="col-md-4">
+            <h2>Expert Instruction</h2>
+            <p>Our courses are all self-paced and taught by experienced practitioners with a passion for sharing practical lessons from the design trenches.</p>
+          </div>
+
+          <div class="col-md-4">
+            <h2>Career Opportunities</h2>
+            <p>Once you finish a course, you will be able to use your new skills in your current role, or use them to land a new job. <a href="#">We can even help with that!</a></p>
+          </div>
+        </section>
+      </div>
+
+      <div class="row">
+        <hr class="col-md-10 col-md-offset-1" />
+      </div>
+
+      <div class="row">
+        <div class="text-center">
+          <h1>Featured Courses</h1>
+        </div>
+
+        <section class="row col-md-10 col-md-offset-2">
+          <section class="highlighted-courses"> 
+            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+              <section class="courses">
+                <div class="container">
+                  <ul class="courses-listing row">
+                    %for course in courses:
+                      <li class="courses-listing-item .col-md-6 .col-sm-12 ">
+                        <%include file="course.html" args="course=course" />
+                      </li>
+                    %endfor
+                  </ul>
+                </div>
+              </section>
+            % endif
+          </section>
+        </section>
+
+        <div class="row">
+          <blockquote class="col-md-8 col-md-offset-3">
+            <h1>This course is awesome</h1>
+            <h2>I'm excited about being able to use this new skill soon!</h2>
+            <footer>A.a.ron</footer>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <section class="container-fluid">
     <div class="container">
-      <h1>Why Gymnasium Works</h1>
+      <div class="text-center">
+        <h1>Get Work</h1>
+      </div>
       <section>
         lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum.
       </section>
+    </div>
+  </section>
+
+  <section class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="text-center">
+            <h1>Join Us</h1>
+          </div>
+          <section>
+            lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum.
+          </section>
+        </div>
+
+        <div class="col-md-6">
+          <div class="text-center">
+            <h1>Share</h1>
+          </div>
+          <section>
+            lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum.
+          </section>
+        </div>
+      </div>
     </div>
   </section>
 </section>
