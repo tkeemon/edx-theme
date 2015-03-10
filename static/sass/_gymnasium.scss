@@ -9,17 +9,43 @@
 //  Color variables (from Stanford palette unless noted)
 //-----------------
 
+//----------------
+// Should be moved to standalone SASS (probably)
+//----------------
+
+/* colors */
+
 //Gymnasium Theme Colors
 $gym-grey-dark: #262626;
 $gym-dark-color: #262626;
 $gym-light-color: #FFFFFF;
+
+$gym-orange: #f89820;
+$gym-orange-light: #f8971d;
+$gym-orange-light: rgba(248,151,32,0.9);
+$gym-button-hover-color: #dddddd;
+$gym-dark-grey: #222222;
+$gym-dark-gray: $gym-dark-grey;
+
+$gym-medium-grey: #444444;
+$gym-medium-gray: $gym-medium-grey;
+
+$gym-light-grey: #999999;
+$gym-light-gray: $gym-light-grey;
+
+$gym-white: #ebebeb;
+
+$gym-textblock-color:rgba(45,45,45,0.70);
+
+
+
 
 
 //End Gym theme colors
 
 //Main Color Variables
 $main-color: #F89720;
-$dark-color: #ea281f; //Link Color
+$dark-color: $gym-orange; //#ea281f; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
 
@@ -30,7 +56,7 @@ $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom
 
 //Main BG Color Variables
 $main-bg:  #f22537;
-$main-bg-60: lighten($main-bg, 18.5%); //Main Border/HR Color
+$main-bg-60: $gym-light-grey; //Main Border/HR Color
 $main-bg-25: lighten($main-bg, 25%); 
 
 //Secondary Color Variables
@@ -224,27 +250,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 
 
-//----------------
-// Should be moved to standalone SASS (probably)
-//----------------
 
-/* colors */
-$gym-orange: #f89820;
-$gym-orange-light: #f8971d;
-$gym-orange-light: rgba(248,151,32,0.9);
-$gym-button-hover-color: #dddddd;
-$gym-dark-grey: #222222;
-$gym-dark-gray: $gym-dark-grey;
-
-$gym-medium-grey: #444444;
-$gym-medium-gray: $gym-medium-grey;
-
-$gym-light-grey: #999999;
-$gym-light-gray: $gym-light-grey;
-
-$gym-white: #ebebeb;
-
-$gym-textblock-color:rgba(45,45,45,0.70);
 
 /* individual page styles */
 @import 'home';
@@ -268,6 +274,16 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 .container
 {
 	min-width:0px !important;
+}
+
+#primary-nav, #secondary-nav, .wrapper-footer
+{
+	.container, .container>div
+	{
+		border:0;
+		background:transparent;
+		box-shadow:none;
+	}
 }
 
 #secondary-nav
@@ -354,7 +370,7 @@ header.global
 
 .content-wrapper#content
 {
-	padding-bottom:0px;
+	padding-bottom:80px;
 }
 
 .wrapper-footer
@@ -371,6 +387,11 @@ header.global
 			span
 			{
 				color:$gym-white;
+			}
+			img
+			{
+				height:20px;
+				vertical-align:text-top;
 			}
 		}
 
