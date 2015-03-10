@@ -40,7 +40,7 @@ site_status_msg = get_site_status_msg(course_id)
     <nav id="primary-nav" class="black-background container-fluid">
       <div class="container">
         <div class="navbar">
-          <div class="navbar navbar-nav navbar-left">
+          <div class="nav navbar navbar-nav navbar-left">
             % if not user.is_authenticated():
                 % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
                   % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
@@ -56,10 +56,33 @@ site_status_msg = get_site_status_msg(course_id)
               % endif
           </div>
           <div class="collapse navbar-collapse">
-            <div class="navbar navbar-nav navbar-right">
-              <a href="http://www.vitamintalent.com" target="new" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a>
-              <a href="http://www.aquent.com" target="new" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a>
-            </div>
+            <ul class="nav navbar-nav navbar-right">
+
+              % if user.is_authenticated():
+                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${user.username} <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+
+                    <li>
+                      <a href="${reverse('dashboard')}">
+                        <span class="avatar"></span> Dashboard
+                      </a>
+                    </li> 
+
+                    % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
+                      <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
+                    % endif
+                    <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
+                  </ul>
+                </li>
+
+              % endif      
+
+              <li><a href="http://www.vitamintalent.com" target="new" alt="Vitamin T"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
+              <li><a href="http://www.aquent.com" target="new" alt="Aquent"> <i class="gym-nav-icon aquent-icon"></i></a></li>
+            </ul>
+
           </div>
         </div>
       </div>
@@ -88,40 +111,20 @@ site_status_msg = get_site_status_msg(course_id)
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="secondary-nav-items">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Link</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Classrooms</a></li>
-              <li><a href="#">Career Center</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/courses">Classrooms</a></li>
+              <li><a href="/careers">Career Center</a></li>
           
               % if user.is_authenticated():
-                <ol class="left nav-global authenticated">
-                  <%block name="navigation_global_links_authenticated">
-                    % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-                      <li class="nav-global-01">
-                        <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
-                      </li>
-                    % endif
-                  </%block>
-                </ol>
-                <ol class="user">
-                  <li class="primary">
-                    <a href="${reverse('dashboard')}" class="user-link">
-                      <span class="avatar"></span>
-                      <span class="sr">${_("Dashboard for:")} </span> ${user.username}
-                    </a>
-                  </li>
-                  <li class="primary">
-                    <a href="#" class="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr">${_("More options dropdown")}</span> &#9662;</a>
-                    <ul class="dropdown-menu" aria-label="More Options" role="menu">
-                      <%block name="navigation_dropdown_menu_links" >
-                        % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
-                          <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
-                        % endif
-                      </%block>
-                      <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
-                    </ul>
-                  </li>
-                </ol>
+                
+                <%block name="navigation_global_links_authenticated">
+                  % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+                    <li class="nav-global-01">
+                      <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
+                    </li>
+                  % endif
+                </%block>
+
               % else:
                 <li>
                   % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:

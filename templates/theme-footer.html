@@ -5,11 +5,13 @@
 <%! from pytz import UTC %>
 
 <div class="wrapper-footer">
-  <footer>
-    <div class="colophon">
-      <nav class="nav-colophon">
-        <ol>
-          <li><img src="${static.url('themes/gymnasium/images/aquent-gymnasium-logo.png')}" alt="Aquent Gymnasium" /></li>
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4">
+          <img  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >  
+        </div>
+        <ol class="list-inline col-md-4">
           
           <li><a href="${reverse('about_edx')}">About</a></li>
           <li><a href="${reverse('about_edx')}#contact">FAQ</a></li>
@@ -17,9 +19,11 @@
           <li><a href="${reverse('tos')}">Privacy Policy</a></li>
         </ol>
       </nav>
+
+      <div class="references col-md-4">
+        <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
+      </div>
     </div>
-    <div class="references">
-      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
-    </div>
+
   </footer>
 </div>

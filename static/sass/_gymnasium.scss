@@ -225,7 +225,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 
 //----------------
-// Should be moved to standalone CSS (probably)
+// Should be moved to standalone SASS (probably)
 //----------------
 
 /* colors */
@@ -248,6 +248,14 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 
 /* individual page styles */
 @import 'home';
+
+* 
+{
+	a:link:hover, a:link:focus, a:visited:hover, a:visited:focus
+	{
+		text-decoration: none;
+	}
+}
 
 #top-navs
 {
@@ -292,7 +300,7 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 {
 	@extend #top-navs;
 	height:50px;
-	padding-top:11px;
+	//padding-top:11px;
 	
 }
 
@@ -344,6 +352,11 @@ header.global
 	}
 }
 
+.content-wrapper#content
+{
+	padding-bottom:0px;
+}
+
 .wrapper-footer
 {
 	background-color: $gym-dark-gray;
@@ -361,18 +374,15 @@ header.global
 			}
 		}
 
-		.colophon
+		li 
 		{
-			.nav-colophon
+			height:100%;
+			vertical-align: center;
+			a
 			{
-				li
-				{
-					a
-					{
-						color:$gym-white; /* comment */
-					}
-				}
+				color:white;	
 			}
+			
 		}
 
 		a
@@ -414,9 +424,6 @@ section
 		margin-right:0;
 		text-align:left;
 	}
-
-	
-
 }
 
 
@@ -433,6 +440,11 @@ section
 	border:transparent;
 	background-image:none;
 	font-size:1.5em;
+
+	a
+	{
+		color:white;
+	}
 }
 
 .gym-button:hover

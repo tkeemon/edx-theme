@@ -1,5 +1,6 @@
 .home
 {
+
 	header
 	{
 		border-bottom:$gym-white;
@@ -36,7 +37,7 @@
 			h2
 			{
 				color:$gym-white;	
-				margin:0;
+				margin:0; 
 				padding:0;
 				padding-bottom:1.5em;
 				text-transform:none;
@@ -44,11 +45,15 @@
 				text-align:left;
 			}
 
+
+			//augmenting the style defined in _gymnasium.scss
 			.gym-button
 			{
 				text-transform:none;				
 				padding:15px 20px;
 				display:inline-block;
+				color:white;
+				font-size:1.5em;
 			}
 		}
 
@@ -59,21 +64,90 @@
 		}
 	}
 
+
+	.container#get-work
+	{
+		article
+		{
+			h1
+			{
+				color:$gym-orange;
+				text-align:left;
+				text-transform: none;
+			}
+		}
+
+		hr
+		{
+			border-top-color:$gym-dark-grey;
+			color:$gym-medium-grey;
+		}
+	}
+
+	#join-gymnasium
+	{
+		em
+		{
+			margin-bottom:10px;
+			display:block;
+
+			a
+			{
+				color:$gym-orange;
+				text-transform:uppercase;
+				font-size:42pt;
+				font-weight:bold;
+				
+			}
+		}
+
+		p
+		{
+			color:$gym-dark-grey;
+		}
+
+		a.gym-button
+		{
+			color:$gym-white;
+			display:block;
+			margin: 20px 0 5px 0;
+			padding:20px;
+		}
+
+	}
+
+	#share-panel
+	{
+
+	}
+
+	#as-seen-in
+	{
+		background-color:$gym-white;
+		color:$gym-medium-grey;
+
+		h2
+		{
+			padding-bottom:30px;
+		}
+
+		h1,h2,h3,h4,h5,h6
+		{
+			color:$gym-medium-grey;
+		}
+
+		ul
+		{
+			box-sizing:border-box;
+		}
+		li
+		{
+			width:18%;
+		}
+	}
+
 	.container
 	{
-		/*
-		h1::before
-		{
-			width: 0;
-			height: 0;
-			border-bottom: 1em solid red;
-			border-left: 1em solid transparent;
-			display:inline-block;
-			content:" ";
-		}
-		*/
-
-
 		.text-center > h1
 		{
 			position: relative;
@@ -150,7 +224,23 @@
 			text-transform:none;
 			font-weight:bold;
 		}
+	}
 
+	//special rule for the "join us / share" panels on the home
+	// page, which are white and don't follow the every other rule
+ 	.container-fluid:nth-of-type(odd).white-panel
+	{
+		background-color:#fff;
+
+		h1
+		{
+			background-color:white; 
+		}
+
+		h1:before, h1:after
+		{
+			//color:white;
+		}
 	}
 
 	.container-fluid:nth-of-type(odd)
@@ -207,26 +297,67 @@
 
 	}
 
-	.highlighted-courses
+	blockquote:before
 	{
-		.courses
-		{
-			.course
-			{
-				border:none;
+		content:"“";
+		font-size:427pt;
+		opacity:0.1;
+		color:$gym-medium-grey;
+		position:relative;
+	}
 
-				.inner-wrapper
-				{
-					border:none;
-				}
-
-				.meta-info
-				{
-					background:transparentize($gym-orange, 0.1);
-					border:0px;
-				}
-			}
-
+	blockquote 
+	{
+		h1,h2
+		{	
+			position:relative;
+			z-index:10;
 		}
 	}
+
+	.courses
+	{
+
+
+
+
+		padding-top:0px;
+
+		.course-list
+		{
+			list-style:none;
+		}
+
+		.course-list-item
+		{
+			h2
+			{
+				color:$gym-medium-grey;
+				text-align: center;
+			}
+			.info
+			{
+				height:250px;
+				width:290px;
+			}
+
+			.cover-image
+			{
+				max-height:250px;
+				max-width:290px;
+				
+				img
+				{
+					height:250px;
+					width:290px;
+				}
+			}
+		}
+
+		p
+		{
+			color:$gym-orange;
+		}
+	}
+
 }
