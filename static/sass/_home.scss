@@ -299,15 +299,18 @@
 
 	blockquote:before
 	{
-		content:"“";
+		/*content:"“";
 		font-size:427pt;
 		opacity:0.1;
 		color:$gym-medium-grey;
 		position:relative;
+		*/
 	}
 
 	blockquote 
 	{
+		border:none;
+
 		h1,h2
 		{	
 			position:relative;

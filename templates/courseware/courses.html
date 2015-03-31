@@ -1,0 +1,24 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+
+<%namespace name='static' file='../static_content.html'/>
+
+<%block name="pagetitle">${_("Courses")}</%block>
+<%! from microsite_configuration import microsite %>
+
+<section class="find-courses">
+
+  <h1>Catalog</h1>
+  <hr />
+  <section class="container">
+    <section class="courses">
+      <ul class="courses-listing">
+        %for course in courses:
+          <li class="courses-listing-item">
+            <%include file="catalog-course.html" args="course=course" />
+          </li>
+        %endfor
+      </ul>
+    </section>
+  </section>
+</section>
