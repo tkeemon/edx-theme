@@ -1,10 +1,22 @@
 .find-courses
 {
 	background-color:$gym-white;
+	padding-top:30px;
+
+	h1
+	{
+		text-align:left;
+	}
+
+	hr
+	{
+		border-top-color:$gym-light-grey;
+	}
 
 	.course-catalog-list
 	{
 		list-style:none;
+		padding:0px;
 	}
 
 	.course-catalog-item
