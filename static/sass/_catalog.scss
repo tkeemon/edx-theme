@@ -71,6 +71,7 @@
 	.join-gymnasium
 	{
 		background-color:$gym-medium-grey;
+		padding:10px;
 
 		p
 		{
@@ -79,6 +80,7 @@
 		h1
 		{
 			color:$gym-orange;
+			text-align:center;
 			font-size:32px;
 		}
 	}
