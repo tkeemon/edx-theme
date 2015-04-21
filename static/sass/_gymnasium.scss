@@ -254,6 +254,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 /* individual page styles */
 @import 'home';
+@import 'catalog';
 
 * 
 {
@@ -331,7 +332,7 @@ header.global
 
 	border:none;
 	width:inherit;
-	height:120px;
+	height:100px;
 	background-color:$gym-dark-grey;
 
 	.container, .container.grey
@@ -448,6 +449,16 @@ section
 }
 
 
+a.gym-button:link, a.gym-button:visited
+{
+	color:white;
+}
+
+a.gym-button:hover
+{
+	text-decoration:none;
+}
+
 .gym-button
 {
 	border-radius:2px;
@@ -462,9 +473,13 @@ section
 	background-image:none;
 	font-size:1.5em;
 
-	a
+	a, a:link, a:visited
 	{
 		color:white;
+	}
+	a:hover
+	{
+		text-decoration: none;
 	}
 }
 

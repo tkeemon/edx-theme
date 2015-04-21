@@ -1,0 +1,73 @@
+.find-courses
+{
+	background-color:$gym-white;
+
+	.course-catalog-list
+	{
+		list-style:none;
+	}
+
+	.course-catalog-item
+	{
+		background-color:white;
+		margin-bottom:20px;
+		padding:25px;
+
+		img
+		{
+			padding-bottom:20px;
+		}
+
+		h1,h2,h3
+		{
+			text-align:left;	
+			font-family:"brandon-grotesque";
+			margin:0;
+			padding:0;
+		}
+
+		h1
+		{
+			font-weight:bold;
+			font-size:27pt;
+			text-transform: capitalize;
+		}
+
+		h2
+		{
+			font-weight:bold;
+			font-size:16pt;
+			text-transform:none;
+			line-height:26pt; //equivalent of leading in CSS
+		}
+
+		h3
+		{
+			font-style:italic;
+			font-size:16pt;
+			text-transform:none;
+			line-height:23pt; //equivalent of leading in CSS
+		}
+
+		p
+		{
+			font-family:"Helvetica Neue", Helvetica, sans-serif;
+			color:$gym-medium-grey;
+		}
+	}
+
+	.join-gymnasium
+	{
+		background-color:$gym-medium-grey;
+
+		p
+		{
+			color:white;
+		}
+		h1
+		{
+			color:$gym-orange;
+			font-size:32px;
+		}
+	}
+}
