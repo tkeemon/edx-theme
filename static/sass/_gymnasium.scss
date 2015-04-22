@@ -383,8 +383,22 @@ header.global
 
 	footer
 	{
-		.references
+		.footer-link-list
 		{
+			margin-top:30px;
+
+			li
+			{
+				border-right:1px solid $gym-medium-grey;
+			}
+			li:last-child
+			{
+				border-right:0px;
+			}
+		}
+		.built-on
+		{
+			margin-top:30px;
 			span
 			{
 				color:$gym-white;
