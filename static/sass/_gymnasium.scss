@@ -256,12 +256,13 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 @import 'home';
 @import 'catalog';
 
-* 
+a:link:hover, 
+a:link:focus, 
+a:visited:hover, 
+a:visited:focus,
+a:hover,
 {
-	a:link:hover, a:link:focus, a:visited:hover, a:visited:focus
-	{
-		text-decoration: none;
-	}
+	text-decoration: none;
 }
 
 #top-navs
