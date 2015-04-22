@@ -483,7 +483,7 @@ a.gym-button:link, a.gym-button:visited
 	color:white;
 }
 
-a.gym-button:hover
+a.gym-button:hover, a.gym-button:link:hover
 {
 	text-decoration:none;
 }
@@ -514,7 +514,7 @@ a.gym-button:hover
 
 .gym-button:hover
 {
-	background-color:transparentize($gym-orange,0.15);
+	background-color:transparentize($gym-orange,0.25);
 	color:$gym-button-hover-color;
 }
 
