@@ -299,6 +299,11 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 		color:$gym-white;
 	}
 
+	a:hover
+	{
+		color:$gym-orange;
+	}
+
 
 	.navbar-brand
 	{
@@ -317,8 +322,11 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 {
 	@extend #top-navs;
 	height:50px;
-	//padding-top:11px;
-	
+
+	.gym-nav-icon-container
+	{
+		padding-bottom:10px;
+	}
 }
 
 #content header
@@ -327,6 +335,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 }
 
 /* global theme styles */
+
 header.global
 {
 
@@ -425,6 +434,12 @@ header.global
 		{
 			color:$gym-orange;
 		}
+
+		a:hover
+		{
+			text-decoration: none;
+			border:0px;
+		}
 	}
 }
 
@@ -506,7 +521,7 @@ a.gym-button:hover
 .gym-icon
 {
 	width:35px;
-	height:50px;
+	height:25px;
 	display:inline-block;
 	background-repeat:no-repeat;
 	vertical-align:middle;
