@@ -255,15 +255,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 /* individual page styles */
 @import 'home';
 @import 'catalog';
-
-a:link:hover, 
-a:link:focus, 
-a:visited:hover, 
-a:visited:focus,
-a:hover,
-{
-	text-decoration: none;
-}
+@import 'about';
 
 #top-navs
 {
@@ -327,6 +319,11 @@ a:hover,
 	.gym-nav-icon-container
 	{
 		padding-bottom:10px;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+	{
+		
 	}
 }
 
