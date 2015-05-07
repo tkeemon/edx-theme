@@ -1,0 +1,318 @@
+<%! from django.utils.translation import ugettext as _ %>
+
+<%! from django.core.urlresolvers import reverse %>
+<%inherit file="main.html" />
+<%namespace name='static' file='static_content.html'/>
+
+<%! from microsite_configuration import microsite %>
+
+<%
+  homepage_overlay_html = microsite.get_value('homepage_overlay_html')
+
+  show_homepage_promo_video = microsite.get_value('show_homepage_promo_video', True)
+  homepage_promo_video_youtube_id = microsite.get_value('homepage_promo_video_youtube_id', "XNaiOGxWeto")
+
+  show_partners = microsite.get_value('show_partners', True)
+
+%>
+<section class="home">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-9">
+          <hgroup class="title">
+            % if homepage_overlay_html:
+              ${homepage_overlay_html}
+            % else:
+              % if self.stanford_theme_enabled():
+                <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
+              % else:
+                <h1>${_("Aquent Gymnasium")}</h1>
+              % endif
+              <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
+            % endif
+            <a class="gym-button" href="/courses">Enroll in a Class</a>
+          </hgroup>
+        </div>
+        ## Disable social buttons for non-edX sites
+        % if not self.theme_enabled():
+          <section class="actions">
+            <div class="main-cta">
+              <a href="#signup-modal" id="signup_action" class="find-courses" rel="leanModal">${_("Sign Up")}</a>
+            </div>
+
+            <div class="secondary-actions">
+              <div class="social-sharing">
+                <div class="sharing-message">${_("Stay up to date with all {platform_name} has to offer!").format(platform_name=settings.PLATFORM_NAME)}</div>
+                <a href="https://twitter.com/edXOnline" class="share">
+                  <img src="${static.url('images/social/twitter-sharing.png')}">
+                </a>
+                <a href="http://www.facebook.com/EdxOnline" class="share">
+                  <img src="${static.url('images/social/facebook-sharing.png')}">
+                </a>
+                <a href="https://plus.google.com/108235383044095082735/posts" class="share">
+                  <img src="${static.url('images/social/google-plus-sharing.png')}">
+                </a>
+              </div>
+            </div>
+          </section>
+          % endif
+      </div>
+
+      % if show_homepage_promo_video:
+        <!--
+        <a href="#video-modal" class="media" rel="leanModal">
+          <div class="hero">
+            <div class="play-intro"></div>
+          </div>
+        </a>
+        -->
+      % endif
+    </div>
+  </header>
+
+  <section class="container-fluid subsection">
+    <div class="container">
+      <div class="text-center">
+        <h1>Why Gymnasium Works</h1>
+      </div>
+
+      <section class="row">
+        <div class="col-md-4">
+          <h2>Real World Skills</h2>
+          <p>Gymnasium offers free online courses designed to teach creative professionals in-demand skills.  We know these skills are in demand because our clients tell us what they are looking for, but can't find.</p>
+        </div>
+
+        <div class="col-md-4">
+          <h2>Expert Instruction</h2>
+          <p>Our courses are all self-paced and taught by experienced practitioners with a passion for sharing practical lessons from the design trenches.</p>
+        </div>
+
+        <div class="col-md-4">
+          <h2>Career Opportunities</h2>
+          <p>Once you finish a course, you will be able to use your new skills in your current role, or use them to land a new job. <a href="#">We can even help with that!</a></p>
+        </div>
+      </section>
+
+      <div class="row">
+        <hr class="col-md-10 col-md-offset-1" />
+      </div>
+
+      <div class="row">
+        <div class="text-center">
+          <h1>Featured Courses</h1>
+        </div>
+
+        <section class="row col-md-10 col-md-offset-1">
+          <section class="highlighted-courses"> 
+            % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+              <section class="courses row">
+                <ul class="course-list row">
+                  %for course in courses:
+                    <li class="course-list-item col-md-4 col-sm-12 ">
+                      <%include file="course.html" args="course=course" />
+                    </li>
+                  %endfor
+                </ul>
+                <a href="/courses" class="col-md-12 text-center">
+                  View all Courses
+                </a>
+              </section>
+            % endif
+          </section>
+        </section>
+
+        <div class="row">
+          <blockquote class="col-md-8 col-md-offset-2">
+            <h1>This course is awesome</h1>
+            <h2>I'm excited about being able to use this new skill soon!</h2>
+            <footer>A.a.ron</footer>
+          </blockquote>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid">
+    <div class="container" id="get-work">
+      <div class="text-center">
+        <h1>Get Work</h1>
+      </div>  
+      <section class="row" >
+        <div class="text-center col-md-6 col-md-offset-3">
+          Because we are also a lead talent agency, your newly learned skills can be put to work on many of our jobs...
+        </div>
+
+        <div class="3"><br /></div>
+
+        <hr class="col-md-8 col-md-offset-2" />
+
+        <div class="row col-md-8 col-md-offset-2">
+          <article>
+            <a class="col-md-5 col-md-offset-1">
+              <h1>Front End Web Dev</h1>
+              <em>Dallas, TX</em>
+            </a>
+          </article>
+
+          <article>
+            <a class="col-md-5 col-md-offset-1">
+              <h1>Front End Web Dev</h1>
+              <em>Dallas, TX</em>
+            </a>
+          </article>
+        </div>
+
+
+        <hr class="col-md-8 col-md-offset-2" />
+
+        <div class="row col-md-8 col-md-offset-2">
+          <article>
+            <a class="col-md-5 col-md-offset-1">
+              <h1>UX Designer</h1>
+              <em>Framingham, MA</em>
+            </a>
+          </article>
+
+          <article>
+            <a class="col-md-5 col-md-offset-1">
+              <h1>UI Designer</h1>
+              <em>Framingham, MA</em>
+            </a>
+          </article>
+        </div>
+
+
+        <hr class="col-md-8 col-md-offset-2" />
+
+        <div class="row col-md-8 col-md-offset-2">
+          <article>
+            <a class="col-md-5 col-md-offset-1">
+              <h1>Web Designer</h1>
+              <em>New York, NY</em>
+            </a>
+          </article>
+
+          <article>
+            <a class="col-md-5 col-md-offset-1">
+              <h1>Web Designer</h1>
+              <em>New York, NY</em>
+            </a>
+          </article>
+        </div>
+
+        <div class="col-md-8 col-md-offset-2 text-center">
+          Find more featured jobs at <a href="http://aquent.com">Aquent.com</a>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <section class="container-fluid white-panel">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" id="join-gymnasium">
+          <div class="text-center">
+            <h1>Join Us</h1>
+          </div>
+          <section class="text-center">
+            <em><a href="#">Join Aquent Gymnasium</a></em>
+
+            <div class="row">
+              <p class="col-md-8 col-md-offset-2">Register to recieve email updates about new and upcoming classes.</p>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4"></div>
+              <a class="gym-button col-md-4 col-md-offset-4" href="#">
+                Sign up for an Account
+              </a>
+            </div>
+
+            <p>or <a href="#">Sign in</a>
+          </section>
+        </div>
+
+        <div class="col-md-6" id="share-panel ">
+          <div class="text-center">
+            <h1>Twitter</h1>
+          </div>
+          <section>
+            
+            <a class="twitter-timeline" href="https://twitter.com/GymnasiumTweets" data-widget-id="575294990856896512" data-chrome="nofooter noheader" height="275">Tweets by @GymnasiumTweets</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-fluid" id="as-seen-in">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="text-center">As seen in:</h2>
+        </div>
+
+        <ul class="col-md-12 list-inline text-center">
+          <li>
+            <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="new">
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" />
+            </a>
+          </li>
+          <li>
+            <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="new">
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" />
+            </a>
+          </li>
+          <li>
+            <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="new">
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" />
+            </a>
+          </li>
+          <li>
+            <img src="${static.url('themes/gymnasium/images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" />
+          </li>
+          <li>
+            <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="new">
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" />
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<section id="video-modal" class="modal home-page-video-modal video-modal">
+  <div class="inner-wrapper">
+    <%
+      youtube_video_id = homepage_promo_video_youtube_id
+      if self.stanford_theme_enabled():
+        youtube_video_id = "2gmreZObCY4"
+    %>
+    <iframe width="640" height="360" src="//www.youtube.com/embed/${youtube_video_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</section>
+
+<%block name="js_extra">
+   <script type="text/javascript">
+      $(window).load(function() {
+         if(getParameterByName('next')) {
+              $('#login').trigger("click");
+         }
+      })
+   </script>
+</%block>
+
+% if show_signup_immediately is not UNDEFINED:
+  ## NOTE: This won't work in production, because anonymous views are cached, so it will
+  ## show either with or without this extra js for 3 minutes at a time.
+<script type="text/javascript">
+  $(window).load(function() {$('#signup_action').trigger("click");});
+</script>
+% endif

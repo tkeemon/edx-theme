@@ -1,0 +1,162 @@
+## mako
+<%namespace name='static' file='static_content.html'/>
+<%namespace file='main.html' import="login_query, stanford_theme_enabled"/>
+<%!
+from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext as _
+
+# App that handles subdomain specific branding
+import branding
+# app that handles site status messages
+from status.status import get_site_status_msg
+%>
+
+<%! from microsite_configuration import microsite %>
+<%! from microsite_configuration.templatetags.microsite import platform_name %>
+
+## Provide a hook for themes to inject branding on top.
+<%block name="navigation_top" />
+
+<%block cached="False">
+<%
+try:
+    course_id = course.id.to_deprecated_string()
+except:
+    # can't figure out a better way to get at a possibly-defined course var
+    course_id = None
+site_status_msg = get_site_status_msg(course_id)
+%>
+% if site_status_msg:
+<div class="site-status">
+  <div class="inner-wrapper">
+    <span class="white-error-icon"></span>
+    <p>${site_status_msg}</p>
+  </div>
+</div>
+% endif
+</%block>
+
+  <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
+    <nav id="primary-nav" class="black-background container-fluid">
+      <div class="container">
+        <div class="navbar">
+          <div class="nav navbar navbar-nav navbar-left">
+            % if not user.is_authenticated():
+                % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                  % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                    <span>
+                      <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Sign up for an account")}</a>
+                    </span>
+                  % else:
+                    <span class="nav-global-04">
+                      <a class="gym-button cta cta-register" href="/register">${_("Sign up for an account")}</a>
+                    </span>
+                  % endif
+                % endif
+              % endif
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+              % if user.is_authenticated():
+                
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${user.username} <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu">
+
+                    <li>
+                      <a href="${reverse('dashboard')}">
+                        <span class="avatar"></span> Dashboard
+                      </a>
+                    </li> 
+
+                    % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
+                      <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
+                    % endif
+                    <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
+                  </ul>
+                </li>
+
+              % endif      
+
+              <li><a href="http://www.vitamintalent.com" target="new" alt="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
+              <li><a href="http://www.aquent.com" target="new" alt="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+
+
+    <nav id="secondary-nav" class="container-fluid">
+
+      <div class="container">
+        <div class="navbar navbar-default">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="${marketing_link('ROOT')}">
+              <%block name="navigation_logo">
+                  <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
+              </%block>
+            </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="secondary-nav-items">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/about">About</a></li>
+              <li><a href="/courses">Classrooms</a></li>
+              <li><a href="/careers">Career Center</a></li>
+          
+              % if user.is_authenticated():
+                
+                <%block name="navigation_global_links_authenticated">
+                  % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
+                    <li class="nav-global-01">
+                      <a href="${marketing_link('COURSES')}">${_('Find Courses')}</a>
+                    </li>
+                  % endif
+                </%block>
+
+              % else:
+                <li>
+                  % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
+                      % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
+                      <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}">${_("Log in")}</a>
+                      % else:
+                      <a class="gym-button" href="/login${login_query()}">${_("Log in")}</a>
+                      % endif
+                  % endif
+                </li>
+              % endif      
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div>
+
+      % if course:
+        <div class="container">
+          <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
+        </div>
+      % endif
+
+    </nav>
+  </header>
+% if course:
+<!--[if lte IE 8]>
+<div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.').format(chrome_link='<a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a>', ff_link='<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>')}</div>
+<![endif]-->
+% endif
+
+%if not user.is_authenticated():
+  <%include file="forgot_password_modal.html" />
+%endif
+
+<%include file="help_modal.html"/>

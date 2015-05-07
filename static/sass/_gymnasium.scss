@@ -9,15 +9,54 @@
 //  Color variables (from Stanford palette unless noted)
 //-----------------
 
+//----------------
+// Should be moved to standalone SASS (probably)
+//----------------
+
+/* colors */
+
+//Gymnasium Theme Colors
+$gym-grey-dark: #262626;
+$gym-dark-color: #262626;
+$gym-light-color: #FFFFFF;
+
+$gym-orange: #f89820;
+$gym-orange-light: #f8971d;
+$gym-orange-light: rgba(248,151,32,0.9);
+$gym-button-hover-color: #dddddd;
+$gym-dark-grey: #222222;
+$gym-dark-gray: $gym-dark-grey;
+
+$gym-medium-grey: #444444;
+$gym-medium-gray: $gym-medium-grey;
+
+$gym-light-grey: #999999;
+$gym-light-gray: $gym-light-grey;
+
+$gym-white: #ebebeb;
+
+$gym-textblock-color:rgba(45,45,45,0.70);
+
+
+
+
+
+//End Gym theme colors
+
 //Main Color Variables
-$main-color: #f7691f;
-$dark-color: #ea281f; //Link Color
+$main-color: #F89720;
+$dark-color: $gym-orange; //#ea281f; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
 
+
+
+
+
+
 //Main BG Color Variables
-$main-bg: #822537;
-$main-bg-60: lighten($main-bg, 18.5%); //Main Border/HR Color
+$main-bg:  #f22537;
+$main-bg-60: $gym-light-grey; //Main Border/HR Color
 $main-bg-25: lighten($main-bg, 25%); 
 
 //Secondary Color Variables
@@ -43,14 +82,12 @@ $black-80: #585858;
 //  Font Assignment
 //-----------------
 
-$theme-sans-font: 'Source Sans';
+$theme-sans-font: "brandon-grotesque";
 $sans-serif: $theme-sans-font, $sans-serif;
 $body-font-family: $sans-serif;
 
-$theme-serif-font: 'Crimson Text';
+$theme-serif-font: 'Helvetica Neue';
 $serif: $theme-serif-font, $serif;
-
-
 
 
 //-----------------
@@ -62,7 +99,8 @@ $container-bg: $gray-1;
 $login-register-bg: $gray-1;
 $content-wrapper-bg: $gray-1;
 $header-image: none;
-$header-bg: transparentize(lighten($secondary, 18.5%), .25);
+$header-bg:  $gym-grey-dark;//transparentize(lighten($secondary, 18.5%), .25);
+
 $courseware-header-image: none;
 $courseware-header-bg: transparentize(lighten($secondary, 18.5%), .25);
 $footer-bg: $secondary-25;
@@ -89,8 +127,8 @@ $site-status-color: $bg-color;
 $header-graphic-super-color: $dark-color;
 $header-graphic-sub-color: $lighter-base-font-color;
 
-$header-link-color: $dark-color;
-$header-link-hover: $light-color;
+$header-link-color: $gym-light-color;
+$header-link-hover: $gym-dark-color;
 
 $button-color: $main-color;
 $button-archive-color: $gray-3;
@@ -185,12 +223,14 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/default/images/sunrise.jpg');
+$homepage-bg-image: url('../themes/gymnasium/images/home-page-hero-background.png');
 
 $login-banner-image: none;
 $register-banner-image: none;
 
-$video-thumb-url: '../themes/default/images/edx.png';
+$video-thumb-url: '../themes/gymnasium/images/gymnasiumLogo.png';
+$aquent-icon-image: url('../themes/gymnasium/images/aquent-icon.png');
+$vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 //-----------------
 //  Mixin Styles
@@ -205,4 +245,303 @@ $video-thumb-url: '../themes/default/images/edx.png';
 @mixin footer_references_style {
     margin: 0 !important;
     text-align: right;
+}
+
+
+
+
+
+
+/* individual page styles */
+@import 'home';
+@import 'catalog';
+@import 'about';
+
+#top-navs
+{
+	min-width:0;
+	max-width:none;
+	width:inherit;
+	padding: 0px;
+}
+
+.container
+{
+	min-width:0px !important;
+}
+
+#primary-nav, #secondary-nav, .wrapper-footer
+{
+	.container, .container>div
+	{
+		border:0;
+		background:transparent;
+		box-shadow:none;
+	}
+}
+
+#secondary-nav
+{
+	@extend #top-navs;
+	height:70px;
+	background-color:$gym-dark-grey;
+	padding-top:10px;
+	a
+	{
+		font-size:15px;
+		color:$gym-white;
+	}
+
+	a:hover
+	{
+		color:$gym-orange;
+	}
+
+
+	.navbar-brand
+	{
+		padding:0px;
+	}
+
+	.navbar-default
+	{
+		background-color:$gym-dark-grey;
+		border-color:transparent;
+		border:none;
+	}
+}
+
+#primary-nav
+{
+	@extend #top-navs;
+	height:50px;
+
+	.gym-nav-icon-container
+	{
+		padding-bottom:10px;
+	}
+
+	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+	{
+		
+	}
+}
+
+#content header
+{
+	margin-top:0px;
+}
+
+/* global theme styles */
+
+header.global
+{
+
+	border:none;
+	width:inherit;
+	height:100px;
+	background-color:$gym-dark-grey;
+
+	.container, .container.grey
+	{
+		min-width: inherit;
+		width:inherit;
+	}
+	
+
+	nav {
+
+		.nav-courseware
+		{
+			padding-top:3px;
+		}
+
+		.logo
+		{
+			clear:left;
+			margin-top:30px;
+		}
+
+		//odd amount of specificity required to get around built in style rules - MB
+		.cta.cta-register
+		{
+			color:$gym-white;
+		}
+
+		.container
+		{
+			padding:0;
+			background:transparent;
+		}
+	}
+}
+
+.content-wrapper#content
+{
+	padding-bottom:0px;
+}
+
+.wrapper-footer
+{
+	background-color: $gym-dark-gray;
+	border-top: 10px solid $gym-orange-light;
+	color:white;
+	min-height:170px;
+
+	footer
+	{
+		.footer-link-list
+		{
+			margin-top:30px;
+
+			li
+			{
+				border-right:1px solid $gym-medium-grey;
+			}
+			li:last-child
+			{
+				border-right:0px;
+			}
+		}
+		.built-on
+		{
+			margin-top:30px;
+			span
+			{
+				color:$gym-white;
+			}
+			img
+			{
+				height:20px;
+				vertical-align:text-top;
+			}
+		}
+
+		li 
+		{
+			height:100%;
+			vertical-align: center;
+			a
+			{
+				color:white;	
+			}
+			
+		}
+
+		a
+		{
+			color:$gym-orange;
+		}
+
+		a:hover
+		{
+			text-decoration: none;
+			border:0px;
+		}
+	}
+}
+
+section
+{
+	padding:0px;
+}
+
+.black-background
+{
+	top:0px;
+	background-color:black;
+	z-index:0;
+}
+
+.gym-top-block
+{
+	z-index:1;
+	position:relative;
+}
+
+.gym-top-block
+{
+	.gym-nav-icon
+	{
+		background-position:center;
+		display:inline-block;
+	}
+
+	a
+	{
+		margin-left:0;
+		margin-right:0;
+		text-align:left;
+	}
+}
+
+
+a.gym-button:link, a.gym-button:visited
+{
+	color:white;
+}
+
+a.gym-button:hover, a.gym-button:link:hover
+{
+	text-decoration:none;
+}
+
+.gym-button
+{
+	border-radius:2px;
+	background-color:$gym-orange;
+	color:white;
+	padding:5px 20px;
+	text-align:center;
+	font-weight:200;
+	box-shadow:none;
+	text-shadow:none;
+	border:transparent;
+	background-image:none;
+	font-size:1.5em;
+
+	a, a:link, a:visited
+	{
+		color:white;
+	}
+	a:hover
+	{
+		text-decoration: none;
+	}
+}
+
+.gym-button:hover
+{
+	background-color:transparentize($gym-orange,0.25);
+	color:$gym-button-hover-color;
+}
+
+.gym-icon
+{
+	width:35px;
+	height:25px;
+	display:inline-block;
+	background-repeat:no-repeat;
+	vertical-align:middle;
+	background-position-x:center;
+}
+
+.aquent-icon
+{
+	@extend .gym-icon;
+	background-image:$aquent-icon-image;
+
+}
+
+.vitamin-t-icon
+{
+	@extend .gym-icon;
+	background-image:$vitamin-t-icon-image;
+}
+
+h1,h2,h3,h4,h5,h6
+{
+	text-align:left;
+	text-transform:uppercase;
+	font-family:"brandon-grotesque";	
 }

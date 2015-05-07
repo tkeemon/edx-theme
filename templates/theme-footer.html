@@ -5,22 +5,28 @@
 <%! from pytz import UTC %>
 
 <div class="wrapper-footer">
-  <footer>
-    <div class="colophon">
-      <nav class="nav-colophon">
-        <ol>
-          <li><a href="${reverse('tos')}">Terms of Service</a></li>
-          <li><a href="${reverse('tos')}#privacy">Privacy Policy</a></li>
-          <li><a href="${reverse('tos')}#honor">Honor Code</a></li>
-          <li><a href="${reverse('tos')}#copyright">Copyright</a></li>
-          <li><a href="${reverse('about')}#careers">Careers</a></li>
-          <li><a href="${reverse('about')}#contact">Contact</a></li>
-          <li><a href="${marketing_link('FAQ')}">Help</a></li>
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4">
+          <img  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >  
+        </div>
+        <ol class="list-inline col-md-4 text-center footer-link-list">
+          <li><a href="#{reverse('about')}">About</a></li>
+          <li><a href="#{reverse('about')}#contact">FAQ</a></li>
+          <li><a href="${marketing_link('FAQ')}">Support</a></li>
+          <li><a href="${reverse('tos')}">Privacy Policy</a></li>
         </ol>
       </nav>
-    </div>
-    <div class="references">
-      <span>Built on <a href="http://code.edx.org">OpenEdX</a>.</span>
+
+      <div class="built-on col-md-4 text-center">
+        <span>
+          Built on 
+          <a href="http://code.edx.org">
+            <img src="${static.url('themes/gymnasium/images/edx-logo-bw.png')}" alt="Open EdX">
+          </a>
+        </span>
+      </div>
     </div>
   </footer>
 </div>

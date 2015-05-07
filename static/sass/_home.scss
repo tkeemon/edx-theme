@@ -1,0 +1,384 @@
+.home
+{
+
+	header
+	{
+		border-bottom:$gym-white;
+
+		.outer-wrapper
+		{
+			padding: 150px 10px 0px 740px;
+		}
+
+		.title
+		{	
+			border:0px;
+			background-color:$gym-textblock-color;
+			color:$gym-white;
+			margin:0;
+			width:auto;
+			height:auto;
+			min-height:0px;
+			margin-top:100px;
+			padding:30px;
+			box-sizing:border-box;
+
+			h1
+			{
+				text-shadow:none;
+				color:$gym-white;
+				text-transform: uppercase;
+				margin:0;
+				padding:0;
+				text-align:left;
+				font-size:28px;
+			}
+
+			h2
+			{
+				color:$gym-white;	
+				margin:0; 
+				padding:0;
+				padding-bottom:1.5em;
+				text-transform:none;
+				font-size:11pt;
+				text-align:left;
+			}
+
+
+			//augmenting the style defined in _gymnasium.scss
+			.gym-button
+			{
+				text-transform:none;				
+				padding:15px 20px;
+				display:inline-block;
+				color:white;
+				font-size:1.5em;
+			}
+		}
+
+		.media
+		{
+			border: 0px;
+			background:$gym-textblock-color;
+		}
+	}
+
+
+	.container#get-work
+	{
+		article
+		{
+			h1
+			{
+				color:$gym-orange;
+				text-align:left;
+				text-transform: none;
+			}
+		}
+
+		hr
+		{
+			border-top-color:$gym-dark-grey;
+			color:$gym-medium-grey;
+		}
+	}
+
+	#join-gymnasium
+	{
+		em
+		{
+			margin-bottom:10px;
+			display:block;
+
+			a
+			{
+				color:$gym-orange;
+				text-transform:uppercase;
+				font-size:42pt;
+				font-weight:bold;
+				
+			}
+
+			a:hover, a:link:hover
+			{
+				text-decoration:none;
+			}
+		}
+
+		p
+		{
+			color:$gym-dark-grey;
+		}
+
+		a.gym-button
+		{
+			color:$gym-white;
+			display:block;
+			margin: 20px 0 5px 0;
+			padding:20px;
+		}
+
+	}
+
+	#share-panel
+	{
+
+	}
+
+	#as-seen-in
+	{
+		background-color:$gym-white;
+		color:$gym-medium-grey;
+
+		h2
+		{
+			padding-bottom:30px;
+		}
+
+		h1,h2,h3,h4,h5,h6
+		{
+			color:$gym-medium-grey;
+		}
+
+		ul
+		{
+			box-sizing:border-box;
+		}
+		li
+		{
+			width:18%;
+		}
+	}
+
+	.container
+	{
+		.text-center > h1
+		{
+			position: relative;
+  			padding: 5px;
+  			margin-top:-1.2em;
+  			display:inline-block;
+
+  			padding:1em 2em;
+			-webkit-clip-path: polygon(13% 0, 84% 0, 100% 100%, 0% 100%);
+			clip-path: polygon(13% 0, 84% 0, 100% 100%, 0% 100%);
+		}
+		h1.a::before
+		{
+			content: " ";
+		  	position: absolute;
+		  	border: 3px solid;
+		  	border-bottom:0px;
+		  
+		  	top: -4%; bottom: -11%; left: -3%; right: -3%;
+		  	z-index: 0;
+
+		  	-webkit-transform: perspective(30em) rotateX(50deg);
+		  	transform: perspective(30em) rotateX(50deg);
+		}
+
+		h1.a::before
+		{
+			width: 0;
+			height: 0;
+			border-bottom: 1em solid;
+			border-left: 1em solid transparent;
+			display:inline-block;
+			content:" ";
+		}
+		
+		h1.a::after
+		{
+			width: 0;
+			height: 0;
+			border-bottom: 1em solid;
+			border-right: 1em solid transparent;
+			display:inline-block;
+			content:" ";
+		}
+		
+	}
+
+	.container.grey
+	{
+		@extend .container;
+
+		background-color:$gym-medium-grey;
+	}
+
+	.container-fluid
+	{
+		padding-bottom:4em;
+
+		h1,h2,h3,h4,h5,h6
+		{
+			font-family:$sans-serif;
+		}
+
+		h1
+		{
+			text-transform:uppercase;
+			font-size:18px;
+			font-weight:bold;
+		}
+
+		h2
+		{
+			font-size:24px;
+			text-transform:none;
+			font-weight:bold;
+		}
+	}
+
+	//special rule for the "join us / share" panels on the home
+	// page, which are white and don't follow the every other rule
+ 	.container-fluid:nth-of-type(odd).white-panel
+	{
+		background-color:#fff;
+
+		h1
+		{
+			background-color:white; 
+		}
+
+		h1:before, h1:after
+		{
+			//color:white;
+		}
+	}
+
+	.container-fluid:nth-of-type(odd)
+	{
+		background-color:$gym-white;
+		*
+		{
+			color:$gym-medium-grey;
+		}
+
+		p
+		{
+			color:$gym-light-grey;
+
+			a
+			{
+				color:$gym-orange;
+			}
+		}
+
+		h1
+		{
+			color:$gym-medium-grey;
+			background-color:$gym-white;
+		}
+		h1:before, h1:after
+		{
+			color:$gym-white;
+		}
+
+		hr
+		{
+			background-color:$gym-medium-grey;
+		}
+
+	}
+
+	.container-fluid:nth-of-type(even)
+	{
+		background-color:$gym-medium-grey;
+		*
+		{
+			color:$gym-white;
+		}
+		h1, h1:before, h1:after
+		{
+			color:$gym-white;
+			background-color:$gym-medium-grey;
+		}
+		hr
+		{
+			background-color:$gym-white;
+		}
+
+	}
+
+	blockquote:before
+	{
+		/*content:"“";
+		font-size:427pt;
+		opacity:0.1;
+		color:$gym-medium-grey;
+		position:relative;
+		*/
+	}
+
+	blockquote 
+	{
+		border:none;
+
+		h1,h2
+		{	
+			position:relative;
+			z-index:10;
+		}
+	}
+
+	.courses
+	{
+
+		.gym-course a:hover
+		{
+			text-decoration:none;
+		}
+
+		.gym-course img
+		{
+			border:4px solid transparent;
+		}
+		
+		.gym-course a:hover img
+		{
+			border:4px solid $gym-medium-grey;
+		}
+
+
+		padding-top:0px;
+
+		.course-list
+		{
+			list-style:none;
+		}
+
+		.course-list-item
+		{
+			h2
+			{
+				color:$gym-medium-grey;
+				text-align: center;
+			}
+			.info
+			{
+				height:250px;
+				width:290px;
+			}
+
+			.cover-image
+			{
+				max-height:250px;
+				max-width:290px;
+				
+				img
+				{
+					height:250px;
+					width:290px;
+				}
+			}
+		}
+
+		p
+		{
+			color:$gym-orange;
+		}
+	}
+
+}
