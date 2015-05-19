@@ -34,6 +34,10 @@ body.courseware
 	border:none;
 	border-radius:0;
 
+	.courseware-search-bar
+	{
+		box-shadow:none;
+	}
 
 	.course-index
 	{
@@ -85,5 +89,25 @@ body.courseware
 			}
 			
 		}
+	}
+}
+
+/** strange specificity here to get past existing style rules, sadly **/
+.container>div.info-wrapper
+{
+	border:none;
+	border-radius:0;
+	margin-bottom:100px;
+	
+	section.updates
+	{
+		
+	}
+	
+	section.handouts
+	{
+		background-color:$gym-medium-grey;
+		color:$gym-white;		
+		border-radius:0;
 	}
 }
