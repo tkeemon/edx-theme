@@ -1,0 +1,52 @@
+section.container.dashboard
+{
+	background-color:$gym-white;
+}
+
+.dashboard-search-bar
+{
+	border:0px;
+	border-radius:0;
+	color:$gym-white;
+	background-color:$gym-medium-grey;
+	padding:10px;
+	
+	.search-field
+	{
+		box-shadow: none;
+		border-radius:0;
+	}
+	
+	label
+	{
+		color:$gym-white;
+	}
+}
+
+.dashboard 
+{
+	
+	.my-courses
+	{
+		background-color:white;	
+	}
+	
+	.profile-sidebar
+	{
+		margin-top:0px;
+		border:0px;
+		border-radius:0;
+		color:$gym-white;
+		background-color:$gym-medium-grey;
+		
+		header
+		{
+			padding:0 10px;
+		}
+		
+		span
+		{
+			color:$gym-white;
+		}
+	}
+}
