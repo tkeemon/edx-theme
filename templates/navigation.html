@@ -61,9 +61,10 @@ site_status_msg = get_site_status_msg(course_id)
               % if user.is_authenticated():
                 
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">${user.username} <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    ${user.username} <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu" role="menu">
-
                     <li>
                       <a href="${reverse('dashboard')}">
                         <span class="avatar"></span> Dashboard
@@ -73,6 +74,7 @@ site_status_msg = get_site_status_msg(course_id)
                     % if settings.MKTG_URL_LINK_MAP.get('FAQ'):
                       <li><a href="${marketing_link('FAQ')}">${_("Help")}</a></li>
                     % endif
+                    
                     <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
                   </ul>
                 </li>
