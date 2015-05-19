@@ -256,6 +256,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 @import 'home';
 @import 'catalog';
 @import 'about';
+@import 'prism'; //used for prism.js syntax highlighting
 
 #top-navs
 {
@@ -544,4 +545,9 @@ h1,h2,h3,h4,h5,h6
 	text-align:left;
 	text-transform:uppercase;
 	font-family:"brandon-grotesque";	
+}
+
+code, code *
+{
+	font-family: monospace, serif;
 }
