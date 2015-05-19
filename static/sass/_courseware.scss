@@ -1,0 +1,33 @@
+.wrapper-course-material
+{
+	.course-material
+	{
+		.course-tabs
+		{
+			font-weight:normal;
+			border-bottom:1px solid $gym-light-grey;
+			margin-bottom:30px;
+			padding-bottom:20px;
+			
+			a[class="active"]
+			{
+				box-shadow: none;
+				text-shadow: none;
+				background: none;
+				color:$gym-orange;
+			}		
+		}
+	}
+}
+
+.container>div.course-wrapper
+{
+	border:none;
+
+
+	.course-index
+	{
+		border-right:none;
+		background-color:#2e2e2e;
+	}
+}
