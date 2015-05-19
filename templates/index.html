@@ -6,6 +6,8 @@
 
 <%! from microsite_configuration import microsite %>
 
+<%block name="pagetitle">${_("Home")}</%block>
+
 <%
   homepage_overlay_html = microsite.get_value('homepage_overlay_html')
 
