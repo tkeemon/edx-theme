@@ -32,6 +32,7 @@ body.courseware
 .container>div.course-wrapper
 {
 	border:none;
+	border-radius:0;
 
 
 	.course-index
@@ -40,6 +41,12 @@ body.courseware
 		border-right:none;
 		background-color:$gym-medium-grey;
 		border-radius:0;
+		
+		.course-search-input,
+		.search-field-wrapper
+		{
+			border-radius:0;
+		}
 	
 		.search-bar .search-field
 		{
