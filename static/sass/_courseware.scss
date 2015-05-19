@@ -27,7 +27,47 @@
 
 	.course-index
 	{
+		color:$gym-white;
 		border-right:none;
-		background-color:#2e2e2e;
+		background-color:$gym-medium-grey;
+		border-radius:0;
+	
+		.search-bar .search-field
+		{
+			background:$gym-white;
+		}
+	
+		div#accordion
+		{
+			background-color:$gym-medium-grey;
+			
+			ul.ui-accordion-content
+			{
+				a
+				{
+					p
+					{
+						color:$gym-white;
+					}
+				}
+			}
+			
+			.chapter
+			{
+				color:$gym-white;
+				background:none;		
+				box-shadow:none;
+				
+				a
+				{
+					color:$gym-white;
+					background:none;
+					box-shadow:none;
+					text-shadow:none;
+					border:none;
+				}
+			}
+			
+		}
 	}
 }
