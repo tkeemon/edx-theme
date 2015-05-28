@@ -5,6 +5,13 @@ body.courseware
 		background-color:$gym-white;
 		padding-bottom:100px;
 	}
+
+
+	.xmodule_display.xmodule_SequenceModule nav.sequence-nav
+	{
+		/* This rule HIDES the third-tier top navigation for courses! */
+		display:none;
+	}
 }
 
 .wrapper-course-material
