@@ -1,5 +1,16 @@
 body.courseware
 {
+
+	header.global.slim
+	{
+		margin:0px;
+		padding:0px;
+		box-shadow:none;
+		border:none;
+		height:100px;
+		background-color:$gym-dark-grey;
+	}
+
 	.content-wrapper#content
 	{
 		background-color:$gym-white;

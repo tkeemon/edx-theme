@@ -350,9 +350,12 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 	color:$gym-light-grey;
 }
 
-header.global
+header.global,
 {
 
+	margin:0px;
+	padding:0px;
+	box-shadow:none;
 	border:none;
 	width:inherit;
 	height:100px;
