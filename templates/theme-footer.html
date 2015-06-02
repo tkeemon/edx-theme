@@ -9,11 +9,11 @@
     <div class="row">
       <nav>
         <div class="col-md-4">
-          <img  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >  
+          <img class="gymnasium-logo"  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >  
         </div>
         <ol class="list-inline col-md-4 text-center footer-link-list">
-          <li><a href="#{reverse('about')}">About</a></li>
-          <li><a href="#{reverse('about')}#contact">FAQ</a></li>
+          <li><a href="${reverse('about')}">About</a></li>
+          <li><a href="${reverse('about')}#contact">FAQ</a></li>
           <li><a href="${marketing_link('FAQ')}">Support</a></li>
           <li><a href="${reverse('tos')}">Privacy Policy</a></li>
         </ol>
@@ -23,10 +23,17 @@
         <span>
           Built on 
           <a href="http://code.edx.org">
-            <img src="${static.url('themes/gymnasium/images/edx-logo-bw.png')}" alt="Open EdX">
+            <img class="edx-logo" src="${static.url('themes/gymnasium/images/edx-logo-bw.png')}" alt="Open EdX">
           </a>
         </span>
       </div>
     </div>
+
+    <!-- 
+      Last PR submitted 5.26.15:
+        https://github.com/appsembler/edx-theme/pull/4 
+        https://github.com/appsembler/edx-platform/pull/3
+    -->
   </footer>
 </div>
+

@@ -1,0 +1,136 @@
+body.courseware
+{
+
+	header.global.slim
+	{
+		margin:0px;
+		padding:0px;
+		box-shadow:none;
+		border:none;
+		height:100px;
+		background-color:$gym-dark-grey;
+	}
+
+	.wrapper-preview-menu
+	{
+		margin:20px auto 0;
+	}
+
+	.content-wrapper#content
+	{
+		background-color:$gym-white;
+		padding-bottom:100px;
+	}
+
+
+	.xmodule_display.xmodule_SequenceModule nav.sequence-nav
+	{
+		/* This rule HIDES the third-tier top navigation for courses! */
+		display:none;
+	}
+}
+
+.wrapper-course-material
+{
+	.course-material
+	{
+		.course-tabs
+		{
+			font-weight:normal;
+			border-bottom:1px solid $gym-light-grey;
+			margin-bottom:30px;
+			padding-bottom:20px;
+			
+			a[class="active"]
+			{
+				box-shadow: none;
+				text-shadow: none;
+				background: none;
+				color:$gym-orange;
+			}		
+		}
+	}
+}
+
+.container>div.course-wrapper
+{
+	border:none;
+	border-radius:0;
+
+	.courseware-search-bar
+	{
+		box-shadow:none;
+	}
+
+	.course-index
+	{
+		color:$gym-white;
+		border-right:none;
+		background-color:$gym-medium-grey;
+		border-radius:0;
+		
+		.course-search-input,
+		.search-field-wrapper
+		{
+			border-radius:0;
+		}
+	
+		.search-bar .search-field
+		{
+			background:$gym-white;
+		}
+	
+		div#accordion
+		{
+			background-color:$gym-medium-grey;
+			
+			ul.ui-accordion-content
+			{
+				a
+				{
+					p
+					{
+						color:$gym-white;
+					}
+				}
+			}
+			
+			.chapter
+			{
+				color:$gym-white;
+				background:none;		
+				box-shadow:none;
+				
+				a
+				{
+					color:$gym-white;
+					background:none;
+					box-shadow:none;
+					text-shadow:none;
+					border:none;
+				}
+			}
+			
+		}
+	}
+}
+
+/** strange specificity here to get past existing style rules, sadly **/
+.container>div.info-wrapper
+{
+	border:none;
+	border-radius:0;
+	margin-bottom:100px;
+	
+	section.updates
+	{
+		
+	}
+	
+	section.handouts
+	{
+		background-color:$gym-medium-grey;
+		color:$gym-white;		
+		border-radius:0;
+	}
+}

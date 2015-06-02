@@ -1,0 +1,105 @@
+section.container.dashboard
+{
+	background-color:$gym-white;
+}
+
+.dashboard-search-bar
+{
+	border:0px;
+	border-radius:0;
+	color:$gym-white;
+	background-color:$gym-medium-grey;
+	padding:10px;
+	
+	.search-field
+	{
+		box-shadow: none;
+		border-radius:0;
+	}
+	
+	label
+	{
+		color:$gym-white;
+	}
+}
+
+.dashboard 
+{
+	
+	.my-courses
+	{
+		background-color:white;	
+		padding:10px;
+
+		h1,h2,h3,h4,h5,h6
+		{
+			padding:0px;
+			margin:0px;
+		}
+
+		.course .cover, 
+		.course a.fade-cover
+		{
+			height:auto;
+			border:0;
+			margin-left:10px;
+		}
+
+		header
+		{
+			border:0;
+			border-bottom:0;
+		}
+
+	}
+	
+	.profile-sidebar
+	{
+
+		margin-top:0px;
+		border:0px;
+		border-radius:0;
+		color:$gym-white;
+		background-color:$gym-medium-grey;
+		
+		header
+		{
+			padding:0 10px;
+		}
+
+		header.profile
+		{
+			border:0;
+			background:none;
+			border-radius:0;
+			color:$gym-white;
+
+			h1.user-name
+			{
+				color:$gym-white;
+			}
+		}
+
+		.user-info>ul
+		{
+			background:none;
+			border:0;
+			border-radius:0;
+			color:gym-white;
+
+			li 
+			{
+				span.title,
+				span.data
+				{
+					color:$gym-white;
+				}
+			}	
+		}
+		
+		span
+		{
+			color:$gym-white;
+		}
+	}
+}

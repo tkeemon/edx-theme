@@ -256,6 +256,9 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 @import 'home';
 @import 'catalog';
 @import 'about';
+@import 'courseware';
+@import 'dashboard';
+@import 'prism'; //used for prism.js syntax highlighting
 
 #top-navs
 {
@@ -292,9 +295,16 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 		color:$gym-white;
 	}
 
+	.gymnasium-logo
+	{
+		height:76px;
+		margin-top:-10px;
+	}
+
 	a:hover
 	{
 		color:$gym-orange;
+		background:$gym-white;
 	}
 
 
@@ -334,9 +344,18 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 /* global theme styles */
 
-header.global
+
+.caret
+{
+	color:$gym-light-grey;
+}
+
+header.global,
 {
 
+	margin:0px;
+	padding:0px;
+	box-shadow:none;
 	border:none;
 	width:inherit;
 	height:100px;
@@ -379,6 +398,7 @@ header.global
 .content-wrapper#content
 {
 	padding-bottom:0px;
+	background-color:$gym-white;
 }
 
 .wrapper-footer
@@ -390,6 +410,16 @@ header.global
 
 	footer
 	{
+		.gymnasium-logo
+		{
+			height:50px;
+			margin-top:15px;
+		}
+		.edx-logo
+		{
+			height:50px;
+		}
+		
 		.footer-link-list
 		{
 			margin-top:30px;
@@ -544,4 +574,9 @@ h1,h2,h3,h4,h5,h6
 	text-align:left;
 	text-transform:uppercase;
 	font-family:"brandon-grotesque";	
+}
+
+code, code *
+{
+	font-family: monospace, serif;
 }
