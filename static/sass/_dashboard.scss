@@ -3,18 +3,27 @@ section.container.dashboard
 	background-color:$gym-white;
 }
 
-#password-reset-email
-{
-	text-align:left;
-	font-size:16pt;
-	color:$gym-dark-grey;
-}
+
 
 
 /*** fixing a bug introduced by layering bootstrap on top of edx ***/
 body * .modal
 {
 	bottom:auto;
+
+	h1,h2,h3,h4,h5,h6
+	{
+		text-align:left;
+		font-size:16pt;
+		color:$gym-dark-grey;
+	}
+	color:$gym-dark-grey;
+
+	input,
+	textarea
+	{
+		font-size:14px;
+	}
 }
 
 .modal .inner-wrapper .close-modal, .leanModal_box .inner-wrapper .close-modal
