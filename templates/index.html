@@ -110,10 +110,16 @@
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
               <section class="courses row">
                 <ul class="course-list row">
-                  %for course in courses:
+                  %for idx, course in enumerate(courses):
+                    
                     <li class="course-list-item col-md-4 col-sm-12 ">
                       <%include file="course.html" args="course=course" />
                     </li>
+                    
+                    % if (idx + 1) % 3 == 0 and idx > 1:
+                      </ul>
+                      <ul class="course-list row">
+                    %endif
                   %endfor
                 </ul>
                 <a href="/courses" class="col-md-12 text-center">
