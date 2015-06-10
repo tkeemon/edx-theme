@@ -3,6 +3,34 @@ section.container.dashboard
 	background-color:$gym-white;
 }
 
+
+
+
+/*** fixing a bug introduced by layering bootstrap on top of edx ***/
+body * .modal
+{
+	bottom:auto;
+
+	h1,h2,h3,h4,h5,h6
+	{
+		text-align:left;
+		font-size:16pt;
+		color:$gym-dark-grey;
+	}
+	color:$gym-dark-grey;
+
+	input,
+	textarea
+	{
+		font-size:14px;
+	}
+}
+
+.modal .inner-wrapper .close-modal, .leanModal_box .inner-wrapper .close-modal
+{
+	z-index:20;
+}
+
 .dashboard-search-bar
 {
 	border:0px;
@@ -40,7 +68,8 @@ section.container.dashboard
 		.course .cover, 
 		.course a.fade-cover
 		{
-			height:auto;
+			height:200px;
+			width:200px;
 			border:0;
 			margin-left:10px;
 		}
