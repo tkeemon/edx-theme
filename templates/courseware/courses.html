@@ -24,6 +24,7 @@
         </ul>
       </div>
 
+      % if not user.is_authenticated():
       <div class="col-md-3">
         <div class="join-gymnasium">
           <div class="text-center">
@@ -37,14 +38,19 @@
 
               <div class="row">
                 <div class="col-md-12"></div>
-                <a class="gym-button col-md-6 col-md-offset-3" href="#">
+                <a class="gym-button col-md-6 col-md-offset-3" href="/register">
                   Sign up for an Account
                 </a>
               </div>
 
-              <p>or <a href="#">Sign in</a>
+              <p>or <a href="/login">Sign in</a>
             </section>
         </div>
+
+        % else
+          # right hand column content for when users are logged in
+
+        % endif
       </div>
     </div>
   </div>
