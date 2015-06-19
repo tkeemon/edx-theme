@@ -17,7 +17,7 @@
   show_partners = microsite.get_value('show_partners', True)
 
 %>
-<section class="home">
+<section class="home jumbotron">
   <header>
     <div class="container">
       <div class="row">
@@ -233,12 +233,12 @@
 
             <div class="row">
               <div class="col-md-4"></div>
-              <a class="gym-button col-md-4 col-md-offset-4" href="#">
-                Sign up for an Account
+              <a class="gym-button col-md-4 col-md-offset-4" href="/register">
+                ${_("Sign up for an account")}
               </a>
             </div>
 
-            <p>or <a href="#">Sign in</a>
+            <p>or <a href="/login">Sign in</a>
           </section>
         </div>
 

@@ -30,6 +30,18 @@ body.courseware
 	}
 }
 
+.container
+{
+	div.info-wrapper section.updates>ol>li h2, 
+	div.info-wrapper section.updates>ol article h2, 
+	div.info-wrapper section.updates section>li h2, 
+	div.info-wrapper section.updates section article h2
+	{
+		background:none;
+		padding-left: 0;
+	}
+}
+
 .wrapper-course-material
 {
 	.course-material
