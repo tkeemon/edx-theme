@@ -105,6 +105,14 @@ body.courseware
 						color:$gym-white;
 					}
 				}
+
+				li.active,
+				li.active a,
+				li.active a p
+				{
+					color:$gym-orange;
+					font-weight:bold;
+				}
 			}
 			
 			.chapter

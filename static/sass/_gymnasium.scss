@@ -313,6 +313,11 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 		padding:0px;
 	}
 
+	.navbar-brand:hover, .navbar-brand:active, .navbar-brand:link
+	{
+		background:transparent;
+	}
+
 	.navbar-default
 	{
 		background-color:$gym-dark-grey;
