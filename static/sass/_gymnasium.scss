@@ -304,7 +304,12 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 	a:hover
 	{
 		color:$gym-orange;
-		background:$gym-white;
+	}
+
+	a.gym-button:hover
+	{
+		background-color:transparentize($gym-orange,0.25);
+		color:$gym-button-hover-color;
 	}
 
 
