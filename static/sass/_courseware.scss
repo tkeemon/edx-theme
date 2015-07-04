@@ -23,11 +23,14 @@ body.courseware
 	}
 
 
-	.xmodule_display.xmodule_SequenceModule nav.sequence-nav
+	.xmodule_display.xmodule_SequenceModule nav.sequence-nav,
+	.xmodule_display.xmodule_SequenceModule nav.sequence-bottom,
 	{
-		/* This rule HIDES the third-tier top navigation for courses! */
+		/* This rule HIDES the third-tier top and bottom navigation for courses! */
 		display:none;
 	}
+
+
 }
 
 .container
@@ -152,5 +155,11 @@ body.courseware
 		background-color:$gym-medium-grey;
 		color:$gym-white;		
 		border-radius:0;
+		padding:0px 20px;
+
+		h1
+		{
+			padding:10px 0 0px 0;
+		}
 	}
 }
