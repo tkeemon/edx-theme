@@ -283,6 +283,63 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 	}
 }
 
+.white-panel
+{
+	background-color:white;
+}
+
+.right-gutter
+{
+	border-right:15px solid $gym-white;
+}
+
+#primary-nav
+{
+	.nav li a
+	{
+		background-color:transparent;
+		color:$gym-orange;
+
+		.caret
+		{
+			color:$gym-orange;
+		}
+	}
+
+	.nav li a:hover 
+	{
+		//odd specificity to overwrite bootstrap defaults
+		background-color:transparent;
+		color:$gym-white;
+
+		.caret
+		{
+			color:$gym-white;
+		}
+	}
+
+	.nav li.dropdown.open 
+	{
+		background-color:white;
+		a
+		{
+			color:$gym-orange;
+		}
+		a:hover .caret
+		{
+			color:$gym-orange;
+		}
+
+		.dropdown-menu
+		{
+			border:none;
+			a:hover{
+				color:$gym-dark-grey;
+			}
+		}
+	}
+}
+
 #secondary-nav
 {
 	@extend #top-navs;
