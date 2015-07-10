@@ -366,21 +366,13 @@
 				color:$gym-medium-grey;
 				text-align: center;
 			}
-			.info
-			{
-				height:250px;
-				width:290px;
-			}
 
 			.cover-image
-			{
-				max-height:250px;
-				max-width:290px;
-				
+			{				
 				img
 				{
-					height:250px;
-					width:290px;
+					height:100%;
+					width:100%;
 				}
 			}
 		}

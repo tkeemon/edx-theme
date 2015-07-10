@@ -11,7 +11,7 @@ from courseware.courses import course_image_url, get_course_about_section
 
 <article id="${course.id | h}" class="gym-course">
   %if course.is_newish:
-    <span class="status">${_("New")}</span>
+    
   %endif
   <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
   <div class="course-inner-wrapper">
@@ -22,7 +22,7 @@ from courseware.courses import course_image_url, get_course_about_section
       </header>
       <section class="info text-center">
         <div class="cover-image">
-          <img src="${course_image_url(course)}" alt="${course.display_number_with_default | h} ${get_course_about_section(course, 'title')} Cover Image" />
+          <img class="img-responsive" src="${course_image_url(course)}" alt="${course.display_number_with_default | h} ${get_course_about_section(course, 'title')} Cover Image" />
         </div>
       </section>
     </div>
