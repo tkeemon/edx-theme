@@ -67,6 +67,11 @@ body.courseware
 	}
 }
 
+nav.progress.wrapper-course-material
+{
+	height:inherit; //fixes a bug with the .progress class colliding with bootstrap
+}
+
 .container>div.course-wrapper
 {
 	border:none;
