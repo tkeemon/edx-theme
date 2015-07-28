@@ -138,6 +138,11 @@ body.courseware
 	}
 }
 
+.quiz-problem span
+{
+	font:inherit;
+}
+
 /** strange specificity here to get past existing style rules, sadly **/
 .container>div.info-wrapper
 {
