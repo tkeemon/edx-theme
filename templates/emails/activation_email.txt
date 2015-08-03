@@ -3,15 +3,6 @@
 <%! from django.core.urlresolvers import reverse %>
 
 
-% if is_secure:
-  <a href="https://${ site }/activate/${ key }">
-% else:
-  <a href="http://${ site }/activate/${ key }">
-% endif
-
-    <img src="http://courses.gymna.si/static/themes/gymnasium/images/gym-reg-activate.png" alt="click to activate">
-  </a>
-
 ${_("Thank you for signing up for {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}
 
 ${_("Thanks for creating an Aquent Gymnasium account! We'll email you as courses become available,"
