@@ -1,0 +1,29 @@
+<%namespace file="../main.html" import="stanford_theme_enabled" />
+<%! from django.utils.translation import ugettext as _ %>
+<%! from django.core.urlresolvers import reverse %>
+
+
+${_("Thank you for signing up for {platform_name}.").format(platform_name=settings.PLATFORM_NAME)}
+
+${_("Thanks for creating an Aquent Gymnasium account! We'll email you as courses become available,"
+      " and encourage you to check the site frequently for updates and announcements. Check out the"
+      " catalog to see what courses we are currently offering and enroll. If the current course"
+      " offering isn't for you, please tweet your suggestion on what you'd like us to see us offer"
+      " using the #AquentGymnasium hashtag or email your suggestions to gymhelp@aquent.com.")}
+
+${_("To get started, please activate your account by clicking on the link below"
+      " (you may also copy and paste the link into your browser's address"
+      " bar).").format(platform_name=settings.PLATFORM_NAME)}
+
+% if is_secure:
+  https://${ site }/activate/${ key }
+% else:
+  http://${ site }/activate/${ key }
+% endif
+
+
+${_("If you didn't request this, you don't need to do anything; you won't "
+      "receive any more email from us. Please do not reply to this e-mail; "
+      "if you require assistance, check the help section of the "
+      "{platform_name} website.").format(platform_name=settings.PLATFORM_NAME)}
+

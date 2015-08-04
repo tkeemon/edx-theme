@@ -163,49 +163,41 @@
 
 	.container
 	{
-		.text-center > h1
-		{
-			position: relative;
-  			padding: 5px;
-  			margin-top:-1.2em;
-  			display:inline-block;
 
-  			padding:1em 2em;
-			-webkit-clip-path: polygon(13% 0, 84% 0, 100% 100%, 0% 100%);
-			clip-path: polygon(13% 0, 84% 0, 100% 100%, 0% 100%);
-		}
-		h1.a::before
+		header
 		{
-			content: " ";
-		  	position: absolute;
-		  	border: 3px solid;
-		  	border-bottom:0px;
-		  
-		  	top: -4%; bottom: -11%; left: -3%; right: -3%;
-		  	z-index: 0;
+			display:block;
+		}
+		.header-tab 
+		{
+			text-align: center;
 
-		  	-webkit-transform: perspective(30em) rotateX(50deg);
-		  	transform: perspective(30em) rotateX(50deg);
-		}
+			h1:before
+			{
+			    display: inline-block;
+			    width: 100%;
+			    height: 0;
+			    content: " ";
+			    line-height: 0;
+			    padding-right: 1em;
+			    padding-left: 1em;
+			    border-right: 1.4em dashed transparent;
+			    border-left: 1.4em dashed transparent;
+			    -moz-box-sizing: border-box;
+			    -webkit-box-sizing: border-box;
+			    box-sizing: border-box;
+			    vertical-align: top;
+			}
 
-		h1.a::before
-		{
-			width: 0;
-			height: 0;
-			border-bottom: 1em solid;
-			border-left: 1em solid transparent;
-			display:inline-block;
-			content:" ";
-		}
-		
-		h1.a::after
-		{
-			width: 0;
-			height: 0;
-			border-bottom: 1em solid;
-			border-right: 1em solid transparent;
-			display:inline-block;
-			content:" ";
+			h1
+			{
+				display: inline-block;
+			    font-size: 1em;
+			    line-height: 1.2;
+			    text-transform: uppercase;
+			    vertical-align: 1.2em;
+			    margin-top: -1.2em;
+			}
 		}
 		
 	}
@@ -239,6 +231,8 @@
 			text-transform:none;
 			font-weight:bold;
 		}
+
+
 	}
 
 	//special rule for the "join us / share" panels on the home
@@ -247,19 +241,28 @@
 	{
 		background-color:#fff;
 
-		h1
+		.header-tab
 		{
-			background-color:white; 
-		}
+			h1:before
+			{
+				border-bottom: 1.4em solid white;
+			}
 
-		h1:before, h1:after
-		{
-			//color:white;
 		}
 	}
 
 	.container-fluid:nth-of-type(odd)
 	{
+
+		header.header-tab
+		{
+			h1:before
+			{
+				border-bottom: 1.4em solid $gym-white;
+			}
+
+		}
+
 		background-color:$gym-white;
 		*
 		{
@@ -279,7 +282,7 @@
 		h1
 		{
 			color:$gym-medium-grey;
-			background-color:$gym-white;
+			background-color:transparent;
 		}
 		h1:before, h1:after
 		{
@@ -300,10 +303,20 @@
 		{
 			color:$gym-white;
 		}
+
+		header.header-tab
+		{
+			h1:before
+			{
+				border-bottom: 1.4em solid $gym-medium-grey;
+			}
+
+		}
+
 		h1, h1:before, h1:after
 		{
 			color:$gym-white;
-			background-color:$gym-medium-grey;
+			background-color:transparent;
 		}
 		hr
 		{
@@ -341,17 +354,6 @@
 			text-decoration:none;
 		}
 
-		.gym-course img
-		{
-			border:4px solid transparent;
-		}
-		
-		.gym-course a:hover img
-		{
-			border:4px solid $gym-medium-grey;
-		}
-
-
 		padding-top:0px;
 
 		.course-list
@@ -374,6 +376,11 @@
 					height:100%;
 					width:100%;
 				}
+			}
+
+			.course-preview h2
+			{
+				height:4em;
 			}
 		}
 

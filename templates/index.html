@@ -75,9 +75,9 @@
 
   <section class="container-fluid subsection">
     <div class="container">
-      <div class="text-center">
+      <header class="header-tab text-center">
         <h1>Why Gymnasium Works</h1>
-      </div>
+      </header>
 
       <section class="row">
         <div class="col-md-4">
@@ -92,7 +92,7 @@
 
         <div class="col-md-4">
           <h2>Career Opportunities</h2>
-          <p>Once you finish a course, you will be able to use your new skills in your current role, or use them to land a new job. <a href="http://aquent.com/find-work/">We can even help with that!</a></p>
+          <p>Once you finish a course, you will be able to use your new skills in your current role, or use them to land a new job. <a href="http://aquent.com/find-work/" target="_blank">We can even help with that!</a></p>
         </div>
       </section>
 
@@ -110,15 +110,12 @@
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
               <section class="courses row">
                 <ul class="course-list row">
-                  %for idx, course in enumerate(courses):
-                    
-                    <li class="course-list-item col-md-4 col-sm-12 ">
-                      <%include file="course.html" args="course=course" />
-                    </li>
-                    
-                    % if (idx + 1) % 3 == 0 and idx > 1:
-                      </ul>
-                      <ul class="course-list row">
+                  %for idx, course in enumerate(courses):                    
+                    % if course.is_newish: 
+                        <li class="course-list-item col-lg-4  col-md-6 col-sm-6 col-xs-12 ">
+                          <%include file="course.html" args="course=course" />
+                        </li>
+
                     %endif
                   %endfor
                 </ul>
@@ -133,7 +130,7 @@
         <div class="row">
           <blockquote class="col-md-8 col-md-offset-2">
             <h1>This course is awesome</h1>
-            <h2>I'm excited about being able to use this new skill soon!</h2>
+            <h2>I'm excited about being able to use this  skill soon!</h2>
             <footer>A.a.ron</footer>
           </blockquote>
         </div>
@@ -144,9 +141,9 @@
 
   <section class="container-fluid">
     <div class="container" id="get-work">
-      <div class="text-center">
+      <header class="header-tab text-center">
         <h1>Get Work</h1>
-      </div>  
+      </header>  
       <section class="row" >
         <div class="text-center col-md-6 col-md-offset-3">
           Because we are also a lead talent agency, your newly learned skills can be put to work on many of our jobs...
@@ -221,9 +218,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12" id="join-gymnasium">
-          <div class="text-center">
+          <header class="header-tab text-center">
             <h1>Join Us</h1>
-          </div>
+          </header>
           <section class="text-center">
             <em><a href="/register">Join Aquent Gymnasium</a></em>
 
@@ -244,9 +241,9 @@
 
         <!--
         <div class="col-md-6" id="share-panel">
-          <div class="text-center">
+          <header class="header-tab text-center">
             <h1>Twitter</h1>
-          </div>
+          </header>
           <section>
             
             <a class="twitter-timeline" href="https://twitter.com/GymnasiumTweets" data-widget-id="575294990856896512" data-chrome="nofooter noheader" height="275">Tweets by @GymnasiumTweets</a>
