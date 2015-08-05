@@ -48,7 +48,7 @@ site_status_msg = get_site_status_msg(course_id)
                       <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}">${_("Sign up for an account")}</a>
                     </span>
                   % else:
-                    <span class="nav-global-04">
+                    <span>
                       <a class="gym-button cta cta-register" href="/register">${_("Sign up for an account")}</a>
                     </span>
                   % endif
