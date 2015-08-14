@@ -669,3 +669,20 @@ code, code *
 {
 	background-image:none;
 }
+
+.cookiebanner 
+{
+	span
+	{
+		color:$gym-white;
+	}
+	a
+	{
+		color:$gym-orange;
+	}
+
+	a:hover, a:link:hover
+	{
+		color:$gym-light-grey;
+	}
+}
