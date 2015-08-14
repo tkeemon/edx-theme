@@ -219,7 +219,7 @@
 
             this.default_options = {
                 // autorun: true,
-                cookie: 'cookiebanner-accepted',
+                cookie: 'gymnasium-cookiebanner-accepted',
                 closeText: '&#10006;',
                 cookiePath: '/',
                 debug: false,
@@ -231,15 +231,12 @@
                 height: 'auto',
                 minHeight: '21px',
                 bg: '#000',
-                fg: '#ddd',
-                link: '#aaa',
                 position: 'bottom',
                 message: default_text,
                 linkmsg: default_link,
                 moreinfo: 'http://aboutcookies.org',
                 effect: null,
                 fontSize: '14px',
-                fontFamily: 'arial, sans-serif',
                 instance: global_instance_name,
                 textAlign: 'center',
                 acceptOnScroll: false
@@ -386,12 +383,10 @@
             el.style.minHeight = this.options.minHeight;
             el.style.zIndex = zidx;
             el.style.background = this.options.bg;
-            el.style.color = this.options.fg;
             el.style.lineHeight = el.style.minHeight;
 
             el.style.padding = '5px 16px';
 
-            el.style.fontFamily = this.options.fontFamily;
             el.style.fontSize = this.options.fontSize;
             el.style.textAlign = this.options.textAlign;
 
@@ -411,7 +406,7 @@
             el_a.href = this.options.moreinfo;
             el_a.target = '_blank';
             el_a.style.textDecoration = 'none';
-            el_a.style.color = this.options.link;
+
 
             var el_x = el.getElementsByTagName('div')[0];
             el_x.style.cursor = 'pointer';
