@@ -59,30 +59,30 @@ site_status_msg = get_site_status_msg(course_id)
             <ul class="nav navbar-nav navbar-right">
 
               % if user.is_authenticated():
-                
+
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle logged-in-username" data-toggle="dropdown" role="button" aria-expanded="false">
                     ${user.username} <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu" role="menu">
-                    
+
 
                     <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
                   </ul>
                 </li>
 
-              % endif      
+              % endif
 
               <li><a href="http://www.aquent.com" target="_blank" alt="Aquent" class="gym-nav-icon-container"> <i class="gym-nav-icon aquent-icon"></i></a></li>
               <li><a href="http://www.vitamintalent.com" target="_blank" alt="Vitamin T" class="gym-nav-icon-container"> <i class="gym-nav-icon vitamin-t-icon"></i></a></li>
-              
+
             </ul>
 
           </div>
         </div>
       </div>
     </nav>
-    
+
 
 
     <nav id="secondary-nav" class="container-fluid">
@@ -106,12 +106,12 @@ site_status_msg = get_site_status_msg(course_id)
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="secondary-nav-items">
             <ul class="nav navbar-nav navbar-right">
-              
+
               <li><a href="/courses">Catalog</a></li>
               <li><a href="/careers">Career Center</a></li>
-          
+
               % if user.is_authenticated():
-                
+
                 <%block name="navigation_global_links_authenticated">
                   % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
                     <li class="nav-global-01">
@@ -130,17 +130,13 @@ site_status_msg = get_site_status_msg(course_id)
                       % endif
                   % endif
                 </li>
-              % endif      
+              % endif
             </ul>
           </div><!-- /.navbar-collapse -->
         </div>
       </div>
 
-      % if course:
-        <div class="container">
-          <h2><span class="provider">${course.display_org_with_default | h}:</span> ${course.display_number_with_default | h} ${course.display_name_with_default}</h2>
-        </div>
-      % endif
+
 
     </nav>
   </header>

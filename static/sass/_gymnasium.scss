@@ -57,12 +57,12 @@ $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom
 //Main BG Color Variables
 $main-bg:  #f22537;
 $main-bg-60: $gym-light-grey; //Main Border/HR Color
-$main-bg-25: lighten($main-bg, 25%); 
+$main-bg-25: lighten($main-bg, 25%);
 
 //Secondary Color Variables
 $secondary: #b5a4b7;
 $secondary-50: lighten($secondary, 9%);
-$secondary-25: lighten($secondary, 20%); //Important Heading BG Color 
+$secondary-25: lighten($secondary, 20%); //Important Heading BG Color
 
 //Gray Color Variables
 $gray: #3f3f3f; //Main Text Color
@@ -306,7 +306,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 		}
 	}
 
-	.nav li a:hover 
+	.nav li a:hover
 	{
 		//odd specificity to overwrite bootstrap defaults
 		background-color:transparent;
@@ -318,7 +318,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 		}
 	}
 
-	.nav li.dropdown.open 
+	.nav li.dropdown.open
 	{
 		background-color:white;
 		a
@@ -404,7 +404,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
 	{
-		
+
 	}
 }
 
@@ -437,7 +437,7 @@ header.global,
 		min-width: inherit;
 		width:inherit;
 	}
-	
+
 
 	nav {
 
@@ -460,7 +460,7 @@ header.global,
 
 		.container
 		{
-			padding:0;
+			
 			background:transparent;
 		}
 	}
@@ -490,7 +490,7 @@ header.global,
 		{
 			height:50px;
 		}
-		
+
 		.footer-link-list
 		{
 			margin-top:30px;
@@ -518,15 +518,15 @@ header.global,
 			}
 		}
 
-		li 
+		li
 		{
 			height:100%;
 			vertical-align: center;
 			a
 			{
-				color:white;	
+				color:white;
 			}
-			
+
 		}
 
 		a
@@ -625,7 +625,7 @@ a.gym-button:hover, a.gym-button:link:hover
 	background-repeat:no-repeat;
 	vertical-align:middle;
 	background-position-x:center;
-	
+
 	filter: gray; /* IE6-9 */
   	filter: grayscale(1); /* Firefox 35+ */
     -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
@@ -655,7 +655,7 @@ h1,h2,h3,h4,h5,h6
 {
 	text-align:left;
 	text-transform:uppercase;
-	font-family:"brandon-grotesque";	
+	font-family:"brandon-grotesque";
 }
 
 code, code *
@@ -670,7 +670,7 @@ code, code *
 	background-image:none;
 }
 
-.cookiebanner 
+.cookiebanner
 {
 	span
 	{
