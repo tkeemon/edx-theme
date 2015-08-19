@@ -335,15 +335,81 @@
 		*/
 	}
 
-	blockquote 
-	{
-		border:none;
+	.testimonial {
+		text-align: center;
+	}
 
-		h1,h2
-		{	
-			position:relative;
-			z-index:10;
-		}
+	.quote {
+		display: inline-block;
+		position: relative;
+		font-family: "Brandon Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+		color: #aaa;
+		letter-spacing: .025em;
+		vertical-align: middle;
+		margin: 1em 0;
+	}
+
+	.quote::before,
+	.quote::after {
+		position: absolute;
+		top: 0; bottom: 0;
+		font-family: "Helvetica Neue", Helvetica, sans-serif;
+		font-size: 19em;
+		line-height: .35;
+		color: #ddd;
+		color: rgba(221, 221, 221, .5);
+		height: 0;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.quote::before {
+		left: 0;
+		content: "“";
+	}
+
+	.quote::after {
+		right: 0;
+		content: "”";
+	}
+
+	.quote blockquote {
+		position: relative;
+		font-size: 1.5em;
+		padding-right: 2.5em;
+		padding-left: 2.5em;
+		margin: 0;
+		z-index: 1;
+		border-left:none;
+	}
+
+	.quote p {
+		font-style: italic;
+		font-weight: bold;
+		line-height: 1.2;
+		margin-top: .25em;
+		margin-bottom: .25em;
+	}
+
+	.quote strong {
+		font-size: 150%;
+		font-weight: 900;
+		line-height: .9;
+	}
+
+	.quote figcaption {
+		font-family: "Helvetica Neue", Helvetica, sans-serif;
+		font-size: small;
+		font-style: italic;
+		font-weight: bold;
+		text-align: right;
+		margin-top: 1em;
+		margin-right: 25%;
+	}
+
+	.quote figcaption::before {
+		content: "— ";
+		font-weight: normal;
 	}
 
 	.courses

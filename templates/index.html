@@ -17,7 +17,7 @@
   show_partners = microsite.get_value('show_partners', True)
 
 %>
-<section class="home jumbotron">
+<section class="home">
   <header>
     <div class="container">
       <div class="row">
@@ -105,7 +105,7 @@
           <h1>Featured Courses</h1>
         </div>
 
-        <section class="row col-md-10 col-md-offset-1">
+        <section class="row col-md-12 ">
           <section class="highlighted-courses"> 
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
               <section class="courses row">
@@ -128,11 +128,15 @@
         </section>
 
         <div class="row">
-          <blockquote class="col-md-8 col-md-offset-2">
-            <h1>This course is awesome</h1>
-            <h2>I'm excited about being able to use this  skill soon!</h2>
-            <footer>A.a.ron</footer>
-          </blockquote>
+          <div class="testimonial">
+            <figure class="quote">
+              <blockquote>
+                <p><strong>I really enjoyed this course!</strong></p>
+                <p>Even complex stuff seemed almost easy with you.</p>
+                <figcaption>Mailys</figcaption>
+              </blockquote>
+            </figure>
+          <?div>
         </div>
 
       </div>
@@ -267,27 +271,27 @@
         <ul class="col-md-12 list-inline text-center">
           <li>
             <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" />
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive" />
             </a>
           </li>
           <li>
             <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" />
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive" />
             </a>
           </li>
           <li>
             <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" />
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive" />
             </a>
           </li>
           <li>
             <a href="http://www.lemonde.fr/emploi/article/2014/06/30/les-firmes-americaines-recrutent-dans-les-mooc_4448062_1698637.html" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" />
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive" />
             </a>
           </li>
           <li>
             <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" />
+              <img src="${static.url('themes/gymnasium/images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive" />
             </a>
           </li>
         </ul>

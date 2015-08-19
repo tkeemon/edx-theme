@@ -7,13 +7,13 @@ body.courseware
 		padding:0px;
 		box-shadow:none;
 		border:none;
-		height:100px;
+		height:auto;
 		background-color:$gym-dark-grey;
 	}
 
 	.wrapper-preview-menu
 	{
-		margin:20px auto 0;
+		margin:0px auto 0;
 	}
 
 	.content-wrapper#content
@@ -40,9 +40,9 @@ body.courseware
 
 .container
 {
-	div.info-wrapper section.updates>ol>li h2, 
-	div.info-wrapper section.updates>ol article h2, 
-	div.info-wrapper section.updates section>li h2, 
+	div.info-wrapper section.updates>ol>li h2,
+	div.info-wrapper section.updates>ol article h2,
+	div.info-wrapper section.updates section>li h2,
 	div.info-wrapper section.updates section article h2
 	{
 		background:none;
@@ -50,24 +50,38 @@ body.courseware
 	}
 }
 
+.content-wrapper .wrapper-course-material .course-material
+{
+	max-width:inherit;
+}
+
 .wrapper-course-material
 {
 	.course-material
 	{
+
+		#course-title-header
+		{
+			background-color:$gym-light-gray;
+
+			h1
+			{
+				font-size:20pt;
+				margin:5px 0 0 0;
+			}
+		}
 		.course-tabs
 		{
 			font-weight:normal;
-			border-bottom:1px solid $gym-light-grey;
-			margin-bottom:30px;
-			padding-bottom:20px;
-			
+			padding:25px 0 0 0;
+
 			a[class="active"]
 			{
 				box-shadow: none;
 				text-shadow: none;
 				background: none;
 				color:$gym-orange;
-			}		
+			}
 		}
 	}
 }
@@ -93,22 +107,22 @@ nav.progress.wrapper-course-material
 		border-right:none;
 		background-color:$gym-medium-grey;
 		border-radius:0;
-		
+
 		.course-search-input,
 		.search-field-wrapper
 		{
 			border-radius:0;
 		}
-	
+
 		.search-bar .search-field
 		{
 			background:$gym-white;
 		}
-	
+
 		div#accordion
 		{
 			background-color:$gym-medium-grey;
-			
+
 			ul.ui-accordion-content
 			{
 				a
@@ -127,13 +141,13 @@ nav.progress.wrapper-course-material
 					font-weight:bold;
 				}
 			}
-			
+
 			.chapter
 			{
 				color:$gym-white;
-				background:none;		
+				background:none;
 				box-shadow:none;
-				
+
 				a
 				{
 					color:$gym-white;
@@ -143,7 +157,7 @@ nav.progress.wrapper-course-material
 					border:none;
 				}
 			}
-			
+
 		}
 	}
 }
@@ -159,16 +173,16 @@ nav.progress.wrapper-course-material
 	border:none;
 	border-radius:0;
 	margin-bottom:100px;
-	
+
 	section.updates
 	{
-		
+
 	}
-	
+
 	section.handouts
 	{
 		background-color:$gym-medium-grey;
-		color:$gym-white;		
+		color:$gym-white;
 		border-radius:0;
 		padding:0px 20px;
 
