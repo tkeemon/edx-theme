@@ -260,7 +260,8 @@ THE SOFTWARE.
                 fontSize: '14px',
                 instance: global_instance_name,
                 textAlign: 'center',
-                acceptOnScroll: false
+                acceptOnScroll: false,
+                target: ''
             };
 
             this.options = this.default_options;
@@ -425,7 +426,7 @@ THE SOFTWARE.
 
             var el_a = el.getElementsByTagName('a')[0];
             el_a.href = this.options.moreinfo;
-            el_a.target = '_blank';
+            el_a.target = this.options.target;
             el_a.style.textDecoration = 'none';
 
 
