@@ -13,11 +13,9 @@ from courseware.courses import course_image_url, get_course_about_section
       <div class="gym-button">
         <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">Enroll Now</a>
       </div>
-    </div>  
+    </div>
     <div class="col-md-9">
       <h1>${get_course_about_section(course, 'title')}</h1>
-      <h2>COURSE_SUBTITLE_FILLER</h2>
-      <h3>XX Video Lessons: 31 hrs, 29 mins</h3>
       <p>
         ${get_course_about_section(course, 'short_description')}
         <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">Course Details</a>
