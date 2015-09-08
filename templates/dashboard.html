@@ -227,13 +227,13 @@
 </section>
 
 <section id="email-settings-modal" class="modal" aria-hidden="true">
-  <div class="inner-wrapper" role="dialog" aria-labelledby="email-settings-title">
-    <button class="close-modal">
-      <i class="icon fa fa-remove"></i>
-      <span class="sr">
+  <div class="dialog" role="dialog" aria-labelledby="email-settings-title">
+
+    <button class="close-modal" tabindex="1">
+      <b class="close-modal-content gym-button">
         ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
-        ${_("Close")}
-      </span>
+        ${_("Dismiss")}
+      </b>
     </button>
 
     <header>
@@ -248,11 +248,24 @@
     </header>
 
     <form id="email_settings_form" method="post">
-      <input name="course_id" id="email_settings_course_id" type="hidden" />
-      <label>${_("Receive course emails")} <input type="checkbox" id="receive_emails" name="receive_emails" /></label>
-      <div class="submit">
-        <input type="submit" id="submit" value="${_("Save Settings")}" />
-      </div>
+      <fieldset>
+        <input name="course_id" id="email_settings_course_id" type="hidden" />
+          <div class="row">
+            <div class="col-sm-1 col-md-1">
+              <input type="checkbox" id="receive_emails" name="receive_emails" />
+            </div>
+            <label class="col-sm-11">
+              ${_("Receive course emails")}
+            </label>
+          </div>
+
+
+        <button class="gym-button" tabindex="2" type="submit" id="submit">
+          <b>
+            ${_("Save Seetings")}
+          </b>
+        </button>
+      </fieldset>
     </form>
   </div>
 </section>
@@ -260,71 +273,90 @@
 
 
 <section id="password_reset_complete" class="modal" aria-hidden="true">
-  <div class="inner-wrapper" role="dialog" aria-labelledby="password-reset-email">
-    <button class="close-modal">
-      <i class="icon fa fa-remove"></i>
-      <span class="sr">
+  <div class="dialog" role="dialog" aria-labelledby="password-reset-email">
+
+    <button class="close-modal" tabindex="1">
+      <b class="close-modal-content gym-button">
         ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
-        ${_("Close")}
-      </span>
+        ${_("Dismiss")}
+      </b>
     </button>
 
     <header>
       <h2 id="password-reset-email">
-        ${_("Password Reset Email Sent")}
-        <span class="sr">,
-          ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
-          ${_("window open")}
-        </span>
+
       </h2>
       <hr/>
     </header>
     <div>
       <form> <!-- Here for styling reasons -->
-        <section>
-          <p>${_("An email has been sent to {email}. Follow the link in the email to change your password.").format(email=user.email)}</p>
-        </section>
+        <fieldset>
+          <legend>
+            <b role="heading">
+              ${_("Password Reset Email Sent")}
+            </b>
+          </legend>
+
+          <span class="sr">,
+            ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
+            ${_("window open")}
+          </span>
+
+          <section>
+            <p>${_("An email has been sent to <b>{email}</b>. Follow the link in the email to change your password.").format(email=user.email)}</p>
+          </section>
+      </fieldset>
       </form>
     </div>
   </div>
 </section>
 
 <section id="change_email" class="modal" aria-hidden="true">
-  <div class="inner-wrapper" role="dialog" aria-labelledby="change_email_title">
-    <button class="close-modal">
-      <i class="icon fa fa-remove"></i>
-      <span class="sr">
+  <div class="dialog" role="dialog" aria-labelledby="change_email_title">
+
+    <button class="close-modal" tabindex="1">
+      <b class="close-modal-content gym-button">
         ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
-        ${_("Close")}
-      </span>
+        ${_("Dismiss")}
+      </b>
     </button>
 
-    <header>
-      <h2>
-        <span id="change_email_title">${_("Change Email")}</span>
-        <span class="sr">,
-          ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
-          ${_("window open")}
-        </span>
-      </h2>
-      <hr/>
-    </header>
     <div id="change_email_body">
       <form id="change_email_form">
-        <div id="change_email_error" class="modal-form-error"> </div>
+
         <fieldset>
-          <div class="input-group">
-            <label>${_("Please enter your new email address:")}</label>
-            <input id="new_email_field" type="email" value="" />
-            <label>${_("Please confirm your password:")}</label>
-            <input id="new_email_password" value="" type="password" />
+          <legend>
+            <b role="heading">
+              ${_("Change My Email")}
+            </b>
+          </legend>
+
+          <span class="sr">,
+            ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
+            ${_("window open")}
+          </span>
+
+          <div id="change_email_error" class="modal-form-error"> </div>
+
+          <ul>
+            <li>
+              <label><b>${_("Please enter your new email address:")}</b></label>
+              <input id="new_email_field" type="email" value="" />
+            </li>
+            <li>
+              <label><b>${_("Please confirm your password:")}</b></label>
+              <input id="new_email_password" value="" type="password" />
+            </li>
+          </ul>
+
+          <div class="message">
+            <p>${_("<b>Note:</b> We will send a confirmation to both <b>{email}</b> and your new email address as part of the process.").format(email=user.email)}</p>
           </div>
-          <section>
-            <p>${_("We will send a confirmation to both {email} and your new email address as part of the process.").format(email=user.email)}</p>
-          </section>
-          <div class="submit">
-            <input type="submit" id="submit_email_change" value="${_("Change Email")}"/>
-          </div>
+          <button class="gym-button" tabindex="2" id="submit_email_change">
+            <b>
+              ${_("Change Email")}
+            </b>
+          </button>
         </fieldset>
       </form>
     </div>
@@ -334,77 +366,104 @@
 <%include file='modal/_modal-settings-language.html' />
 
 <section id="apply_name_change" class="modal" aria-hidden="true">
-  <div class="inner-wrapper" role="dialog" aria-labelledby="change-name-title">
-    <button class="close-modal">
-      <i class="icon fa fa-remove"></i>
-      <span class="sr">
+  <div class="dialog" role="dialog" aria-labelledby="change-name-title">
+
+    <button class="close-modal" tabindex="1">
+      <b class="close-modal-content gym-button">
         ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
-        ${_("Close")}
-      </span>
+        ${_("Dismiss")}
+      </b>
     </button>
 
-    <header>
-      <h2 id="change-name-title">
-        ${_("Change your name")}
-        <span class="sr">,
-          ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
-          ${_("window open")}
-        </span>
-      </h2>
-      <hr/>
-    </header>
-    <div id="change_name_body">
-      <form id="change_name_form">
-        <div id="change_name_error" class="modal-form-error"> </div>
+    <form id="change_name_form">
+    <fieldset>
+      <legend>
+        <b role="heading">
+          ${_("Change your name")}
+        </b>
+      </legend>
+
+      <span class="sr">,
+        ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
+        ${_("window open")}
+      </span>
+
+      <div class="message">
         ## Translators: note that {platform} {cert_name_short} will look something like: "edX certificate". Please do not change the order of these placeholders.
-        <p>${_("To uphold the credibility of your {platform} {cert_name_short}, all name changes will be recorded.").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}</p>
-        <br/>
-        <fieldset>
-          <div class="input-group">
+        <p>${_("<b>Note:</b> To uphold the credibility of your <b>{platform} {cert_name_short}</b>, all name changes will be recorded.").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}</p>
+      </div>
+      <div class="error" id="change_name_error" hidden >
+
+      </div>
+      <ul>
+        <li>
+          <label>
             ## Translators: note that {platform} {cert_name_short} will look something like: "edX certificate". Please do not change the order of these placeholders.
-            <label>${_("Enter your desired full name, as it will appear on your {platform} {cert_name_short}:").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}</label>
-            <input id="new_name_field" value="" type="text" />
-            <label>${_("Reason for name change:")}</label>
-            <textarea id="name_rationale_field" value=""></textarea>
-          </div>
-          <div class="submit">
-            <input type="submit" id="submit" value="${_("Change My Name")}">
-          </div>
-        </fieldset>
-      </form>
-    </div>
+            ${_("<b>Enter your full name</b>, as it will appear on your {platform} {cert_name_short}:").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}
+          </label>
+          <input type="text" id="new_name_field">
+        </li>
+        <li>
+          <label>
+            <b>
+              ${_("Reason for name change:")}
+            </b>
+          </label>
+          <input type="text" id="name_rationale_field">
+        </li>
+      </ul>
+      <div class="message" hidden>
+        <p>We will send a confirmation to both <b class="email-current">googlebot@gmail.com</b> and your new email address as part of the process.</p>
+      </div>
+      <button class="gym-button" tabindex="2" id="submit">
+        <b>
+          ${_("Change My Name")}
+        </b>
+      </button>
+    </fieldset>
+    </form>
+
   </div>
 </section>
 
 <section id="unenroll-modal" class="modal unenroll-modal" aria-hidden="true">
-  <div class="inner-wrapper" role="dialog" aria-labelledby="unenrollment-modal-title">
-    <button class="close-modal">
-      <i class="icon fa fa-remove"></i>
-      <span class="sr">
+  <div class="dialog" role="dialog" aria-labelledby="unenrollment-modal-title">
+    <button class="close-modal" tabindex="1">
+      <b class="close-modal-content gym-button">
         ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
-        ${_("Close")}
-      </span>
+        ${_("Dismiss")}
+      </b>
     </button>
 
-    <header>
-      <h2 id="unenrollment-modal-title">
-        <span id='track-info'></span>
-        <span id='unenroll_course_number'></span>?
-        <span id='refund-info'></span>
+
+    <form id="unenroll_form" method="post" data-remote="true" action="${reverse('change_enrollment')}">
+      <fieldset>
+
+        <legend>
+          <b role="heading">
+            <span id='track-info'></span>
+            <span id='unenroll_course_number'></span>?
+            <span id='refund-info'></span>
+          </b>
+        </legend>
+
         <span class="sr">,
           ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
           ${_("window open")}
         </span>
-      </h2>
-      <hr/>
-    </header>
-    <div id="unenroll_error" class="modal-form-error"></div>
-    <form id="unenroll_form" method="post" data-remote="true" action="${reverse('change_enrollment')}">
-      <input name="course_id" id="unenroll_course_id" type="hidden" />
-      <input name="enrollment_action" type="hidden" value="unenroll" />
-      <div class="submit">
-        <input name="submit" type="submit" value="${_("Unenroll")}" />
-      </div>
+
+        <div id="unenroll_error" class="modal-form-error"></div>
+
+        <input name="course_id" id="unenroll_course_id" type="hidden" />
+        <input name="enrollment_action" type="hidden" value="unenroll" />
+
+        <button class="gym-button" tabindex="2" name="submit" type="submit">
+          <b>
+            ${_("Unenroll")}
+          </b>
+        </button>
+
+      </fieldset>
     </form>
   </div>
 </section>
