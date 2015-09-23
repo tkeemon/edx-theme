@@ -8,50 +8,107 @@
 
 <section class="find-courses">
 
-  
 
-  <div class="container">
-    <h1>Catalog</h1>
-    
-    <div class="row">
-      <div class="col-md-9">
-        <ul class="course-catalog-list">
-          %for course in courses:
-            <li class="course-catalog-item">
-              <%include file="catalog-course.html" args="course=course" />
-            </li>
-          %endfor
-        </ul>
+  <div class="course-title container-fluid">
+    <header class="container">
+      <div class="row">
+        <h1>Catalog</h1>
       </div>
+    </header>
+  </div>
 
-      % if not user.is_authenticated():
-      <div class="col-md-3">
+  <div class="container course-menu">
+    <div class="row">
+      <ul>
+        <li>
+          <a href="#full">Full Courses</a>
+        </li>
+        <li>
+          <a href="#gymshorts">Gym Shorts</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <main class="container">
+
+
+    <div class="row">
+      <article class="col-md-9 course-overview">
+        <h1 id="full">
+          Full Courses
+        </h1>
+        <p class="hero">
+            This is a description of full courses. This is another descriptive sentence.
+        </p>
+        <section class="my-courses">
+          <ul class="listing-courses" id="full-course-list">
+            %for course in courses:
+              <li class="course-item" data-course-id="${course.display_number_with_default | h}">
+                <%include file="catalog-course.html" args="course=course" />
+              </li>
+            %endfor
+          </ul>
+        </section>
+
+        <h1 id="gymshorts">
+          Gym Shorts
+        </h1>
+        <p class="hero">
+          Gym Shorts are short, snackable courses that all last under an hour. Like our longer courses, they are practical, taught by experienced practitioners, and focused on in-demand skills and technologies.
+        </p>
+
+        <ul class="listing-courses" id="gym-shorts-list">
+
+        </ul>
+      </article>
+
+      <aside class="col-md-3 sidebar">
+        % if not user.is_authenticated():
         <div class="join-gymnasium">
           <div class="text-center">
-              <h1>Join Aquent Gymnasium</h1>
+              <h1>Join Gymnasium</h1>
             </div>
             <section class="text-center">
-
               <div class="row">
                 <p class="col-md-12">Register to recieve email updates about new and upcoming classes.</p>
               </div>
-
               <div class="row">
                 <div class="col-md-12"></div>
                 <a class="gym-button col-md-6 col-md-offset-3" href="/register">
                   Sign up for an Account
                 </a>
               </div>
-
               <p>or <a href="/login">Sign in</a>
             </section>
         </div>
-
         % else:
           <!-- right hand column content for when users are logged in -->
+          <h1>Upcoming</h1>
+          <section>
+            <h2>Information Design and Visualization Fundamentals</h2>
+            <p>An introduction to the field of information design and visualization. You will learn design and visual principles, as well as some practical tools and resources to get you started.</p>
+          </section>
 
+          <section>
+            <h2>Writing for Web and Mobile</h2>
+            <p>What if web and mobile teams knew the "right" words to use before designing the visual interface and user experience? This course will teach you how to use research and data to write engaging copy to inform the design process and convert users into customers.</p>
+          </section>
+
+          <section>
+            <h2>Introducing Sketch for UX and UI</h2>
+            <p>More and more user experience and user interface designers are using Sketch to create responsive design prototypes, mobile mockups, and UI elements. In this Gym Short we'll tour the top 5 features of Sketch focusing on how to use artboards, styles/symbols and export graphics.</p>
+          </section>
         % endif
-      </div>
+      </aside>
     </div>
-  </div>
+  </main>
 </section>
+
+
+<script>
+  //move courses whose IDs start with a 0 to the Gym Shorts list
+  $(function(){
+    $("li.course-item[data-course-id^='0']").appendTo('#gym-shorts-list');
+  })
+</script>

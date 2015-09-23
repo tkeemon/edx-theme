@@ -247,11 +247,6 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
     text-align: right;
 }
 
-
-
-
-
-
 /* individual page styles */
 @import 'home';
 @import 'catalog';
@@ -293,7 +288,7 @@ body a:focus,
 		border:0;
 		background:transparent;
 		box-shadow:none;
-    padding:0;
+    padding:0; /* mocking the bootstrap style rule for consistency throughout page */
 	}
 }
 
@@ -309,10 +304,35 @@ body a:focus,
 
 #primary-nav
 {
+
+  @extend #top-navs;
+  height:50px;
+
+  .gym-nav-icon-container
+  {
+    padding-top:13px;
+  }
+  .gym-nav-icon-container:hover
+  {
+    background-color:transparent;
+  }
+
+  .navbar
+  {
+    margin-bottom:0;
+    height:50px;
+  }
+
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+  {
+
+  }
+
 	.nav li a
 	{
 		background-color:transparent;
 		color:$gym-orange;
+    height:50px;
 
 		.caret
 		{
@@ -359,7 +379,12 @@ body a:focus,
 	@extend #top-navs;
 	height:70px;
 	background-color:$gym-dark-grey;
-	padding-top:10px;
+
+  >.container
+  {
+    padding-top:10px;
+  }
+
 	a
 	{
 		font-size:15px;
@@ -402,25 +427,6 @@ body a:focus,
 	}
 }
 
-#primary-nav
-{
-	@extend #top-navs;
-	height:50px;
-
-	.gym-nav-icon-container
-	{
-		padding-bottom:10px;
-	}
-	.gym-nav-icon-container:hover
-	{
-		background-color:transparent;
-	}
-
-	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
-	{
-
-	}
-}
 
 #content header
 {
@@ -443,7 +449,7 @@ header.global,
 	box-shadow:none;
 	border:none;
 	width:inherit;
-	height:100px;
+	height:120px;
 	background-color:$gym-dark-grey;
 
 	.container, .container.grey

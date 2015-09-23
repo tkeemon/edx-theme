@@ -192,3 +192,23 @@ nav.progress.wrapper-course-material
 		}
 	}
 }
+
+
+.course-title {
+	background: #777;
+	/* margin-bottom: 1.6em; */
+	}
+
+#content .course-title header
+{
+	margin-top:0px;
+}
+
+.course-title h1 {
+	font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	letter-spacing: .05em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+	margin-top:15px;
+	}
