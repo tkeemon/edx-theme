@@ -381,6 +381,21 @@ body a:focus,
     height:50px;
   }
 
+	.navbar-nav
+	{
+		height:50px;
+	}
+
+	nav
+	{
+		height:50px;
+	}
+
+	.navbar-nav > li > a
+	{
+		padding-top:14px;
+		padding-bottom:14px;
+	}
   .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
   {
 
@@ -390,7 +405,7 @@ body a:focus,
 	{
 		background-color:transparent;
 		color:$gym-orange;
-    height:50px;
+
 
 		.caret
 		{
@@ -913,7 +928,7 @@ button:hover:not(:disabled),
   display:block;
   margin-left:auto;
   margin-right:auto;
-  margin-top:-0.55em;
+  margin-top:-1.2em;
 }
 
 
