@@ -485,12 +485,6 @@ body a:focus,
 	}
 }
 
-
-#content header
-{
-	margin-top:10px;
-}
-
 /* global theme styles */
 
 
@@ -694,6 +688,12 @@ a.gym-button:hover, a.gym-button:link:hover
 	{
 		text-decoration: none;
 	}
+
+  b {
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: .025em;
+    vertical-align: -.042em;
+  }
 }
 
 .gym-button:hover
@@ -703,8 +703,6 @@ a.gym-button:hover, a.gym-button:link:hover
 }
 
 .gym-button {
-  display: block;
-  width: 100%;
   font-size: 1em;
   color: #fff;
   text-align: center;
