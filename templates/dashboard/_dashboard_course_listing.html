@@ -133,54 +133,6 @@ from student.helpers import (
         % endif
       <li>
     </ul>
-
-    % if settings.FEATURES.get('ENABLE_VERIFIED_CERTIFICATES'):
-      % if enrollment.mode == "verified":
-        % if settings.FEATURES.get('SEPARATE_VERIFICATION_FROM_PAYMENT') and request.session.get('separate-verified', False):
-          % if verification_status.get('status') in [VERIFY_STATUS_NEED_TO_VERIFY, VERIFY_STATUS_SUBMITTED]:
-            <span class="sts-enrollment" title="${_("Your verification is pending")}">
-              <span class="label">${_("Enrolled as: ")}</span>
-              ## Translators: This text describes that the student has enrolled for a Verified Certificate, but verification of identity is pending.
-              <img class="deco-graphic" src="${static.url('images/verified-ribbon.png')}" alt="${_("ID verification pending")}" />
-              ## Translators: The student is enrolled for a Verified Certificate, but verification of identity is pending.
-              <div class="sts-enrollment-value">${_("Verified: Pending Verification")}</div>
-            </span>
-          % elif verification_status.get('status') == VERIFY_STATUS_APPROVED:
-            <span class="sts-enrollment" title="${_("You're enrolled as a verified student")}">
-              <span class="label">${_("Enrolled as: ")}</span>
-              <img class="deco-graphic" src="${static.url('images/verified-ribbon.png')}" alt="${_("ID Verified Ribbon/Badge")}" />
-              <div class="sts-enrollment-value">${_("Verified")}</div>
-            </span>
-          % else:
-            <span class="sts-enrollment" title="${_("You're enrolled as an honor code student")}">
-              <span class="label">${_("Enrolled as: ")}</span>
-              <div class="sts-enrollment-value">${_("Honor Code")}</div>
-            </span>
-          % endif
-        % else:
-          <span class="sts-enrollment" title="${_("You're enrolled as a verified student")}">
-            <span class="label">${_("Enrolled as: ")}</span>
-            <img class="deco-graphic" src="${static.url('images/verified-ribbon.png')}" alt="${_("ID Verified Ribbon/Badge")}" />
-            <div class="sts-enrollment-value">${_("Verified")}</div>
-          </span>
-        % endif
-      % elif enrollment.mode == "honor":
-        <span class="sts-enrollment" title="${_("You're enrolled as an honor code student")}">
-          <span class="label">${_("Enrolled as: ")}</span>
-          <div class="sts-enrollment-value">${_("Honor Code")}</div>
-        </span>
-      % elif enrollment.mode == "audit":
-        <span class="sts-enrollment" title="${_("You're auditing this course")}">
-          <span class="label">${_("Enrolled as: ")}</span>
-          <div class="sts-enrollment-value">${_("Auditing")}</div>
-        </span>
-      % elif enrollment.mode == "professional":
-        <span class="sts-enrollment" title="${_("You're enrolled as a professional education student")}">
-        <span class="label">${_("Enrolled as: ")}</span>
-        <div class="sts-enrollment-value">${_("Professional Ed")}</div>
-      </span>
-      % endif
-    % endif
   </article>
 </li>
 
