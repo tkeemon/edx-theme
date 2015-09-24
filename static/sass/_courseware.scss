@@ -220,6 +220,11 @@ nav.progress.wrapper-course-material
   padding-top: 1.2em;
   padding-bottom: 1.2em;
 
+	h1,h2,h3,h4,h5,h6
+	{
+		font-family:brandon-grotesque;
+		font-weight:900;
+	}
 	.course-info
 	{
 		border: 1px solid #ccc;
@@ -261,6 +266,7 @@ nav.progress.wrapper-course-material
 		h1
 		{
 			color:white;
+			font-family:brandon-grotesque;
 		}
 	}
 
