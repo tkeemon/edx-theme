@@ -21,7 +21,7 @@
 		}
 
 		.title
-		{	
+		{
 			border:0px;
 			background-color:$gym-textblock-color;
 			color:$gym-white;
@@ -46,8 +46,8 @@
 
 			h2
 			{
-				color:$gym-white;	
-				margin:0; 
+				color:$gym-white;
+				margin:0;
 				padding:0;
 				padding-bottom:1.5em;
 				text-transform:none;
@@ -59,7 +59,7 @@
 			//augmenting the style defined in _gymnasium.scss
 			.gym-button
 			{
-				text-transform:none;				
+				text-transform:none;
 				padding:15px 20px;
 				display:inline-block;
 				color:white;
@@ -107,7 +107,7 @@
 				text-transform:uppercase;
 				font-size:42pt;
 				font-weight:bold;
-				
+
 			}
 
 			a:hover, a:link:hover
@@ -168,7 +168,7 @@
 		{
 			display:block;
 		}
-		.header-tab 
+		.header-tab
 		{
 			text-align: center;
 
@@ -199,7 +199,7 @@
 			    margin-top: -1.2em;
 			}
 		}
-		
+
 	}
 
 	.container.grey
@@ -212,11 +212,6 @@
 	.container-fluid
 	{
 		padding-bottom:4em;
-
-		h1,h2,h3,h4,h5,h6
-		{
-			font-family:$sans-serif;
-		}
 
 		h1
 		{
@@ -325,15 +320,6 @@
 
 	}
 
-	blockquote:before
-	{
-		/*content:"“";
-		font-size:427pt;
-		opacity:0.1;
-		color:$gym-medium-grey;
-		position:relative;
-		*/
-	}
 
 	.testimonial {
 		text-align: center;
@@ -342,7 +328,7 @@
 	.quote {
 		display: inline-block;
 		position: relative;
-		font-family: "Brandon Grotesque", "Helvetica Neue", Helvetica, sans-serif;
+		font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
 		color: #aaa;
 		letter-spacing: .025em;
 		vertical-align: middle;
@@ -436,7 +422,7 @@
 			}
 
 			.cover-image
-			{				
+			{
 				img
 				{
 					height:100%;
