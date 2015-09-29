@@ -162,11 +162,6 @@ nav.progress.wrapper-course-material
 	}
 }
 
-.quiz-problem span
-{
-	font:inherit;
-}
-
 /** strange specificity here to get past existing style rules, sadly **/
 .container>div.info-wrapper
 {
@@ -190,5 +185,101 @@ nav.progress.wrapper-course-material
 		{
 			padding:10px 0 0px 0;
 		}
+	}
+}
+
+
+.course-title {
+	background: #777;
+	}
+
+#content .course-title header
+{
+	margin-top:0px;
+}
+
+.course-title h1 {
+	font: 900 1.8em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	letter-spacing: .05em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+	margin-top:15px;
+	text-align:left;
+}
+
+
+.course
+{
+	background: #ebebeb;
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+
+	h1,h2,h3,h4,h5,h6
+	{
+		font-family:brandon-grotesque;
+		font-weight:900;
+	}
+	.course-info
+	{
+		border: 1px solid #ccc;
+	}
+
+	.course-overview
+	{
+		background:white;
+		padding:2.5em;
+	}
+
+	.teacher-image
+	{
+		border: 1px solid #999;
+    height: 115px;
+    float: left;
+    margin: 0 15px 0px 0;
+    overflow: hidden;
+    width: 115px;
+
+		img
+		{
+			display: block;
+	    min-height: 100%;
+	    max-width: 100%;
+		}
+	}
+
+	header.hero-title
+	{
+		padding:1.2em;
+	}
+
+	.hero-banner
+	{
+		background: #777;
+		border-bottom: 1px solid #ccc;
+
+		h1
+		{
+			color:white;
+			font-family:brandon-grotesque;
+		}
+	}
+
+	.course-metabar
+	{
+		background: #444;
+		padding: 2.2em;
+
+		strong
+		{
+			font: 1.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+			color: #ccc;
+		}
+
+	}
+
+	.level strong
+	{
+		font-weight: normal;
 	}
 }

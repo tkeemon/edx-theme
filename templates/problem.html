@@ -4,10 +4,61 @@
 <h2 class="problem-header">
   ${ problem['name'] }
 </h2>
-
 <div class="problem-progress"></div>
 
-<div class="quiz-problem" aria-live="polite" aria-relevant="all">
+<div class="passed_modal hidden" aria-hidden="true">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <br />
+      <h2>Congratulations!</h2>
+      <p>Congratulations on completing the course and passing the final exam with flying colors. You really know your stuff!</p>
+
+      <p>Make sure to show off to your friends and colleagues by downloading your certificate of completion from your <a href="/dashboard">dashboard</a>.</p>
+
+      <p>Also, before you head for the hills, please take a moment to share your thoughts with us via this quick survey. Your feedback will help shape our future offerings.</p>
+    </div>
+  </div>
+  <div class="row">
+    <a class="gym-button text-center col-md-2 col-md-offset-5" href="https://www.surveymonkey.com/s/JYJPMSS" target="_blank">
+      Take Our Survey
+    </a>
+  </div>
+</div>
+
+<div class="try_again_modal hidden" aria-hidden"true">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <br />
+      <h2>You're almost there!</h2>
+      <p>We're really thrilled that you made it this far through the class.  At this point, you got a {{score}} - and to pass you need to get greater than an 80.  </p>
+
+      <p><strong>Lucky for you</strong> you've still got another try left on the exam. If you're able to take it again and pass, you'll recieve an official certification.</p>
+
+      <p>This is a great time to go back and review the course material.  Take a look at things you may have struggled with, and have another go at the exam when you feel prepared.  Good luck!</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="failed_modal hidden" aria-hidden="true">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <br />
+      <h2></h2>
+      <p>You deserve a lot of credit! Only 1 in 10 students who takes a massive open online course like this actually finishes it, so your commitment puts you in an elite crowd.</p>
+
+      <p>We’re thrilled you joined us and would love your feedback to make Aquent Gymnasium courses even better. Please take a moment to share your thoughts with us via this quick survey. Your feedback will help shape our future offerings.</p>
+
+    </div>
+  </div>
+  <div class="row">
+    <a class="gym-button text-center col-md-2 col-md-offset-5" href="https://www.surveymonkey.com/s/JYJPMSS" target="_blank">
+      Take Our Survey
+    </a>
+  </div>
+</div>
+
+<div class="problem" aria-live="polite" aria-relevant="all">
   ${ problem['html'] }
 
   <div class="action">
@@ -28,14 +79,103 @@
     % if attempts_allowed :
     <div class="submission_feedback">
       ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
+
+      <span class="hidden attempts_used">${attempts_used}</span>
+      <span class="hidden attempts_total">${attempts_allowed}</span>
     </div>
     % endif
   </div>
 </div>
 
-
 <script>
   $(function(){
     Prism.highlightAll();
+  });
+
+  $(function(){
+
+    if ($('.problem-header').text().trim() === "Final Exam")
+    {
+      var progress_status_check = setInterval(check_status, 200);
+      console.log('set interval fired');
+    }
+    else {
+      return;
+    }
+
+    function check_status(){
+      console.log('doing it');
+      var status = $('[data-progress_status').attr('data-progress_status').trim();
+      console.log("status is '" + status + "'");
+
+
+      var progress_string = $('.problem-progress').text().trim();
+      var slash = progress_string.indexOf("/");
+      console.log('slash position is ' + slash);
+
+      if (status === 'done' || slash >= 0 || progress_string.indexOf("possible") >= 0)
+      {
+        console.log('clearing interval');
+        clearInterval(progress_status_check);
+        show_problem_progress();
+      }
+    }
+
+    var show_problem_progress = function(){
+
+      var progress_string = $('.problem-progress').text().trim();
+      var slash = progress_string.indexOf("/");
+
+      if (progress_string.indexOf("possible") >= 0 )
+      {
+        return;
+      }
+      var slash = progress_string.indexOf("/");
+      var correct = progress_string.substring(1,slash);
+      var out_of = progress_string.substring(slash+1);
+      var out_of = out_of.substring(0, out_of.indexOf(" "))
+
+      console.log("correct: " + correct + " out of: " + out_of);
+      var score = correct / out_of * 100; //score out of 11
+
+
+      var attempts_used = $('.attempts_used').text();
+      var attempts_total = $('.attempts_total').text();
+      var attempts_remaining = attempts_total - attempts_used;
+
+
+      var passing_score = 80;
+
+      if (progress_string.length > 0)
+      {
+        //we have a score
+        if (score >= passing_score)
+        {
+          //we passed! show passing div
+          $(".passed_modal").removeClass('hidden');
+          $(".try_again_modal").addClass('hidden');
+          $(".failed_modal").addClass('hidden');
+          console.log("passed");
+        }
+        else
+        {
+          //we failed :( see if we have another attempt
+          if (attempts_remaining > 0)
+          {
+            $(".passed_modal").addClass('hidden');
+            $(".try_again_modal").removeClass('hidden');
+            $(".failed_modal").addClass('hidden');
+            console.log("t again");
+          }
+          else
+          {
+            $(".passed_modal").addClass('hidden');
+            $(".try_again_modal").addClass('hidden');
+            $(".failed_modal").removeClass('hidden');
+            console.log("failed");
+          }
+        }
+      }
+    }
   });
 </script>

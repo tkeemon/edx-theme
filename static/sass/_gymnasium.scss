@@ -82,12 +82,70 @@ $black-80: #585858;
 //  Font Assignment
 //-----------------
 
+/* --- regular --- */
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../themes/gymnasium/fonts/brandon_reg-webfont.woff") format("woff"),
+	url("../themes/gymnasium/fonts/brandon_reg-webfont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: normal;
+	}
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../themes/gymnasium/fonts/brandon_reg_it-webfont.woff") format("woff"),
+	url("../themes/gymnasium/fonts/brandon_reg_it-webfont.woff2") format("woff2");
+	font-style: italic;
+	font-weight: normal;
+	}
+
+/* --- bold --- */
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../themes/gymnasium/fonts/brandon_bld-webfont.woff") format("woff"),
+	url("../themes/gymnasium/fonts/brandon_bld-webfont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: bold;
+	}
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../themes/gymnasium/fonts/brandon_bld_it-webfont.woff") format("woff"),
+	url("../themes/gymnasium/fonts/brandon_bld_it-webfont.woff2") format("woff2");
+	font-style: italic;
+	font-weight: bold;
+	}
+
+/* --- black --- */
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../themes/gymnasium/fonts/brandon_blk-webfont.woff") format("woff"),
+	url("../themes/gymnasium/fonts/brandon_blk-webfont.woff2") format("woff2");
+	font-style: normal;
+	font-weight: 900;
+	}
+
+@font-face {
+	font-family: brandon-grotesque;
+	src: url("../themes/gymnasium/fonts/brandon_blk_it-webfont.woff") format("woff"),
+	url("../themes/gymnasium/fonts/brandon_blk_it-webfont.woff2") format("woff2");
+	font-style: italic;
+	font-weight: 900;
+	}
+
+
+
 $theme-sans-font: "brandon-grotesque";
 $sans-serif: $theme-sans-font, $sans-serif;
 $body-font-family: $sans-serif;
 
 $theme-serif-font: 'Helvetica Neue';
 $serif: $theme-serif-font, $serif;
+
+
 
 
 //-----------------
@@ -215,7 +273,7 @@ $form-bg-color: $gray-1;
 $modal-bg-color: $gray-1;
 
 //TOP HEADER IMAGE MARGIN
-$header_image_margin: -77px;
+$header_image_margin: 0px;
 
 //FOOTER MARGIN
 $footer_margin: ($baseline/4) 0;
@@ -247,11 +305,6 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
     text-align: right;
 }
 
-
-
-
-
-
 /* individual page styles */
 @import 'home';
 @import 'catalog';
@@ -259,6 +312,19 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 @import 'courseware';
 @import 'dashboard';
 @import 'prism'; //used for prism.js syntax highlighting
+
+
+body a:hover,
+body a:focus,
+.dashboard .my-courses .course .info>hgroup h3 a:hover,
+.dashboard .my-courses .course .info>hgroup h3 a:focus,
+.dashboard .my-courses .course .info>hgroup h3 span:hover,
+.dashboard .my-courses .course .info>hgroup h3 span:focus
+{
+  text-decoration: underline;
+  color:$gym-orange;
+}
+
 
 #top-navs
 {
@@ -280,7 +346,7 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 		border:0;
 		background:transparent;
 		box-shadow:none;
-    padding:0;
+    padding:0; /* mocking the bootstrap style rule for consistency throughout page */
 	}
 }
 
@@ -296,10 +362,50 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 
 #primary-nav
 {
+
+  @extend #top-navs;
+  height:50px;
+
+  .gym-nav-icon-container
+  {
+    padding-top:13px;
+  }
+  .gym-nav-icon-container:hover
+  {
+    background-color:transparent;
+  }
+
+  .navbar
+  {
+    margin-bottom:0;
+    height:50px;
+  }
+
+	.navbar-nav
+	{
+		height:50px;
+	}
+
+	nav
+	{
+		height:50px;
+	}
+
+	.navbar-nav > li > a
+	{
+		padding-top:14px;
+		padding-bottom:14px;
+	}
+  .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+  {
+
+  }
+
 	.nav li a
 	{
 		background-color:transparent;
 		color:$gym-orange;
+
 
 		.caret
 		{
@@ -346,7 +452,12 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 	@extend #top-navs;
 	height:70px;
 	background-color:$gym-dark-grey;
-	padding-top:10px;
+
+  >.container
+  {
+    padding-top:10px;
+  }
+
 	a
 	{
 		font-size:15px;
@@ -389,31 +500,6 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 	}
 }
 
-#primary-nav
-{
-	@extend #top-navs;
-	height:50px;
-
-	.gym-nav-icon-container
-	{
-		padding-bottom:10px;
-	}
-	.gym-nav-icon-container:hover
-	{
-		background-color:transparent;
-	}
-
-	.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
-	{
-
-	}
-}
-
-#content header
-{
-	margin-top:10px;
-}
-
 /* global theme styles */
 
 
@@ -430,7 +516,7 @@ header.global,
 	box-shadow:none;
 	border:none;
 	width:inherit;
-	height:100px;
+	height:120px;
 	background-color:$gym-dark-grey;
 
 	.container, .container.grey
@@ -578,6 +664,13 @@ section
 }
 
 
+
+
+
+
+
+
+
 a.gym-button:link, a.gym-button:visited
 {
 	color:white;
@@ -610,6 +703,12 @@ a.gym-button:hover, a.gym-button:link:hover
 	{
 		text-decoration: none;
 	}
+
+  b {
+    font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: .025em;
+    vertical-align: -.042em;
+  }
 }
 
 .gym-button:hover
@@ -617,6 +716,221 @@ a.gym-button:hover, a.gym-button:link:hover
 	background-color:transparentize($gym-orange,0.25);
 	color:$gym-button-hover-color;
 }
+
+.gym-button {
+  font-size: 1em;
+  color: #fff;
+  text-align: center;
+  background: #f89820;
+  padding: 1em;
+  border: 0;
+  border-radius: .125em;
+  margin: auto;
+}
+
+.gym-button:hover,
+input[type="submit"]:hover:not(:disabled),
+input[type="button"]:hover:not(:disabled),
+button:hover:not(:disabled),
+.button:hover:not(:disabled)
+{
+	background: #999;
+  background-image:none;
+  box-shadow: none;
+}
+
+.gym-button:focus,
+.gym-button:active
+{
+	background: #444;
+}
+
+.gym-button b
+{
+	font: bold 1.6em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: .025em;
+	vertical-align: text-top;
+}
+
+.gym-link
+{
+	color: #f89820;
+}
+
+.gym-link:hover
+{
+	border-bottom: 1px solid #f89820;
+}
+
+.gym-link:focus,
+.gym-link:active
+{
+	border-bottom-color: #444;
+}
+
+.modal
+{
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+.dialog
+{
+	position: relative;
+	top: 10%;
+	width: 37em;
+	background: #fff;
+	padding: 1.2em;
+	border: 1.2em solid #444;
+	border-radius: .125em;
+	margin: auto;
+}
+
+.dialog legend
+{
+	width: 100%;
+	text-align: center;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 1.2em;
+}
+
+.dialog legend b
+{
+	font: 900 1.6em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #222;
+	letter-spacing: .06em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+}
+
+.dialog .error
+{
+	background: #f2dede;
+	padding: 1em;
+	border: 1px solid #d9534f;
+	border-radius: .12em;
+	margin-bottom: 1.2em;
+
+  font-size: 1em;
+	color: #d9534f;
+  font-weight: bold;
+
+}
+
+.dialog p
+{
+	font: .9em/1.4 "Helvetica Neue", Helvetica, sans-serif;
+	color: #444;
+	letter-spacing: .01em;
+}
+
+.dialog fieldset
+{
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+.dialog ul
+{
+	list-style: none;
+	padding-left: 0;
+}
+
+.dialog li
+{
+	border-bottom: .15em solid #f89820;
+	margin-bottom: 1.2em;
+	box-sizing: border-box;
+}
+
+.dialog form label,
+.dialog form input
+{
+	display: block;
+}
+
+.dialog form label
+{
+	font: 1.1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #222;
+	letter-spacing: .03em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+}
+
+.dialog form input
+{
+  background:none;
+  border: none;
+  box-shadow:none;
+
+	font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
+	width: 100%;
+	padding-top: .6em;
+	padding-bottom: .6em;
+	border: 0;
+	margin-top: .3em;
+  box-sizing: border-box;
+}
+
+.dialog form input[type="checkbox"]
+{
+  display:inline;
+}
+
+.dialog .message
+{
+	padding-right: 1.2em;
+	padding-bottom: 1.2em;
+	padding-left: 1.2em;
+	border-bottom: 1px solid #ebebeb;
+	margin-bottom: 1.2em;
+}
+
+.dialog ul + .message
+{
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.dialog form button
+{
+	margin-top: 1.2em;
+}
+
+.close-modal-content
+{
+	width: auto;
+	padding: .3em 1em;
+	border: 0;
+	border-radius: 0 0 .125em .125em;
+	margin-top: -1.2em;
+}
+
+.close-modal b
+{
+	font: bold .8em/1.3 "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: .1em;
+	word-spacing: normal;
+	text-transform: uppercase;
+  padding: 0.7em 1.5em;
+  border-radius: 0 0 .27em .27em;
+}
+
+.close-modal
+{
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:-1.2em;
+}
+
 
 .gym-icon
 {
@@ -656,7 +970,23 @@ h1,h2,h3,h4,h5,h6
 {
 	text-align:left;
 	text-transform:uppercase;
-	font-family:"brandon-grotesque";
+	font-family:brandon-grotesque;
+}
+
+h1
+{
+	font: 900 2.4em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	letter-spacing: .04em;
+	word-spacing: .05em;
+	text-transform: uppercase;
+}
+
+h2
+{
+	font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: .06em;
+  word-spacing: .04em;
+  text-transform: uppercase;
 }
 
 code, code *
