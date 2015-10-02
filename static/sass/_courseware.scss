@@ -68,6 +68,10 @@ body.courseware
 			{
 				font-size:20pt;
 				margin:5px 0 0 0;
+				span
+				{
+					color:white;
+				}
 			}
 		}
 		.course-tabs
@@ -212,8 +216,8 @@ nav.progress.wrapper-course-material
 .course
 {
 	background: #ebebeb;
-  padding-top: 1.2em;
-  padding-bottom: 1.2em;
+  padding-top: 0;
+  padding-bottom: 0;
 
 	h1,h2,h3,h4,h5,h6
 	{
@@ -262,6 +266,11 @@ nav.progress.wrapper-course-material
 		{
 			color:white;
 			font-family:brandon-grotesque;
+		}
+
+		img
+		{
+			max-height:325px;
 		}
 	}
 

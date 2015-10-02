@@ -120,7 +120,7 @@ from edxmako.shortcuts import marketing_link
   <div class="course-info container">
     <section class="hero-banner row">
       <header class="col-md-12 ">
-        <img src="${course_image_url(course)}" alt="" class="image-responsive center-block row" />
+        <img src="${course_image_url(course)}" alt="" class="image-responsive center-block row" id="course-image" />
         <h1 class="row">${get_course_about_section(course, "title")}</h1>
       </header>
     </section>
@@ -193,5 +193,12 @@ from edxmako.shortcuts import marketing_link
     </form>
   </div>
 %endif
+
+
+<script>
+  $(function(){
+    Gymnasium.setBackgroundColorOfElementFromImage('.hero-banner', '#course-image');
+  });
+</script>
 
 <%include file="../video_modal.html" />
