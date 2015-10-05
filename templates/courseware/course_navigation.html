@@ -92,6 +92,12 @@ def url_class(is_active):
 </nav>
 %endif
 
+<script>
+  $(function(){
+    Gymnasium.setBackgroundColorOfElementFromImage('#course-title-header', document.getElementById('course-image'));
+  });
+</script>
+
 % if show_preview_menu:
 <script type="text/javascript">
 (function() {
