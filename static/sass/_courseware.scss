@@ -292,3 +292,79 @@ nav.progress.wrapper-course-material
 		font-weight: normal;
 	}
 }
+
+
+
+/*** COURSE ABOUT SECTION ***/
+
+.course-about-overview
+{
+	.hero
+	{
+		p
+		{
+			font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+			font-size: 1.6em;
+			line-height: 1.5;
+			letter-spacing: .01em;
+			word-spacing: .02em;
+		}
+	}
+}
+
+.course-about-overview section {
+	border-top: 1px solid #ddd;
+	margin-top: 1.8em;
+}
+
+.course-about-overview {
+	border-bottom: 0;
+	border-right: 1px dashed #ccc;
+}
+
+.course-about h2 {
+	font: 900 1.2em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #222;
+	letter-spacing: .06em;
+	word-spacing: .04em;
+	text-transform: uppercase;
+	margin-bottom: 1em;
+	margin-top:1em;
+}
+
+.course-about h3 {
+	font: bold 1.2em/1.4 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #222;
+	letter-spacing: .02em;
+	word-spacing: .04em;
+	margin-top: 1em;
+	text-transform:capitalize;
+}
+
+.course-about ol,
+.course-about ul {
+padding-left: 0;
+}
+
+.course-about-overview li {
+	margin-top: .8em;
+}
+
+
+#course-preview iframe {
+		margin-top: .6em;
+}
+
+.course-about-sidebar {
+	padding: 0 1.1em;
+	border-top: 0;
+	margin: 0;
+
+	h2
+	{
+		margin-top:0
+	}
+}
+
+
+/*** END COURSE ABOUT SECTION ***/
