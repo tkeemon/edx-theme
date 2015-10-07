@@ -564,6 +564,13 @@ header.global,
 		.cta.cta-register
 		{
 			color:$gym-white;
+			display:inline-block;
+			margin-top:-0.3em;
+
+			b
+			{
+					margin-top:4px;
+			}
 		}
 
 		.container
