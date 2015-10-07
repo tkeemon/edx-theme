@@ -354,6 +354,15 @@ body a:focus,
 		box-shadow:none;
     padding:0; /* mocking the bootstrap style rule for consistency throughout page */
 	}
+
+	footer
+	{
+		.copyright
+		{
+			text-align:center;
+			margin-top:1em;
+		}
+	}
 }
 
 .white-panel
