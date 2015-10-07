@@ -210,7 +210,7 @@
           % if external_auth_map is None or 'shib' not in external_auth_map.external_domain:
             <li class="controls--account password-reset">
               <span class="title">
-                <a href="#password_reset_complete" data-toggle="modal" data-target="#password_reset_complete" id="pwd_reset_button" class="gym-button"><b>${_("Reset Password")}</b></a></span>
+                <a href="#password_reset_complete" data-toggle="modal" data-target="#password_reset_complete" id="pwd_reset_button"><b>${_("Reset Password")}</b></a></span>
               <form id="password_reset_form" method="post" data-remote="true" action="${reverse('password_reset')}">
                 <input id="id_email" type="hidden" name="email" maxlength="75" value="${user.email}" />
                 <!-- <input type="submit" id="pwd_reset_button" value="${_("Reset Password")}" /> -->
