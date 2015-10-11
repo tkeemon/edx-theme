@@ -52,9 +52,9 @@ from student.helpers import (
       course_target = reverse('info', args=[course.id.to_deprecated_string()])
     %>
 
-    <header>
+    <header id = "course-header-${course.number}">
       <div class="row">
-        <img class="col-md-3 image-responsive" src="${course_image_url(course)}" alt="${_('{course_name} Cover Image').format(course_name=course.display_name_with_default) |h}" />
+        <img class="col-md-3 image-responsive" src="${course_image_url(course)}" alt="${_('{course_name} Cover Image').format(course_name=course.display_name_with_default) |h}" id ="course-image-${course.number}" />
         <div class="col-md-9">
           <h1>${course.display_name_with_default}</h1>
           <div class="row">
@@ -146,5 +146,11 @@ from student.helpers import (
              $('.disable-look-unregister').click();
          });
      }
+  });
+</script>
+
+<script>
+  $(function(){
+    Gymnasium.setBackgroundColorOfElementFromImage('#course-header-${course.number}', '#course-image-${course.number}');
   });
 </script>

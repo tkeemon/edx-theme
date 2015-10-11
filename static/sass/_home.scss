@@ -66,6 +66,7 @@
 				text-transform:none;
 				font-size:11pt;
 				text-align:left;
+				font-weight:normal;
 			}
 
 
@@ -77,6 +78,7 @@
 				display:inline-block;
 				color:white;
 				font-size:1.5em;
+				font-weight:900;
 			}
 		}
 
@@ -114,13 +116,13 @@
 			margin-bottom:10px;
 			display:block;
 
-			a
+			a, a:link, a:link:visited
 			{
 				color:$gym-orange;
 				text-transform:uppercase;
 				font-size:42pt;
 				font-weight:bold;
-
+				font-family:brandon-grotesque;
 			}
 
 			a:hover, a:link:hover
@@ -132,6 +134,12 @@
 		p
 		{
 			color:inherit; //$gym-dark-grey;
+
+			a, a:link, a:link:visited
+			{
+				color:$gym-orange;
+				font-weight:bold;
+			}
 		}
 
 		a.gym-button
@@ -140,6 +148,8 @@
 			display:block;
 			margin: 20px 0 5px 0;
 			padding:20px;
+			font-size:2.3em;
+			font-weight:900;
 		}
 
 	}
@@ -210,6 +220,7 @@
 			    text-transform: uppercase;
 			    vertical-align: 1.2em;
 			    margin-top: -1.2em;
+					text-align:center;
 			}
 		}
 

@@ -10,15 +10,18 @@
       <nav>
         <div class="col-md-4">
           <a href="${marketing_link('ROOT')}">
-            <img class="gymnasium-logo"  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >  
+            <img class="gymnasium-logo"  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >
           </a>
         </div>
-        <ol class="list-inline col-md-4 text-center footer-link-list">
-          <li><a href="${reverse('about')}">About</a></li>
-          <li><a href="${marketing_link('FAQ')}">FAQ</a></li>
-          <li><a href="mailto:gymhelp@aquent.com">Support</a></li>
-          <li><a href="${reverse('tos')}">Privacy Policy</a></li>
-        </ol>
+        <div class="col-md-4">
+          <ol class="list-inline text-center footer-link-list">
+            <li><a href="${reverse('about')}">About</a></li>
+            <li><a href="${marketing_link('FAQ')}">FAQ</a></li>
+            <li><a href="mailto:gymhelp@aquent.com">Support</a></li>
+            <li><a href="${reverse('tos')}">Privacy Policy</a></li>
+          </ol>
+          <div class="copyright">&copy; 2015 Aquent Gymnasium</div>
+        </div>
       </nav>
 
       <div class="built-on col-md-4 text-center">
@@ -32,6 +35,8 @@
         </span>
       </div>
     </div>
+    <div class="row">
+
+    </div>
   </footer>
 </div>
-

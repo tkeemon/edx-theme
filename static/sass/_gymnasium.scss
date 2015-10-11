@@ -311,8 +311,14 @@ $vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
 @import 'about';
 @import 'courseware';
 @import 'dashboard';
+@import 'assessment';
 @import 'prism'; //used for prism.js syntax highlighting
 
+
+p
+{
+		font-size: 1.2em/1.6em;
+}
 
 body a:hover,
 body a:focus,
@@ -347,6 +353,15 @@ body a:focus,
 		background:transparent;
 		box-shadow:none;
     padding:0; /* mocking the bootstrap style rule for consistency throughout page */
+	}
+
+	footer
+	{
+		.copyright
+		{
+			text-align:center;
+			margin-top:1em;
+		}
 	}
 }
 
@@ -460,7 +475,7 @@ body a:focus,
 
 	a
 	{
-		font-size:15px;
+		font-size:1.2em;
 		color:$gym-white;
 	}
 
@@ -508,6 +523,12 @@ body a:focus,
 	color:$gym-light-grey;
 }
 
+
+body header.global.slim
+{
+	border-bottom:none ;
+}
+
 header.global,
 {
 
@@ -543,6 +564,13 @@ header.global,
 		.cta.cta-register
 		{
 			color:$gym-white;
+			display:inline-block;
+			margin-top:-0.3em;
+
+			b
+			{
+					margin-top:4px;
+			}
 		}
 
 		.container
@@ -726,6 +754,7 @@ a.gym-button:hover, a.gym-button:link:hover
   border: 0;
   border-radius: .125em;
   margin: auto;
+	cursor:pointer;
 }
 
 .gym-button:hover,
@@ -747,9 +776,9 @@ button:hover:not(:disabled),
 
 .gym-button b
 {
-	font: bold 1.6em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
 	letter-spacing: .025em;
-	vertical-align: text-top;
+	vertical-align: top;
 }
 
 .gym-link
@@ -966,11 +995,27 @@ button:hover:not(:disabled),
 	background-image:$vitamin-t-icon-image;
 }
 
-h1,h2,h3,h4,h5,h6
+html
 {
-	text-align:left;
-	text-transform:uppercase;
-	font-family:brandon-grotesque;
+	body
+	{
+		h1,h2,h3,h4,h5,h6
+		{
+			text-align:left;
+			text-transform:uppercase;
+			font-family:brandon-grotesque;
+		}
+
+		h1, h2
+		{
+			font-weight:900;
+		}
+
+		h3,h4,h5,h6
+		{
+			font-weight:bold;
+		}
+	}
 }
 
 h1

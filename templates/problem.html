@@ -65,24 +65,32 @@
     <input type="hidden" name="problem_id" value="${ problem['name'] }" />
 
     % if check_button:
-    <input class="check ${ check_button }" type="button" data-checking="${ check_button_checking }" value="${ check_button }" />
+      <span>
+        <a class="gym-button check-answer ${ check_button }" data-type="button" data-checking="${ check_button_checking }"><b>${ check_button }</b></a>
+      </span>
     % endif
     % if reset_button:
-    <input class="reset" type="button" value="${_('Reset')}" />
+      <span>
+        <a class="gym-button reset-answer" data-type="button"><b>${_('Reset')}</b></a>
+      </span>
     % endif
     % if save_button:
-    <input class="save" type="button" value="${_('Save')}" />
+      <span>
+        <a class="gym-button save-answer" data-type="button"><b>${_('Save')}</b></a>
+      </span>
     % endif
     % if answer_available:
-    <button class="show"><span class="show-label">${_('Show Answer')}</span> <span class="sr">${_("Reveal Answer")}</span></button>
+      <span>
+        <a class="gym-button show-answer"><b>${_('Show Answer')}</b></a>
+      </span>
     % endif
     % if attempts_allowed :
-    <div class="submission_feedback">
-      ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
+      <span class="submission_feedback">
+        ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
 
-      <span class="hidden attempts_used">${attempts_used}</span>
-      <span class="hidden attempts_total">${attempts_allowed}</span>
-    </div>
+        <span class="hidden attempts_used">${attempts_used}</span>
+        <span class="hidden attempts_total">${attempts_allowed}</span>
+      </span>
     % endif
   </div>
 </div>

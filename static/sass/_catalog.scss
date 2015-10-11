@@ -2,6 +2,22 @@
 {
 	background-color:white;
 
+	.my-courses .course-item header
+	{
+		padding:0;
+
+		h1
+		{
+			margin:0;
+			padding:0;
+		}
+	}
+
+	p
+	{
+		font:1.2em/1.4 "Helvetica Neue", Helvetica, sans-serif;
+		color:#444;
+	}
 
 	.course-menu
 	{
@@ -47,7 +63,7 @@
 
 	.course-overview
 	{
-		padding: 2.4em;
+		padding: 1.4em;
     border-right: 1px dashed #ccc;
     border-radius: .125em;
 
@@ -112,6 +128,7 @@
 			word-spacing: .05em;
 			margin-bottom: .6em;
 			margin-left:1.2em;
+			margin-top:1em;
 		}
 
 		dt
@@ -165,7 +182,7 @@
 
 	.sidebar
 	{
-		padding: 2.4em;
+		padding: 1.4em;
 		box-sizing: border-box;
 		overflow: hidden;
 
