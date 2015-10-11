@@ -105,25 +105,20 @@
     if ($('.problem-header').text().trim() === "Final Exam")
     {
       var progress_status_check = setInterval(check_status, 200);
-      console.log('set interval fired');
     }
     else {
       return;
     }
 
     function check_status(){
-      console.log('doing it');
       var status = $('[data-progress_status').attr('data-progress_status').trim();
-      console.log("status is '" + status + "'");
 
 
       var progress_string = $('.problem-progress').text().trim();
       var slash = progress_string.indexOf("/");
-      console.log('slash position is ' + slash);
 
       if (status === 'done' || slash >= 0 || progress_string.indexOf("possible") >= 0)
       {
-        console.log('clearing interval');
         clearInterval(progress_status_check);
         show_problem_progress();
       }
@@ -143,7 +138,6 @@
       var out_of = progress_string.substring(slash+1);
       var out_of = out_of.substring(0, out_of.indexOf(" "))
 
-      console.log("correct: " + correct + " out of: " + out_of);
       var score = correct / out_of * 100; //score out of 11
 
 
@@ -163,7 +157,6 @@
           $(".passed_modal").removeClass('hidden');
           $(".try_again_modal").addClass('hidden');
           $(".failed_modal").addClass('hidden');
-          console.log("passed");
         }
         else
         {
@@ -173,14 +166,12 @@
             $(".passed_modal").addClass('hidden');
             $(".try_again_modal").removeClass('hidden');
             $(".failed_modal").addClass('hidden');
-            console.log("t again");
           }
           else
           {
             $(".passed_modal").addClass('hidden');
             $(".try_again_modal").addClass('hidden');
             $(".failed_modal").removeClass('hidden');
-            console.log("failed");
           }
         }
       }
