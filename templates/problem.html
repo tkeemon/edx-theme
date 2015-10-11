@@ -6,7 +6,7 @@
 </h2>
 <div class="problem-progress"></div>
 
-<div class="passed_modal hidden" aria-hidden="true">
+<div class="passed_modal hidden" aria-hidden="true" id="course_passed_message">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <br />
@@ -16,6 +16,7 @@
       <p>Make sure to show off to your friends and colleagues by downloading your certificate of completion from your <a href="/dashboard">dashboard</a>.</p>
 
       <p>Also, before you head for the hills, please take a moment to share your thoughts with us via this quick survey. Your feedback will help shape our future offerings.</p>
+
     </div>
   </div>
   <div class="row">
@@ -157,6 +158,16 @@
           $(".passed_modal").removeClass('hidden');
           $(".try_again_modal").addClass('hidden');
           $(".failed_modal").addClass('hidden');
+
+          //generate the certificate through the API
+          $.ajax({
+            type:     'POST',
+            url:      '/request_certificate',
+            data:     {'course_id': $$course_id},
+            success:  function(data) {
+            }
+          });
+
         }
         else
         {
