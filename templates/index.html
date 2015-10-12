@@ -106,12 +106,12 @@
         </div>
 
         <section class="row col-md-12 ">
-          <section class="highlighted-courses"> 
+          <section class="highlighted-courses">
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
               <section class="courses row">
                 <ul class="course-list row">
-                  %for idx, course in enumerate(courses):                    
-                    % if course.is_newish: 
+                  %for idx, course in enumerate(courses):
+                    % if course.is_newish:
                         <li class="course-list-item col-lg-4  col-md-6 col-sm-6 col-xs-12 ">
                           <%include file="course.html" args="course=course" />
                         </li>
@@ -143,12 +143,11 @@
     </div>
   </section>
 
-  <section class="container-fluid">
   <!-- <section class="container-fluid">
     <div class="container" id="get-work">
       <header class="header-tab text-center">
         <h1>Get Work</h1>
-      </header>  
+      </header>
       <section class="row" >
         <div class="text-center col-md-6 col-md-offset-3">
           Because we are also a lead talent agency, your newly learned skills can be put to work on many of our jobs...
@@ -217,7 +216,6 @@
         </div>
       </section>
     </div>
-  </section>
   </section> -->
 
   <section class="container-fluid white-panel">
@@ -251,7 +249,7 @@
             <h1>Twitter</h1>
           </header>
           <section>
-            
+
             <a class="twitter-timeline" href="https://twitter.com/GymnasiumTweets" data-widget-id="575294990856896512" data-chrome="nofooter noheader" height="275">Tweets by @GymnasiumTweets</a>
             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
@@ -274,31 +272,26 @@
         <ul class="col-md-12 list-inline text-center">
           <li>
             <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive" />
               <img src="${static.url('themes/gymnasium/images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive" />
               <img src="${static.url('themes/gymnasium/images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive" />
               <img src="${static.url('themes/gymnasium/images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive  center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.lemonde.fr/emploi/article/2014/06/30/les-firmes-americaines-recrutent-dans-les-mooc_4448062_1698637.html" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive" />
               <img src="${static.url('themes/gymnasium/images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive" />
               <img src="${static.url('themes/gymnasium/images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
