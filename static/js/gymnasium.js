@@ -21,11 +21,9 @@ Gymnasium.prototype.setBackgroundColorOfElementFromImage = function (element, im
     var g = data[1];
     var b = data[2];
     var a = data[3];
-    //console.log('color is ', data[0],data[1],data[2],data[3]);
+
     $(element).css('background-color','rgba(' + r + ',' + g + ',' + b + ',' + a + ')');
   })
-
-
 }
 
 var Gymnasium = new Gymnasium();
