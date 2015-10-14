@@ -121,7 +121,9 @@ from edxmako.shortcuts import marketing_link
     <section class="hero-banner row">
       <header class="col-md-12 ">
         <img src="${course_image_url(course)}" alt="" class="image-responsive center-block row" id="course-image" />
-        <h1 class="row">${get_course_about_section(course, "title")}</h1>
+        <div class="row">
+          <h1 class="col-md-12">${get_course_about_section(course, "title")}</h1>
+        </div>
       </header>
     </section>
     <div class="course-metabar row">
