@@ -12,17 +12,20 @@ Gymnasium.prototype.setBackgroundColorOfElementFromImage = function (element, im
   $(image).each(function(i,imgObj){
     myImg.src = imgObj.src;
 
-    var context = canvas.getContext('2d');
-    context.drawImage(myImg, 0, 0);
+    $(myImg).one('load',function(){
 
-    data = context.getImageData(1, 1, 1, 1).data;
+      var context = canvas.getContext('2d');
+      context.drawImage(myImg, 0, 0);
 
-    var r = data[0];
-    var g = data[1];
-    var b = data[2];
-    var a = data[3];
+      data = context.getImageData(1, 1, 1, 1).data;
 
-    $(element).css('background-color','rgba(' + r + ',' + g + ',' + b + ',' + a + ')');
+      var r = data[0];
+      var g = data[1];
+      var b = data[2];
+      var a = data[3];
+
+      $(element).css('background-color','rgba(' + r + ',' + g + ',' + b + ',' + a + ')');
+    });
   })
 }
 
