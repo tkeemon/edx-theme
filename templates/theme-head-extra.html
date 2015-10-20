@@ -29,8 +29,14 @@
 
 
 	$(function(){
-		$('.course-tabs li a b:contains("Courseware")')[0].innerHTML = "Lessons";
-		$('.course-tabs li a b:contains("Course Info")')[0].innerHTML = "Syllabus";
+		debugger;
+		$('.course-tabs li a b:contains("Courseware")').each(function(idx, value){
+			value.innerHTML = "Lessons";
+		});
+
+		$('.course-tabs li a b:contains("Course Info")').each(function(idx,value){
+			value.innerHTML = "Syllabus";
+		});
 		$('.course-tabs li:contains("Progress")').hide();
 		$('.course-tabs').show();
 	});
