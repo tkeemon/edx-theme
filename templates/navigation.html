@@ -59,14 +59,12 @@ site_status_msg = get_site_status_msg(course_id)
             <ul class="nav navbar-nav navbar-right">
 
               % if user.is_authenticated():
-
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle logged-in-username" data-toggle="dropdown" role="button" aria-expanded="false">
+              
+                <li>
+                  <a href="#" id="dropdown" class="logged-in-username">
                     ${user.username} <span class="caret"></span>
                   </a>
-                  <ul class="dropdown-menu" role="menu">
-
-
+                  <ul class="" id="dropdown-menu">
                     <li><a href="${reverse('logout')}" role="menuitem">${_("Log Out")}</a></li>
                   </ul>
                 </li>
@@ -151,3 +149,24 @@ site_status_msg = get_site_status_msg(course_id)
 %endif
 
 <%include file="help_modal.html"/>
+
+<script async>
+  $(function(){
+    var button = document.getElementById("dropdown");
+
+    $(button).click(function(){
+      var menu = document.getElementById("dropdown-menu");
+
+      var caret=$(button).children('.caret');
+
+      if (menu.style.display !== "inline") {
+          menu.style.display = "inline";
+          $(caret).hide();
+      }
+      else {
+        menu.style.display = "none";
+        $(caret).show();
+      }
+    });
+  })
+</script>
