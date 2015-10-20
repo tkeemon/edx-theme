@@ -78,7 +78,30 @@ body.courseware
 		.course-tabs
 		{
 			font-weight:normal;
-			padding:25px 0 0 0;
+			padding:0;
+			margin-left:0;
+
+			a
+			{
+				padding-left:0px;
+
+				b
+				{
+			    text-transform: uppercase;
+			    letter-spacing: .05em;
+			    border-bottom: 1px dashed transparent;
+			    vertical-align: -.15em;
+				}
+			}
+
+			a:hover{
+				color:$gym-orange;
+				background:none;
+				b
+				{
+					border-bottom: 1px solid $gym-orange;
+				}
+			}
 
 			a[class="active"]
 			{
@@ -87,6 +110,8 @@ body.courseware
 				background: none;
 				color:$gym-orange;
 			}
+
+
 		}
 	}
 }
