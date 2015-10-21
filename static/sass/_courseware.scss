@@ -202,26 +202,23 @@ nav.progress.wrapper-course-material
 .container>div.info-wrapper
 {
 	border:none;
-	border-radius:0;
+	border-radius:2px;
 	margin-bottom:100px;
+	border: 1px solid #ccc;
 
 	section.updates
 	{
+		font-size:12pt;
+		border-right:1px dashed #ccc;
 
 	}
 
 	section.handouts
 	{
-		background-color:$gym-medium-grey;
-		color:$gym-white;
+		font-size:12pt;
 		border-radius:0;
 		padding:0px 20px;
-
-		p
-		{
-			color: #bbb;
-		}
-
+		border-left:none;
 		h1
 		{
 			padding:10px 0 0px 0;
