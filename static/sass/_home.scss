@@ -24,9 +24,13 @@
 .home
 {
 
+	position:relative;
+	top:-11px;
+
 	header
 	{
 		border-bottom:$gym-white;
+		margin-top:11px;
 
 		.outer-wrapper
 		{
