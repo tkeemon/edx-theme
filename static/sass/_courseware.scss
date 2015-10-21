@@ -211,6 +211,11 @@ nav.progress.wrapper-course-material
 		font-size:12pt;
 		border-right:1px dashed #ccc;
 
+		section
+		{
+			margin-bottom:0;
+		}
+
 		ol, ul
 		{
 			padding-left:0;
@@ -247,6 +252,8 @@ nav.progress.wrapper-course-material
 		article
 		{
 			border-bottom:none;
+			margin-bottom:0;
+
 			section
 			{
 				border-top: 1px solid #ddd;
