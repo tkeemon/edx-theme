@@ -154,6 +154,11 @@ nav.progress.wrapper-course-material
 		{
 			background-color:$gym-medium-grey;
 
+			p.subtitle
+			{
+				display:none;
+			}
+
 			ul.ui-accordion-content
 			{
 				a
