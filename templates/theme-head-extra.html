@@ -21,3 +21,22 @@
 </script>
 
 <script src="${static.url('themes/gymnasium/js/gymnasium.js')}"> </script>
+
+<script>
+	//this is a nonsense hack to make courseware subnavigation look like
+	//what we want it to look like until we move to Cypress
+	//TODO: Unhackify this.
+
+
+	$(function(){
+		$('.course-tabs li a b:contains("Courseware")').each(function(idx, value){
+			value.innerHTML = "Lessons";
+		});
+
+		$('.course-tabs li a b:contains("Course Info")').each(function(idx,value){
+			value.innerHTML = "Syllabus";
+		});
+		$('.course-tabs li:contains("Progress")').hide();
+		$('.course-tabs').show();
+	});
+</script>
