@@ -62,8 +62,8 @@
       $('#register-form').on('ajax:error', function(event, jqXHR, textStatus) {
         toggleSubmitButton(true);
         json = $.parseJSON(jqXHR.responseText);
-        $('.status.message.submission-error').addClass('is-shown').focus();
-        $('.status.message.submission-error .message-copy').html(json.value).stop().css("display", "block");
+        $('.status.err-message.submission-error').addClass('is-shown').focus();
+        $('.status.err-message.submission-error .err-message-copy').html(json.value).stop().css("display", "block");
         $(".field-error").removeClass('field-error');
         $("[data-field='"+json.field+"']").addClass('field-error')
       });
@@ -113,13 +113,13 @@
             </div>
 
             <!-- status messages -->
-            <div role="alert" class="status message">
-              <h3 class="message-title">${_("We're sorry, {platform_name} enrollment is not available in your region").format(platform_name=platform_name)}</h3>
+            <div role="alert" class="status err-message">
+              <h3 class="err-message-title">${_("We're sorry, {platform_name} enrollment is not available in your region").format(platform_name=platform_name)}</h3>
             </div>
 
-            <div role="alert" class="status message submission-error" tabindex="-1">
-              <h3 class="message-title">${_("The following errors occurred while processing your registration:")} </h3>
-              <ul class="message-copy"> </ul>
+            <div role="alert" class="status err-message submission-error" tabindex="-1">
+              <h3 class="err-message-title">${_("The following errors occurred while processing your registration:")} </h3>
+              <ul class="err-message-copy"> </ul>
             </div>
 
             % if third_party_auth.is_enabled():
