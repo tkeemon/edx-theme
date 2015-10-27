@@ -6,17 +6,19 @@
 </h2>
 <div class="problem-progress"></div>
 
-<div class="passed_modal hidden" aria-hidden="true" id="course_passed_message">
+<div class="passed_modal hidden final-exam-status" aria-hidden="true" id="course_passed_message">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <br />
       <h2>Congratulations!</h2>
       <p>Congratulations on completing the course and passing the final exam with flying colors. You really know your stuff!</p>
 
-      <p>Make sure to show off to your friends and colleagues by downloading your certificate of completion from your <a href="/dashboard">dashboard</a>.</p>
+      <p>Show off to your friends and colleagues by downloading your Certificate of Excellence from your <a href="/dashboard">Dashboard</a>.</p>
 
-      <p>Also, before you head for the hills, please take a moment to share your thoughts with us via this quick survey. Your feedback will help shape our future offerings.</p>
 
+      <div class="survey">
+        <p>Before you head on to your next achievement, could you please take a moment to share your thoughts with us on a quick survey? Your feedback will help shape our future course offerings and let us know how <b>we’re</b> doing.</p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -26,30 +28,31 @@
   </div>
 </div>
 
-<div class="try_again_modal hidden" aria-hidden"true">
+<div class="try_again_modal hidden final-exam-status" aria-hidden"true">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <br />
-      <h2>You're almost there!</h2>
-      <p>We're really thrilled that you made it this far through the class.  At this point, you got a {{score}} - and to pass you need to get greater than an 80.  </p>
+      <h2>YOU'RE CLOSE!</h2>
+      <p>We're thrilled you’ve made it this far. You’ve scored a <span class="exam-score-container"></span> on the exam. To pass you need to get greater than an 85.</p>
 
-      <p><strong>Lucky for you</strong> you've still got another try left on the exam. If you're able to take it again and pass, you'll recieve an official certification.</p>
+      <p>Lucky for you, you've still got one more chance to pass. This would be a great time to go back and review the course material. Take a look at things you may have struggled with and have another go when you feel prepared. </p>
 
-      <p>This is a great time to go back and review the course material.  Take a look at things you may have struggled with, and have another go at the exam when you feel prepared.  Good luck!</p>
+      <p>Good luck!</p>
 
     </div>
   </div>
 </div>
 
-<div class="failed_modal hidden" aria-hidden="true">
+<div class="failed_modal hidden final-exam-status" aria-hidden="true">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
       <br />
-      <h2></h2>
-      <p>You deserve a lot of credit! Only 1 in 10 students who takes a massive open online course like this actually finishes it, so your commitment puts you in an elite crowd.</p>
+      <h2>AW, SHUCKS.</h2>
+      <p>Don’t worry, you deserve a lot of credit for finishing the course! Only 1 in 10 students who takes an online course like this actually ever finishes, so your commitment puts you in an elite crowd.</p>
 
-      <p>We’re thrilled you joined us and would love your feedback to make Aquent Gymnasium courses even better. Please take a moment to share your thoughts with us via this quick survey. Your feedback will help shape our future offerings.</p>
-
+      <div class="survey">
+        <p>We’re thrilled you’ve joined us and would love your feedback to make our courses even better. If you could take a moment to share your thoughts with us on a quick survey, it would help shape our future offerings.</p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -141,6 +144,7 @@
 
       var score = correct / out_of * 100; //score out of 100
 
+      $('.exam-score-container').text(score);
 
       var attempts_used = $('.attempts_used').text();
       var attempts_total = $('.attempts_total').text();
