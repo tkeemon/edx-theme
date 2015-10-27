@@ -367,9 +367,21 @@ body a:focus,
 
 .white-panel
 {
-	background-color:white;
-	border: 1px solid #ccc;
-	border-radius:2px;
+	background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 2.2em;
+  padding-top: 1em;
+  font: 1.2em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+
+	ul, ol
+	{
+		padding-left: 0;
+	}
+	a
+	{
+		font-family:'Helvetica Neue', Helvetica, sans-serif;
+	}
 }
 
 .right-gutter
