@@ -110,18 +110,24 @@ from student.helpers import (
         % endif
       </li>
 
-    ##   <li>
-    ##     ## Translators: The course's name will be added to the end of this sentence.
-    ##     % if not is_course_blocked:
-    ##     <a href="#unenroll-modal" class="unenroll" rel="leanModal" data-course-id="${course.id | h}" data-course-number="${course.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
-    ##       <b>${_('Unenroll')}</b>
-    ##     </a>
-    ##     % else:
-    ##     <a class="disable-look-unregister" data-course-id="${course.id | h}" data-course-number="${course.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
-    ##       <b>${_('Unenroll')}</b>
-    ##     </a>
-    ##     % endif
-    ##   </li>
+       <li>
+         ## Translators: The course's name will be added to the end of this sentence.
+         % if not is_course_blocked:
+         <a href="#unenroll-modal" class="" rel="leanModal" data-course-id="${course.id | h}" data-course-number="${course.number | h}"
+            onclick="
+              document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
+              document.getElementById('refund-info').innerHTML='';
+              document.getElementById('unenroll-course-name').innerHTML='${course.display_name_with_default | h}';
+              $('#unenroll_course_id').val('${course.id | h}');
+            ">
+           <b>${_('Unenroll')}</b>
+         </a>
+         % else:
+         <a class="disable-look-unregister" data-course-id="${course.id | h}" data-course-number="${course.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
+           <b>${_('Unenroll')}</b>
+         </a>
+         % endif
+       </li>
 
       <li>
         % if show_email_settings:

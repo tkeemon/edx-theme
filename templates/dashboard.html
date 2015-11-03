@@ -444,7 +444,8 @@
         <legend>
           <b role="heading">
             <span id='track-info'></span>
-            <span id='unenroll_course_number'></span>?
+            <span id="unenroll-course-name"></span>
+            <span id='unenroll_course_number' class="hidden"></span>?
             <span id='refund-info'></span>
           </b>
         </legend>
@@ -456,14 +457,16 @@
 
         <div id="unenroll_error" class="modal-form-error"></div>
 
-        <input name="course_id" id="unenroll_course_id" type="hidden" />
+        <input name="course_id" id="unenroll_course_id" type="hidden"  value=""/>
         <input name="enrollment_action" type="hidden" value="unenroll" />
 
-        <button class="gym-button" tabindex="2" name="submit" type="submit">
-          <b>
-            ${_("Unenroll")}
-          </b>
-        </button>
+        <div class="row">
+          <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+            <b>
+              ${_("Unenroll")}
+            </b>
+          </button>
+        </div>
 
       </fieldset>
     </form>
