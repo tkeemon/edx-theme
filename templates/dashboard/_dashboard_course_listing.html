@@ -132,7 +132,7 @@ from student.helpers import (
       <li>
         % if show_email_settings:
                 % if not is_course_blocked:
-                <a href="#email-settings-modal" class="email-settings" rel="leanModal" data-course-id="${course.id | h}" data-course-number="${course.number | h}" data-optout="${unicode(course.id) in course_optouts}">${_('Email Settings')}</a>
+                <a href="#email-settings-modal" class="email-settings" rel="leanModal" data-course-id="${course.id | h}" data-course-number="${course.display_name_with_default | h}" data-optout="${unicode(course.id) in course_optouts}">${_('Email Settings')}</a>
                 % else:
                 <a class="disable-look-settings" data-course-id="${course.id| h}" data-course-number="${course.number | h}" data-optout="${unicode(course.id) in course_optouts}">${_('Email Settings')}</a>
                 % endif
