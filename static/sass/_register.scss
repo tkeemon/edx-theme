@@ -1,9 +1,13 @@
-.register.container, .login.container 
+.register.container, .login.container
 {
   background-color:white;
   border:1px solid #ccc;
   margin-top:1.8em;
   border-radius: 2px;
+
+  #field-password .tip.tip-input {
+    margin-top: -0.3em;
+  }
 
   .sign-up
   {
