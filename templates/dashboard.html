@@ -262,11 +262,13 @@
           </div>
 
 
-        <button class="gym-button" tabindex="2" type="submit" id="submit">
-          <b>
-            ${_("Save Settings")}
-          </b>
-        </button>
+          <div class="row">
+            <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+              <b>
+                ${_("Save Settings")}
+              </b>
+            </button>
+          </div>
       </fieldset>
     </form>
   </div>
@@ -354,11 +356,13 @@
           <div class="message">
             <p>${_("<b>Note:</b> We will send a confirmation to both <b>{email}</b> and your new email address as part of the process.").format(email=user.email)}</p>
           </div>
-          <button class="gym-button" tabindex="2" id="submit_email_change">
-            <b>
-              ${_("Change Email")}
-            </b>
-          </button>
+          <div class="row">
+            <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+              <b>
+                ${_("Change Email")}
+              </b>
+            </button>
+          </div>
         </fieldset>
       </form>
     </div>
@@ -417,11 +421,13 @@
       <div class="message" hidden>
         <p>We will send a confirmation to both <b class="email-current">googlebot@gmail.com</b> and your new email address as part of the process.</p>
       </div>
-      <button class="gym-button" tabindex="2" id="submit">
-        <b>
-          ${_("Change My Name")}
-        </b>
-      </button>
+      <div class="row">
+        <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+          <b>
+            ${_("Change My Name")}
+          </b>
+        </button>
+      </div>
     </fieldset>
     </form>
 
@@ -444,7 +450,8 @@
         <legend>
           <b role="heading">
             <span id='track-info'></span>
-            <span id='unenroll_course_number'></span>?
+            <span id="unenroll-course-name"></span>
+            <span id='unenroll_course_number' class="hidden"></span>?
             <span id='refund-info'></span>
           </b>
         </legend>
@@ -456,14 +463,16 @@
 
         <div id="unenroll_error" class="modal-form-error"></div>
 
-        <input name="course_id" id="unenroll_course_id" type="hidden" />
+        <input name="course_id" id="unenroll_course_id" type="hidden"  value=""/>
         <input name="enrollment_action" type="hidden" value="unenroll" />
 
-        <button class="gym-button" tabindex="2" name="submit" type="submit">
-          <b>
-            ${_("Unenroll")}
-          </b>
-        </button>
+        <div class="row">
+          <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+            <b>
+              ${_("Unenroll")}
+            </b>
+          </button>
+        </div>
 
       </fieldset>
     </form>
