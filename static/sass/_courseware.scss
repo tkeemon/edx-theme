@@ -509,5 +509,21 @@ padding-left: 0;
 	}
 }
 
-
 /*** END COURSE ABOUT SECTION ***/
+
+
+/*** FORUMS ***/
+.container .discussion-body .blank-slate .label
+{
+	font-size:1.4em;
+	color:black;
+}
+
+html
+{
+	 body.discussion .wmd-prompt-dialog, .discussion-module .wmd-prompt-dialog, .discussion-user-threads .wmd-prompt-dialog
+	 {
+		 	height:auto;
+	 }
+
+}
