@@ -62,13 +62,15 @@ from student.helpers import (
               <hgroup>
                 <p class="date-block">
                 % if course.has_ended():
-                ${_("Course Completed: {end_date}").format(end_date=course.end_datetime_text("DATE_TIME"))}
+                  ## ${_("Course Completed: {end_date}").format(end_date=course.end_datetime_text("DATE_TIME"))}
+
                 % elif course.has_started():
-                ${_("Course Started: {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+                  ## ${_("Course Started: {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+
                 % elif course.start_date_is_still_default: # Course start date TBD
                 ${_("Course has not yet started")}
                 % else:   # hasn't started yet
-                ${_("Course Starts - {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+                  ${_("Course Starts - {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
                 % endif
                 </p>
               </hgroup>
@@ -102,6 +104,7 @@ from student.helpers import (
       </li>
 
       <li>
+
         % if cert_status and cert_status['show_download_url']:
           <li class="action action-certificate">
           <a href="${cert_status['download_url']}"
