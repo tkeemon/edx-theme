@@ -1,0 +1,3 @@
+[xblock.v1]
+assessmentendcap = assessmentendcap:AssessmentEndcapXBlock
+

@@ -1,3 +1,57 @@
 ## mako
 
 <%namespace name='static' file='/static_content.html'/>
+
+<!-- insert typekit font references -->
+<script src="//use.typekit.net/rhf0qta.js"></script>
+<script>try{Typekit.load();}catch(e){}</script>
+
+<!-- bootstrap! -->
+<!-- local reference for offline testing only -->
+<!-- <link rel="stylesheet" href="${static.url('themes/gymnasium/css/bootstrap.css')}" > -->
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.js"></script>
+<script src="${static.url('themes/gymnasium/js/prism.js')}"> </script>
+<script src="${static.url('themes/gymnasium/js/cookiebanner.js')}" id="cookiebanner"
+	data-link="#f89820"
+	data-message="We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. Find out more about how we use cookies in our"
+	data-linkmsg="Privacy Policy."
+	data-moreinfo="/privacy">
+</script>
+
+<script src="${static.url('themes/gymnasium/js/gymnasium.js')}"> </script>
+
+<script>
+	//this is a nonsense hack to make courseware subnavigation look like
+	//what we want it to look like until we move to Cypress
+	//TODO: Unhackify this.
+
+
+	$(function(){
+		$('.course-tabs li a b:contains("Courseware")').each(function(idx, value){
+			value.innerHTML = "Lessons";
+		});
+
+		$('.course-tabs li a b:contains("Course Info")').each(function(idx,value){
+			value.innerHTML = "Syllabus";
+		});
+
+
+		$('.course-tabs li a:contains("Forum")').each(function(idx,value){
+			//TODO: Unhack this silly logic to hide forum tab for gym shorts
+
+			//we're looking at the href property of this anchor to see if it contains
+			//a course link that has "Gym/00" in it.  All gym shorts start with "00"
+			//so that should hide this link. Note that this does _not_ disable
+			//forums... those pages will still exist, but we won't like to them.
+			if ($(value).attr("href").toLowerCase().indexOf("gym/00") > 0)
+			{
+				$(value).parent().hide();
+			}
+		})
+
+		$('.course-tabs li:contains("Progress")').hide();
+		$('.course-tabs').show();
+	});
+</script>

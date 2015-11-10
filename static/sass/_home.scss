@@ -1,0 +1,467 @@
+.home.jumbotron
+{
+	padding: 10px 0;
+
+	p
+	{
+		font-size:16pt;
+	}
+}
+
+.subsection h1,
+.subsection h2,
+.subsection h3,
+.subsection h4,
+.subsection h5,
+.subsection h6
+{
+	font-family:brandon-grotesque;
+	letter-spacing: .06em;
+	word-spacing: .04em;
+}
+
+
+.home
+{
+
+	position:relative;
+	top:-11px;
+
+	header
+	{
+		border-bottom:$gym-white;
+		margin-top:11px;
+
+		.outer-wrapper
+		{
+			padding: 150px 10px 0px 740px;
+		}
+
+		.title
+		{
+			border:0px;
+			background-color:$gym-textblock-color;
+			color:$gym-white;
+			margin:0;
+			width:auto;
+			height:auto;
+			min-height:0px;
+			margin-top:100px;
+			padding:30px;
+			box-sizing:border-box;
+
+			h1
+			{
+				text-shadow:none;
+				color:$gym-white;
+				text-transform: uppercase;
+				margin:0;
+				padding:0;
+				text-align:left;
+				font-size:28px;
+			}
+
+			h2
+			{
+				color:$gym-white;
+				margin:0;
+				padding:0;
+				padding-bottom:1.5em;
+				text-transform:none;
+				font-size:11pt;
+				text-align:left;
+				font-weight:normal;
+			}
+
+
+			//augmenting the style defined in _gymnasium.scss
+			.gym-button
+			{
+				text-transform:none;
+				padding:15px 20px;
+				display:inline-block;
+				color:white;
+				font-size:1.5em;
+				font-weight:900;
+			}
+		}
+
+		.media
+		{
+			border: 0px;
+			background:$gym-textblock-color;
+		}
+	}
+
+
+	.container#get-work
+	{
+		article
+		{
+			h1
+			{
+				color:$gym-orange;
+				text-align:left;
+				text-transform: none;
+			}
+		}
+
+		hr
+		{
+			border-top-color:$gym-dark-grey;
+			color:$gym-medium-grey;
+		}
+	}
+
+	#join-gymnasium
+	{
+		em
+		{
+			margin-bottom:10px;
+			display:block;
+
+			a, a:link, a:link:visited
+			{
+				color:$gym-orange;
+				text-transform:uppercase;
+				font-size:42pt;
+				font-weight:bold;
+				font-family:brandon-grotesque;
+			}
+
+			a:hover, a:link:hover
+			{
+				text-decoration:none;
+			}
+		}
+
+		p
+		{
+			color:inherit; //$gym-dark-grey;
+
+			a, a:link, a:link:visited
+			{
+				color:$gym-orange;
+				font-weight:bold;
+			}
+		}
+
+		a.gym-button
+		{
+			color:$gym-white;
+			display:block;
+			margin: 20px 0 5px 0;
+			padding:20px;
+			font-size:2.3em;
+			font-weight:900;
+		}
+
+	}
+
+	#share-panel
+	{
+
+	}
+
+	#as-seen-in
+	{
+
+
+		h2
+		{
+			padding-bottom:30px;
+		}
+
+		ul
+		{
+			box-sizing:border-box;
+		}
+		li
+		{
+			width:18%;
+		}
+	}
+
+	.container
+	{
+
+		header
+		{
+			display:block;
+		}
+		.header-tab
+		{
+			text-align: center;
+
+			h1:before
+			{
+			    display: inline-block;
+			    width: 100%;
+			    height: 0;
+			    content: " ";
+			    line-height: 0;
+			    padding-right: 1em;
+			    padding-left: 1em;
+			    border-right: 1.4em dashed transparent;
+			    border-left: 1.4em dashed transparent;
+			    -moz-box-sizing: border-box;
+			    -webkit-box-sizing: border-box;
+			    box-sizing: border-box;
+			    vertical-align: top;
+			}
+
+			h1
+			{
+				display: inline-block;
+			    font-size: 1em;
+			    line-height: 1.2;
+			    text-transform: uppercase;
+			    vertical-align: 1.2em;
+			    margin-top: -1.8em;
+					text-align:center;
+			}
+		}
+
+	}
+
+	.container.grey
+	{
+		@extend .container;
+
+		background-color:$gym-medium-grey;
+	}
+
+	.container-fluid
+	{
+		padding-bottom:4em;
+
+		h1
+		{
+			text-transform:uppercase;
+			font-size:18px;
+			font-weight:bold;
+		}
+
+		h2
+		{
+			font-size:24px;
+			text-transform:none;
+			font-weight:bold;
+		}
+
+
+	}
+
+	//special rule for the "join us / share" panels on the home
+	// page, which are white and don't follow the every other rule
+ 	.container-fluid:nth-of-type(odd).white-panel
+	{
+		background-color:#fff;
+
+		.header-tab
+		{
+			h1:before
+			{
+				border-bottom: 1.4em solid white;
+			}
+
+		}
+	}
+
+	.container-fluid:nth-of-type(odd)
+	{
+
+		header.header-tab
+		{
+			h1:before
+			{
+				border-bottom: 1.4em solid $gym-white;
+			}
+
+		}
+
+		background-color:$gym-white;
+		*
+		{
+			color:$gym-medium-grey;
+		}
+
+		p
+		{
+			color:$gym-light-grey;
+
+			a
+			{
+				color:$gym-orange;
+			}
+		}
+
+		h1
+		{
+			color:$gym-medium-grey;
+			background-color:transparent;
+		}
+		h1:before, h1:after
+		{
+			color:$gym-white;
+		}
+
+		hr
+		{
+			background-color:$gym-medium-grey;
+		}
+
+	}
+
+	.container-fluid:nth-of-type(even)
+	{
+		background-color:$gym-medium-grey;
+		*
+		{
+			color:$gym-white;
+		}
+
+		header.header-tab
+		{
+			h1:before
+			{
+				border-bottom: 1.4em solid $gym-medium-grey;
+			}
+
+		}
+
+		h1, h1:before, h1:after
+		{
+			color:$gym-white;
+			background-color:transparent;
+		}
+		hr
+		{
+			background-color:$gym-white;
+		}
+
+	}
+
+
+	.testimonial {
+		text-align: center;
+	}
+
+	.quote {
+		display: inline-block;
+		position: relative;
+		font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		color: #aaa;
+		letter-spacing: .025em;
+		vertical-align: middle;
+		margin: 1em 0;
+	}
+
+	.quote::before,
+	.quote::after {
+		position: absolute;
+		top: 0; bottom: 0;
+		font-family: "Helvetica Neue", Helvetica, sans-serif;
+		font-size: 19em;
+		line-height: .35;
+		color: #ddd;
+		color: rgba(221, 221, 221, .5);
+		height: 0;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.quote::before {
+		left: 0;
+		content: "“";
+	}
+
+	.quote::after {
+		right: 0;
+		content: "”";
+	}
+
+	.quote blockquote {
+		position: relative;
+		font-size: 1.5em;
+		padding-right: 2.5em;
+		padding-left: 2.5em;
+		margin: 0;
+		z-index: 1;
+		border-left:none;
+	}
+
+	.quote p {
+		font-style: italic;
+		font-weight: bold;
+		line-height: 1.2;
+		margin-top: .25em;
+		margin-bottom: .25em;
+	}
+
+	.quote strong {
+		font-size: 150%;
+		font-weight: 900;
+		line-height: .9;
+	}
+
+	.quote figcaption {
+		font-family: "Helvetica Neue", Helvetica, sans-serif;
+		font-size: small;
+		font-style: italic;
+		font-weight: bold;
+		text-align: right;
+		margin-top: 1em;
+		margin-right: 25%;
+	}
+
+	.quote figcaption::before {
+		content: "— ";
+		font-weight: normal;
+	}
+
+	.courses
+	{
+
+		.gym-course a:hover
+		{
+			text-decoration:none;
+		}
+
+		padding-top:0px;
+
+		.course-list
+		{
+			list-style:none;
+		}
+
+		.course-list-item
+		{
+			h2
+			{
+				color:$gym-medium-grey;
+				text-align: center;
+			}
+
+			.cover-image
+			{
+				img
+				{
+					height:100%;
+					width:100%;
+				}
+			}
+
+			.course-preview h2
+			{
+				height:4em;
+			}
+		}
+
+		p
+		{
+			color:$gym-orange;
+		}
+	}
+
+}

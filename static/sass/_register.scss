@@ -1,0 +1,125 @@
+.register.container, .login.container
+{
+  background-color:white;
+  border:1px solid #ccc;
+  margin-top:1.8em;
+  border-radius: 2px;
+
+  #field-password .tip.tip-input {
+    margin-top: -0.3em;
+  }
+
+  .sign-up
+  {
+    border-right:1px dashed #ccc;
+    padding:1.6em;
+  }
+
+  .additional-information
+  {
+    padding:1.6em;
+  }
+
+  .instructions
+  {
+    padding-bottom: 1.8em;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1.8em;
+
+    p
+    {
+      font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 1.6em;
+      line-height: 1.5;
+      letter-spacing: .01em;
+      word-spacing: .02em;
+    }
+  }
+
+  h2
+  {
+      margin-bottom:1.2em;
+      font: 900 1em/1.3 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+  }
+
+  .list-input
+  {
+    label
+    {
+      font: 1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+      color: #222;
+      letter-spacing: .03em;
+      word-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    input
+    {
+      font: 1em/1 "Helvetica Neue", Helvetica, sans-serif;
+      width: 100%;
+      padding-top: .6em;
+      padding-bottom: .6em;
+      border: 0;
+      border-bottom: .125em solid #f89820;
+      margin-top: .4em;
+      margin-bottom: .4em;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      box-shadow:none;
+      padding-left:0;
+      background:none;
+    }
+  }
+
+  form
+  {
+    .field
+    {
+      .tip
+      {
+        font-size:1em;
+      }
+    }
+  }
+
+  #market
+  {
+    width:150px;
+  }
+
+  .err-message
+  {
+    display:none;
+  }
+
+  .err-message.is-shown
+  {
+    display:block;
+  }
+  .err-message {
+  background: #f2dede;
+  padding: 1.8em;
+  border: 1px solid #d9534f;
+  border-radius: .12em;
+  margin-bottom: 1em;
+  }
+
+.err-message h3 {
+  color: #d9534f;
+  margin-top: 0;
+  margin-bottom: -.2em;
+  }
+
+.err-message ul {
+  margin-top: 1.4em;
+  color:#d9534f;
+  }
+
+.err-message li {
+  font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+  color: #d9534f;
+  letter-spacing: .01em;
+  margin-top: 1em;
+  }
+}

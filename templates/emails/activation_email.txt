@@ -1,0 +1,27 @@
+<%namespace file="../main.html" import="stanford_theme_enabled" />
+<%! from django.utils.translation import ugettext as _ %>
+<%! from django.core.urlresolvers import reverse %>
+
+
+${_("Thanks for signing up for {platform_name}!").format(platform_name=settings.PLATFORM_NAME)}
+
+${_("To get started, activate your account by clicking on the link below,"
+      " or you can also copy and paste the link into your browser's address"
+      " bar.").format(platform_name=settings.PLATFORM_NAME)}
+
+% if is_secure:
+  https://${ site }/activate/${ key }
+% else:
+  http://${ site }/activate/${ key }
+% endif
+
+
+${_("If you didn't request this, you won't need to do anything aside from "
+      "accepting our apologies.  We promise you won't receive any more "
+      "email from us.")}
+
+${_("Need additional assistance? Visit the support page on our website.")}
+
+${_("Thanks!")}
+
+${_("The Gymnasium Team")}

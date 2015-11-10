@@ -1,0 +1,165 @@
+<%page args="course, enrollment, show_courseware_link, cert_status, show_email_settings, course_mode_info, show_refund_option, is_paid_course, is_course_blocked, verification_status, course_requirements" />
+
+<%!
+from django.utils.translation import ugettext as _
+from django.utils.translation import ungettext
+from django.core.urlresolvers import reverse
+from markupsafe import escape
+from courseware.courses import course_image_url, get_course_about_section
+from student.helpers import (
+  VERIFY_STATUS_NEED_TO_VERIFY,
+  VERIFY_STATUS_SUBMITTED,
+  VERIFY_STATUS_APPROVED,
+  VERIFY_STATUS_MISSED_DEADLINE
+)
+%>
+
+<%
+  cert_name_short = course.cert_name_short
+  if cert_name_short == "":
+    cert_name_short = settings.CERT_NAME_SHORT
+
+  cert_name_long = course.cert_name_long
+  if cert_name_long == "":
+    cert_name_long = settings.CERT_NAME_LONG
+  billing_email = settings.PAYMENT_SUPPORT_EMAIL
+%>
+
+<%namespace name='static' file='../static_content.html'/>
+
+<li class="course-item">
+  % if settings.FEATURES.get('ENABLE_VERIFIED_CERTIFICATES'):
+    % if enrollment.mode == "verified":
+      % if settings.FEATURES.get('SEPARATE_VERIFICATION_FROM_PAYMENT') and request.session.get('separate-verified', False):
+        % if verification_status.get('status') in [VERIFY_STATUS_NEED_TO_VERIFY, VERIFY_STATUS_SUBMITTED, VERIFY_STATUS_APPROVED]:
+          <% mode_class = " verified" %>
+        % else:
+          <% mode_class = " honor" %>
+        % endif
+      % else:
+        <% mode_class = " verified" %>
+      % endif
+    % else:
+      <% mode_class = " " + enrollment.mode %>
+    % endif
+  % else:
+    <% mode_class = "" %>
+  % endif
+
+  <article class="course${mode_class}">
+
+    <%
+      course_target = reverse('info', args=[course.id.to_deprecated_string()])
+    %>
+
+    <header id = "course-header-${course.number}">
+      <div class="row">
+        <img class="col-md-3 image-responsive" src="${course_image_url(course)}" alt="${_('{course_name} Cover Image').format(course_name=course.display_name_with_default) |h}" id ="course-image-${course.number}" />
+        <div class="col-md-9">
+          <h1>${course.display_name_with_default}</h1>
+          <div class="row">
+            <section class="info col-md-12">
+              <hgroup>
+                <p class="date-block">
+                % if course.has_ended():
+                  ## ${_("Course Completed: {end_date}").format(end_date=course.end_datetime_text("DATE_TIME"))}
+
+                % elif course.has_started():
+                  ## ${_("Course Started: {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+
+                % elif course.start_date_is_still_default: # Course start date TBD
+                ${_("Course has not yet started")}
+                % else:   # hasn't started yet
+                  ${_("Course Starts - {start_date}").format(start_date=course.start_datetime_text("DATE_TIME"))}
+                % endif
+                </p>
+              </hgroup>
+
+              % if course.may_certify() and cert_status:
+              <%include file='_dashboard_certificate_information.html' args='cert_status=cert_status,course=course, enrollment=enrollment'/>
+              % endif
+            </section>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <ul class="course-options">
+      <li>
+        % if show_courseware_link:
+          % if course.has_ended():
+           % if not is_course_blocked:
+            <a href="${course_target}" class="gym-button enter-course archived">${_('View Archived Course')}</a>
+          % else:
+            <a class="gym-button enter-course-blocked archived">${_('View Archived Course')}</a>
+          % endif
+          % else:
+          % if not is_course_blocked:
+            <a href="${course_target}" class="gym-button"><b>${_('Go to Class')}</b></a>
+          % else:
+            <a class="gym-button enter-course-blocked"><b>${_('Go to Class')}</b></a>
+          % endif
+          % endif
+        % endif
+      </li>
+
+      <li>
+
+        % if cert_status and cert_status['show_download_url']:
+          <li class="action action-certificate">
+          <a href="${cert_status['download_url']}"
+             title="${_('This link will open/download a PDF document')}">
+             ${_("My {cert_name_short}").format(cert_name_short=cert_name_short)}</a></li>
+        % endif
+      </li>
+
+       <li>
+         ## Translators: The course's name will be added to the end of this sentence.
+         % if not is_course_blocked:
+         <a href="#unenroll-modal" class="" rel="leanModal" data-course-id="${course.id | h}" data-course-number="${course.number | h}"
+            onclick="
+              document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
+              document.getElementById('refund-info').innerHTML='';
+              document.getElementById('unenroll-course-name').innerHTML='${course.display_name_with_default | h}';
+              $('#unenroll_course_id').val('${course.id | h}');
+            ">
+           ${_('Unenroll')}
+         </a>
+         % else:
+         <a class="disable-look-unregister" data-course-id="${course.id | h}" data-course-number="${course.number | h}" onclick="document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}'; document.getElementById('refund-info').innerHTML=''">
+           ${_('Unenroll')}
+         </a>
+         % endif
+       </li>
+
+      <li>
+        % if show_email_settings:
+                % if not is_course_blocked:
+                <a href="#email-settings-modal" class="email-settings" rel="leanModal" data-course-id="${course.id | h}" data-course-number="${course.display_name_with_default | h}" data-optout="${unicode(course.id) in course_optouts}">${_('Email Settings')}</a>
+                % else:
+                <a class="disable-look-settings" data-course-id="${course.id| h}" data-course-number="${course.number | h}" data-optout="${unicode(course.id) in course_optouts}">${_('Email Settings')}</a>
+                % endif
+        % endif
+      <li>
+    </ul>
+  </article>
+</li>
+
+
+<script>
+  //note: this is legacy code from the original edx template.  Not sure what it does.  -MB
+  $( document ).ready(function() {
+
+     if("${is_course_blocked}" == "True"){
+         $( "#unregister_block_course" ).click(function() {
+             $('.disable-look-unregister').click();
+         });
+     }
+  });
+</script>
+
+<script>
+  $(function(){
+    Gymnasium.setBackgroundColorOfElementFromImage('#course-header-${course.number}', '#course-image-${course.number}');
+  });
+</script>
