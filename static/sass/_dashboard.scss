@@ -217,6 +217,12 @@ body * .modal
 
 .my-courses
 {
+	.grade-value
+	{
+		color:$gym-white;
+		font-weight:bold;
+	}
+
 	.listing-courses
 	{
 		list-style:none;
