@@ -126,9 +126,27 @@ div.xmodule_display.xmodule_CapaModule
       width:100%;
     }
 
+    pre
+    {
+      padding: 1em;
+      
+      code
+      {
+        font-size:1em;
+        font-family:monospace;
+
+        span
+        {
+          font-size:1em;
+          font-family:monospace;
+        }
+      }
+    }
+
     code
     {
       padding:5px;
+      font-size:0.85em;
     }
 
     .solution-span>span

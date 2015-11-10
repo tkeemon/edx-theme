@@ -830,7 +830,6 @@ a.gym-button:hover, a.gym-button:link:hover
   b {
     font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
     letter-spacing: .025em;
-    vertical-align: -.042em;
   }
 }
 
@@ -873,7 +872,7 @@ button:hover:not(:disabled),
 {
 	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
 	letter-spacing: .025em;
-	vertical-align: top;
+	vertical-align: bottom;
 }
 
 .gym-link

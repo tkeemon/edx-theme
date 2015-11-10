@@ -537,11 +537,22 @@ nav.progress.wrapper-course-material
 	color:black;
 }
 
+span.field-help {
+    font-family: "Helvetica Neue";
+}
+
 html
 {
-	 body.discussion .wmd-prompt-dialog, .discussion-module .wmd-prompt-dialog, .discussion-user-threads .wmd-prompt-dialog
+	 body.discussion
 	 {
-		 	height:auto;
-	 }
+		 .course-tabs .right .new-post-btn
+		 {
+			 	margin-top:0.2em;
+		 }
 
+		 .wmd-prompt-dialog, .discussion-module .wmd-prompt-dialog, .discussion-user-threads .wmd-prompt-dialog
+		 {
+			 	height:auto;
+		 }
+	 }
 }

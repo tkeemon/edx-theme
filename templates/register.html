@@ -127,7 +127,7 @@
               <p>We recently moved Gymnasium to an all new platform - and there are a few things you should know if you had an account with us <i>before</i> November of 2015.
               <ol class="err-message-copy">
                 <li>You will need to create an account on our new site.  If you had an account before, register with the same email address and all courses you were enrolled in will come with you, as well as any certificates you may have earned.  (You should have received an email from us about this (Subject line: "We Moved!").  You can also follow the link in that email to get to our registration page, and it will be pre-filled for you.)</li>
-                <li>You may not see a city from your country in the dropdown that says "Select Nearest City".  That's okay - we're working to add international locations.  Pick any one you like for now, and we'll let you know when we've added more.</li>
+                <li>You may not see a city from your country in the dropdown that says "Select Nearest Region".  That's okay - we're working to add international locations.  Pick any one you like for now, and we'll let you know when we've added more.</li>
                 <li><em>You need to activate</em> your new account before courses and certificates show up on your dashboard.  We send an activation email to you shortly after you register.  Click the link in there, and the next time you visit your dashboard, everything should appear.</li>
               </ol>
               <p>For more details, you can check out <a href="http://gymnasium.github.io/2015/11/08/its-alive/" target="_blank" style="font-family:'Helvetica Neue'; color:#d9534f; border-bottom:1px solid; font-weight:bold;">this post</a> on our blog.</p>
@@ -252,11 +252,15 @@
               <ol class="list-input">
                 <li class="field group">
                   <div class="field select" id="field-market">
-                    <label for="market">${_('Select Nearest City')}</label>
+                    <label for="market">${_('Select Nearest Region')}</label>
                     <select id="market" name="market" ${'required aria-required="true"' if settings.REGISTRATION_EXTRA_FIELDS['market'] == 'required' else ''}>
                       <option value="">--</option>
                       %for code, market_name in UserProfile.MARKET_CHOICES:
-                      <option value="${code}">${_(market_name)}</option>
+                        % if code == "XX":
+                          <option value="">--</option>
+                        % else:
+                          <option value="${code}">${_(market_name)}</option>
+                        % endif
                       %endfor
                     </select>
                   </div>
