@@ -256,7 +256,11 @@
                     <select id="market" name="market" ${'required aria-required="true"' if settings.REGISTRATION_EXTRA_FIELDS['market'] == 'required' else ''}>
                       <option value="">--</option>
                       %for code, market_name in UserProfile.MARKET_CHOICES:
-                      <option value="${code}">${_(market_name)}</option>
+                        % if code == "XX":
+                          <option value="">--</option>
+                        % else:
+                          <option value="${code}">${_(market_name)}</option>
+                        % endif
                       %endfor
                     </select>
                   </div>
