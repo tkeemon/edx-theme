@@ -30,11 +30,11 @@
     </div>
   </div>
 
-  <main class="container">
+  <main class="container catalog-content">
 
 
     <div class="row">
-      <article class="col-md-9 course-overview">
+      <article class="col-md-8 col-lg-9 course-overview">
         <h1 id="full">
           Full Courses
         </h1>
@@ -49,21 +49,22 @@
               </li>
             %endfor
           </ul>
+
+          <h1 id="gymshorts">
+            Gym Shorts
+          </h1>
+          <p class="hero">
+            Gym Shorts are short, snackable courses that all last under an hour. Like our longer courses, they are practical, taught by experienced practitioners, and focused on in-demand skills and technologies.
+          </p>
+
+          <ul class="listing-courses" id="gym-shorts-list">
+
+          </ul>
+
         </section>
-
-        <h1 id="gymshorts">
-          Gym Shorts
-        </h1>
-        <p class="hero">
-          Gym Shorts are short, snackable courses that all last under an hour. Like our longer courses, they are practical, taught by experienced practitioners, and focused on in-demand skills and technologies.
-        </p>
-
-        <ul class="listing-courses" id="gym-shorts-list">
-
-        </ul>
       </article>
 
-      <aside class="col-md-3 sidebar">
+      <aside class="col-lg-3 col-md-4 sidebar">
         % if not user.is_authenticated():
         <div class="join-gymnasium">
           <div class="text-center">
@@ -74,10 +75,11 @@
                 <p class="col-md-12">Register to recieve email updates about new and upcoming classes.</p>
               </div>
               <div class="row">
-                <div class="col-md-12"></div>
-                <a class="gym-button col-md-6 col-md-offset-3" href="/register">
-                  Sign up for an Account
-                </a>
+                <div class="col-md-12">
+                  <a class="gym-button" href="/register">
+                    Sign up for an Account
+                  </a>
+                </div>
               </div>
               <p>or <a href="/login">Sign in</a>
             </section>

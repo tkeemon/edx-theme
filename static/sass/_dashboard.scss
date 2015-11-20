@@ -255,7 +255,7 @@ body * .modal
 		.course-options
 		{
 			background: #444;
-			padding: 2em 1.5em;
+			padding: 1em 1.5em;
 			overflow: hidden;
 			list-style: none;
 
@@ -264,6 +264,13 @@ body * .modal
 				display: inline;
 		    font-size: .96em;
 		    margin-right: 1.8em;
+			}
+
+			.dashboard-listing-links
+			{
+				padding:0;
+				margin:0;
+				margin-top:0.8em;
 			}
 		}
 	}

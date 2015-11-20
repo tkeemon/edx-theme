@@ -1,6 +1,11 @@
 .find-courses
 {
-	background-color:white;
+	background:transparent;
+
+	.catalog-content
+	{
+		background:white;
+	}
 
 	.my-courses .course-item header
 	{
@@ -207,9 +212,10 @@
 	}
 
 	.sidebar p, .sidebar li, .sidebar dd, .course-overview p, .course-overview li {
-    font: 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+    font: 1.15em/1.5 "Helvetica Neue", Helvetica, sans-serif;
     color: #444;
 	}
+
 
 	.join-gymnasium
 	{
