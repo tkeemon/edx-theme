@@ -11,14 +11,14 @@ from courseware.courses import course_image_url, get_course_about_section
 
 <article id="${course.id | h}" class="gym-course">
   %if course.is_newish:
-    
+
   %endif
   <a href="${reverse('about_course', args=[course.id.to_deprecated_string()])}">
   <div class="course-inner-wrapper">
       <section class="info text-center">
-        <div class="cover-image">
+        <figure class="cover-image">
           <img class="img-responsive" src="${course_image_url(course)}" alt="${course.display_number_with_default | h} ${get_course_about_section(course, 'title')} Cover Image" />
-        </div>
+        </figure>
       </section>
 
       <header class="course-preview">
