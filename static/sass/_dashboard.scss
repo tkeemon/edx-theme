@@ -275,3 +275,26 @@ body * .modal
 		}
 	}
 }
+
+.beta article
+{
+	position: relative;
+	overflow: hidden;
+}
+
+.beta article::before
+{
+	position: absolute;
+	top: -1.2em;
+	left: 1.4em;
+	content: "Beta";
+	font: 900 1em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	background: rgba(34, 34, 34, .4);
+	padding: 2.4em 100% 1.2em;
+	margin-left: -100%;
+	transform: translate(-1em, .4em) rotate(-45deg);
+	z-index: 10;
+}

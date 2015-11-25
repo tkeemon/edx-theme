@@ -42,6 +42,31 @@
         changeName: "${reverse('change_name')}",
         verifyToggleBannerFailedOff: "${reverse('verify_student_toggle_failed_banner_off')}",
       });
+
+      //hide "BETA" from courses that have it in their title,
+      //and add .beta class to corresponsing <li> itm
+      $('.listing-courses li').each(function(idx, obj){
+        var beta_tag = "beta";
+        var beta_class_name="beta";
+
+        var course_title_obj = $(obj).find('h1')
+        var course_title = $(course_title_obj).text().trim();
+
+        //check to see if this course is a BETA course
+        if (course_title.toLowerCase().indexOf(beta_tag) >= 0)
+        {
+          //this is a beta Course
+          //strip the "BETA" word from the title
+          course_title = course_title.substr(beta_tag.length).trim();
+          console.log('course title is now', course_title);
+
+          course_title_obj.text(course_title);
+
+          $(obj).addClass(beta_class_name);
+
+        }
+      });
+
     });
   </script>
 </%block>
