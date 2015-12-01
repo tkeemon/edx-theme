@@ -146,6 +146,10 @@ $theme-serif-font: 'Helvetica Neue';
 $serif: $theme-serif-font, $serif;
 
 
+p
+{
+	font: $serif;
+}
 
 
 //-----------------
