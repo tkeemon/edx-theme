@@ -319,6 +319,7 @@ nav.progress.wrapper-course-material
 	word-spacing: .05em;
 	text-transform: uppercase;
 	margin-top:15px;
+	margin-bottom:15px;
 	text-align:left;
 }
 
@@ -336,7 +337,10 @@ nav.progress.wrapper-course-material
 	}
 	.course-info
 	{
-		border: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		border-top:0;
+		border-bottom:0;
 	}
 
 	.course-overview
@@ -537,11 +541,22 @@ nav.progress.wrapper-course-material
 	color:black;
 }
 
+span.field-help {
+    font-family: "Helvetica Neue";
+}
+
 html
 {
-	 body.discussion .wmd-prompt-dialog, .discussion-module .wmd-prompt-dialog, .discussion-user-threads .wmd-prompt-dialog
+	 body.discussion
 	 {
-		 	height:auto;
-	 }
+		 .course-tabs .right .new-post-btn
+		 {
+			 	margin-top:0.2em;
+		 }
 
+		 .wmd-prompt-dialog, .discussion-module .wmd-prompt-dialog, .discussion-user-threads .wmd-prompt-dialog
+		 {
+			 	height:auto;
+		 }
+	 }
 }
