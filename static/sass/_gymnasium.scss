@@ -285,7 +285,11 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/gymnasium/images/home-page-hero-background.png');
+$homepage-bg-image: url('../themes/gymnasium/images/marketing-campaign/homepage_graphic.jpg');
+.home>header
+{
+	background-position-y:-25px;
+}
 
 $login-banner-image: none;
 $register-banner-image: none;
