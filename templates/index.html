@@ -40,7 +40,13 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-md-offset-9">
+        <div class="col-sm-12 hidden-md hidden-lg">
+          <a class="gym-button" href="/courses"><b>Enroll in a Class</b></a>
+        </div>
+        <div class="col-md-7 col-md-offset-2 col-sm-12 marketing-image-container">
+          <a href="/courses"><img src="${static.url('themes/gymnasium/images/marketing-campaign/sit_and_get_fit.png')}" class="img-responsive sit-and-get-fit"></a>
+        </div>
+        <div class="col-md-3 col-sm-12">
           <hgroup class="title">
             % if homepage_overlay_html:
               ${homepage_overlay_html}
