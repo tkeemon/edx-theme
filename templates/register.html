@@ -21,6 +21,7 @@
 <%block name="bodyclass">view-</%block>
 
 <%block name="js_extra">
+
   <script type="text/javascript">
     $(function() {
 
@@ -41,6 +42,23 @@
         $("label").parent().removeClass("is-focused");
       });
 
+      var enrollment_action = Gymnasium.getUrlParameter("enrollment_action");
+      if( enrollment_action === "enroll")
+      {
+        var course_id = Gymnasium.getUrlParameter("COURSE_ID").trim();
+        switch(course_id.toUpperCase())
+        {
+          case "GYM/105/0":
+          case "GYM/005/0":
+          case "GYM/100/0":
+          case "GYM/104/0":
+          case "GYM/106/0":
+            Gymnasium.injectFBTrackingPixel();
+            break;
+          default:
+            //not a special course, we won't do tracking here
+        }
+      }
     });
 
     (function() {
@@ -90,6 +108,8 @@
           text("${_('Processing your account information')}");
       }
     }
+
+
   </script>
 </%block>
 
