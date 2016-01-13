@@ -29,16 +29,8 @@
         </div>
         <div class="col-md-3 col-sm-12">
           <hgroup class="title">
-            % if homepage_overlay_html:
-              ${homepage_overlay_html}
-            % else:
-              % if self.stanford_theme_enabled():
-                <h1>${_("Free courses from <strong>{university_name}</strong>").format(university_name="Stanford")}</h1>
-              % else:
-                <h1>${_("Join Gymnasium")}</h1>
-              % endif
-              <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
-            % endif
+            <h1>${_("Join Gymnasium")}</h1>
+            <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
             <a class="gym-button" href="/courses">Enroll in a Class</a>
           </hgroup>
         </div>
