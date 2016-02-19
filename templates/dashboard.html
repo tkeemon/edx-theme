@@ -113,6 +113,10 @@
         <h1>My Courses</h1>
       </header>
 
+      % if user.is_active:
+        <script>Intercom('trackEvent', 'activated-account');</script>
+      % endif
+      
       % if len(course_enrollment_pairs) > 0:
         <ul class="listing-courses">
           % for course, enrollment in course_enrollment_pairs:
