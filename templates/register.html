@@ -31,8 +31,10 @@
         $('.migration-message').hide();
         $('#already-registered').hide();
         $('#page-title').text("Reactivate your Account");
-        $('#page-subtitle').text("Please complete the following required information to reactivate your Gymnasium account.")
+        $('#page-subtitle').text("Please complete the following required information to reactivate your Gymnasium account.");
         $('#submit b').text("ACTIVATE NOW");
+        $('#email').prop('disabled',true);
+        $('#email-tip').html("<b>Note</b>: if you need to change your email address, please do that after you've reactivated your account.");
       }
 
       // adding js class for styling with accessibility in mind
@@ -195,6 +197,7 @@
               <li class="field text" id="field-email">
                 <label for="email">${_('E-mail')}</label>
                 <input class="" id="email" type="email" name="email" value="${email}" placeholder="${_('example: username@domain.com')}" required aria-required="true" />
+                <span class="tip tip-input" id="email-tip"></span>
               </li>
 
               <li class="field text" id="field-name">
