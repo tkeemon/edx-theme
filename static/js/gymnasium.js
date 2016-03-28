@@ -29,6 +29,41 @@ Gymnasium.prototype.setBackgroundColorOfElementFromImage = function (element, im
   })
 };
 
+Gymnasium.prototype.RecordCourseEnrollment = function(email, courseid)
+{
+  console.log("Gym is");
+  var data = {
+    debugLink:        0,
+    leadDestination:  "cw-rc",
+    first_name:       "Test",
+    last_name:        "User",
+    email:            "test@miketest.org",
+    city:             "",
+    type:             "",
+    score:            "",
+    course_id:        "",
+    utm_campaign:     "",
+  };
+  //Gymnasium.RecordCloudwallRecord(data);
+
+};
+
+Gymnasium.prototype.RecordExamGrade = function(email, courseId, grade)
+{
+  var data = {
+    debugLink:        0,
+    leadDestination:  "cw-rc",
+    first_name:       "Test",
+    last_name:        "User",
+    email:            "test@miketest.org",
+    city:             "",
+    type:             "",
+    score:            "",
+    course_id:        "",
+    utm_campaign:     "not-provided"
+  };
+};
+
 Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastName, cityId)
 {
   var data = {
