@@ -68,6 +68,15 @@
 
       $('#register-form').on('ajax:success', function(event, json, xhr) {
         var url = json.redirect_url || "${reverse('dashboard')}";
+
+        var fname = $('#name').val().split(" ")[0];
+        var lname = $('#name').val().split(" ")[1];
+        var market_id = $('#market').val();
+        var market_name = $('#market option:selected').text();
+        var email = $('#email').val();
+
+        Gymnasium.RecordRegistration(email, fname, lname, market_id);
+
         location.href = url;
       });
 
