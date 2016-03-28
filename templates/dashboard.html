@@ -68,6 +68,16 @@
       });
 
     });
+
+
+    $('#unenroll-button').submit(function(){
+      debugger;
+      var metadata = {
+        "course_id" : $('#unenroll_course_number').text(),
+        "course_name": $('#unenroll-course-name').text()
+      };
+      Intercom('trackEvent', 'unenroll', metadata);
+    });
   </script>
 </%block>
 
@@ -492,7 +502,7 @@
         <input name="enrollment_action" type="hidden" value="unenroll" />
 
         <div class="row">
-          <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+          <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit" id="unenroll-button">
             <b>
               ${_("Unenroll")}
             </b>
