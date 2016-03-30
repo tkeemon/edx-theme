@@ -98,6 +98,25 @@ from edxmako.shortcuts import marketing_link
         Intercom('trackEvent', 'enrolled', metadata);
 
         if (xhr.responseText == "") {
+
+          //marketing campaign track course ENROLL action
+          var current_course = $('input[name="course_id"]').val();
+          switch(current_course.toUpperCase())
+          {
+            case "GYM/105/0":
+            case "GYM/005/0":
+            case "GYM/100/STAGING":
+            case "GYM/104/0":
+            case "GYM/106/0":
+              //Gymnasium.injectFBTrackingPixel();
+              break;
+            default:
+              //not a special course, we won't do tracking here
+          }
+          //end marketing campaign track course ENROLL action
+
+
+
           location.href = "${reverse('dashboard')}";
         }
         else {

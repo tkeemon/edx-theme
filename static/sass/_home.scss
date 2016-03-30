@@ -214,6 +214,8 @@
 			    -webkit-box-sizing: border-box;
 			    box-sizing: border-box;
 			    vertical-align: top;
+          position:relative;
+          z-index:100;
 			}
 
 			h1
@@ -476,4 +478,10 @@
 		}
 	}
 
+}
+
+.sit-and-get-fit
+{
+  position:absolute;
+  bottom:0px;
 }
