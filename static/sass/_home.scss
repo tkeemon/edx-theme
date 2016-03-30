@@ -27,10 +27,16 @@
 	position:relative;
 	top:-11px;
 
+  >header
+  {
+    height:33em;
+  }
+
 	header
 	{
 		border-bottom:$gym-white;
 		margin-top:11px;
+
 
 		.outer-wrapper
 		{

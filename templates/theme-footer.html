@@ -3,6 +3,7 @@
 <%namespace name='static' file='/static_content.html'/>
 <%! from datetime import datetime %>
 <%! from pytz import UTC %>
+<% current_year = datetime.now().year %>
 
 <div class="wrapper-footer">
   <footer class="container">
@@ -20,7 +21,7 @@
             <li><a href="${reverse('support')}">Support</a></li>
             <li><a href="${reverse('privacy')}">Privacy Policy</a></li>
           </ol>
-          <div class="copyright">&copy; 2015 Aquent Gymnasium</div>
+          <div class="copyright">&copy; ${current_year} Aquent Gymnasium</div>
         </div>
       </nav>
 

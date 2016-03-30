@@ -1,6 +1,7 @@
 .find-courses
 {
 	background:transparent;
+  padding-bottom:0;
 
 	.catalog-content
 	{
@@ -63,7 +64,7 @@
 	{
 		border: 1px solid #ccc;
     border-radius: 2px;
-    margin: 0 auto 2em;
+    margin: 0 auto 0em;
 	}
 
 	.course-overview

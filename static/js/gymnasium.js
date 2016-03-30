@@ -27,7 +27,26 @@ Gymnasium.prototype.setBackgroundColorOfElementFromImage = function (element, im
       $(element).css('background-color','rgba(' + r + ',' + g + ',' + b + ',' + a + ')');
     });
   })
-}
+};
+
+Gymnasium.prototype.RecordCourseEnrollment = function(email, courseid)
+{
+  console.log("Gym is");
+  var data = {
+    debugLink:        0,
+    leadDestination:  "cw-rc",
+    first_name:       "Test",
+    last_name:        "User",
+    email:            "test@miketest.org",
+    city:             "",
+    type:             "",
+    score:            "",
+    course_id:        "",
+    utm_campaign:     "",
+  };
+  //Gymnasium.RecordCloudwallRecord(data);
+
+};
 
 ///get a URL parameter passed in with HTTP GET
 ///NOTE: this function is not case sensitive
@@ -46,6 +65,84 @@ Gymnasium.prototype.getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+Gymnasium.prototype.injectFBTrackingPixel = function(){
+  var trackingPix = $('<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1074612282557779&ev=PageView&noscript=1" /></noscript>');
+  $('body').append(trackingPix);
+  fbq('init', '1074612282557779');
+  fbq('track', "PageView");
+};
+
+Gymnasium.prototype.RecordExamGrade = function(email, courseId, grade)
+{
+  var data = {
+    debugLink:        0,
+    leadDestination:  "cw-rc",
+    first_name:       "Test",
+    last_name:        "User",
+    email:            "test@miketest.org",
+    city:             "",
+    type:             "",
+    score:            "",
+    course_id:        "",
+    utm_campaign:     "not-provided"
+  };
+};
+
+Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastName, cityId)
+{
+  var data = {
+    debugLink:        0,
+    first_name:       firstName,
+    last_name:        lastName,
+    email:            emailAddress,
+    location:         cityId,
+    type:             "",
+    utm_campaign:     "Registration",
+    carrot_type:      "Gymnasium Registration",
+    carrot_topic:     "GYM REG",
+    PROC:             "AWUISubmitExternalLead"
+  };
+
+  return Gymnasium.RecordCloudwallRecord(data);
+};
+
+Gymnasium.prototype.RecordCloudwallRecord = function(jsonData)
+{
+  jsonData.utm_source = "gymnasium.com";
+  jsonData.utm_medium = "web";
+  jsonData.utm_content = "not-provided";
+  jsonData.utm_term = "not-provided";
+  jsonData.agent_email = "tmashburn@aquent.com";
+  jsonData.agent_id = "1694600";
+  jsonData.agent_name = "TALENT LEAD NURTURING";
+  jsonData.carrot = "thegymnasium.com";
+  jsonData.subdomain = "cw-rc";
+  jsonData.language = "en_US";
+  jsonData.medium = "1009";
+  jsonData.referring_site = "thegymnasium.com";
+  jsonData.status = "Talent";
+  jsonData.referer = "thegymnasium.com";
+
+
+  $.ajax("http://aquent.com/application/gymnasium-lead.htm",
+    {
+      contentType: "application/json",
+      dataType: "jsonp",
+      data: jsonData
+    })
+    .done(function(event)
+    {
+      //console.log("Success!\n", event);
+    })
+    .fail(function(event, textStatus, errorThrown)
+    {
+      //console.log("Failure:\n", textStatus, "\n", errorThrown);
+    })
+    .always(function(e){
+      //console.log("always:\n", e);
+    })  ;
+}
+
 <!-- Facebook Pixel Code -->
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -53,12 +150,5 @@ n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','//connect.facebook.net/en_US/fbevents.js');
 <!-- End Facebook Pixel Code -->
-
-Gymnasium.prototype.injectFBTrackingPixel = function(){
-  var trackingPix = $('<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1074612282557779&ev=PageView&noscript=1" /></noscript>');
-  $('body').append(trackingPix);
-  fbq('init', '1074612282557779');
-  fbq('track', "PageView");
-};
 
 var Gymnasium = new Gymnasium();

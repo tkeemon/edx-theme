@@ -19,7 +19,7 @@ body.courseware
 	.content-wrapper#content
 	{
 		background-color:$gym-white;
-		padding-bottom:100px;
+		padding-bottom:1em;
 	}
 
 
@@ -204,7 +204,7 @@ nav.progress.wrapper-course-material
 {
 	border:none;
 	border-radius:2px;
-	margin-bottom:100px;
+	margin-bottom:0px;
 	border: 1px solid #ccc;
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
 
@@ -374,7 +374,7 @@ nav.progress.wrapper-course-material
 	.hero-banner
 	{
 		background: #777;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 0px;
 
 		h1
 		{
