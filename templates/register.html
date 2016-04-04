@@ -34,6 +34,20 @@
         $('#page-subtitle').text("Please complete the following required information to reactivate your Gymnasium account.");
         $('#submit b').text("ACTIVATE NOW");
         $('#email-tip').html("<b>Note</b>: if you need to change your email address, please do that after you've reactivated your account.");
+
+
+        //hackhack
+        window.intercomSettings = {
+          //  The current logged in user's full name
+          //  The current logged in user's email address.
+          email: $('#email').val(),
+          created_at: Math.round((new Date()).getTime() / 1000),
+          //  The current logged in user's sign-up date as a Unix timestamp.
+          app_id: "oej77pbg"
+        };
+
+        Intercom('trackEvent', 'reactivated-legacy-account');
+
       }
 
       // adding js class for styling with accessibility in mind
