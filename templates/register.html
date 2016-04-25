@@ -93,9 +93,10 @@
         var market_name = $('#market option:selected').text();
         var email = $('#email').val();
 
-        Gymnasium.RecordRegistration(email, fname, lname, market_id);
-
-        location.href = url;
+        Gymnasium.RecordRegistration(email, fname, lname, market_id, function(){
+            //navigate AFTER we confirm the registration is complete.
+            location.href = url;
+        });
       });
 
       $('#register-form').on('ajax:error', function(event, jqXHR, textStatus) {

@@ -115,9 +115,16 @@ from edxmako.shortcuts import marketing_link
           }
           //end marketing campaign track course ENROLL action
 
+        % if user.is_authenticated():
+          var fname = "${user.profile.name}".split(" ")[0];
+          var lname = "${user.profile.name}".split(" ")[1];
+          var email = "${user.email}";
+          var courseId = "${course.display_number_with_default}";
 
-
-          location.href = "${reverse('dashboard')}";
+          Gymnasium.RecordCourseEnrollment(fname, lname, email, courseId, function(){
+            location.href = "${reverse('dashboard')}";
+          });
+        %endif          
         }
         else {
           location.href = xhr.responseText;

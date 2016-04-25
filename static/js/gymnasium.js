@@ -29,25 +29,6 @@ Gymnasium.prototype.setBackgroundColorOfElementFromImage = function (element, im
   })
 };
 
-Gymnasium.prototype.RecordCourseEnrollment = function(email, courseid)
-{
-  console.log("Gym is");
-  var data = {
-    debugLink:        0,
-    leadDestination:  "cw-rc",
-    first_name:       "Test",
-    last_name:        "User",
-    email:            "test@miketest.org",
-    city:             "",
-    type:             "",
-    score:            "",
-    course_id:        "",
-    utm_campaign:     "",
-  };
-  //Gymnasium.RecordCloudwallRecord(data);
-
-};
-
 ///get a URL parameter passed in with HTTP GET
 ///NOTE: this function is not case sensitive
 Gymnasium.prototype.getUrlParameter = function getUrlParameter(sParam) {
@@ -72,41 +53,51 @@ Gymnasium.prototype.injectFBTrackingPixel = function(){
   fbq('track', "PageView");
 };
 
-Gymnasium.prototype.RecordExamGrade = function(email, courseId, grade)
+Gymnasium.prototype.RecordCourseEnrollment = function(firstName, lastName, emailAddress, courseId, callback)
 {
   var data = {
-    debugLink:        0,
+    first_name:       firstName,
+    last_name:        lastName,
+    email:            emailAddress,
+    course:           courseId,
+    utm_campaign:     courseId + " - Enrollment",
+    carrot_type:      "Gymnasium Enrollment",
+    carrot_topic:     "GYM-" + courseId,
+    PROC:             "AWUISubmitExternalLead",
+
+  };
+  Gymnasium.RecordCloudwallRecord(data, callback);
+
+};
+
+Gymnasium.prototype.RecordExamGrade = function(email, courseId, grade, callback)
+{
+  var data = {
     leadDestination:  "cw-rc",
-    first_name:       "Test",
-    last_name:        "User",
-    email:            "test@miketest.org",
-    city:             "",
-    type:             "",
-    score:            "",
-    course_id:        "",
-    utm_campaign:     "not-provided"
+    email:            email,
+    score:            grade,
+    course_id:        courseId,
+    utm_campaign:     courseId + " - Grade"
   };
 };
 
-Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastName, cityId)
+Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastName, cityId, callback)
 {
   var data = {
-    debugLink:        0,
     first_name:       firstName,
     last_name:        lastName,
     email:            emailAddress,
     location:         cityId,
-    type:             "",
     utm_campaign:     "Registration",
     carrot_type:      "Gymnasium Registration",
     carrot_topic:     "GYM REG",
     PROC:             "AWUISubmitExternalLead"
   };
 
-  return Gymnasium.RecordCloudwallRecord(data);
+  return Gymnasium.RecordCloudwallRecord(data, callback);
 };
 
-Gymnasium.prototype.RecordCloudwallRecord = function(jsonData)
+Gymnasium.prototype.RecordCloudwallRecord = function(jsonData, callback)
 {
   jsonData.utm_source = "gymnasium.com";
   jsonData.utm_medium = "web";
@@ -140,7 +131,11 @@ Gymnasium.prototype.RecordCloudwallRecord = function(jsonData)
     })
     .always(function(e){
       //console.log("always:\n", e);
-    })  ;
+      if (callback)
+      {
+        callback();
+      }
+    });
 }
 
 <!-- Facebook Pixel Code -->
