@@ -176,22 +176,26 @@ nav.progress.wrapper-course-material
         text-indent:0;
       }
 
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e:before
-      {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        content: "\e080";
-        color:$gym-orange;
-      }
-
+      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e:before,
       span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-s:before
       {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        content: "\e114";
         color:$gym-orange;
+        font-size:0.5em;
+        margin-left:1em;
+        position:absolute;
+        top:0.5em;
+      }
+      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e:before
+      {
+        content: "\e250";
+      }
+
+      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-s:before
+      {
+        content: "\e252";
       }
 
 			p.subtitle
@@ -225,14 +229,30 @@ nav.progress.wrapper-course-material
 				box-shadow:none;
         padding:0;
 
+        h3
+        {
+          line-height:1.3;
+        }
+
 				a
 				{
+          font-weight:900;
+          letter-spacing: .04em;
+          word-spacing: .04em;
+
 					color:$gym-white;
 					background:none;
 					box-shadow:none;
 					text-shadow:none;
 					border:none;
+          margin-bottom:0.3em;
+
+          p
+          {
+            font-size:1.2em;
+          }
 				}
+
 			}
 
 		}
