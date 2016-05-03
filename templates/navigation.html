@@ -36,7 +36,7 @@ site_status_msg = get_site_status_msg(course_id)
 % endif
 </%block>
 
-  <header class="global ${"slim" if course else ""}" aria-label="${_('Global Navigation')}">
+  <header class="global" aria-label="${_('Global Navigation')}">
     <nav id="primary-nav" class="black-background container-fluid">
       <div class="container">
         <div class="row">
@@ -88,7 +88,7 @@ site_status_msg = get_site_status_msg(course_id)
     <nav id="secondary-nav" class="container-fluid">
 
       <div class="container">
-        <div>
+        <div class="row">
           <div class="col-md-12 navbar navbar-default">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#secondary-nav-items">
