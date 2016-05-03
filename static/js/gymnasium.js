@@ -115,7 +115,7 @@ Gymnasium.prototype.RecordCloudwallRecord = function(jsonData, callback)
   jsonData.referer = "thegymnasium.com";
 
 
-  $.ajax("http://aquent.com/application/gymnasium-lead.htm",
+  $.ajax("https://aquent.com/application/gymnasium-lead.htm",
     {
       contentType: "application/json",
       dataType: "jsonp",
