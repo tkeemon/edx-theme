@@ -5,9 +5,9 @@
 
 <%block name="pagetitle">${_("Courses")}</%block>
 <%! from microsite_configuration import microsite %>
+<% import urllib2 %>
 
 <section class="find-courses" id="gym-catalog">
-
 
   <div class="course-title container-fluid">
     <header class="container">
@@ -86,18 +86,12 @@
         </div>
         % endif
 
-
-        <h1>Upcoming Courses</h1>
-
-        <section>
-          <h2>Creating HTML5 Web Banners</h2>
-          <p>This course is for developers who want a practical overview of how to build animated banner ads in HTML5 and compare this approach with alternatives such as Adobe Animate CC, hand-coding HTML, CSS3, and JavaScript utilizing the GreenSock Animation Platform (GSAP) library.</p>
-        </section>
+        ## include sidebar content from git repo
+        ${_(urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/upcoming-courses.html').read())}
       </aside>
     </div>
   </main>
 </section>
-
 
 <script>
   $(function(){
@@ -113,7 +107,5 @@
         $(elem).remove();
       }
     });
-
-
   })
 </script>
