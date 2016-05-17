@@ -90,8 +90,41 @@ from edxmako.shortcuts import marketing_link
 
     $('#class_enroll_form').on('ajax:complete', function(event, xhr) {
       if(xhr.status == 200) {
+        //success - log the event in Intercom
+        var metadata = {
+          "course_id" : "${course.display_number_with_default}",
+          "course_name" : "${course.display_name_with_default}"
+        };
+        Intercom('trackEvent', 'enrolled', metadata);
+
         if (xhr.responseText == "") {
-          location.href = "${reverse('dashboard')}";
+
+          //marketing campaign track course ENROLL action
+          var current_course = $('input[name="course_id"]').val();
+          switch(current_course.toUpperCase())
+          {
+            case "GYM/105/0":
+            case "GYM/005/0":
+            case "GYM/100/STAGING":
+            case "GYM/104/0":
+            case "GYM/106/0":
+              //Gymnasium.injectFBTrackingPixel();
+              break;
+            default:
+              //not a special course, we won't do tracking here
+          }
+          //end marketing campaign track course ENROLL action
+
+        % if user.is_authenticated():
+          var fname = "${user.profile.name}".split(" ")[0];
+          var lname = "${user.profile.name}".split(" ")[1];
+          var email = "${user.email}";
+          var courseId = "${course.display_number_with_default}";
+
+          Gymnasium.RecordCourseEnrollment(fname, lname, email, courseId, function(){
+            location.href = "${reverse('dashboard')}";
+          });
+        %endif          
         }
         else {
           location.href = xhr.responseText;

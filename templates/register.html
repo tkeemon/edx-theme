@@ -21,8 +21,21 @@
 <%block name="bodyclass">view-</%block>
 
 <%block name="js_extra">
+
   <script type="text/javascript">
     $(function() {
+      //magic up this page if auto-reg is in the url
+      if (window.location.href.indexOf('auto-reg') > 0)
+      {
+        //we're in the auto-reg page, pretty it up
+        console.log('auto-reg present.  modifying page');
+        $('.migration-message').hide();
+        $('#already-registered').hide();
+        $('#page-title').text("Reactivate your Account");
+        $('#page-subtitle').text("Please complete the following required information to reactivate your Gymnasium account.");
+        $('#submit b').text("ACTIVATE NOW");
+        $('#email-tip').html("<b>Note</b>: if you need to change your email address, please do that after you've reactivated your account.");
+      }
 
       // adding js class for styling with accessibility in mind
       $('body').addClass('js');
@@ -41,6 +54,23 @@
         $("label").parent().removeClass("is-focused");
       });
 
+      var enrollment_action = Gymnasium.getUrlParameter("enrollment_action");
+      if( enrollment_action === "enroll")
+      {
+        var course_id = Gymnasium.getUrlParameter("COURSE_ID").trim();
+        switch(course_id.toUpperCase())
+        {
+          case "GYM/105/0":
+          case "GYM/005/0":
+          case "GYM/100/0":
+          case "GYM/104/0":
+          case "GYM/106/0":
+            //Gymnasium.injectFBTrackingPixel();
+            break;
+          default:
+            //not a special course, we won't do tracking here
+        }
+      }
     });
 
     (function() {
@@ -56,7 +86,17 @@
 
       $('#register-form').on('ajax:success', function(event, json, xhr) {
         var url = json.redirect_url || "${reverse('dashboard')}";
-        location.href = url;
+
+        var fname = $('#name').val().split(" ")[0];
+        var lname = $('#name').val().split(" ")[1];
+        var market_id = $('#market').val();
+        var market_name = $('#market option:selected').text();
+        var email = $('#email').val();
+
+        Gymnasium.RecordRegistration(email, fname, lname, market_id, function(){
+            //navigate AFTER we confirm the registration is complete.
+            location.href = url;
+        });
       });
 
       $('#register-form').on('ajax:error', function(event, jqXHR, textStatus) {
@@ -90,6 +130,8 @@
           text("${_('Processing your account information')}");
       }
     }
+
+
   </script>
 </%block>
 
@@ -99,7 +141,7 @@
       <div class="col-md-9 sign-up">
 
         <header class="row">
-          <h1 class="title col-md-12">
+          <h1 class="title col-md-12" id="page-title">
             ${_("Sign up for your free account")}
           </h1>
         </header>
@@ -108,8 +150,8 @@
           <form role="form" class="col-md-12" id="register-form" method="post" data-remote="true" action="/create_account" novalidate>
             <input type="hidden" name="csrfmiddlewaretoken" value="${ csrf_token }">
 
-            <div class="instructions">
-              <p>Please complete the following required information below to register for a free Gymnasium account. </p>
+            <div class="instructions" >
+              <p id="page-subtitle">Please complete the following required information below to register for a free Gymnasium account. </p>
             </div>
 
             <!-- status messages -->
@@ -120,21 +162,6 @@
             <div role="alert" class="status err-message submission-error" tabindex="-1">
               <h3 class="err-message-title">${_("The following errors occurred while processing your registration:")} </h3>
               <ul class="err-message-copy"> </ul>
-            </div>
-
-            <div role="alert" class="status err-message temp-message is-shown" tabindex="-1">
-              <h3 class="err-message-title">Important:</h3><br />
-              <p>
-                We recently moved Gymnasium to an all new platform – you’re looking at it right now! <br />
-                <b>If you had an account with us before November of 2015:</b>
-              </p>
-
-              <ol class="err-message-copy">
-                <li>Please use the form below to create an account with the same email address you’d used before.</li>
-                <li>You will receive an email with a link to activate your new account. You <em>must activate your new account</em> before your previous course enrollments and certificates can transfer.</li>
-              </ol>
-              <p>For more details, you can check out <a href="http://gymnasium.github.io/2015/11/08/its-alive/" target="_blank" style="font-family:'Helvetica Neue'; color:#d9534f; border-bottom:1px solid; font-weight:bold;">this post</a> on our blog.</p>
-              <p>If anything else seems wrong, drop us a line at help@thegymnasium.com, and we'll do our very best to help you.</p>
             </div>
 
             % if third_party_auth.is_enabled():
@@ -169,7 +196,6 @@
             % else:
 
             <p class="instructions">
-              ${_("Please complete the following fields to register for an account. ")}<br />
               ${_('Required fields are noted by <strong class="indicator">bold text and an asterisk (*)</strong>.')}
             </p>
 
@@ -183,6 +209,7 @@
               <li class="field text" id="field-email">
                 <label for="email">${_('E-mail')}</label>
                 <input class="" id="email" type="email" name="email" value="${email}" placeholder="${_('example: username@domain.com')}" required aria-required="true" />
+                <span class="tip tip-input" id="email-tip"></span>
               </li>
 
               <li class="field text" id="field-name">

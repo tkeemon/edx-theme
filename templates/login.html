@@ -143,20 +143,6 @@
           </h1>
         </header>
 
-        <div role="alert" class="status err-message temp-message is-shown" tabindex="-1">
-          <h3 class="err-message-title">IMPORTANT:</h3>
-          <p>
-            We recently moved Gymnasium to an all new platform – you’re looking at it right now!<br />
-            <b>If you had an account with us before November of 2015:</b>
-          </p>
-          <ul class="err-message-copy">
-            <li>You will need to create a new account using the same email address you had used before.</li>
-            <li>If you’re unable to log in or reset your password, you may not have activated your new account. Please check your inbox or spam folder for an email with that activation link.</li>
-          </ul>
-          <p>For more details, you can check out <a href="http://gymnasium.github.io/2015/11/08/its-alive/" target="_blank" style="font-family:'Helvetica Neue'; color:#d9534f; border-bottom:1px solid; font-weight:bold;">this post</a> on our blog.</p>
-          <p>If anything else seems wrong, drop us a line at help@thegymnasium.com, and we'll do our very best to help you.</p>
-        </div>
-
         <div class="row">
           <form role="form" class="col-md-12" id="login-form" method="post" data-remote="true" action="/login_ajax" novalidate>
 
@@ -193,8 +179,7 @@
                   <label for="password">${_('Password')}</label>
                   <input id="password" type="password" name="password" value="" required aria-required="true" />
                   <span class="tip tip-input">
-                    <a href="#forgot-password-modal" rel="leanModal" class="pwd-reset action action-forgotpw" id="forgot-password-link" role="button" aria-haspopup="true">${_('Forgot password?')}</a>
-                    <a href="#dummy-modal" data-toggle="modal" data-target="#dummy-modal" class="edit-email">launch new modal</a>
+                    <a href="#forgot-password" data-toggle="modal" data-target="#forgot-password" class="edit-email">${_('Forgot password?')}</a>
                   </span>
                 </li>
               </ol>

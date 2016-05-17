@@ -285,7 +285,25 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/gymnasium/images/home-page-hero-background.png');
+$homepage-bg-image: url('../themes/gymnasium/images/marketing-campaign/homepage_graphic.png');
+.home>header
+{
+	background-position-y:-25px;
+  .container
+  {
+    height:100%;
+
+    .row
+    {
+      height:100%;
+
+      .marketing-image-container
+      {
+        height:100%;
+      }
+    }
+  }
+}
 
 $login-banner-image: none;
 $register-banner-image: none;
@@ -611,6 +629,7 @@ body a:focus,
 		background-color:$gym-dark-grey;
 		border-color:transparent;
 		border:none;
+    margin-bottom:0;
 	}
 }
 
@@ -682,7 +701,7 @@ header.global,
 
 .content-wrapper#content
 {
-	padding-bottom:0px;
+	padding-bottom:1em;
 	background-color:$gym-white;
 }
 
