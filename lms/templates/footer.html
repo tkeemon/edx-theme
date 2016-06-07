@@ -1,0 +1,43 @@
+## mako
+<%! from django.core.urlresolvers import reverse %>
+<%namespace name='static' file='/static_content.html'/>
+<%! from datetime import datetime %>
+<%! from pytz import UTC %>
+<% current_year = datetime.now().year %>
+
+<div class="wrapper-footer">
+  <footer class="container">
+    <div class="row">
+      <nav>
+        <div class="col-md-4">
+          <a href="${marketing_link('ROOT')}">
+            <img class="gymnasium-logo"  src="${static.url('images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >
+          </a>
+        </div>
+        <div class="col-md-4">
+          <ol class="list-inline text-center footer-link-list">
+            <li><a href="${reverse('about')}">About</a></li>
+            <li><a href="${marketing_link('FAQ')}">FAQ</a></li>
+            <li><a href="{reverse('asupport')}">Support</a></li>
+            <li><a href="{reverse('privacy')}">Privacy Policy</a></li>
+          </ol>
+          <div class="copyright">&copy; ${current_year} Aquent Gymnasium</div>
+        </div>
+      </nav>
+
+      <div class="built-on col-md-4 text-center">
+        <span>
+          <a href="http://openedx.org" target="_blank">
+            <img
+              src="https://files.edx.org/openedx-logos/edx-openedx-logo-tag-light.png"
+              width="150" height="50" alt="Powered by Open edX" />
+          </a>
+
+        </span>
+      </div>
+    </div>
+    <div class="row">
+
+    </div>
+  </footer>
+</div>
