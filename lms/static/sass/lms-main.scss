@@ -13,7 +13,10 @@
 // Should be moved to standalone SASS (probably)
 //----------------
 
+$baseline: 20px;
+
 /* colors */
+
 
 //Gymnasium Theme Colors
 $gym-grey-dark: #262626;
@@ -139,11 +142,11 @@ $black-80: #585858;
 
 
 $theme-sans-font: "brandon-grotesque";
-$sans-serif: $theme-sans-font, $sans-serif;
+$sans-serif: $theme-sans-font;
 $body-font-family: $sans-serif;
 
 $theme-serif-font: 'Helvetica Neue';
-$serif: $theme-serif-font, $serif;
+$serif: $theme-serif-font;
 
 
 p
