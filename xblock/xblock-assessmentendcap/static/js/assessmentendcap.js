@@ -1,3 +1,0 @@
-function AssessmentEndcapXBlock(runtime, element) {
-
-}
