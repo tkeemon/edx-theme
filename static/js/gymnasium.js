@@ -507,9 +507,11 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     var queryJobsForMarket = function(market)
     {
 
-      var url = "https://aquent.com/api/content/render/false/type/jsonp/callback/Gymnasium.myCustomCallback/query/+contentType:AquentJob%20+AquentJob.isPosted:true%20+languageId:1%20+deleted:false%20+working:true/orderby/AquentJob.postedDate%20desc%20+AquentJob.locationId:" + market.id
-                + "/limit/" + limit
-                + "/offset/" + page;
+      var url = "https://aquent.com/api/content/render/false/type/jsonp/callback/Gymnasium.myCustomCallback/query/+contentType:AquentJob%20+AquentJob.isPosted:true%20+languageId:1%20+deleted:false%20+working:true" +
+                "%20+AquentJob.locationId:" + market.id +
+                "/orderby/AquentJob.postedDate%20desc" +
+                "/limit/" + limit +
+                "/offset/" + page;
       $.ajax(
         {
           url: url,
@@ -549,7 +551,26 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
 
 Gymnasium.prototype.myCustomCallback = function(response)
 {
+  var list = $("#find-jobs-job-list");
+  var market_label = $('#find-jobs-market-name');
 
+  var jobs = response.contentlets;
+
+  //remove anything in the list right now
+  $(list).empty();
+
+  for (var i = 0; i < jobs.length; i ++)
+  {
+    var li = '<li>';
+    li += '<a href=https://aquent.com/find-work/' + jobs[i].jobId + '>';
+    li += '<div class="job-post">';
+    li += '<b class="job-title">' + jobs[i].title + '</b>';
+    li += '<em class="job-market"> ' + jobs[i].marketId + '</em>';
+    li += '</div>';
+    li += '</a>';
+    li += '</li>';
+    $(list).append(li);
+  }
 }
 
 Gymnasium.prototype.RecordCourseEnrollment = function(firstName, lastName, emailAddress, courseId, callback)
