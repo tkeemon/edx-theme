@@ -522,7 +522,7 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     var displayJobsForGeoLocation = function(position)
     {
       var market = getMarketFromGeoLocation(position);
-      var jobs = queryJobsForMarket(market, limit, page);
+      queryJobsForMarket(market);
     }
 
     // get user's Market name (ie. "Chicago")
@@ -531,11 +531,10 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
 
     if (selected_market !== "")
     {
-
-
       if (navigator.geolocation) {
         // 1. Geolocation is enabled - use this as location
         navigator.geolocation.getCurrentPosition(displayJobsForGeoLocation);
+        return;
       } else {
         // 2. Geolocation not enabled - pick default behavior
         market = "Boston";
@@ -545,8 +544,7 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     {
       market=selected_market;
     }
-
-
+    queryJobsForMarket(market);
 }
 
 Gymnasium.prototype.myCustomCallback = function(response)
