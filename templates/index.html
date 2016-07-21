@@ -114,16 +114,13 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
       </section>
 
       <div class="row">
-        <hr class="col-md-10 col-md-offset-1" />
-      </div>
-
-      <div class="row">
-        <div class="text-center">
-          <h1>Featured Courses</h1>
-        </div>
-
         <section class="row col-md-12 ">
           <section class="highlighted-courses">
+
+            <header class="text-center header-tab">
+              <h1>Featured Courses</h1>
+            </header>
+
             % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
               <section class="courses row">
                 <ul class="course-list row">

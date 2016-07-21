@@ -434,6 +434,25 @@
 		font-weight: normal;
 	}
 
+  .highlighted-courses
+  {
+
+    padding-top:3em;
+
+    .header-tab
+    {
+      border-top: 2px solid #ccc;
+
+      h1
+      {
+        position: relative;
+        top: -.75em;
+        background: #ebebeb;
+        margin-bottom: -.75em;
+      }
+    }
+  }
+
 	.courses
 	{
 
@@ -441,6 +460,7 @@
     {
       font-size:1.5em;
       padding:0.5em;
+      margin-top:1em;
     }
 
 		.gym-course a:hover
