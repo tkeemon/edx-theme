@@ -221,11 +221,11 @@
 			h1
 			{
 				display: inline-block;
-			    font-size: 1em;
+			    font-size: 1.75em;
 			    line-height: 1.2;
 			    text-transform: uppercase;
 			    vertical-align: 1.2em;
-			    margin-top: -1.8em;
+			    margin-top: -1.5em;
 					text-align:center;
 			}
 		}
@@ -437,6 +437,12 @@
 	.courses
 	{
 
+    #view-all-courses
+    {
+      font-size:1.5em;
+      padding:0.5em;
+    }
+
 		.gym-course a:hover
 		{
 			text-decoration:none;
@@ -466,10 +472,21 @@
 				}
 			}
 
-			.course-preview h2
-			{
-				height:4em;
-			}
+			.course-preview
+      {
+        background: $gym-medium-grey;
+        padding:1em;
+        margin-top:0;
+
+        h2
+  			{
+  				height:3.5em;
+          color: $gym-orange;
+          text-align: left;
+          margin:0;
+          padding:0;
+  			}
+      }
 		}
 
 		p
