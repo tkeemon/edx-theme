@@ -33,11 +33,18 @@ body.courseware
 
 }
 
-#content header.course-profile
+#content
 {
-	margin-top:10px;
+  #course-content.course-content
+  {
+    max-width: inherit;
+    width: 66.66666667%;;
+  }
+  header.course-profile
+  {
+  	margin-top:10px;
+  }
 }
-
 .container
 {
 	div.info-wrapper section.updates>ol>li h2,
@@ -365,7 +372,7 @@ nav.progress.wrapper-course-material
 		padding:0px 20px;
 		border-left:none;
     background-color: $gym-light-color;
-    
+
 		h1
 		{
 			padding:10px 0 0px 0;
