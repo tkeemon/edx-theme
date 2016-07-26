@@ -268,7 +268,7 @@ nav.progress.wrapper-course-material
 }
 
 /** strange specificity here to get past existing style rules, sadly **/
-.container>div.info-wrapper
+.container div.info-wrapper
 {
 	border:none;
 	border-radius:2px;
@@ -284,6 +284,7 @@ nav.progress.wrapper-course-material
 	{
 		font-size:12pt;
 		border-right:1px dashed #ccc;
+    background-color:$gym-light-color;
 
 		section
 		{
@@ -363,6 +364,8 @@ nav.progress.wrapper-course-material
 		border-radius:0;
 		padding:0px 20px;
 		border-left:none;
+    background-color: $gym-light-color;
+    
 		h1
 		{
 			padding:10px 0 0px 0;

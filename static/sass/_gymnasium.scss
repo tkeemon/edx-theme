@@ -1183,3 +1183,16 @@ code, code *
 		color:$gym-light-grey;
 	}
 }
+
+/* negate a silly style rule inherited from the platform */
+html
+{
+  .container>div,
+  .home .container.grey.div
+  {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
