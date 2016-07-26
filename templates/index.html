@@ -97,17 +97,17 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
       </header>
 
       <section class="row how-gymnasium-works">
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
           <h2>Real World Skills</h2>
           <p>Gymnasium offers free online courses designed to teach creative professionals in-demand skills.  We know these skills are in demand based on what we hear from our clients.</p>
         </div>
 
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
           <h2>Expert Instruction</h2>
           <p>Our courses are all self-paced and taught by experienced practitioners with a passion for sharing practical lessons from the design trenches.</p>
         </div>
 
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-4 col-sm-12 col-xs-12">
           <h2>Career Opportunities</h2>
           <p>Once you finish a course, you will be able to use your new skills in your current role, or use them to land a new job. <a href="http://aquent.com/find-work/" target="_blank">We can even help with that!</a></p>
         </div>
@@ -126,14 +126,14 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
                 <ul class="course-list row">
                   %for idx, course in enumerate(courses):
                     % if course.is_newish:
-                        <li class="course-list-item col-lg-3 col-md-3 col-sm-12 col-xs-12 ">
+                        <li class="course-list-item col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
                           <%include file="course.html" args="course=course" />
                         </li>
 
                     %endif
                   %endfor
                 </ul>
-                <div class="col-md-4 col-md-offset-4 text-center">
+                <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
                   <a href="/courses" class="gym-button" id="view-all-courses">
                     <b>View all Courses</b>
                   </a>
