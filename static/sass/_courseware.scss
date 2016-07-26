@@ -64,6 +64,14 @@ body.courseware
 		{
 			background-color:$gym-light-gray;
 
+      div.row
+      {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
 			h1
 			{
 				font-size:20pt;
