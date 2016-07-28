@@ -473,7 +473,7 @@
 
 		.gym-course a:hover
 		{
-			text-decoration:none;
+			text-decoration:underline;
 		}
 
 		padding-top:0px;
@@ -511,11 +511,14 @@
 
         h2
   			{
-  				height:2.5em;
+  				height:3.5em;
           color: $gym-orange;
           text-align: left;
           margin:0;
           padding:0;
+          text-transform:uppercase;
+          font-weight:bolder;
+          font-size:16pt;
   			}
       }
 		}
@@ -532,4 +535,72 @@
 {
   position:absolute;
   bottom:0px;
+}
+
+
+#get-work
+{
+
+  .header-tab
+  {
+    height:2.5em;
+  }
+
+  .tagline
+  {
+    margin-bottom:1em;
+
+    h2
+    {
+      margin-top:0;
+      padding-top:0;
+      font-weight: normal;
+    }
+  }
+
+  .viewing-jobs-in
+  {
+    margin-top:1.5em;
+    font-weight:bold;
+    font-size:14pt;
+  }
+
+  select#market
+  {
+    margin-top:0.5em;
+    color:black;
+  }
+
+  ul#find-jobs-job-list
+  {
+    margin-top:1em;
+    border-top:2px solid #777;
+    list-style:none;
+    padding:0;
+
+    li
+    {
+      height:4em;
+      padding:1.5em 2em;
+      border-bottom:2px solid #777;
+
+      a
+      {
+        font-size:17pt;
+        margin-top:0.5em;
+        margin-bottom:0.5em;
+
+        padding-top:0.5em;
+        padding-bottom:0.5em;
+      }
+    }
+  }
+
+  .view-all-jobs
+  {
+    margin-top:1.5em;
+    color:$gym-orange;
+    font-size:16pt;
+    font-weight:bold
+  }
 }

@@ -56,10 +56,6 @@ Gymnasium.prototype.injectFBTrackingPixel = function(){
 Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, callback)
 {
 
-  //market should be a string representing the market we're looking for
-  // i.e. "Chicago"
-  selected_market = typeof market == 'undefined' ? "Boston" : market;
-
   //limit is the number of listings to return.  Default is 5.
   limit = typeof limit == 'undefined' ? 5 : limit ;
 
@@ -508,7 +504,7 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     {
 
       var url = "https://aquent.com/api/content/render/false/type/jsonp/callback/Gymnasium.myCustomCallback/query/+contentType:AquentJob%20+AquentJob.isPosted:true%20+languageId:1%20+deleted:false%20+working:true" +
-                "%20+AquentJob.locationId:" + market.id +
+                "%20+AquentJob.locationId:" + market +
                 "/orderby/AquentJob.postedDate%20desc" +
                 "/limit/" + limit +
                 "/offset/" + page;
@@ -524,14 +520,14 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     var displayJobsForGeoLocation = function(position)
     {
       var market = getMarketFromGeoLocation(position);
-      queryJobsForMarket(market);
+      queryJobsForMarket(market.id);
     }
 
     // get user's Market name (ie. "Chicago")
     // 0. Is User is logged in, skip geolocation and use their market
     var market = "";
 
-    if (selected_market !== "")
+    if (typeof selected_market == 'undefined')
     {
       if (navigator.geolocation) {
         // 1. Geolocation is enabled - use this as location
@@ -539,7 +535,7 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
         return;
       } else {
         // 2. Geolocation not enabled - pick default behavior
-        market = "Boston";
+        market = 10; //boston
       }
     }
     else
