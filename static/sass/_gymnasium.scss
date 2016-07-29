@@ -609,12 +609,13 @@ body a:focus,
 	}
 
 	a.gym-button:hover,
-  a.gym-button:active
+  a.gym-button:active,
+  a.gym-button:active:hover
 	{
 		background-color:transparentize($gym-orange,0.25);
 		color:$gym-button-hover-color;
     box-shadow: none;
-    
+
 	}
 
 
