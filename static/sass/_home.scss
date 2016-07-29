@@ -580,7 +580,6 @@
 
     li
     {
-      height:4em;
       padding:1.5em 2em;
       border-bottom:2px solid #777;
 
@@ -592,6 +591,30 @@
 
         padding-top:0.5em;
         padding-bottom:0.5em;
+
+        .job-title
+        {
+          color:$gym-orange;
+        }
+
+        .job-market
+        {
+          font-size:12pt;
+          font-style:normal;
+          font-weight: bold;
+
+        }
+      }
+      a:hover,
+      a:active,
+      a:hover:active
+      {
+        .job-title,
+        .job-market
+        {
+          text-decoration: underline;
+        }
+
       }
     }
   }
