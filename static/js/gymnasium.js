@@ -557,8 +557,10 @@ Gymnasium.prototype.myCustomCallback = function(response)
 
   for (var i = 0; i < jobs.length; i ++)
   {
+    var utm_info = "?utm_source=thegymnasium.com&utm_medium=web&utm_campaign=homepagejobs";
+
     var li = '<li class="row">';
-    li += '<a href=https://aquent.com/find-work/' + jobs[i].jobId + '>';
+    li += '<a href="https://aquent.com/find-work/' + jobs[i].jobId + utm_info + '">';
     li += '<div class="job-post">';
     li += '<b class="job-title col-md-8">' + jobs[i].title + '</b>';
     li += '<em class="job-market col-md-4 text-right"> ' + jobs[i].marketId + '</em>';
