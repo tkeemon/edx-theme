@@ -562,8 +562,8 @@ Gymnasium.prototype.myCustomCallback = function(response)
     var li = '<li class="row">';
     li += '<a href="https://aquent.com/find-work/' + jobs[i].jobId + utm_info + '">';
     li += '<div class="job-post">';
-    li += '<b class="job-title col-md-8">' + jobs[i].title + '</b>';
-    li += '<em class="job-market col-md-4 text-right"> ' + jobs[i].marketId + '</em>';
+    li += '<b class="job-title col-xs-8">' + jobs[i].title + '</b>';
+    li += '<em class="job-market col-xs-4 text-right"> ' + jobs[i].marketId + '</em>';
     li += '</div>';
     li += '</a>';
     li += '</li>';
