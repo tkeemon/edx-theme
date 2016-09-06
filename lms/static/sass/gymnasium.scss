@@ -164,7 +164,7 @@ p
 //-----------------
 
 $body-bg: $gray-1;
-$container-bg: $gray-1;
+$container-bg: transparent;
 $login-register-bg: $gray-1;
 $content-wrapper-bg: $gray-1;
 $header-image: none;
@@ -293,6 +293,14 @@ $footer_margin: ($baseline/4) 0;
 //  CSS BG Images
 //-----------------
 $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
+
+.content-wrapper .container,
+.container,
+{
+  border:none;
+  background:transparent;
+}
+
 .home>header
 {
 	background-position-y:-25px;
