@@ -30,17 +30,8 @@
   >header
   {
     height:33em;
-  }
 
-	header
-	{
-		border-bottom:$gym-white;
-		.outer-wrapper
-		{
-			padding: 150px 10px 0px 740px;
-		}
-
-		.title
+    .header-title
 		{
 			border:0px;
 			background-color:$gym-textblock-color;
@@ -50,8 +41,10 @@
 			height:auto;
 			min-height:0px;
 			margin-top:100px;
-			padding:30px;
+			padding:25px;
 			box-sizing:border-box;
+      margin-right:0;
+      margin-left:0;
 
 			h1
 			{
@@ -87,6 +80,15 @@
 				font-size:1.5em;
 				font-weight:900;
 			}
+		}
+  }
+
+	header
+	{
+		border-bottom:$gym-white;
+		.outer-wrapper
+		{
+			padding: 150px 10px 0px 740px;
 		}
 
 		.media
