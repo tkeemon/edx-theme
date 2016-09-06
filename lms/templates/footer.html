@@ -11,7 +11,7 @@
       <nav>
         <div class="col-md-4">
           <a href="${marketing_link('ROOT')}">
-            <img class="gymnasium-logo"  src="${static.url('themes/gymnasium/images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >
+            <img class="gymnasium-logo"  src="${static.url('images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >
           </a>
         </div>
         <div class="col-md-4">
@@ -19,8 +19,8 @@
             <li><a href="https://medium.com/gymnasium" target="_blank">Blog</a></li>
             <li><a href="${reverse('about')}">About</a></li>
             <li><a href="${marketing_link('FAQ')}">FAQ</a></li>
-            <li><a href="${reverse('support')}">Support</a></li>
-            <li><a href="${reverse('privacy')}">Privacy Policy</a></li>
+            <li><a href="{reverse('asupport')}">Support</a></li>
+            <li><a href="{reverse('privacy')}">Privacy Policy</a></li>
           </ol>
           <div class="copyright">&copy; ${current_year} Aquent Gymnasium</div>
         </div>

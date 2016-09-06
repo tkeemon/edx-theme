@@ -44,7 +44,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
           <a class="gym-button" href="/courses"><b>Enroll in a Class</b></a>
         </div>
         <div class="col-md-9 col-sm-12 marketing-image-container">
-          <a href="/courses"><img src="${static.url('themes/gymnasium/images/marketing-campaign/sit_and_get_fit_2.png')}" class="img-responsive sit-and-get-fit"></a>
+          <a href="/courses"><img src="${static.url('images/marketing-campaign/sit_and_get_fit_2.png')}" class="img-responsive sit-and-get-fit"></a>
         </div>
         <div class="col-md-3 col-sm-12">
           <hgroup class="title">
@@ -53,29 +53,6 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
             <a class="gym-button" href="/courses">Enroll in a Class</a>
           </hgroup>
         </div>
-        ## Disable social buttons for non-edX sites
-        % if not self.theme_enabled():
-          <section class="actions">
-            <div class="main-cta">
-              <a href="#signup-modal" id="signup_action" class="find-courses" rel="leanModal">${_("Sign Up")}</a>
-            </div>
-
-            <div class="secondary-actions">
-              <div class="social-sharing">
-                <div class="sharing-message">${_("Stay up to date with all {platform_name} has to offer!").format(platform_name=settings.PLATFORM_NAME)}</div>
-                <a href="https://twitter.com/edXOnline" class="share">
-                  <img src="${static.url('images/social/twitter-sharing.png')}">
-                </a>
-                <a href="http://www.facebook.com/EdxOnline" class="share">
-                  <img src="${static.url('images/social/facebook-sharing.png')}">
-                </a>
-                <a href="https://plus.google.com/108235383044095082735/posts" class="share">
-                  <img src="${static.url('images/social/google-plus-sharing.png')}">
-                </a>
-              </div>
-            </div>
-          </section>
-          % endif
       </div>
 
       % if show_homepage_promo_video:
@@ -124,13 +101,10 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
             <section class="courses row">
 
               <ul class="course-list col-md-12">
-                %for idx, course in enumerate(courses):
-                  % if course.is_newish:
-                      <li class="course-list-item col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
-                        <%include file="course.html" args="course=course" />
-                      </li>
-
-                  %endif
+                %for course in courses[:4]:
+                  <li class="course-list-item col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
+                    <%include file="course.html" args="course=course" />
+                  </li>
                 %endfor
               </ul>
               <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
@@ -299,27 +273,27 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
         <ul class="col-md-12 list-inline text-center">
           <li>
             <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+              <img src="${static.url('images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+              <img src="${static.url('images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive  center-block" />
+              <img src="${static.url('images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive  center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.lemonde.fr/emploi/article/2014/06/30/les-firmes-americaines-recrutent-dans-les-mooc_4448062_1698637.html" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+              <img src="${static.url('images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
           <li>
             <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="_blank">
-              <img src="${static.url('themes/gymnasium/images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+              <img src="${static.url('images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
             </a>
           </li>
         </ul>
@@ -332,9 +306,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 <section id="video-modal" class="modal home-page-video-modal video-modal">
   <div class="inner-wrapper">
     <%
-      youtube_video_id = homepage_promo_video_youtube_id
-      if self.stanford_theme_enabled():
-        youtube_video_id = "2gmreZObCY4"
+      youtube_video_id = "2gmreZObCY4"
     %>
     <iframe width="640" height="360" src="//www.youtube.com/embed/${youtube_video_id}?showinfo=0" frameborder="0" allowfullscreen></iframe>
   </div>

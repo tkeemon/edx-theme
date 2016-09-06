@@ -1,3 +1,7 @@
+// Import the core Sass file - at the top so that
+// we can override rules as needed
+@import 'lms/static/sass/lms-main-v2.scss';
+
 /****************************************************************************************************
 *   Stanford Theming File
 *
@@ -13,7 +17,10 @@
 // Should be moved to standalone SASS (probably)
 //----------------
 
+$baseline: 20px;
+
 /* colors */
+
 
 //Gymnasium Theme Colors
 $gym-grey-dark: #262626;
@@ -86,16 +93,16 @@ $black-80: #585858;
 
 @font-face {
 	font-family: brandon-grotesque;
-	src: url("../themes/gymnasium/fonts/brandon_reg-webfont.woff") format("woff"),
-	url("../themes/gymnasium/fonts/brandon_reg-webfont.woff2") format("woff2");
+	src: url("../fonts/brandon_reg-webfont.woff") format("woff"),
+	url("../fonts/brandon_reg-webfont.woff2") format("woff2");
 	font-style: normal;
 	font-weight: normal;
 	}
 
 @font-face {
 	font-family: brandon-grotesque;
-	src: url("../themes/gymnasium/fonts/brandon_reg_it-webfont.woff") format("woff"),
-	url("../themes/gymnasium/fonts/brandon_reg_it-webfont.woff2") format("woff2");
+	src: url("../fonts/brandon_reg_it-webfont.woff") format("woff"),
+	url("../fonts/brandon_reg_it-webfont.woff2") format("woff2");
 	font-style: italic;
 	font-weight: normal;
 	}
@@ -104,16 +111,16 @@ $black-80: #585858;
 
 @font-face {
 	font-family: brandon-grotesque;
-	src: url("../themes/gymnasium/fonts/brandon_bld-webfont.woff") format("woff"),
-	url("../themes/gymnasium/fonts/brandon_bld-webfont.woff2") format("woff2");
+	src: url("../fonts/brandon_bld-webfont.woff") format("woff"),
+	url("../fonts/brandon_bld-webfont.woff2") format("woff2");
 	font-style: normal;
 	font-weight: bold;
 	}
 
 @font-face {
 	font-family: brandon-grotesque;
-	src: url("../themes/gymnasium/fonts/brandon_bld_it-webfont.woff") format("woff"),
-	url("../themes/gymnasium/fonts/brandon_bld_it-webfont.woff2") format("woff2");
+	src: url("../fonts/brandon_bld_it-webfont.woff") format("woff"),
+	url("../fonts/brandon_bld_it-webfont.woff2") format("woff2");
 	font-style: italic;
 	font-weight: bold;
 	}
@@ -122,16 +129,16 @@ $black-80: #585858;
 
 @font-face {
 	font-family: brandon-grotesque;
-	src: url("../themes/gymnasium/fonts/brandon_blk-webfont.woff") format("woff"),
-	url("../themes/gymnasium/fonts/brandon_blk-webfont.woff2") format("woff2");
+	src: url("../fonts/brandon_blk-webfont.woff") format("woff"),
+	url("../fonts/brandon_blk-webfont.woff2") format("woff2");
 	font-style: normal;
 	font-weight: 900;
 	}
 
 @font-face {
 	font-family: brandon-grotesque;
-	src: url("../themes/gymnasium/fonts/brandon_blk_it-webfont.woff") format("woff"),
-	url("../themes/gymnasium/fonts/brandon_blk_it-webfont.woff2") format("woff2");
+	src: url("../fonts/brandon_blk_it-webfont.woff") format("woff"),
+	url("../fonts/brandon_blk_it-webfont.woff2") format("woff2");
 	font-style: italic;
 	font-weight: 900;
 	}
@@ -139,11 +146,11 @@ $black-80: #585858;
 
 
 $theme-sans-font: "brandon-grotesque";
-$sans-serif: $theme-sans-font, $sans-serif;
+$sans-serif: $theme-sans-font;
 $body-font-family: $sans-serif;
 
 $theme-serif-font: 'Helvetica Neue';
-$serif: $theme-serif-font, $serif;
+$serif: $theme-serif-font;
 
 
 p
@@ -285,7 +292,7 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 //  CSS BG Images
 //-----------------
-$homepage-bg-image: url('../themes/gymnasium/images/marketing-campaign/homepage_graphic.png');
+$homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
 .home>header
 {
 	background-position-y:-25px;
@@ -308,9 +315,9 @@ $homepage-bg-image: url('../themes/gymnasium/images/marketing-campaign/homepage_
 $login-banner-image: none;
 $register-banner-image: none;
 
-$video-thumb-url: '../themes/gymnasium/images/gymnasiumLogo.png';
-$aquent-icon-image: url('../themes/gymnasium/images/aquent-icon.png');
-$vitamin-t-icon-image: url('../themes/gymnasium/images/vitamin-t-icon.png');
+$video-thumb-url: '../images/gymnasiumLogo.png';
+$aquent-icon-image: url('../images/aquent-icon.png');
+$vitamin-t-icon-image: url('../images/vitamin-t-icon.png');
 
 //-----------------
 //  Mixin Styles
