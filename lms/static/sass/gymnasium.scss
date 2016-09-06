@@ -295,10 +295,18 @@ $footer_margin: ($baseline/4) 0;
 $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
 
 .content-wrapper .container,
-.container,
+.container
 {
   border:none;
   background:transparent;
+}
+
+div#content,
+div.content-wrapper,
+div#content.content-wrapper,
+{
+  max-width: none;
+  margin:auto;
 }
 
 .home>header
