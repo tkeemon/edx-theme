@@ -3,6 +3,16 @@ section.container.dashboard
 	background-color:$gym-white;
 }
 
+#main.content-wrapper
+{
+  background: transparent;
+}
+
+#dashboard-main
+{
+  background:white;
+}
+
 .view-dashboard .course-title
 {
  	margin-bottom: 1.6em;
@@ -14,7 +24,7 @@ section.container.dashboard
   max-width: 855px;
 }
 
-.course-content {
+#dashboard-main.course-content {
     background: #fff;
     border: 1px solid #ccc;
     border-radius: 2px;

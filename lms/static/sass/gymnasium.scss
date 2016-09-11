@@ -299,14 +299,19 @@ $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
 {
   border:none;
   background:transparent;
+  padding-top:0;
+  padding-bottom:0;
 }
 
 div#content,
 div.content-wrapper,
 div#content.content-wrapper,
+#main.content-wrapper
 {
   max-width: none;
   margin:auto;
+  padding-top:0;
+  padding-bottom:0;
 }
 
 .home>header
@@ -367,6 +372,7 @@ p
 
 body a:hover,
 body a:focus,
+body a:link,
 .dashboard .my-courses .course .info>hgroup h3 a:hover,
 .dashboard .my-courses .course .info>hgroup h3 a:focus,
 .dashboard .my-courses .course .info>hgroup h3 span:hover,
@@ -617,6 +623,7 @@ body a:focus,
 	{
 		font-size:1.2em;
 		color:$gym-white;
+    font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
 	}
 
 	.gymnasium-logo
@@ -735,6 +742,7 @@ header.global,
 
 div.wrapper-footer
 {
+  margin-top:0;
 	background-color: $gym-dark-gray;
 	border-top: 10px solid $gym-orange-light;
 	color:white;
