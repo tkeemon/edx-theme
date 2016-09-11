@@ -319,6 +319,112 @@ from openedx.core.djangolib.markup import HTML, Text
   </div>
 </section>
 
+<section id="password_reset_complete" class="modal" aria-hidden="true">
+  <div class="dialog" role="dialog" aria-labelledby="password-reset-email">
+
+    <button class="close-modal" tabindex="1" data-dismiss="modal">
+      <b class="close-modal-content gym-button">
+        ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
+        ${_("Dismiss")}
+      </b>
+    </button>
+
+    <header>
+      <h2 id="password-reset-email">
+
+      </h2>
+      <hr/>
+    </header>
+    <div>
+      <form> <!-- Here for styling reasons -->
+        <fieldset>
+          <legend>
+            <b role="heading">
+              ${_("Password Reset Email Sent")}
+            </b>
+          </legend>
+
+          <span class="sr">,
+            ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
+            ${_("window open")}
+          </span>
+
+          <section>
+            <p>
+              An email has been sent to
+              <b>
+                ${_("{email}").format(email=user.email)}
+              </b>
+              . Follow the link in the email to change your password.
+            </p>
+          </section>
+      </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="change_email" class="modal" aria-hidden="true">
+  <div class="dialog" role="dialog" aria-labelledby="change_email_title">
+
+    <button class="close-modal" tabindex="1" data-dismiss="modal">
+      <b class="close-modal-content gym-button">
+        ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
+        ${_("Dismiss")}
+      </b>
+    </button>
+
+    <div id="change_email_body">
+      <form id="change_email_form">
+
+        <fieldset>
+          <legend>
+            <b role="heading">
+              ${_("Change My Email")}
+            </b>
+          </legend>
+
+          <span class="sr">,
+            ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
+            ${_("window open")}
+          </span>
+
+          <div id="change_email_error" class="modal-form-error"> </div>
+
+          <ul>
+            <li>
+              <label><b>${_("Please enter your new email address:")}</b></label>
+              <input id="new_email_field" type="email" value="" />
+            </li>
+            <li>
+              <label><b>${_("Please confirm your password:")}</b></label>
+              <input id="new_email_password" value="" type="password" />
+            </li>
+          </ul>
+
+          <div class="message">
+            <p>
+              <b>Note:</b>
+              We will send a confirmation to both
+              <b>
+                ${_("{email}").format(email=user.email)}
+              </b>
+              and your new email address as part of the process.
+            </p>
+          </div>
+          <div class="row">
+            <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit">
+              <b>
+                ${_("Change Email")}
+              </b>
+            </button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section id="change_name_modal" class="modal" aria-hidden="true">
   <div class="dialog" role="dialog" aria-labelledby="change-name-title">
 
@@ -344,7 +450,14 @@ from openedx.core.djangolib.markup import HTML, Text
 
       <div class="message">
         ## Translators: note that {platform} {cert_name_short} will look something like: "edX certificate". Please do not change the order of these placeholders.
-        <p>${_("<b>Note:</b> To uphold the credibility of your <b>{platform} {cert_name_short}</b>, all name changes will be recorded.").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}</p>
+        <p>
+          <b>Note:</b>
+          To uphold the credibility of your
+          <b>
+            ${_("{platform} {cert_name_short}").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}
+          </b>
+          , all name changes will be recorded.
+        </p>
       </div>
       <div class="error" id="change_name_error" hidden >
 
@@ -353,7 +466,7 @@ from openedx.core.djangolib.markup import HTML, Text
         <li>
           <label>
             ## Translators: note that {platform} {cert_name_short} will look something like: "edX certificate". Please do not change the order of these placeholders.
-            ${_("<b>Enter your full name</b>, as it will appear on your {platform} {cert_name_short}:").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}
+            <b>Enter your full name</b>, ${_(" as it will appear on your {platform} {cert_name_short}:").format(platform=settings.PLATFORM_NAME, cert_name_short=cert_name_short)}
           </label>
           <input type="text" id="new_name_field">
         </li>

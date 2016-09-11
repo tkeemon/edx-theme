@@ -370,9 +370,13 @@ p
 		font-size: 1.2em/1.6em;
 }
 
+body a:link
+{
+  color: $gym-orange;
+}
+
 body a:hover,
 body a:focus,
-body a:link,
 .dashboard .my-courses .course .info>hgroup h3 a:hover,
 .dashboard .my-courses .course .info>hgroup h3 a:focus,
 .dashboard .my-courses .course .info>hgroup h3 span:hover,
@@ -640,12 +644,16 @@ body a:link,
 
 	a.gym-button:hover,
   a.gym-button:active,
-  a.gym-button:active:hover
+  a.gym-button:active:hover,
+  input[type="submit"]:hover:not(:disabled),
+  input[type="button"]:hover:not(:disabled),
+  button:hover:not(:disabled),
+  .button:hover:not(:disabled)
 	{
 		background-color:transparentize($gym-orange,0.25);
 		color:$gym-button-hover-color;
     box-shadow: none;
-
+    background-image:none;
 	}
 
 
@@ -1027,9 +1035,11 @@ button:hover:not(:disabled),
 	padding-left: 0;
 }
 
-.dialog li
+.dialog li,
+.dialog ul li,
+.dialog ul li:last-child
 {
-	border-bottom: .15em solid #f89820;
+	border-bottom: .15em solid $gym-orange;
 	margin-bottom: 1.2em;
 	box-sizing: border-box;
 }
