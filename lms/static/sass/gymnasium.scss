@@ -748,9 +748,19 @@ header.global,
 	background-color:$gym-white;
 }
 
-body.view-in-course div.wrapper-footer
+body.view-in-course
 {
-  margin-top:0;
+  .wrapper-course-material
+  {
+    div.course-material
+    {
+      padding:0;
+    }
+  }
+  div.wrapper-footer
+  {
+    margin-top:0;
+  }
 }
 
 div.wrapper-footer
