@@ -108,7 +108,7 @@ from edxmako.shortcuts import marketing_link
         <span class="text-center">
           %if user.is_authenticated() and registered:
             %if show_courseware_link:
-              <a href="#" class="gym-button get-started text-center">
+              <a href="${course_target}" class="gym-button get-started text-center">
                 <b>${_("Go to Class")}</b>
               </a>
             %endif
@@ -146,6 +146,7 @@ from edxmako.shortcuts import marketing_link
 ## Need to put this hidden form on the page so that the registration button works.
 ## Since it's no harm to display a hidden form, we display it with the most permissive conditional
 ## which is when the student is not registered.
+%if active_reg_button or is_shib_course:
   <div style="display: none;">
     <form id="class_enroll_form" method="post" data-remote="true" action="${reverse('change_enrollment')}">
       <fieldset class="enroll_fieldset">
@@ -158,5 +159,6 @@ from edxmako.shortcuts import marketing_link
       </div>
     </form>
   </div>
+%endif
 
 <%include file="../video_modal.html" />
