@@ -206,78 +206,30 @@ from openedx.core.djangolib.markup import HTML, Text
           <section class="user-info">
             <ul>
               <li class="info--username">
-                  <span class="title">${_("Full Name")} (<a href="#" data-toggle="modal" data-target="#change_name_modal" class="edit-name">${_("edit")}</a>)</span>
+                  <span class="title">${_("Full Name")}</span>
                   <span class="data">${ user.profile.name | h }</span>
               </li>
+
               <li class="info--email">
                   <span class="title">
                     ${_("Email")}
-                    (<a href="#change_email" data-toggle="modal" data-target="#change_email" class="edit-email">${_("edit")}</a>)
                   </span>
                   <span class="data">
                     ${ user.email | h }
                   </span>
               </li>
 
-              % if third_party_auth.is_enabled():
+              <li>
+                <span><br /></span>
+              </li>
+
               <li class="controls--account">
-                <span class="title">
-                  ## Translators: this section lists all the third-party authentication providers (for example, Google and LinkedIn) the user can link with or unlink from their edX account.
-                  ${_("Connected Accounts")}
-                </span>
-
-                <span class="data">
-                  <span class="third-party-auth">
-
-                  % for state in provider_user_states:
-                  <div class="auth-provider">
-
-                    <div class="status">
-                      % if state.has_account:
-                      <i class="icon fa fa-link"></i> <span class="copy">${_("Linked")}</span>
-                      % else:
-                      <i class="icon fa fa-unlink"></i><span class="copy">${_("Not Linked")}</span>
-                      % endif
-                    </div>
-
-                    <span class="provider">${state.provider.NAME}</span>
-                    <span class="control">
-
-                    % if state.has_account:
-                      <form
-                        action="${pipeline.get_disconnect_url(state.provider.NAME)}"
-                        method="post"
-                        name="${state.get_unlink_form_name()}">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="${csrf_token}">
-
-                        <a href="#" onclick="document.${state.get_unlink_form_name()}.submit()">
-                          ## Translators: clicking on this removes the link between a user's edX account and their account with an external authentication provider (like Google or LinkedIn).
-                          ${_("Unlink")}
-                        </a>
-                      % else:
-                        <a href="${pipeline.get_login_url(state.provider.NAME, pipeline.AUTH_ENTRY_DASHBOARD)}">
-                          ## Translators: clicking on this creates a link between a user's edX account and their account with an external authentication provider (like Google or LinkedIn).
-                          ${_("Link")}
-                        </a>
-                    % endif
-                    </form>
-
-                    </span>
-                  </div>
-                  % endfor
+                <span>
+                  Visit
+                  <a href="/account/settings">Account Settings</a>
+                  to update your profile or change your password.
                 </span>
               </li>
-              % endif
-
-              <li class="controls--account password-reset">
-                <span class="title">
-                  <a href="#password_reset_complete" data-toggle="modal" data-target="#password_reset_complete" id="pwd_reset_button"><b>${_("Reset Password")}</b></a></span>
-                <form id="password_reset_form" method="post" data-remote="true" action="${reverse('password_reset')}">
-                  <input id="id_email" type="hidden" name="email" maxlength="75" value="${user.email}" />
-                  <!-- <input type="submit" id="pwd_reset_button" value="${_("Reset Password")}" /> -->
-                </form>
-              </li>
-
               <%include file='dashboard/_dashboard_status_verification.html' />
 
             </ul>
@@ -495,7 +447,51 @@ from openedx.core.djangolib.markup import HTML, Text
   </div>
 </section>
 
+
 <section id="unenroll-modal" class="modal unenroll-modal" aria-hidden="true">
+  <div class="dialog" role="dialog" aria-labelledby="unenrollment-modal-title">
+    <button class="close-modal" tabindex="1" data-dismiss="modal">
+      <b class="close-modal-content gym-button">
+        ## Translators: this is a control to allow users to exit out of this modal interface (a menu or piece of UI that takes the full focus of the screen)
+        ${_("Dismiss")}
+      </b>
+    </button>
+
+
+    <form id="unenroll_form" method="post" data-remote="true" action="${reverse('change_enrollment')}">
+      <fieldset>
+
+        <legend>
+          <b role="heading">
+            <span id='track-info'></span>
+            <span id="unenroll-course-name"></span>
+            <span id='unenroll_course_number' class="hidden"></span>?
+            <span id='refund-info'></span>
+          </b>
+        </legend>
+
+        <span class="sr">,
+          ## Translators: this text gives status on if the modal interface (a menu or piece of UI that takes the full focus of the screen) is open or not
+          ${_("window open")}
+        </span>
+
+        <div id="unenroll_error" class="modal-form-error"></div>
+
+        <input name="course_id" id="unenroll_course_id" type="hidden"  value=""/>
+        <input name="enrollment_action" type="hidden" value="unenroll" />
+
+        <div class="row">
+          <button class="gym-button col-md-4 col-md-offset-4" tabindex="2" name="submit" type="submit" id="unenroll-button">
+            <b>
+              ${_("Unenroll")}
+            </b>
+          </button>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</section>
   <div class="inner-wrapper" role="dialog" aria-labelledby="unenrollment-modal-title">
     <button class="close-modal">
       <span class="icon fa fa-remove" aria-hidden="true"></span>
