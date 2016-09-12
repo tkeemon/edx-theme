@@ -402,12 +402,19 @@ body a:focus,
 
 #primary-nav, #secondary-nav, .wrapper-footer
 {
-	.container, .container>div
+	.container,
+  .container>div,
+  div.container,
+  div.container>div
 	{
 		border:0;
 		background:transparent;
 		box-shadow:none;
-    padding:0; /* mocking the bootstrap style rule for consistency throughout page */
+
+    /* mocking the bootstrap style rule for consistency throughout page */
+    max-width: 1180px;
+    min-width: 760px;
+    padding:0;
 	}
 
 	footer
@@ -617,6 +624,7 @@ body a:focus,
 	@extend #top-navs;
 	height:70px;
 	background-color:$gym-dark-grey;
+  padding-top:10px;
 
   >.container
   {
@@ -746,21 +754,6 @@ header.global,
 {
 	padding-bottom:1em;
 	background-color:$gym-white;
-}
-
-body.view-in-course
-{
-  .wrapper-course-material
-  {
-    div.course-material
-    {
-      padding:0;
-    }
-  }
-  div.wrapper-footer
-  {
-    margin-top:0;
-  }
 }
 
 div.wrapper-footer

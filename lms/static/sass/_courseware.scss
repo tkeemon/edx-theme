@@ -1,4 +1,29 @@
-body.courseware
+body.view-in-course
+{
+  .wrapper-course-material
+  {
+    div.course-material
+    {
+      padding:0;
+    }
+  }
+  div.wrapper-footer
+  {
+    margin-top:0;
+  }
+
+  .container,
+  div.container
+  {
+    max-width: 1180px;
+    min-width: 760px;
+    padding-left:15px;
+    padding-right:15px;
+  }
+}
+
+body.courseware,
+body.view-in-course
 {
 
 	header.global.slim
@@ -78,7 +103,7 @@ body.courseware
 			h1
 			{
 				font-size:20pt;
-				margin:5px 0 0 0;
+				margin:15px 0 15px 0;
 				span
 				{
 					color:white;
@@ -86,7 +111,7 @@ body.courseware
 				}
 			}
 		}
-		.course-tabs
+		ol.course-tabs
 		{
 			font-weight:normal;
 			padding:0;
@@ -107,8 +132,9 @@ body.courseware
 				}
 			}
 
-			a:hover{
+			li a:hover{
 				color:$gym-orange;
+        border:none;
 				background:none;
 				b
 				{
@@ -116,12 +142,14 @@ body.courseware
 				}
 			}
 
-			a[class="active"]
+
+			li a.active
 			{
 				box-shadow: none;
 				text-shadow: none;
 				background: none;
 				color:$gym-orange;
+        border:none;
 			}
 
 
