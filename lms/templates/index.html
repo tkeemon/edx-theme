@@ -4,19 +4,10 @@
 <%inherit file="main.html" />
 <%namespace name='static' file='static_content.html'/>
 
-<%! from microsite_configuration import microsite %>
+
 
 <%block name="pagetitle">${_("Home")}</%block>
 
-<%
-  homepage_overlay_html = microsite.get_value('homepage_overlay_html')
-
-  show_homepage_promo_video = microsite.get_value('show_homepage_promo_video', True)
-  homepage_promo_video_youtube_id = microsite.get_value('homepage_promo_video_youtube_id', "XNaiOGxWeto")
-
-  show_partners = microsite.get_value('show_partners', True)
-
-%>
 
 <!--
 Start of DoubleClick Floodlight Tag: Please do not remove

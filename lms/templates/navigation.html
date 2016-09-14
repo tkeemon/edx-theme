@@ -11,8 +11,6 @@ import branding
 from status.status import get_site_status_msg
 %>
 
-<%! from microsite_configuration import microsite %>
-<%! from microsite_configuration.templatetags.microsite import platform_name %>
 
 ## Provide a hook for themes to inject branding on top.
 <%block name="navigation_top" />
@@ -97,7 +95,7 @@ site_status_msg = get_site_status_msg(course_id)
               </button>
               <a class="navbar-brand" href="${marketing_link('ROOT')}">
                 <%block name="navigation_logo">
-                    <img src="${static.url(branding.get_logo_url())}" alt="${platform_name()}"/>
+                    <img src="${static.url(branding.get_logo_url())}" alt="Gymnasium"/>
                 </%block>
               </a>
             </div>
