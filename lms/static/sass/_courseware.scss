@@ -83,34 +83,36 @@ body.view-in-course
 	max-width:inherit;
 }
 
+#course-title-header
+{
+	background-color:$gym-light-gray;
+
+	div.row
+	{
+		background: transparent;
+		border: none;
+		box-shadow: none;
+		border-radius: 0;
+	}
+
+	h1
+	{
+		font-size:20pt;
+		margin:15px 0 15px 0;
+		span
+		{
+			color:white;
+			font-weight: 900;
+		}
+	}
+}
+
 .wrapper-course-material
 {
 	.course-material
 	{
 
-		#course-title-header
-		{
-			background-color:$gym-light-gray;
 
-      div.row
-      {
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        border-radius: 0;
-      }
-
-			h1
-			{
-				font-size:20pt;
-				margin:15px 0 15px 0;
-				span
-				{
-					color:white;
-					font-weight: 900;
-				}
-			}
-		}
 		ol.course-tabs
 		{
 			font-weight:normal;
