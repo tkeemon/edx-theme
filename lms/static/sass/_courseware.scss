@@ -64,6 +64,9 @@ body.view-in-course
   {
     max-width: inherit;
     width: 66.66666667%;;
+		background:white;
+		border: 1px solid #ccc;
+    border-radius: 2px;
   }
 }
 .container
@@ -192,9 +195,48 @@ nav.progress.wrapper-course-material
 			background:$gym-white;
 		}
 
-		div#accordion
+		.accordion
 		{
 			background-color:$gym-medium-grey;
+
+			.course-navigation
+			{
+				.chapter-content-container
+				{
+					background-color:inherit;
+
+					.chapter-menu
+					{
+						.menu-item 
+						{
+							&.active a
+							{
+								color: $gym-orange;
+							}
+
+							a
+							{
+								color:$gym-white;
+							}
+
+							&.active a
+							a:hover,
+							a
+							{
+								background:inherit;	
+							}
+						}
+					}
+				}
+
+				.button-chapter.active
+				{
+					.group-heading
+					{
+						color:$gym-white;
+					}
+				}
+			}
 
       /* restyle the accordion sprite icon to use glyphicons from bootstrap.
          this is a hack. Love, Mike.
