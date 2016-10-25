@@ -294,6 +294,19 @@ $footer_margin: ($baseline/4) 0;
 //-----------------
 $homepage-bg-image: url('../images/marketing-campaign/homepage_graphic.png');
 
+/* negate a silly style rule inherited from the platform */
+html
+{
+  .container>div,
+  .home .container.grey.div
+  {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
 .content-wrapper .container,
 .container
 {
@@ -363,6 +376,7 @@ $vitamin-t-icon-image: url('../images/vitamin-t-icon.png');
 @import 'dashboard';
 @import 'assessment';
 @import 'register';
+@import 'account_settings';
 @import 'prism'; //used for prism.js syntax highlighting
 
 p
@@ -427,7 +441,8 @@ body a:focus,
 	}
 }
 
-.white-panel
+.white-panel,
+.container.white-panel
 {
 	background-color: white;
   border: 1px solid #ccc;
@@ -716,8 +731,8 @@ header.global,
 	}
 
 
-	nav {
-
+	nav 
+	{
 		.nav-courseware
 		{
 			padding-top:3px;
@@ -744,7 +759,6 @@ header.global,
 
 		.container
 		{
-
 			background:transparent;
 		}
 	}
@@ -1235,17 +1249,4 @@ code, code *
 	{
 		color:$gym-light-grey;
 	}
-}
-
-/* negate a silly style rule inherited from the platform */
-html
-{
-  .container>div,
-  .home .container.grey.div
-  {
-    border-radius: 0;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-  }
 }
