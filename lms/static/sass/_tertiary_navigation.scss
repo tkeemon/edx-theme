@@ -1,0 +1,41 @@
+.wrapper-course-material .course-material ol.course-tabs,
+.account-settings-container .wrapper-header ul.account-nav
+{
+	font-weight:normal;
+	padding:0;
+	margin-left:0;
+
+	a
+	{
+		padding-left:0px;
+
+		b
+		{
+			text-transform: uppercase;
+			letter-spacing: .05em;
+			border-bottom: 1px dashed transparent;
+			vertical-align: -.15em;
+			font-size:1.2em;
+		}
+	}
+
+	li a:hover{
+		color:$gym-orange;
+		border:none;
+		background:none;
+		b
+		{
+			border-bottom: 1px solid $gym-orange;
+		}
+	}
+
+
+	li a.active
+	{
+		box-shadow: none;
+		text-shadow: none;
+		background: none;
+		color:$gym-orange;
+		border:none;
+	}
+}
