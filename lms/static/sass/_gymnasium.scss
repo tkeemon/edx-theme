@@ -875,24 +875,26 @@ section
 .gym-button,
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link
 {
-	background-color:$gym-orange;
-	color:white;
-	padding:5px 20px;
-	text-align:center;
-	font-weight:200;
 	box-shadow:none;
 	text-shadow:none;
 	background-image:none;
+
 	display:inline-block;
 	width:100%;
 
+	padding: 1em;
+	margin: auto;
+	text-align:center;
+	cursor:pointer;
+
+	border: 0;
+  border-radius: .125em;
+  
+	background-color:$gym-orange;
+	color:white;
+	font-weight:bold;
 	font-size: 1em;
   text-align: center;
-  padding: 1em;
-  border: 0;
-  border-radius: .125em;
-  margin: auto;
-	cursor:pointer;
 
 	a, a:link, a:visited
 	{
@@ -924,13 +926,17 @@ body
 	input[type="submit"]:hover:not(:disabled),
 	input[type="button"]:hover:not(:disabled),
 	button:hover:not(:disabled),
-	.button:hover:not(:disabled)
+	button:hover:not(:disabled),
+	.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover
+	
 	{
 		background-color:transparentize($gym-orange,0.25);
 		color:$gym-button-hover-color;
 		background-image:none;
 		box-shadow: none;
 		text-decoration:none;
+		font-weight:bold;
+		border:none;
 
 		a,
 		a:link,
