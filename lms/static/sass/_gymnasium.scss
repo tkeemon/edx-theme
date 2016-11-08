@@ -387,7 +387,9 @@ p
 
 body a:link,
 body a:visited,
-body a:link:visited
+body a:link:visited,
+body a:active:hover,
+body a:link:active:hover,
 {
   color: $gym-orange;
 }

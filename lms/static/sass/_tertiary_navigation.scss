@@ -71,37 +71,46 @@
 .wrapper-course-material .course-material ol.course-tabs
 {
 	padding:0.5em 0;
-	a
+	li
 	{
-		padding-left:0px;
-
-		b
+		a,
+		a:focus
 		{
-			text-transform: uppercase;
-			letter-spacing: .05em;
-			border-bottom: 1px dashed transparent;
-			vertical-align: -.15em;
-			font-size:1.2em;
-		}
-	}
+			padding-left:0px;
+			border-bottom:none;
+			color:$gym-orange;
 
-	li a:hover{
-		color:$gym-orange;
-		border:none;
-		background:none;
-		b
+			b
+			{
+				text-transform: uppercase;
+				letter-spacing: .05em;
+				border-bottom: 1px dashed transparent;
+				vertical-align: -.15em;
+				font-size:1.2em;
+			}
+		}
+
+		a:hover,
+		a:focus:hover{
+			color:$gym-orange;
+			border:none;
+			background:none;
+			b
+			{
+				border-bottom: 1px solid $gym-orange;
+			}
+		}
+
+		a.active,
+		a.active:hover,
+		a.active:focus,
+		a.active:focus:hover
 		{
-			border-bottom: 1px solid $gym-orange;
+			box-shadow: none;
+			text-shadow: none;
+			background: none;
+			color:$gym-orange;
+			border:none;
 		}
-	}
-
-
-	li a.active
-	{
-		box-shadow: none;
-		text-shadow: none;
-		background: none;
-		color:$gym-orange;
-		border:none;
 	}
 }
