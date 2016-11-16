@@ -1,3 +1,10 @@
+.sequence-nav,
+.sequence-bottom,
+{
+	/* This rule HIDES the third-tier top and bottom navigation for courses! */
+	display:none;
+}
+
 body.view-in-course
 {
   .wrapper-course-material
@@ -46,16 +53,6 @@ body.view-in-course
 		background-color:$gym-white;
 		padding-bottom:1em;
 	}
-
-
-	.xmodule_display.xmodule_SequenceModule nav.sequence-nav,
-	.xmodule_display.xmodule_SequenceModule nav.sequence-bottom,
-	{
-		/* This rule HIDES the third-tier top and bottom navigation for courses! */
-		display:none;
-	}
-
-
 }
 
 #content
