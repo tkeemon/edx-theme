@@ -17,11 +17,15 @@ from openedx.core.djangolib.js_utils import js_escaped_string
  <% return _("{course_name} Courseware").format(course_name=course.display_name_with_default) %>
 </%def>
 
-<%block name="bodyclass">courseware ${course.css_class or ''}</%block>
+<%block name="bodyclass">view-in-course view-courseware courseware ${course.css_class or ''}</%block>
 
 <%block name="title">
   <title>
-    ${static.get_page_title_breadcrumbs(course_name())}
+      % if section_title:
+        ${static.get_page_title_breadcrumbs(section_title, course_name())}
+      % else:
+        ${static.get_page_title_breadcrumbs(course_name())}
+      %endif
   </title>
 </%block>
 
@@ -53,24 +57,16 @@ from openedx.core.djangolib.js_utils import js_escaped_string
 
 
 <%block name="headextra">
-<%static:css group='style-course-vendor'/>
-<%static:css group='style-course'/>
-## Utility: Notes
-% if is_edxnotes_enabled(course):
-<%static:css group='style-student-notes'/>
-% endif
-
-<%block name="nav_skip">${"#seq_content" if section_title else "#course-content"}</%block>
-
-<%include file="../discussion/_js_head_dependencies.html" />
-
-  % if show_chat:
-    <link rel="stylesheet" href="${static.url('css/vendor/ui-lightness/jquery-ui-1.8.22.custom.css')}" />
-    ## It'd be better to have this in a place like lms/css/vendor/candy,
-    ## but the candy_res/ folder contains images and other junk, and it
-    ## all needs to stay together for the Candy.js plugin to work.
-    <link rel="stylesheet" href="${static.url('candy_res/candy_full.css')}" />
+  <%static:css group='style-course-vendor'/>
+  <%static:css group='style-course'/>
+  
+  ## Utility: Notes
+  % if is_edxnotes_enabled(course):
+    <%static:css group='style-student-notes'/>
   % endif
+
+  <%include file="../discussion/_js_head_dependencies.html" />
+  
   ${fragment.head_html()}
 </%block>
 
