@@ -114,6 +114,12 @@ div.xmodule_display.xmodule_CapaModule
         border: none;
         margin-bottom: 1.2em;
         width:100%;
+
+        label,
+        label:hover
+        {
+          border:none;
+        }
       }
     }
 
