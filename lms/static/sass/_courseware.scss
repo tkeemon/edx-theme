@@ -32,6 +32,10 @@ body.view-in-course
 body.courseware,
 body.view-in-course
 {
+	.path
+	{
+		display:none;
+	}
 
 	header.global.slim
 	{
