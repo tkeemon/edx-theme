@@ -1,7 +1,11 @@
-<%! from django.utils.translation import ugettext as _ %>
+<%page expression_filter="h"/>
+<%!
+from django.utils.translation import ugettext as _
+from openedx.core.djangolib.markup import HTML
+%>
 
 <%namespace name='static' file='static_content.html'/>
-<h2 class="problem-header">
+<h2 class="hd hd-2 problem-header">
   ${ problem['name'] }
 </h2>
 <div class="problem-progress"></div>
@@ -62,39 +66,38 @@
   </div>
 </div>
 
-<div class="problem" aria-live="polite" aria-relevant="all">
-  ${ problem['html'] }
+<div class="problem" aria-relevant="all">
+  <div aria-live="polite">
+    ${ HTML(problem['html']) }
+  </div>
 
   <div class="action">
     <input type="hidden" name="problem_id" value="${ problem['name'] }" />
-
+    % if demand_hint_possible:
+    <div class="problem-hint" aria-live="polite"></div>
+    % endif
     % if check_button:
-      <span>
-        <a class="gym-button check-answer ${ check_button }" data-type="button" data-checking="${ check_button_checking }"><b>${ check_button }</b></a>
-      </span>
+    <button class="gym-button natural check ${ check_button }" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
+    % endif
+    % if demand_hint_possible:
+    <button class="gym-button natural hint-button" data-value="${_('Hint')}">${_('Hint')}</button>
     % endif
     % if reset_button:
-      <span>
-        <a class="gym-button reset-answer" data-type="button"><b>${_('Reset')}</b></a>
-      </span>
+    <button class="gym-button natural reset" data-value="${_('Reset')}">${_('Reset')}<span class="sr"> ${_("your answer")}</span></button>
     % endif
     % if save_button:
-      <span>
-        <a class="gym-button save-answer" data-type="button"><b>${_('Save')}</b></a>
-      </span>
+    <button class="gym-button natural save" data-value="${_('Save')}">${_('Save')}<span class="sr"> ${_("your answer")}</span></button>
     % endif
     % if answer_available:
-      <span>
-        <a class="gym-button show-answer"><b>${_('Show Answer')}</b></a>
-      </span>
+    <button class="gym-button natural show"><span class='sr'>${_('Toggle Answer Visibility')}</span><span class="show-label">${_('Show Answer')}</span></button>
     % endif
     % if attempts_allowed :
-      <span class="submission_feedback">
-        ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
+    <div class="submission_feedback" aria-live="polite">
+      ${_("You have used {num_used} of {num_total} submissions").format(num_used=attempts_used, num_total=attempts_allowed)}
 
-        <span class="hidden attempts_used">${attempts_used}</span>
-        <span class="hidden attempts_total">${attempts_allowed}</span>
-      </span>
+      <span class="hidden attempts_used">${attempts_used}</span>
+      <span class="hidden attempts_total">${attempts_allowed}</span>
+    </div>
     % endif
   </div>
 </div>
@@ -108,7 +111,7 @@
 
     if ($('.problem-header').text().trim() === "Final Exam")
     {
-      var progress_status_check = setInterval(check_status, 200);
+      var progress_status_check = setInterval(check_status, 200); 
     }
     else {
       return;
