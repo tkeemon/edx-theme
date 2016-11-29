@@ -395,28 +395,33 @@ p
 		font-size: 1.2em/1.6em;
 }
 
-body a:link,
-body a:visited,
-body a:link:visited,
-body a:active:hover,
-body a:link:active:hover,
+body, 
+body.login
 {
-  color: $gym-orange;
+	a:link,
+	a:visited,
+	a:link:visited,
+	a:active:hover,
+	a:link:active:hover,
+	{		
+		color: $gym-orange;
+	}
+
+	a:hover,
+	a:focus,
+	a:visited:hover,
+	a:link:hover,
+	a:link:visited:hover,
+	.hboard .my-courses .course .info>hgroup h3 a:hover,
+	.dashboard .my-courses .course .info>hgroup h3 a:focus,
+	.dashboard .my-courses .course .info>hgroup h3 span:hover,
+	.dashboard .my-courses .course .info>hgroup h3 span:focus
+	{
+		text-decoration: underline;
+		color:$gym-orange;
+	}
 }
 
-body a:hover,
-body a:focus,
-body a:visited:hover,
-body a:link:hover,
-body a:link:visited:hover,
-.dashboard .my-courses .course .info>hgroup h3 a:hover,
-.dashboard .my-courses .course .info>hgroup h3 a:focus,
-.dashboard .my-courses .course .info>hgroup h3 span:hover,
-.dashboard .my-courses .course .info>hgroup h3 span:focus
-{
-  text-decoration: underline;
-  color:$gym-orange;
-}
 
 
 #top-navs
@@ -892,7 +897,8 @@ section
 .gym-button,
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
-.xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled)
+.xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
+.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button
 {
 	box-shadow:none;
 	text-shadow:none;
@@ -949,7 +955,8 @@ body
 	button:hover:not(:disabled),
 	.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
 	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
-	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled)
+	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
+	.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button:hover
 	{
 		background-color:transparentize($gym-orange,0.25);
 		color:$gym-button-hover-color;
@@ -958,6 +965,7 @@ body
 		text-decoration:none;
 		font-weight:bold;
 		border:none;
+		color:white;
 
 		a,
 		a:link,
