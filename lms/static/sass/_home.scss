@@ -25,10 +25,13 @@
 {
 
 	position:relative;
+	background-image:$homepage-bg-image;
 
   >header
   {
     height:33em;
+		background:none;
+		box-shadow:none;
 
     .header-title
 		{
