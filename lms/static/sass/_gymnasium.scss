@@ -801,6 +801,11 @@ div.wrapper-footer
 			li
 			{
 				border-right:1px solid $gym-medium-grey;
+
+				a
+				{
+					font-family: $theme-sans-font;
+				}
 			}
 			li:last-child
 			{
