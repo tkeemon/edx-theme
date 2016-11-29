@@ -53,14 +53,29 @@ div.xmodule_display.xmodule_CapaModule
     .choicegroup,
     .choicetextgroup
     {
-      label.choicegroup_incorrect:after,
-      label.choicetextgroup_incorrect:after,
-      section.choicetextgroup_incorrect:after,
-      label.choicegroup_correct:after,
-      label.choicetextgroup_correct:after,
-      section.choicetextgroup_correct:after
+      label
       {
-        display:none;
+        margin-bottom:0;
+      }
+      
+      label.choicegroup_incorrect,
+      label.choicetextgroup_incorrect,
+      section.choicetextgroup_incorrect,
+      label.choicegroup_correct,
+      label.choicetextgroup_correct,
+      section.choicetextgroup_correct
+      {
+        border:none;
+
+        &:hover
+        {
+          border:none;
+        }
+
+        &:after
+        {
+          display:none;
+        }
       }
 
       label.choicegroup_incorrect:before,
@@ -129,7 +144,7 @@ div.xmodule_display.xmodule_CapaModule
       display: block;
       font: 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
       color: #444;
-      margin-top: 1.04em;
+      margin-top: 0;
       margin-left: 1.6em;
       width:100%;
     }
