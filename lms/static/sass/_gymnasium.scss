@@ -671,16 +671,16 @@ body a:link:visited:hover,
     font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
 	}
 
+	a:hover
+	{
+		color:$gym-orange;
+	}
+
 	.gymnasium-logo
 	{
 		height:76px;
 		margin-top:-10px;
     margin-left:5px;
-	}
-
-	a:hover
-	{
-		color:$gym-orange;
 	}
 
 	.navbar-brand
@@ -927,6 +927,7 @@ section
 
 body
 {
+	#secondary-nav a.gym-button:hover,
 	.gym-button:hover,
 	.gym-button:active,
 	.gym-button:active:hover,
