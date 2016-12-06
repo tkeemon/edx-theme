@@ -30,7 +30,7 @@ $gym-light-color: #FFFFFF;
 $gym-orange: #f89820;
 $gym-orange-light: #f8971d;
 $gym-orange-light: rgba(248,151,32,0.9);
-$gym-button-hover-color: #dddddd;
+
 $gym-dark-grey: #222222;
 $gym-dark-gray: $gym-dark-grey;
 
@@ -44,7 +44,9 @@ $gym-white: #ebebeb;
 
 $gym-textblock-color:rgba(45,45,45,0.70);
 
-
+$gym-button-background-hover:#a6a6a6;
+$gym-button-background-active:#939393;
+$gym-button-background-focus: $gym-button-background-active;
 
 
 
@@ -919,7 +921,8 @@ body
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
 .xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
-.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button
+.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button,
+.courseware-bookmarks-button .bookmarks-list-button,
 {
 	box-shadow:none;
 	text-shadow:none;
@@ -979,10 +982,11 @@ body
 	.account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link:hover,
 	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover,
 	.xmodule_display.xmodule_CapaModule div.problem .action .save:hover:not(:disabled),
-	.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button:hover
+	.login .form-actions button[type="submit"], .register .form-actions button[type="submit"].gym-button:hover,
+	.courseware-bookmarks-button .bookmarks-list-button:hover
 	{
-		background-color:transparentize($gym-orange,0.25);
-		color:$gym-button-hover-color;
+		background-color:$gym-button-background-hover;
+		color:white;
 		background-image:none;
 		box-shadow: none;
 		text-decoration:none;
@@ -1006,6 +1010,13 @@ body
 		}
 	}
 
+	.courseware-bookmarks-button {
+		.bookmarks-list-button {
+			padding-top:0.5em;
+			padding-bottom:0.5em;
+    }
+  }
+
 	.xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled)
 	{
 		width:auto;
@@ -1014,7 +1025,7 @@ body
 .gym-button:focus,
 .gym-button:active
 {
-	background: #444;
+	background:$gym-button-background-active;
 }
 
 .gym-button b

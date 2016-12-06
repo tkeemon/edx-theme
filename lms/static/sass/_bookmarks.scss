@@ -12,25 +12,12 @@
 
 // Rules for Bookmarks Button
 .courseware-bookmarks-button {
-  width: flex-grid(5);
-  vertical-align: top;
 
   .bookmarks-list-button {
-    border-color:$gym-orange;
-    color:white;
-    background: $gym-orange;
-    padding:5px;
-
-    &:hover {
-      border: 1px solid;
-      font-weight:bold;
-      background:transparent;
-      color:$gym-orange;
-    }
+    padding-top:0.5em;
+    padding-bottom:0.5em;
 
     &.is-active {
-      background-color: lighten($action-primary-bg,10%);
-      color: $white;
     }
   }
 }
