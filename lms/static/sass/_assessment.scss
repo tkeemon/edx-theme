@@ -15,7 +15,21 @@ div.xmodule_display.xmodule_CapaModule
     {
       .gym-button
       {
-        margin-left:0;
+        margin-left: 0;
+        height: 3em;
+        display: inline-block;
+        align-items: inherit;
+        vertical-align: top;
+
+        &.save
+        {
+          margin-right:10px;
+        }
+        
+        &.show
+        {
+          display:inline-block !important; /* damn it all, edX */
+        }
       }
 
       span
