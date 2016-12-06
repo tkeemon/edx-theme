@@ -25,10 +25,15 @@ div.xmodule_display.xmodule_CapaModule
         {
           margin-right:10px;
         }
-        
+
         &.show
         {
           display:inline-block !important; /* damn it all, edX */
+        }
+
+        &:focus
+        {
+          box-shadow:none;
         }
       }
 
