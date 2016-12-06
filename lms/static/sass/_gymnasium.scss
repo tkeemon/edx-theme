@@ -899,6 +899,22 @@ section
 	color:white;
 }
 
+body 
+{
+	input[type="submit"]:active:not(:disabled), 
+	input[type="submit"]:focus:not(:disabled), 
+	input[type="button"]:active:not(:disabled), 
+	input[type="button"]:focus:not(:disabled), 
+	button:active:not(:disabled), 
+	button:focus:not(:disabled), 
+	.button:active:not(:disabled), 
+	.button:focus:not(:disabled)
+	.gym-button:focus
+	{
+		box-shadow:none;
+	}
+}
+
 .gym-button,
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
