@@ -674,6 +674,11 @@ body.login
 		font-size:1.2em;
 		color:$gym-white;
     font-family: brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
+		
+		&.gym-button
+		{
+			color:white;
+		}
 	}
 
 	a:hover
@@ -977,6 +982,11 @@ body
 		{
 			text-decoration:none;
 			color:white;
+
+			b
+			{
+				color:white;
+			}
 		}
 	}
 
