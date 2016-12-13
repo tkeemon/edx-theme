@@ -89,6 +89,11 @@ from django.conf import settings
 			value.innerHTML = "Syllabus";
 		});
 
+    // make sure lessons tab comes first
+    var syllabusTab = $('.course-tabs li:contains("Lessons")');
+    $(syllabusTab).prependTo(
+      $(syllabusTab).parent()
+    );
 
 		$('.course-tabs li a:contains("Forum")').each(function(idx,value){
 			//TODO: Unhack this silly logic to hide forum tab for gym shorts
