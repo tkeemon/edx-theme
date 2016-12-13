@@ -95,9 +95,12 @@
 			color:$gym-orange;
 			border:none;
 			background:none;
+			text-decoration:none;
+
 			b
 			{
 				border-bottom: 1px solid $gym-orange;
+				text-decoration:none;
 			}
 		}
 
@@ -111,6 +114,7 @@
 			background: none;
 			color:$gym-orange;
 			border:none;
+			text-decoration:none;
 		}
 	}
 }

@@ -47,9 +47,6 @@ $gym-textblock-color:rgba(45,45,45,0.70);
 $gym-button-background-hover:#a6a6a6;
 $gym-button-background-active:#939393;
 $gym-button-background-focus: $gym-button-background-active;
-
-
-
 //End Gym theme colors
 
 //Main Color Variables
@@ -57,10 +54,6 @@ $main-color: #F89720;
 $dark-color: $gym-orange; //#ea281f; //Link Color
 $light-color: #f4e00c; //Selected Header BG Color, ie. calendar        ***Custom, not from palette***
 $bg-color: #f7fe81; //Selected Content BG Color, ie. calendar          ***Custom, not from palette***
-
-
-
-
 
 
 //Main BG Color Variables
@@ -84,67 +77,6 @@ $white: $gray-1;
 
 $black: #2e2e2e;
 $black-80: #585858;
-
-
-
-//-----------------
-//  Font Assignment
-//-----------------
-
-/* --- regular --- */
-
-@font-face {
-	font-family: brandon-grotesque;
-	src: url("../fonts/brandon_reg-webfont.woff") format("woff"),
-	url("../fonts/brandon_reg-webfont.woff2") format("woff2");
-	font-style: normal;
-	font-weight: normal;
-	}
-
-@font-face {
-	font-family: brandon-grotesque;
-	src: url("../fonts/brandon_reg_it-webfont.woff") format("woff"),
-	url("../fonts/brandon_reg_it-webfont.woff2") format("woff2");
-	font-style: italic;
-	font-weight: normal;
-	}
-
-/* --- bold --- */
-
-@font-face {
-	font-family: brandon-grotesque;
-	src: url("../fonts/brandon_bld-webfont.woff") format("woff"),
-	url("../fonts/brandon_bld-webfont.woff2") format("woff2");
-	font-style: normal;
-	font-weight: bold;
-	}
-
-@font-face {
-	font-family: brandon-grotesque;
-	src: url("../fonts/brandon_bld_it-webfont.woff") format("woff"),
-	url("../fonts/brandon_bld_it-webfont.woff2") format("woff2");
-	font-style: italic;
-	font-weight: bold;
-	}
-
-/* --- black --- */
-
-@font-face {
-	font-family: brandon-grotesque;
-	src: url("../fonts/brandon_blk-webfont.woff") format("woff"),
-	url("../fonts/brandon_blk-webfont.woff2") format("woff2");
-	font-style: normal;
-	font-weight: 900;
-	}
-
-@font-face {
-	font-family: brandon-grotesque;
-	src: url("../fonts/brandon_blk_it-webfont.woff") format("woff"),
-	url("../fonts/brandon_blk_it-webfont.woff2") format("woff2");
-	font-style: italic;
-	font-weight: 900;
-	}
-
 
 
 $theme-sans-font: "brandon-grotesque";
@@ -360,9 +292,7 @@ div#content.content-wrapper,
 $login-banner-image: none;
 $register-banner-image: none;
 
-$video-thumb-url: '../images/gymnasiumLogo.png';
-$aquent-icon-image: url('../images/aquent-icon.png');
-$vitamin-t-icon-image: url('../images/vitamin-t-icon.png');
+
 
 //-----------------
 //  Mixin Styles
@@ -380,16 +310,17 @@ $vitamin-t-icon-image: url('../images/vitamin-t-icon.png');
 }
 
 /* individual page styles */
-@import 'home';
-@import 'catalog';
 @import 'about';
+@import 'account_settings';
+@import 'assessment';
+@import 'bookmarks';
+@import 'catalog';
 @import 'courseware';
 @import 'dashboard';
-@import 'assessment';
+@import 'home';
 @import 'register';
-@import 'account_settings';
 @import 'tertiary_navigation';
-@import 'bookmarks';
+
 @import 'prism'; //used for prism.js syntax highlighting
 
 p
