@@ -407,6 +407,7 @@ body.login
 	a:link:active:hover,
 	{		
 		color: $gym-orange;
+		font-family:$theme-serif-font;
 	}
 
 	a:hover,
@@ -1260,6 +1261,7 @@ html
 {
 	body
 	{
+		div.info-wrapper section.updates h1,
 		h1,h2,h3,h4,h5,h6
 		{
 			text-align:left;
