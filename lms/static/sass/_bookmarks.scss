@@ -1,15 +1,3 @@
-// Rules for placing bookmarks and search button side by side
-.wrapper-course-modes {
-  border-bottom: 1px solid $gray-l3;
-  padding: ($baseline/4);
-
-  > div {
-    @include box-sizing(border-box);
-    display: inline-block;
-  }
-}
-
-
 // Rules for Bookmarks Button
 .courseware-bookmarks-button {
 
@@ -22,75 +10,8 @@
   }
 }
 
-// Rules for Bookmarks Results
-.bookmarks-results-list {
-
-  .bookmarks-results-list-item {
-    border: 1px solid $gray-l4;
-
-    &:hover {
-      border-color: $m-blue;
-
-      .list-item-breadcrumbtrail {
-        color: $blue;
-      }
-    }
-
-    .icon {
-     
-    }
-  }
-
-  .results-list-item-view {
-    
-  }
-
-  .list-item-date {
-    color: $gray;
-  }
-
-  .bookmarks-results-list-item:before {
-    color: $m-blue;
-  }
-
-  .list-item-content {
-    
-  }
-
-  .list-item-left-section {
-    
-  }
-
-  .list-item-right-section {
-    
-  }
-}
-
-
-// Rules for empty bookmarks list
-.bookmarks-empty {
-  border: 1px solid $gray-l4;
-  background-color: $gray-l6;
-}
-
-.bookmarks-empty-header {
-}
-
-.bookmarks-empty-detail {
-}
-
-
 // Rules for bookmark icon shown on each sequence nav item
 .course-content {
-
-   .bookmark-icon.bookmarked {
-  }
-
-
-  // Rules for bookmark button's different styles
-  .bookmark-button-wrapper {
-  }
-
   .bookmark-button {
     border-color:$gym-orange;
     color:$gym-orange;
@@ -101,10 +22,6 @@
       background:transparent;
       color:$gym-orange;
     }
-
-    &:before {
-    }
-
     &.is-active {
       background-color: lighten($gym-orange,10%);
       color: $white;
@@ -113,9 +30,6 @@
     &.bookmarked {
       background-color: lighten($action-primary-bg,10%);
       color: $white;
-
-      &:before {
-      }
     }
   }
 }
