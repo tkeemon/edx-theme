@@ -144,3 +144,33 @@ body.register,
     }
   }
 }
+
+
+body 
+{
+  ul.list-input, 
+  ol.list-input, 
+  &.login ul.list-input, 
+  &.login ol.list-input, 
+  &.register ul.list-input, 
+  &.register ol.list-input,
+  .login form,
+  .register form,
+  .passwordreset form,
+  #forgot-password-modal #password-reset form    
+  { 
+    .field.is-focused
+    {
+      color:$gym-orange;
+
+      input, label, span 
+      {
+        color:$gym-orange;
+      }
+
+      input:focus{
+        outline-color:$gym-orange;
+      }
+    }
+  }
+}
