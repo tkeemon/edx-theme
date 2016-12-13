@@ -295,7 +295,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 
 <%block name="js_extra">
    <script type="text/javascript">
-      $(window).load(function() {
+      $(window).on('load',function() {
          if(getParameterByName('next')) {
               $('#login').trigger("click");
          }
