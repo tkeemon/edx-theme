@@ -154,6 +154,13 @@ nav.progress.wrapper-course-material
 
 		.accordion
 		{
+			font-family:brandon-grotesque;
+
+			nav.course-navigation .group-heading.active .icon.fa
+			{
+				color:$gym-orange;
+			}
+
 			background-color:$gym-medium-grey;
 
 			.course-navigation
@@ -199,49 +206,6 @@ nav.progress.wrapper-course-material
 					}
 				}
 			}
-
-      /* restyle the accordion sprite icon to use glyphicons from bootstrap.
-         this is a hack. Love, Mike.
-      */
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e,
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-s
-      {
-        position: relative;
-        top: 28px;
-        display: inline-block;
-        font-family: 'Glyphicons Halflings';
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        background:none;
-        background-position:0;
-        background-image:none;
-        opacity:1;
-        text-indent:0;
-      }
-
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e:before,
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-s:before
-      {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        color:$gym-orange;
-        font-size:0.5em;
-        margin-left:1em;
-        position:absolute;
-        top:0.5em;
-      }
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-e:before
-      {
-        content: "\e250";
-      }
-
-      span.ui-accordion-header-icon.ui-icon.ui-icon-triangle-1-s:before
-      {
-        content: "\e252";
-      }
 
 			p.subtitle
 			{
