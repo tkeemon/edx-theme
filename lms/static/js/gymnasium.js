@@ -531,7 +531,11 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     {
       if (navigator.geolocation) {
         // 1. Geolocation is enabled - use this as location
-        navigator.geolocation.getCurrentPosition(displayJobsForGeoLocation);
+        navigator.geolocation.getCurrentPosition(displayJobsForGeoLocation, function(err){
+          // getCurrentPosition returned an error for some reason.  We'll assume boston as a market
+          market = 10; //boston
+          queryJobsForMarket(market);
+        });
         return;
       } else {
         // 2. Geolocation not enabled - pick default behavior
