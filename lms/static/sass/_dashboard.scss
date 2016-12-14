@@ -338,3 +338,55 @@ body * .modal
 	transform: translate(-1em, .4em) rotate(-45deg);
 	z-index: 10;
 }
+
+
+/*** style rules for dashboard search / underscore template interface ***/
+.find-courses {
+	#discovery-message
+	{
+		margin-top:-0.5em;
+	}
+
+	.discovery-input 
+	{
+		box-shadow: none;
+
+		&:focus
+		{
+			border-color:$gym-orange;
+			box-shadow: none;
+		}
+	}
+	.discovery-submit
+	{
+		background: $gym-orange;
+		border-color: $gym-orange;
+
+
+		&:hover,
+		&:focus{
+			background:$gym-button-background-hover;
+			border: 2px solid$gym-button-background-hover;
+			box-shadow: none;
+		}
+	}
+
+	.wrapper-search-context
+	{
+		.wrapper-search-input
+		{
+			width:inherit;
+		}
+	}
+
+	.search-facets,
+	.search-facets.phone-menu 
+	{
+		display:none;
+	}
+
+	.courses-container
+	{
+		
+	}
+}
