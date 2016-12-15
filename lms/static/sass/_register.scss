@@ -163,7 +163,11 @@ body
     {
       color:$gym-orange;
 
-      input, label, span 
+      input, 
+      label, 
+      span,
+      span.tip,
+      .tip, 
       {
         color:$gym-orange;
       }

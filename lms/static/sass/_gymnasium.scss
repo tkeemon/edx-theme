@@ -329,16 +329,19 @@ p
 }
 
 body, 
-body.login
+body.login,
+body.register,
+.register
 {
 	a:link,
 	a:visited,
 	a:link:visited,
-	a:active:hover,
-	a:link:active:hover,
+	a:active,
+	a:link:active,
 	{		
 		color: $gym-orange;
 		font-family:$theme-serif-font;
+		border-bottom:none;
 	}
 
 	a:hover,
@@ -346,12 +349,15 @@ body.login
 	a:visited:hover,
 	a:link:hover,
 	a:link:visited:hover,
+	a:active:hover,
+	a:link:active:hover,
 	.hboard .my-courses .course .info>hgroup h3 a:hover,
 	.dashboard .my-courses .course .info>hgroup h3 a:focus,
 	.dashboard .my-courses .course .info>hgroup h3 span:hover,
 	.dashboard .my-courses .course .info>hgroup h3 span:focus
 	{
-		text-decoration: underline;
+		text-decoration: underline !important ; /* sod off, open edX. */
+		border-bottom:none;
 		color:$gym-orange;
 	}
 }
