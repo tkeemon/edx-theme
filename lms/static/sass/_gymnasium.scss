@@ -354,10 +354,11 @@ body.register,
 	.hboard .my-courses .course .info>hgroup h3 a:hover,
 	.dashboard .my-courses .course .info>hgroup h3 a:focus,
 	.dashboard .my-courses .course .info>hgroup h3 span:hover,
-	.dashboard .my-courses .course .info>hgroup h3 span:focus
+	.dashboard .my-courses .course .info>hgroup h3 span:focus,
+	p a:link:hover,
+	p a:hover
 	{
-		text-decoration: underline !important ; /* sod off, open edX. */
-		border-bottom:none;
+		border-bottom:1px solid $gym-orange;
 		color:$gym-orange;
 	}
 }
