@@ -545,6 +545,7 @@ body.register,
 	{
 		display:inline-block;
 		color:$gym-orange;
+		border:none;
 	}
 
 	#dropdown:hover, #dropdown:hover span, #dropdown:hover span.caret
@@ -555,6 +556,7 @@ body.register,
 	#dropdown:hover #dropdown:link:hover
 	{
 			color:$gym-orange;
+			border:none;
 	}
 
 	#dropdown-menu
