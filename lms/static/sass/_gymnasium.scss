@@ -741,10 +741,18 @@ div.wrapper-footer
 			li
 			{
 				border-right:1px solid $gym-medium-grey;
+				height:100%;
+				vertical-align: center;
 
-				a
+				a,
+				a:link
 				{
+					color:white;
 					font-family: $theme-sans-font;
+				}
+				a:hover
+				{
+					color:$gym-orange;
 				}
 			}
 			li:last-child
@@ -764,22 +772,6 @@ div.wrapper-footer
 				margin-top:-15px;
 				vertical-align:text-top;
 			}
-		}
-
-		li
-		{
-			height:100%;
-			vertical-align: center;
-			a
-			{
-				color:white;
-			}
-
-		}
-
-		a
-		{
-			color:$gym-orange;
 		}
 
 		a:hover
