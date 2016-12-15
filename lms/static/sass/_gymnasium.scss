@@ -499,6 +499,7 @@ body.register,
 		//odd specificity to overwrite bootstrap defaults
 		background-color:transparent;
 		color:$gym-white;
+		border-bottom:none;
 
 		.caret
 		{
@@ -621,6 +622,7 @@ body.register,
 	a:hover
 	{
 		color:$gym-orange;
+		border-bottom: none;
 	}
 
 	.gymnasium-logo
