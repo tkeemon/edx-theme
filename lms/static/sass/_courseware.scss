@@ -419,7 +419,8 @@ nav.progress.wrapper-course-material
 
 		a:hover
 		{
-			text-decoration:underline;
+			text-decoration:none;
+			border-bottom:1px solid $gym-orange;
 		}
 
 		h1
