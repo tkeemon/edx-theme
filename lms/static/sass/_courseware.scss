@@ -205,6 +205,11 @@ nav.progress.wrapper-course-material
 
 			.course-navigation
 			{
+				.group-heading,
+				{
+					font-family: brandon-grotesque;
+				}
+
 				.chapter-content-container
 				{
 					background-color:inherit;
@@ -213,6 +218,16 @@ nav.progress.wrapper-course-material
 					{
 						.menu-item 
 						{
+							.accordion-nav
+							{
+								font-family:brandon-grotesque;
+								p,
+								h1,h2,h3,h4,h5,h6
+								{
+									font-family:brandon-grotesque;
+								}
+							}
+
 							&.active a
 							{
 								color: $gym-orange;
@@ -221,6 +236,7 @@ nav.progress.wrapper-course-material
 							a
 							{
 								color:$gym-white;
+								border:none;
 							}
 
 							&.active a
@@ -228,6 +244,7 @@ nav.progress.wrapper-course-material
 							a
 							{
 								background:inherit;	
+								border:none;
 							}
 
 							.subtitle
