@@ -831,6 +831,7 @@ section
 .gym-button:link, .gym-button:visited
 {
 	color:white;
+	font-family: brandon-grotesque;
 }
 
 body 
@@ -850,6 +851,8 @@ body
 }
 
 .gym-button,
+a.gym-button,
+a.gym-button:link,
 .account-settings-sections .section .account-settings-section-body .u-field .field .u-field-link,
 .xmodule_display.xmodule_CapaModule div.problem .action .save,
 .xmodule_display.xmodule_CapaModule div.problem .action .save:not(:disabled),
@@ -878,7 +881,9 @@ body
   text-align: center;
 	font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
 
-	a, a:link, a:visited
+	a, 
+	a:link, 
+	a:visited
 	{
 		color:white;
 		font: bold 1.2em/1 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
