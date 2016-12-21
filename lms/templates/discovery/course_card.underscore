@@ -1,5 +1,5 @@
 <!-- OLD is below --> 
-<li class="course-item" data-course-id="${course.display_number_with_default | h}">          
+<li class="course-item" data-course-id="<%- content.number %>">          
     <article class="row">
         <figure class="col-md-4">
             <a href="<%- content.number %>">
