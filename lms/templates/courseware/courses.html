@@ -93,7 +93,12 @@
             </p>
             <div class="courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
               <ul class="courses-listing">
-                <!-- course card underscore template is loaded here -->
+                <!-- course card underscore template is loaded here if course_discovery is set to true-->
+                
+                <!-- otherwise we use the following loop -->
+                %for course in courses:
+                  <%include file="./catalog-course.html" args="course=course" />
+                %endfor
               </ul>
             </div>
 
