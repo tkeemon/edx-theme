@@ -73,6 +73,22 @@
     border-right: 1px dashed #ccc;
     border-radius: .125em;
 
+
+		.courses-container
+		{
+			width:100%;
+
+			div.courses {
+				width:100% !important;
+				ul.courses-listing{
+					width:100% !important;
+					li.courses-listing-item{
+						width:100% !important;
+					}
+				}
+			}
+		}
+
 		h1
 		{
 			font: 900 2em/1.2 brandon-grotesque, "Helvetica Neue", Helvetica, sans-serif;
