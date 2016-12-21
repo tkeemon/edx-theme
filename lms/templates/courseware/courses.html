@@ -85,12 +85,27 @@
             </div>
             % endif
 
+            <h1 id="full">
+              Full Courses
+            </h1>
+            <p class="hero">
+                All our full courses are taught by experienced practitioners and focused on in-demand skills and technologies. Each includes 3 to 6 hours of video instruction, quizzes, assignments, a final exam, and certification when you pass!
+            </p>
             <div class="courses${'' if course_discovery_enabled else ' no-course-discovery'}" role="region" aria-label="${_('List of Courses')}">
               <ul class="courses-listing">
                 <!-- course card underscore template is loaded here -->
               </ul>
             </div>
 
+            <h1 id="gymshorts">
+              Gym Shorts
+            </h1>
+            <p class="hero">
+              Gym Shorts are short, snackable courses that all last under an hour. Like our longer courses, they are practical, taught by experienced practitioners, and focused on in-demand skills and technologies.
+            </p>
+            <ul class="listing-courses" id="gym-shorts-list">
+
+            </ul>
 
             % if course_discovery_enabled:
             <aside aria-label="${_('Refine Your Search')}" class="search-facets phone-menu">
