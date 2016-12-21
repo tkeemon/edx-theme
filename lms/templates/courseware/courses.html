@@ -13,15 +13,11 @@
 
 % if course_discovery_enabled:
 <%block name="header_extras">
-  % for template_name in ["filter_bar", "filter", "facet", "facet_option"]:
+  % for template_name in ["course_card", "filter_bar", "filter", "facet", "facet_option"]:
   <script type="text/template" id="${template_name}-tpl">
       <%static:include path="discovery/${template_name}.underscore" />
   </script>
   % endfor
-
-  <script type="text/template" id="course_card-tpl">
-      <%static:include path="./courseware/course_card.underscore" />
-  </script>
 
   <%static:require_module module_name="js/discovery/discovery_factory" class_name="DiscoveryFactory">
     DiscoveryFactory(

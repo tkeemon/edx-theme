@@ -15,7 +15,6 @@
             </header>
             <p>
                 <%- content.short_description %>
-                SHORT DESCRIPTION GOES HERE, Mike.
             </p>
         </div>
     </article>
