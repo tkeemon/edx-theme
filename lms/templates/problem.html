@@ -2,6 +2,7 @@
 <%!
 from django.utils.translation import ugettext as _
 from openedx.core.djangolib.markup import HTML
+
 %>
 
 <%namespace name='static' file='static_content.html'/>
@@ -158,6 +159,17 @@ from openedx.core.djangolib.markup import HTML
 
       if (progress_string.length > 0)
       {
+        //Gymnasium.RecordExamGrade =  function(email, courseId, grade, callback)
+        % if (user.is_authenticated()):
+          var email = "${user.email}";
+          var courseID = $('#__course_number__').text();
+          
+          if (email && courseID && score)
+          {
+            // Gymnasium.RecordExamGrade(email, courseID, score);
+          }
+        %endif
+
         //we have a score
         if (score >= passing_score)
         {
