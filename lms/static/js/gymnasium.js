@@ -601,6 +601,7 @@ Gymnasium.prototype.RecordExamGrade = function(email, courseId, grade, callback)
     course_id:        courseId,
     utm_campaign:     courseId + " - Grade"
   };
+  return Gymnasium.RecordCloudwallRecord(data, callback);
 };
 
 Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastName, cityId, callback)
