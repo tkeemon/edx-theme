@@ -168,14 +168,17 @@ from openedx.core.djangolib.markup import HTML, Text
 
             </ul>
           % else:
-            <section class="empty-dashboard-message">
-              <p>${_("You are not enrolled in any courses yet.")}</p>
+            <section class="empty-dashboard-messages row">
+              <div class="col-md-12">
+                <p>${_("You are not enrolled in any courses yet.")}</p>
+              </div>
 
               % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-                <a href="${marketing_link('COURSES')}">
-                  ${_("Explore courses")}
+              <div class="col-md-4 col-md-offset-4"> 
+                <a class="gym-button natural" href="${marketing_link('COURSES')}">
+                  <b>${_("Explore courses")}</b>
                 </a>
-
+              </div>
               %endif
             </section>
           % endif
