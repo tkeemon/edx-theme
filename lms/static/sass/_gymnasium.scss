@@ -78,25 +78,20 @@ $white: $gray-1;
 $black: #2e2e2e;
 $black-80: #585858;
 
-
 $theme-sans-font: "brandon-grotesque";
 $sans-serif: $theme-sans-font;
 $body-font-family: $sans-serif;
 
 $theme-serif-font: 'Helvetica Neue';
 $serif: $theme-serif-font;
-
-
 p
 {
 	font: $serif;
 }
 
-
 //-----------------
 //  Theme Element Assignments
 //-----------------
-
 $body-bg: $gray-1;
 $container-bg: transparent;
 $login-register-bg: $gray-1;
@@ -163,8 +158,6 @@ $action-primary-active-focused-shadow: none;
 $action-primary-disabled-bg: $gray-75;
 $action-prmary-disabled-fg: $gray-1;
 
-
-
 // actions - secondary
 $action-secondary-bg: $secondary;
 $action-secondary-fg: $gray;
@@ -186,7 +179,6 @@ $action-secondary-disabled-bg: $gray-3;
 $action-secondary-disabled-fg: $gray;
 
 //
-
 $border-color-1: $main-bg-60;
 $border-color-2: $main-bg-60;
 $border-color-3: $main-bg-60;
@@ -241,7 +233,6 @@ html
   }
 }
 
-
 button,
 html button,
 html body button
@@ -291,8 +282,6 @@ div#content.content-wrapper,
 
 $login-banner-image: none;
 $register-banner-image: none;
-
-
 
 //-----------------
 //  Mixin Styles
@@ -367,8 +356,6 @@ body.register,
 		text-decoration:none;
 	}
 }
-
-
 
 #top-navs
 {
