@@ -204,20 +204,20 @@ from openedx.core.djangolib.markup import HTML, Text
         <aside class="profile-sidebar col-md-3">
           <h2>Account Details</h2>
           <header class="profile">
-            <h1 class="user-name">${ user.username }</h1>
+            <h1 class="user-name break-word">${ user.username }</h1>
           </header>
           <section class="user-info">
             <ul>
               <li class="info--username">
                   <span class="title">${_("Full Name")}</span>
-                  <span class="data">${ user.profile.name | h }</span>
+                  <span class="data break-word">${ user.profile.name | h }</span>
               </li>
 
               <li class="info--email">
                   <span class="title">
                     ${_("Email")}
                   </span>
-                  <span class="data">
+                  <span class="data break-word">
                     ${ user.email | h }
                   </span>
               </li>

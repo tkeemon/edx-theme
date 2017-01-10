@@ -328,6 +328,10 @@ p
 		font-size: 1.2em/1.6em;
 }
 
+.break-word {
+	word-break: break-all;
+}
+
 body, 
 body.login,
 body.register,
