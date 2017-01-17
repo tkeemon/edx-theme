@@ -11,6 +11,7 @@ from datetime import date
 import third_party_auth
 from third_party_auth import pipeline, provider
 import calendar
+import urllib2
 %>
 
 <%block name="pagetitle">${_("Register for {platform_name}").format(platform_name=platform_name)}</%block>
@@ -178,12 +179,7 @@ import calendar
       </div>
       
       <div class="col-md-3 additional-information">
-        <%
-          # allow for microsite overrides on the registration sidebars, otherwise default to pre-existing ones
-          sidebar_file = static.get_template_path('register-sidebar.html')
-        %>
-
-        <%include file="${sidebar_file}" />
+        ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/register-sidebar.html').read()}
       </div>
     </div>
   </div>
