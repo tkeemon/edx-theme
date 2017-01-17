@@ -15,7 +15,7 @@ import calendar
 
 <%block name="pagetitle">${_("Register for {platform_name}").format(platform_name=platform_name)}</%block>
 
-<%block name="bodyclass">view</%block>
+<%block name="bodyclass">view-register</%block>
 
 <%block name="js_extra">
 
@@ -89,10 +89,6 @@ import calendar
         toggleSubmitButton(false);
       });
 
-      $('#register-form').on('ajax:error', function() {
-        toggleSubmitButton(true);
-      });
-
       $('#register-form').on('ajax:success', function(event, json, xhr) {
         var nextUrl = "${login_redirect_url}";
         if (json.redirect_url) {
@@ -119,8 +115,8 @@ import calendar
       $('#register-form').on('ajax:error', function(event, jqXHR, textStatus) {
         toggleSubmitButton(true);
         json = $.parseJSON(jqXHR.responseText);
-        $('.status.err-message.submission-error').addClass('is-shown').focus();
-        $('.status.err-message.submission-error .err-message-copy').html(json.value).stop().css("display", "block");
+        $('.status.message.submission-error').addClass('is-shown').show().focus();
+        $('.status.message.submission-error .message-copy').html(json.value).stop().css("display", "block");
         $(".field-error").removeClass('field-error');
         $("[data-field='"+json.field+"']").addClass('field-error')
       });
@@ -139,6 +135,8 @@ import calendar
           removeClass('is-disabled').
           attr('aria-disabled', false).
           removeProp('disabled')
+        
+        $submitButton[0].removeAttribute('disabled');
       }
       else {
         $submitButton.
@@ -178,6 +176,7 @@ import calendar
         </div>
 
       </div>
+      
       <div class="col-md-3 additional-information">
         <%
           # allow for microsite overrides on the registration sidebars, otherwise default to pre-existing ones
