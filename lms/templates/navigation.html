@@ -11,6 +11,7 @@ import branding
 from status.status import get_site_status_msg
 %>
 
+<% import urllib2 %>
 
 ## Provide a hook for themes to inject branding on top.
 <%block name="navigation_top" />
@@ -24,6 +25,7 @@ except:
     course_id = None
 site_status_msg = get_site_status_msg(course_id)
 %>
+
 % if site_status_msg:
 <div class="site-status">
   <div class="inner-wrapper">
@@ -151,8 +153,14 @@ site_status_msg = get_site_status_msg(course_id)
             </div>
         </div>
     </div>
-
   </header>
+
+  % if settings.PLATFORM_NAME == "Gymnasium STAGING":
+    ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/system_status/staging.html').read()}
+  % else:
+    ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/system_status/production.html').read()}
+  % endif
+
 % if course:
 <!--[if lte IE 8]>
 <div class="ie-banner" aria-hidden="true">${_('<strong>Warning:</strong> Your browser is not fully supported. We strongly recommend using {chrome_link} or {ff_link}.').format(chrome_link='<a href="https://www.google.com/intl/en/chrome/browser/" target="_blank">Chrome</a>', ff_link='<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank">Firefox</a>')}</div>
