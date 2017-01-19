@@ -97,18 +97,20 @@ include_special_exams = settings.FEATURES.get('ENABLE_SPECIAL_EXAMS', False) and
 % if disable_tabs is UNDEFINED or not disable_tabs:
 
   <div class="container">
-    <nav class="${active_page} wrapper-course-material col-md-12" aria-label="${_('Course Material')}">
-        <div class="course-material">
-            <%
-            tab_list = get_course_tab_list(request, course)
-            tabs_tmpl = static.get_template_path('/courseware/tabs.html')
-            %>
-            <ol class="tabs course-tabs">
-                <%include file="${tabs_tmpl}" args="tab_list=tab_list,active_page=active_page,default_tab=default_tab,tab_image=tab_image" />
-                <%block name="extratabs" />
-            </ol>
-        </div>
-    </nav>
+    <div class="row">
+        <nav class="${active_page} wrapper-course-material col-md-12" aria-label="${_('Course Material')}">
+            <div class="course-material">
+                <%
+                tab_list = get_course_tab_list(request, course)
+                tabs_tmpl = static.get_template_path('/courseware/tabs.html')
+                %>
+                <ol class="tabs course-tabs">
+                    <%include file="${tabs_tmpl}" args="tab_list=tab_list,active_page=active_page,default_tab=default_tab,tab_image=tab_image" />
+                    <%block name="extratabs" />
+                </ol>
+            </div>
+        </nav>
+    </div>
   </div>
 %endif
 
