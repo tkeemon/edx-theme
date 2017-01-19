@@ -79,8 +79,11 @@ body.view-in-course
 	.course-content
 	{
 		max-width: inherit;
-    width: 100%;
 		display:block;
+	}
+
+	#course-content.course-content{
+		width:100%;
 	}
 
 	.discussion-column
