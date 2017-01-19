@@ -112,77 +112,81 @@ ${HTML(fragment.foot_html())}
 % endif
 
 <div class="container">
-  <div class="course-wrapper row">
+  <div class="row">
+    <div class="course-wrapper">
 
-% if disable_accordion is UNDEFINED or not disable_accordion:
-    <div class="course-index col-md-3">
+      % if disable_accordion is UNDEFINED or not disable_accordion:
+          <div class="col-md-3 no-right-pad">
+            <div class="course-index">
+              <div class="wrapper-course-modes">
 
-      <div class="wrapper-course-modes">
+                  <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
+                      <button type="gym-button" class="bookmarks-list-button is-inactive" aria-pressed="false">
+                          ${_('Bookmarks')}
+                      </button>
+                  </div>
 
-          <div class="courseware-bookmarks-button" data-bookmarks-api-url="${bookmarks_api_url}">
-              <button type="gym-button" class="bookmarks-list-button is-inactive" aria-pressed="false">
-                  ${_('Bookmarks')}
-              </button>
+              </div>
+
+              <div class="accordion">
+                <nav class="course-navigation" aria-label="${_('Course')}">
+                  % if accordion.strip():
+                    ${HTML(accordion)}
+                  % else:
+                    <div class="chapter">${_("No content has been added to this course")}</div>
+                  % endif
+                </nav>
+              </div>
+            </div>
           </div>
+      % endif
 
-      </div>
+      <section class="col-md-9 no-left-pad">
+        <div class="course-content" id="course-content">
+          <main id="main" aria-label="Content" tabindex="-1">
+            % if getattr(course, 'entrance_exam_enabled') and \
+              getattr(course, 'entrance_exam_minimum_score_pct') and \
+              entrance_exam_current_score is not UNDEFINED:
+                % if not entrance_exam_passed:
+                <p class="sequential-status-message">
+                    ${_('To access course materials, you must score {required_score}% or higher on this \
+                    exam. Your current score is {current_score}%.').format(
+                        required_score=int(round(course.entrance_exam_minimum_score_pct * 100)),
+                        current_score=int(round(entrance_exam_current_score * 100))
+                    )}
+                </p>
+                <script type="text/javascript">
+                $(document).ajaxSuccess(function(event, xhr, settings) {
+                    if (settings.url.indexOf("xmodule_handler/problem_check") > -1) {
+                        var data = JSON.parse(xhr.responseText);
+                        if (data.entrance_exam_passed){
+                            location.reload();
+                        }
+                    }
+                });
+                </script>
+                % else:
+                  <p class="sequential-status-message">
+                    ${_('Your score is {current_score}%. You have passed the entrance exam.').format(
+                        current_score=int(round(entrance_exam_current_score * 100))
+                    )}
+                </p>
+                % endif
+            % endif
 
-      <div class="accordion">
-        <nav class="course-navigation" aria-label="${_('Course')}">
-          % if accordion.strip():
-            ${HTML(accordion)}
-          % else:
-            <div class="chapter">${_("No content has been added to this course")}</div>
-          % endif
-        </nav>
-      </div>
+            ${HTML(fragment.body_html())}
+          </main>
+        </div>
+      </section>
+
+      <section class="courseware-results-wrapper col-md-9">
+          <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
+          <div id="error-message" aria-live="polite"></div>
+          <div class="courseware-results search-results col-md-12" data-course-id="${course.id}" data-lang-code="${language_preference}"></div>
+        </div>
+      </section>
 
     </div>
-% endif
-
-    <section class="course-content col-md-9" id="course-content">
-      <main id="main" aria-label="Content" tabindex="-1">
-        % if getattr(course, 'entrance_exam_enabled') and \
-           getattr(course, 'entrance_exam_minimum_score_pct') and \
-           entrance_exam_current_score is not UNDEFINED:
-            % if not entrance_exam_passed:
-            <p class="sequential-status-message">
-                ${_('To access course materials, you must score {required_score}% or higher on this \
-                exam. Your current score is {current_score}%.').format(
-                    required_score=int(round(course.entrance_exam_minimum_score_pct * 100)),
-                    current_score=int(round(entrance_exam_current_score * 100))
-                )}
-            </p>
-            <script type="text/javascript">
-            $(document).ajaxSuccess(function(event, xhr, settings) {
-                if (settings.url.indexOf("xmodule_handler/problem_check") > -1) {
-                    var data = JSON.parse(xhr.responseText);
-                    if (data.entrance_exam_passed){
-                        location.reload();
-                    }
-                }
-            });
-            </script>
-            % else:
-              <p class="sequential-status-message">
-                ${_('Your score is {current_score}%. You have passed the entrance exam.').format(
-                    current_score=int(round(entrance_exam_current_score * 100))
-                )}
-            </p>
-            % endif
-        % endif
-
-          ${HTML(fragment.body_html())}
-        </main>
-    </section>
-
-    <section class="courseware-results-wrapper course-content">
-      <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
-      <div id="error-message" aria-live="polite"></div>
-      <div class="courseware-results search-results col-md-12" data-course-id="${course.id}" data-lang-code="${language_preference}"></div>
-    </section>
-
-
   </div>
 </div>
 

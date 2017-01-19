@@ -7,6 +7,13 @@
 
 body.view-in-course
 {
+	.search-results {
+    background: white;
+    border: 1px solid #ccc;
+    padding-bottom: 2em;
+    margin: 0;
+	}
+
   .wrapper-course-material
   {
     div.course-material
@@ -72,7 +79,8 @@ body.view-in-course
 	.course-content
 	{
 		max-width: inherit;
-    width: 66.66666667%;;
+    width: 100%;
+		display:block;
 	}
 
 	.discussion-column
@@ -155,10 +163,18 @@ nav.progress.wrapper-course-material
 	height:inherit; //fixes a bug with the .progress class colliding with bootstrap
 }
 
-.container>div.course-wrapper
+.container div.course-wrapper
 {
 	border:none;
 	border-radius:0;
+
+	.no-right-pad {
+		padding-right:0;
+	}
+
+	.no-left-pad {
+		padding-left: 0;
+	}
 
 	.courseware-search-bar
 	{
@@ -180,6 +196,7 @@ nav.progress.wrapper-course-material
 		border-right:none;
 		background-color:$gym-medium-grey;
 		border-radius:0;
+		display:block;
 
 		.course-search-input,
 		.search-field-wrapper
