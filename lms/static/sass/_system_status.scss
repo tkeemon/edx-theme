@@ -1,0 +1,22 @@
+/* styling for the systemwide status message container imported from github */
+
+
+.system-status-container {
+  background-color: $gym-orange;
+  color:white;
+  font-family: brandon-grotesque;
+  min-height:4em;
+}
+
+.system-status
+{
+  min-height:2em;
+
+  h1 {
+    text-transform: uppercase;
+  }
+
+  p {
+
+  }
+}
