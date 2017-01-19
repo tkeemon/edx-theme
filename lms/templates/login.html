@@ -105,6 +105,7 @@
           attr('aria-disabled', false).
           removeProp('disabled').
           html("${_('Log into My {platform_name} Account').format(platform_name=platform_name)} <span class='orn-plus'>+</span> ${_('Access My Courses')}");
+        $submitButton[0].removeAttribute('disabled');
       }
       else {
         $submitButton.
