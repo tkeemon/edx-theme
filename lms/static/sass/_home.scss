@@ -29,7 +29,6 @@
 
   >header
   {
-    height:33em;
 		background:none;
 		box-shadow:none;
 
@@ -42,11 +41,17 @@
 			width:auto;
 			height:auto;
 			min-height:0px;
-			margin-top:100px;
+			margin-top:4em;
+      margin-bottom:4em;
 			padding:25px;
 			box-sizing:border-box;
       margin-right:0;
       margin-left:0;
+
+      &.header-title-sm {
+        margin-top:1em;
+        margin-bottom:1em;
+      }
 
 			h1
 			{
@@ -535,13 +540,6 @@
 	}
 
 }
-
-.sit-and-get-fit
-{
-  position:absolute;
-  bottom:-20px;
-}
-
 
 #get-work
 {
