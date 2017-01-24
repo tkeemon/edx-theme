@@ -384,8 +384,6 @@ body.register,
 
     /* mocking the bootstrap style rule for consistency throughout page */
     max-width: 1180px;
-    min-width: 760px;
-    padding:0;
 	}
 
 	footer
@@ -597,7 +595,6 @@ body.register,
 	@extend #top-navs;
 	height:70px;
 	background-color:$gym-dark-grey;
-  padding-top:10px;
 
   >.container
   {
@@ -645,6 +642,7 @@ body.register,
 		border-color:transparent;
 		border:none;
     margin-bottom:0;
+    z-index:100;
 	}
 }
 
@@ -666,7 +664,6 @@ header.global,
 {
 
 	margin:0px;
-	padding:0px;
 	box-shadow:none;
 	border:none;
 	width:inherit;
@@ -676,7 +673,6 @@ header.global,
 	.container, .container.grey
 	{
 		min-width: inherit;
-		width:inherit;
 	}
 
 
