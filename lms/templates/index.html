@@ -31,13 +31,17 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
   <header>
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 hidden-md hidden-lg">
-          <a class="gym-button" href="/courses"><b>Enroll in a Class</b></a>
+        <div class="col-xs-12 hidden-md hidden-lg col-sm-8 col-sm-offset-2">
+          <hgroup class="header-title header-title-sm">
+            <h1>${_("Join Gymnasium")}</h1>
+            <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
+            <a class="gym-button" href="/courses">Enroll in a Class</a>
+          </hgroup>
         </div>
         <div class="col-md-9 col-sm-12 marketing-image-container">
           <a href="/courses"><img src="${static.url('images/marketing-campaign/sit_and_get_fit_2.png')}" class="img-responsive sit-and-get-fit"></a>
         </div>
-        <div class="col-md-3 col-sm-12">
+        <div class="col-md-3 col-sm-12 hidden-sm hidden-xs">
           <hgroup class="header-title">
             <h1>${_("Join Gymnasium")}</h1>
             <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
@@ -253,35 +257,34 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
         <div class="col-md-12">
           <h2 class="text-center">As seen in:</h2>
         </div>
+      </div>
 
-        <ul class="col-md-12 list-inline text-center">
-          <li>
-            <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="_blank">
-              <img src="${static.url('images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
-            </a>
-          </li>
-          <li>
-            <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="_blank">
-              <img src="${static.url('images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
-            </a>
-          </li>
-          <li>
-            <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="_blank">
-              <img src="${static.url('images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive  center-block" />
-            </a>
-          </li>
-          <li>
-            <a href="http://www.lemonde.fr/emploi/article/2014/06/30/les-firmes-americaines-recrutent-dans-les-mooc_4448062_1698637.html" target="_blank">
-              <img src="${static.url('images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
-            </a>
-          </li>
-          <li>
-            <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="_blank">
-              <img src="${static.url('images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
-            </a>
-          </li>
-        </ul>
-
+      <div class="row list-inline text-center">
+        <div class="col-xs-12 col-sm-offset-1 col-sm-2">
+          <a href="http://www.fastcompany.com/3024661/innovation-agents/hacking-hack-schools-to-make-them-work" target="_blank">
+            <img src="${static.url('images/as-seen-in/fastco.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <a href="http://www.forbes.com/sites/sap/2015/02/23/hate-formal-career-training-go-guerrilla-on-it/" target="_blank">
+            <img src="${static.url('images/as-seen-in/forbes.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <a href="http://www.inc.com/issie-lapowsky/how-moocs-training-tomorrow-workforce.html" target="_blank">
+            <img src="${static.url('images/as-seen-in/inc.png')}" alt="Aquent Gymnasium" class="img-responsive  center-block" />
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <a href="http://www.lemonde.fr/emploi/article/2014/06/30/les-firmes-americaines-recrutent-dans-les-mooc_4448062_1698637.html" target="_blank">
+            <img src="${static.url('images/as-seen-in/le-monde-fr.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-2">
+          <a href="http://www.foxbusiness.com/personal-finance/2014/03/07/training-workers-netflix-way-moocs-in-job-industry/" target="_blank">
+            <img src="${static.url('images/as-seen-in/fox-business.png')}" alt="Aquent Gymnasium" class="img-responsive center-block" />
+          </a>
+        </div>
       </div>
     </div>
   </section>

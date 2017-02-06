@@ -258,9 +258,7 @@ from student.models import UserProfile
       % if has_extauth_info is UNDEFINED or ask_for_tos :
       <div class="field required checkbox" id="field-tos">
         <input id="tos-yes" type="checkbox" name="terms_of_service" value="true" required aria-required="true" />
-        <label for="tos-yes">${_('I have read the {link_start}Privacy Policy{link_end}').format(
-          link_start='<a href="{url}" class="new-vp" tabindex="-1">'.format(url=marketing_link('privacy')),
-          link_end='</a>')}</label>
+        <label for="tos-yes">I have read the <a href="/privacy" target="_blank" class="new-vp" tabindex="-1">Privacy Policy</a></label>
       </div>
       % endif
 
