@@ -44,15 +44,7 @@ site_status_msg = get_site_status_msg(course_id)
             <div class="nav navbar navbar-nav navbar-left">
               % if not user.is_authenticated():
                   % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                    % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                      <span>
-                        <a class="cta cta-register" href="${reverse('course-specific-register', args=[course.id.to_deprecated_string()])}"><b>${_("Sign up for an account")}</b></a>
-                      </span>
-                    % else:
-                      <span>
-                        <a class="gym-button cta cta-register" href="/register"><b>${_("Sign up for an account")}</b></a>
-                      </span>
-                    % endif
+                    <a class="gym-button" href="/register"><b>${_("Sign up for an account")}</b></a>
                   % endif
                 % endif
             </div>
