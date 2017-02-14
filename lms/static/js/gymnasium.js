@@ -638,27 +638,26 @@ Gymnasium.prototype.RecordCloudwallRecord = function(jsonData, callback)
   jsonData.referer = "thegymnasium.com";
 
 
-  $.ajax("https://aquent.com/application/gymnasium-lead.htm",
+  $.ajax(
+    "https://aquent.com/application/gymnasium-lead.htm",
     {
       contentType: "application/json",
       dataType: "jsonp",
       data: jsonData
-    })
-    .done(function(event)
+    }
+  ).done(function(event)
+  {
+    //console.log("Success!\n", event);
+  }).fail(function(event, textStatus, errorThrown)
+  {
+    //console.log("Failure:\n", textStatus, "\n", errorThrown);
+  }).always(function(e){
+    //console.log("always:\n", e);
+    if (callback)
     {
-      //console.log("Success!\n", event);
-    })
-    .fail(function(event, textStatus, errorThrown)
-    {
-      //console.log("Failure:\n", textStatus, "\n", errorThrown);
-    })
-    .always(function(e){
-      //console.log("always:\n", e);
-      if (callback)
-      {
-        callback();
-      }
-    });
+      callback();
+    }
+  });
 }
 
 <!-- Facebook Pixel Code -->
