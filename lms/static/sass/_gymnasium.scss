@@ -358,14 +358,6 @@ body.register,
 	}
 }
 
-#top-navs
-{
-	min-width:0;
-	max-width:none;
-	width:inherit;
-	padding: 0px;
-}
-
 .container
 {
 	min-width:0px !important;
@@ -440,8 +432,6 @@ body.register,
 
 #primary-nav
 {
-
-  @extend #top-navs;
   height:50px;
 
   .gym-nav-icon-container
@@ -455,19 +445,10 @@ body.register,
 
   .navbar
   {
-    margin-bottom:0;
     height:50px;
+    border:0; 
+    margin:0;
   }
-
-	.navbar-nav
-	{
-		height:50px;
-	}
-
-	nav
-	{
-		height:50px;
-	}
 
 	.navbar-nav > li > a
 	{
@@ -479,7 +460,6 @@ body.register,
 	{
 		background-color:transparent;
 		color:$gym-orange;
-
 
 		.caret
 		{
@@ -592,7 +572,6 @@ body.register,
 
 #secondary-nav
 {
-	@extend #top-navs;
 	height:70px;
 	background-color:$gym-dark-grey;
 
