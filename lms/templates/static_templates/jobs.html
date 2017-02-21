@@ -1,0 +1,22 @@
+<%! from django.utils.translation import ugettext as _ %>
+<%inherit file="../main.html" />
+<% import urllib2 %>
+
+<%block name="pagetitle">${_("Privacy Policy")}</%block>
+<div class="container ">
+	<div class="row">
+		<div class="col-md-12 ">
+      <div class="white-panel">
+        <div class="row">
+          <div class="col-md-9">
+            ## include jobs page from git repo
+            ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/jobs.html').read()}
+          </div>
+
+          <div class="col-md-3">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
