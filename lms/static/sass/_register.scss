@@ -13,7 +13,8 @@
 
   $linked-in-blue: #0077B5;
 
-  button.gym-button.button-oa2-linkedin-oauth2.login-provider.login-oa2-linkedin-oauth2
+  button.gym-button.button-oa2-linkedin-oauth2.login-provider.login-oa2-linkedin-oauth2,
+  button.gym-button.button-oa2-linkedin-oauth2.login-provider.register-oa2-linkedin-oauth2
   {
     transform: scale(1.5,1.5);
     border-color: $linked-in-blue;
