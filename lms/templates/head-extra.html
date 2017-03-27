@@ -89,6 +89,10 @@ from django.conf import settings
 			value.innerHTML = "Syllabus";
 		});
 
+    $('.course-tabs li a b:contains("Discussion")').each(function(idx, value) {
+      value.innerHTML = "Forum";
+    });
+
     // make sure lessons tab comes first
     var syllabusTab = $('.course-tabs li:contains("Lessons")');
     $(syllabusTab).prependTo(
