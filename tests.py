@@ -1,6 +1,9 @@
-from django.test import TestCase
+import unittest
 
-class SmokeTest(TestCase):
+class TestCircleCI(unittest.TestCase):
     def test_assert(self):
-        self.assertEqual(1 + 1, 2)
+        self.assertEqual(1+1,2)
+
+if __name__ == '__main__':
+    unittest.main()
 
