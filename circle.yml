@@ -9,6 +9,9 @@ dependencies:
 
 deployment:
   staging:
-    branch: develop
+    branch: 
+      only:
+        - develop
+        - /feature/*
     commands:
       - deactivate && cd ~ && git clone https://github.com/appsembler/configuration && cd configuration && git checkout appsembler/eucalyptus/master && pip install -r requirements.txt && cd playbooks  && wget https://gist.githubusercontent.com/tkeemon/a36bbc91c13e17425678f8c1f0f7a42a/raw/49e753a7eb93c64b80e715d35ee6ce8ca59ae267/aquent_deploy.yml && ansible-playbook -i ~/inventory --user $CIRCLE_USER aquent_deploy.yml
