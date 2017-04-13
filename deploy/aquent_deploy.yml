@@ -15,7 +15,7 @@
     - name: checkout comprehensive theme
       git_2_0_1:
         dest: "/edx/app/edxapp/themes/gymnasium"
-        repo: "https://github.com/tkeemon/edx-theme"
+        repo: "https://github.com/gymnasium/edx-theme"
         version: "develop"
         accept_hostkey: yes 
       become_user: "{{ edxapp_user }}"
