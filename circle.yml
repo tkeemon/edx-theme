@@ -1,0 +1,14 @@
+machine:
+  python:
+    version: 2.7.10
+
+dependencies:
+  pre:
+    - echo '[edxapp-server]' > ~/inventory
+    - echo $STAGING_SERVER >> ~/inventory
+
+deployment:
+  staging:
+    branch: [develop,/feature.*/]
+    commands:
+      - deactivate && ~/deploy/deploy_staging.sh
