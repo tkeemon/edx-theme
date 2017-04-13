@@ -1,6 +1,8 @@
 <%! from django.utils.translation import ugettext as _ %>
 
 <%! from django.core.urlresolvers import reverse %>
+<% import urllib2 %>
+
 <%inherit file="main.html" />
 <%namespace name='static' file='static_content.html'/>
 
@@ -28,29 +30,7 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 
 
 <section class="home">
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 hidden-md hidden-lg col-sm-8 col-sm-offset-2">
-          <hgroup class="header-title header-title-sm">
-            <h1>${_("Join Gymnasium")}</h1>
-            <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
-            <a class="gym-button" href="/courses">Enroll in a Class</a>
-          </hgroup>
-        </div>
-        <div class="col-md-9 col-sm-12 marketing-image-container">
-          <a href="/courses"><img src="${static.url('images/marketing-campaign/sit_and_get_fit_2.png')}" class="img-responsive sit-and-get-fit"></a>
-        </div>
-        <div class="col-md-3 col-sm-12 hidden-sm hidden-xs">
-          <hgroup class="header-title">
-            <h1>${_("Join Gymnasium")}</h1>
-            <h2 class="tk-brandon-grotesque">${_("Free courses. Practical skills. Unlimited potential.")}</h2>
-            <a class="gym-button" href="/courses">Enroll in a Class</a>
-          </hgroup>
-        </div>
-      </div>
-    </div>
-  </header>
+  ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/home/hero.html').read()}
 
   <section class="container-fluid subsection">
     <div class="container">
