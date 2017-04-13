@@ -7,5 +7,5 @@ git checkout appsembler/eucalyptus/master
 pip install -r requirements.txt 
 cd playbooks  
 
-ansible-playbook -i ~/inventory --user $CIRCLE_USER ~/deploy/aquent_deploy.yml
+ansible-playbook -i ~/inventory --user $CIRCLE_USER ~/edx-theme/deploy/aquent_deploy.yml
 
