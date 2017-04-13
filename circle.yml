@@ -11,4 +11,4 @@ deployment:
   staging:
     branch: [develop,/feature.*/]
     commands:
-      - deactivate && ~/deploy/deploy_staging.sh
+      - deactivate && ~/edx-theme/deploy/deploy_staging.sh
