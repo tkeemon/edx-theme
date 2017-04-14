@@ -6,9 +6,9 @@
   become: True
   gather_facts: True
   vars_files: 
-  - roles/common_vars/defaults/main.yml
-  - roles/supervisor/defaults/main.yml
-  - roles/edxapp/defaults/main.yml
+  - ~/configuration/playbookx/roles/common_vars/defaults/main.yml
+  - ~/configuration/playbookx/roles/supervisor/defaults/main.yml
+  - ~/configuration/playbookx/roles/edxapp/defaults/main.yml
   vars:
     tmp: none
   tasks:        
