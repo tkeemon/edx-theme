@@ -1241,3 +1241,24 @@ code, code *
 		color:$gym-light-grey;
 	}
 }
+
+/* HEADWAY CHANGELOG STYLE RULES */
+
+#HW_badge_cont {
+  margin-top:-2px;
+  margin-left:197px;
+}
+
+#HW_badge {
+  background: $gym-white;
+
+  &.HW_visible {
+    /* this rule is applied when there is a new changelog to read */
+    background: $gym-orange;
+  }
+}
+
+div#HW_frame_cont.HW_visible {
+  margin-left:25px;
+  margin-top:-16px;
+}
