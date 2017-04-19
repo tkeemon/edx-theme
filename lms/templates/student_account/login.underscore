@@ -29,13 +29,12 @@
     </div>
 <% } %>
 
-<form id="login" class="login-form" tabindex="-1">
+<form id="login" class="login-form course-content" tabindex="-1">
 
-    <div class="section-title lines">
-        <h2>
-            <span class="text">Sign In</span>
-        </h2>
-    </div>
+    <br />
+    <h1>
+        <span class="text">Sign In</span>
+    </h1>
 
     <p class="sr">
         <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
@@ -52,10 +51,11 @@
 
     <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
     <div class="login-providers">
+
         <div class="section-title lines">
-            <h2>
-                <span class="text"><%- gettext("or sign in with") %></span>
-            </h2>
+          <h2>
+            <span class="text"><%- gettext("or sign in with") %></span>
+          </h2>
         </div>
 
         <% _.each( context.providers, function( provider ) {
@@ -81,11 +81,11 @@
     <% } %>
 </form>
 
-<div class="toggle-form">
+<div class="toggle-form course-content logistration-bottom">
     <div class="section-title">
         <h2>
             <span class="text"><%- _.sprintf( gettext("New to %(platformName)s?"), context ) %></span>
         </h2>
     </div>
-    <button class="gym-button form-toggle" data-type="register"><%- gettext("Create an account") %></button>
+    <button class="gym-button form-toggle logistration-button" data-type="register"><%- gettext("Create an account") %></button>
 </div>
