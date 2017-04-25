@@ -21,11 +21,10 @@
         </div>
     <% } else if ( context.providers.length > 0 || context.hasSecondaryProviders ) {  %>
         <div class="login-providers">
-            <div class="section-title lines">
-                <h1>
-                    <span class="text"><%- gettext("Create an account using") %></span>
-                </h1>
-            </div>
+            <br />
+            <h1>
+              <span class="text">Create an account using</span>
+            </h1>
             <%
             _.each( context.providers, function( provider) {
                 if ( provider.registerUrl ) { %>
