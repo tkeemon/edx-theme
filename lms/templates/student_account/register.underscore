@@ -3,7 +3,7 @@
     <ul class="message-copy"></ul>
 </div>
 
-<form id="register" class="register-form" autocomplete="off" tabindex="-1" style="background:white;">
+<form id="register" class="register-form course-content" autocomplete="off" tabindex="-1" style="background:white;">
 
     <% if (context.errorMessage) { %>
         <div class="status submission-error">
@@ -21,11 +21,10 @@
         </div>
     <% } else if ( context.providers.length > 0 || context.hasSecondaryProviders ) {  %>
         <div class="login-providers">
-            <div class="section-title lines">
-                <h2>
-                    <span class="text"><%- gettext("Create an account using") %></span>
-                </h2>
-            </div>
+            <br />
+            <h1>
+              <span class="text">Create an account using</span>
+            </h1>
             <%
             _.each( context.providers, function( provider) {
                 if ( provider.registerUrl ) { %>
@@ -66,11 +65,13 @@
     <p class="note">* <%- gettext("Required field") %></p>
 </form>
 
-<div class="toggle-form">
+<br />
+
+<div class="toggle-form course-content logistration-bottom">
     <div class="section-title">
         <h2>
             <span class="text"><%- gettext("Already have an account?") %></span>
         </h2>
     </div>
-    <button class="gym-button form-toggle" data-type="login"><%- gettext("Sign in") %></button>
+    <button class="gym-button form-toggle logistration-button" data-type="login"><%- gettext("Sign in") %></button>
 </div>

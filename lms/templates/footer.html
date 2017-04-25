@@ -9,12 +9,12 @@
   <footer class="container">
     <div class="row">
       <nav>
-        <div class="col-md-4">
+        <div class="col-md-3">
           <a href="${marketing_link('ROOT')}">
             <img class="gymnasium-logo"  src="${static.url('images/gymnasiumLogo.png')}" alt="Aquent Gymnasium" >
           </a>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <ol class="list-inline text-center footer-link-list">
             <li><a href="https://medium.com/gymnasium" target="_blank">Blog</a></li>
             <li><a href="${reverse('jobs')}">Jobs</a></li>
@@ -22,12 +22,15 @@
             <li><a href="${marketing_link('FAQ')}">FAQ</a></li>
             <li><a href="${reverse('support')}">Support</a></li>
             <li><a href="${reverse('privacy')}">Privacy Policy</a></li>
+            <li id="headway-changelog-anchor">
+              <a href="https://headwayapp.co/gymnasium-changelog" target="_blank">Changelog</a>
+            </li>
           </ol>
           <div class="copyright">&copy; ${current_year} Aquent Gymnasium</div>
         </div>
       </nav>
 
-      <div class="built-on col-md-4 text-center">
+      <div class="built-on col-md-3 text-center">
         <span>
           <a href="http://openedx.org" target="_blank">
             <img
