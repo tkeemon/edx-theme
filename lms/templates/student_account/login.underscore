@@ -47,7 +47,7 @@
 
     <%= context.fields %>
 
-    <button type="submit" class="gym-button js-login login-button"><%- gettext("Sign in") %></button>
+    <button type="submit" class="gym-button js-login logistration-button"><%- gettext("Sign in") %></button>
 
     <% if ( context.providers.length > 0 && !context.currentProvider || context.hasSecondaryProviders ) { %>
     <div class="login-providers">
