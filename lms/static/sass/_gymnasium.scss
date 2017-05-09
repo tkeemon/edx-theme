@@ -1297,7 +1297,8 @@ div.status,
     border-bottom: 1px solid white !important;
   }
 
-  a:hover {
+  a:hover,
+  a:focus {
     border-bottom: 1px solid #fff !important;
   }
 
