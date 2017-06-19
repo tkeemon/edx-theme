@@ -617,6 +617,7 @@ Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastN
     PROC:             "AWUISubmitExternalLead"
   };
 
+  Intercom('trackEvent', 'registration', data);
   return Gymnasium.RecordCloudwallRecord(data, callback);
 };
 
