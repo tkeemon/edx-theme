@@ -10,6 +10,7 @@ import third_party_auth
 from third_party_auth import pipeline
 from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
 from openedx.core.djangolib.markup import HTML, Text
+import urllib2
 %>
 
 <%
@@ -120,10 +121,15 @@ from openedx.core.djangolib.markup import HTML, Text
   </header>
 </div>
 
+
 <main id="main" aria-label="Content" tabindex="-1" class="content-wrapper">
     <section class="container course-content" id="dashboard-main">
       <div class="row">
         <section class="my-courses col-md-9" id="my-courses">
+
+          <div class="dashboard-custom-content">
+            ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/dashboard.html').read() | n}
+          </div>
 
           <header class="hero">
             <h1>${_("My Courses")}</h1>
