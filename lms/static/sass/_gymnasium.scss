@@ -1220,9 +1220,17 @@ code, code *
 
 
 /* password reset page */
-.view-passwordreset .introduction header
+.view-passwordreset 
 {
-	background-image:none;
+  .introduction header
+  {
+    background-image:none;
+  }
+
+  div.container,
+  footer.container {
+    padding:0;
+  }
 }
 
 .cookiebanner
@@ -1262,3 +1270,69 @@ div#HW_frame_cont.HW_visible {
   margin-left:25px;
   margin-top:0px;
 }
+
+.login-register div.status,
+div.status,
+.status,
+{
+  padding: 1.8em;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: none;
+
+  .message-title {
+    font: bold 2em/1.25 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+    color: #fff!important;
+    text-transform: capitalize;
+    margin-top: 0;
+    margin-bottom: .625em;
+  }
+
+  .message-copy {
+    color: #fff!important;  
+  }
+
+  a {
+    color: white !important;
+    border-bottom: 1px solid white !important;
+  }
+
+  a:hover,
+  a:focus {
+    border-bottom: 1px solid #fff !important;
+  }
+
+  ul {
+    margin-top: 1.4em;
+  }
+
+  li {
+    font: bold 1em/1.5 "Helvetica Neue", Helvetica, sans-serif;
+    letter-spacing: .01em;
+    color: #fff;
+    margin-top: 1em;
+  }
+
+  &.submission-success {
+    background: #1c7f1f;
+  }
+
+  &.submission-error {
+    background: #d43f3a;
+  }
+}
+
+.login-register div.form-field label.error,
+div.form-field label.error {
+  display: inline-block;
+  color: #fff;
+  padding: .5em;
+  background: #d43f3a;
+  border-radius: 2px;
+}
+
+.login-register div.form-field input.error,
+div.form-field input.error {
+  border: 2px solid #d43f3a;
+}
+

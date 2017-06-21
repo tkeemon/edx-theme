@@ -21,6 +21,10 @@
   }
   /*** linkedin Login button styles ***/
 
+  p.action-label {
+    font: normal 1.6em/1.4 "brandon-grotesque", "Helvetia Neue", Helvetica, sans-serif;
+    margin-bottom: 1em;
+  }
   $linked-in-blue: #0077B5;
 
   button.gym-button.button-oa2-linkedin-oauth2.login-provider.login-oa2-linkedin-oauth2,
@@ -62,6 +66,10 @@
     .tip
     {
       color: #444;
+    }
+
+    .tip-input {
+        font: normal 1em/1.15 "Helvetia Neue", Helvetica, sans-serif;
     }
   }
 
