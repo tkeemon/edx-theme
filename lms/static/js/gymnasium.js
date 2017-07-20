@@ -521,6 +521,7 @@ Gymnasium.prototype.LoadJobsForMarket = function(selected_market, limit, page, c
     {
       var market = getMarketFromGeoLocation(position);
       queryJobsForMarket(market.id);
+      $('#find-jobs-market-name, .job-location').text(market.name);
     }
 
     // get user's Market name (ie. "Chicago")
@@ -617,6 +618,7 @@ Gymnasium.prototype.RecordRegistration = function(emailAddress, firstName, lastN
     PROC:             "AWUISubmitExternalLead"
   };
 
+  Intercom('trackEvent', 'registration', data);
   return Gymnasium.RecordCloudwallRecord(data, callback);
 };
 

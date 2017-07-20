@@ -128,6 +128,7 @@ from student.helpers import (
                   document.getElementById('track-info').innerHTML='${_("Are you sure you want to unenroll from")}';
                   document.getElementById('refund-info').innerHTML='';
                   document.getElementById('unenroll-course-name').innerHTML='${course_overview.display_name_with_default | h}';
+                  document.getElementById('unenroll_course_number').innerHTML='${course_overview.number | h}';
                   $('#unenroll_course_id').val('${course_overview.id | h}');
                 ">
                 ${_('Unenroll')}

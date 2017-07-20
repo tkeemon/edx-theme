@@ -10,6 +10,7 @@ import third_party_auth
 from third_party_auth import pipeline
 from openedx.core.djangolib.js_utils import dump_js_escaped_json, js_escaped_string
 from openedx.core.djangolib.markup import HTML, Text
+import urllib2
 %>
 
 <%
@@ -45,38 +46,43 @@ from openedx.core.djangolib.markup import HTML, Text
         signInUser: "${reverse('signin_user') | n, js_escaped_string}",
         changeEmailSettings: "${reverse('change_email_settings') | n, js_escaped_string}"
       });
-    });
 
-    //hide "BETA" from courses that have it in their title,
-    //and add .beta class to corresponsing <li> itm
-    $('.listing-courses li').each(function(idx, obj){
-      var beta_tag = "beta";
-      var beta_class_name="beta";
+      //hide "BETA" from courses that have it in their title,
+      //and add .beta class to corresponsing <li> itm
+      $('.listing-courses li').each(function(idx, obj){
+        var beta_tag = "beta";
+        var beta_class_name="beta";
 
-      var course_title_obj = $(obj).find('h1')
-      var course_title = $(course_title_obj).text().trim();
+        var course_title_obj = $(obj).find('h1')
+        var course_title = $(course_title_obj).text().trim();
 
-      //check to see if this course is a BETA course
-      if (course_title.toLowerCase().indexOf(beta_tag) >= 0)
-      {
-        //this is a beta Course
-        //strip the "BETA" word from the title
-        course_title = course_title.substr(beta_tag.length).trim();
-        console.log('course title is now', course_title);
+        //check to see if this course is a BETA course
+        if (course_title.toLowerCase().indexOf(beta_tag) >= 0)
+        {
+          //this is a beta Course
+          //strip the "BETA" word from the title
+          course_title = course_title.substr(beta_tag.length).trim();
+          console.log('course title is now', course_title);
 
-        course_title_obj.text(course_title);
+          course_title_obj.text(course_title);
 
-        $(obj).addClass(beta_class_name);
+          $(obj).addClass(beta_class_name);
+        }
+      });
+      
+      $('#unenroll-button').click(function(){
+        var courseNum = $('#unenroll_course_number').text();
+        var eventName = 'gym' + courseNum + '-unenroll';
+        var metadata = {
+          "course_id" : $('#unenroll_course_number').text(),
+          "course_name": $('#unenroll-course-name').text(),
+          "email": "${user.email}",
+          "name": "${user.profile.name}",
+          "username": "${user.username}",
+        };
 
-      }
-    });
-
-    $('#unenroll-button').submit(function(){
-      var metadata = {
-        "course_id" : $('#unenroll_course_number').text(),
-        "course_name": $('#unenroll-course-name').text()
-      };
-      Intercom('trackEvent', 'unenroll', metadata);
+        Intercom('trackEvent', eventName, metadata);
+      });
     });
   </script>
   % if settings.FEATURES.get('ENABLE_DASHBOARD_SEARCH'):
@@ -115,10 +121,15 @@ from openedx.core.djangolib.markup import HTML, Text
   </header>
 </div>
 
+
 <main id="main" aria-label="Content" tabindex="-1" class="content-wrapper">
     <section class="container course-content" id="dashboard-main">
       <div class="row">
         <section class="my-courses col-md-9" id="my-courses">
+
+          <div class="dashboard-custom-content">
+            ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/dashboard.html').read() | n}
+          </div>
 
           <header class="hero">
             <h1>${_("My Courses")}</h1>
