@@ -9,6 +9,7 @@ from django.conf import settings
 from edxnotes.helpers import is_feature_enabled as is_edxnotes_enabled
 from openedx.core.djangolib.markup import HTML
 from openedx.core.djangolib.js_utils import js_escaped_string
+from openedx.core.lib.courses import course_image_url
 %>
 <%
   include_special_exams = settings.FEATURES.get('ENABLE_SPECIAL_EXAMS', False) and (course.enable_proctored_exams or course.enable_timed_exams)
@@ -53,6 +54,10 @@ from openedx.core.djangolib.js_utils import js_escaped_string
 
 
 <%block name="headextra">
+  ## OG (Open Graph) title and description added below to give social media info to display
+  ## (https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content#tags)
+  <meta property="og:title" content="${course.display_name_with_default_escaped} - Gymnasium" />
+  <meta property="og:image" content="${course_image_url(course, 'course_image')}" />
   <%static:css group='style-course-vendor'/>
   <%static:css group='style-course'/>
   
