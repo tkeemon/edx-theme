@@ -88,6 +88,8 @@
         </section>
       </div>
       <div class="col-md-3 sidebar">
+        <%include file='../jobs/find_jobs.html' />
+
         ## include sidebar content from git repo
         ${_(urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/upcoming-courses.html').read())}
       </div>
@@ -119,5 +121,10 @@
         }
       });
     };
+
+    Gymnasium.injectFBTrackingPixel();
   });
 </script>
+
+
+
