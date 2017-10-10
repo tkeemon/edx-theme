@@ -68,23 +68,9 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
             <h1>Featured Courses</h1>
           </header>
 
-          % if settings.FEATURES.get('COURSES_ARE_BROWSABLE'):
-            <section class="courses row">
-
-              <ul class="course-list col-md-12">
-                %for course in courses[:4]:
-                  <li class="course-list-item col-lg-3 col-md-3 col-sm-6 col-xs-12 ">
-                    <%include file="course.html" args="course=course" />
-                  </li>
-                %endfor
-              </ul>
-              <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 text-center">
-                <a href="/courses" class="gym-button" id="view-all-courses">
-                  <b>View all Courses</b>
-                </a>
-              </div>
-            </section>
-          % endif
+          <section class="courses row">
+            ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/home/featured-courses.html').read()}
+          </section>
         </section>
 
       </div>
