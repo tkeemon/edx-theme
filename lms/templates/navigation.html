@@ -149,9 +149,9 @@ site_status_msg = get_site_status_msg(course_id)
   </header>
 
   % if settings.PLATFORM_NAME == "Gymnasium STAGING":
-    ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/system_status/staging.html').read()}
+    ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/system_status/staging.html').read()}
   % else:
-    ${urllib2.urlopen('https://raw.githubusercontent.com/gymnasium/static-site-content/gh-pages/system_status/production.html').read()}
+    ${urllib2.urlopen('https://gymnasium.github.io/static-site-content/system_status/production.html').read()}
   % endif
 
 % if course:
