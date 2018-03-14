@@ -4,7 +4,7 @@
   %if templateUrl:
     %if settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', '') == "staging":
       ${urllib2.urlopen('https://staging.gymcms.xyz/static/' + templateUrl).read()}
-    %if settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', '') == "production":
+    %elif settings.APPSEMBLER_FEATURES.get('ENVIRONMENT', '') == "production":
       ${urllib2.urlopen('https://gymcms.xyz/static/' + templateUrl).read()}
     %endif
   %endif
