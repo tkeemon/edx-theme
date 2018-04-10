@@ -94,36 +94,6 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
     </div>
   </section>
 
-  % if not user.is_authenticated():
-
-  <section class="container-fluid subsection">
-    <div class="container" id="join-gymnasium">
-
-        <header class="header-tab text-center">
-          <h1>Join Us</h1>
-        </header>
-        <section class="text-center">
-          <em><a href="/register">Join Gymnasium Now</a></em>
-
-          <div class="row">
-            <p class="col-md-8 col-md-offset-2">Register to receive email updates about new and upcoming classes.</p>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-              <a class="gym-button " href="/register">
-                ${_("Sign up for an account")}
-              </a>
-            </div>
-          </div>
-
-          <p>or <a href="/login">Sign in</a>
-        </section>
-    </div>
-  </section>
-  % endif
-
-
   <section class="container-fluid subsection" id="as-seen-in">
     <div class="container">
       <div class="row">
@@ -165,34 +135,32 @@ document.write('<iframe src="https://5255816.fls.doubleclick.net/activityi;src=5
 
 
 <%block name="js_extra">
-   <script type="text/javascript">
+  <script type="text/javascript">
       $(window).on('load',function() {
-         if(getParameterByName('next')) {
+        if(getParameterByName('next')) {
               $('#login').trigger("click");
-         }
+        }
 
-         Gymnasium.injectFBTrackingPixel();
+        Gymnasium.injectFBTrackingPixel();
 
-         //load jobs into the jobs page
-         Gymnasium.LoadJobsForMarket();
+        //load jobs into the jobs page
+        Gymnasium.LoadJobsForMarket();
 
-         $('#view-jobs-button').click(function(event){
-           event.preventDefault();
-           var market = $('#market').val();
-           var market_label = $('#market option:selected').text();
+        $('#view-jobs-button').click(function(event){
+          event.preventDefault();
+          var market = $('#market').val();
+          var market_label = $('#market option:selected').text();
 
-           // update the "View all jobs in [market]" url to point to this market
-           var viewJobsLinkURL = 'http://aquent.com/find-work/?utm_source=gymnasium&utm_medium=web&utm_campaign=homepagejobs&utm_content=viewall&l=' + market;
-           var viewJobsLink = $('#view-jobs-link')[0];
-           viewJobsLink.href = viewJobsLinkURL;
+          // update the "View all jobs in [market]" url to point to this market
+          var viewJobsLinkURL = 'http://aquent.com/find-work/?utm_source=gymnasium&utm_medium=web&utm_campaign=homepagejobs&utm_content=viewall&l=' + market;
+          var viewJobsLink = $('#view-jobs-link')[0];
+          viewJobsLink.href = viewJobsLinkURL;
 
-           Gymnasium.LoadJobsForMarket(market);
-           $('#find-jobs-market-name, .job-location').text(market_label);
+          Gymnasium.LoadJobsForMarket(market);
+          $('#find-jobs-market-name, .job-location').text(market_label);
 
 
-         });
+        });
       })
-   </script>
-
-
+  </script>
 </%block>
