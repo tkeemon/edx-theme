@@ -45,7 +45,7 @@ site_status_msg = get_site_status_msg(course_id)
             <div class="nav navbar navbar-nav navbar-left">
               % if not user.is_authenticated():
                   % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
-                    <a class="gym-button" href="/register"><b>${_("Sign up for an account")}</b></a>
+                    <a class="gym-button" href="/register"><b>${_("Sign Up")}</b></a>
                   % endif
                 % endif
             </div>
@@ -120,9 +120,9 @@ site_status_msg = get_site_status_msg(course_id)
                   <li>
                     % if not settings.FEATURES['DISABLE_LOGIN_BUTTON']:
                         % if course and settings.FEATURES.get('RESTRICT_ENROLL_BY_REG_METHOD') and course.enrollment_domain:
-                        <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log in")}</b></a>
+                        <a class="cta cta-login" href="${reverse('course-specific-login', args=[course.id.to_deprecated_string()])}${login_query()}"><b>${_("Log In")}</b></a>
                         % else:
-                        <a class="gym-button" href="/login${login_query()}"><b>${_("Log in")}</b></a>
+                        <a class="gym-button" href="/login${login_query()}"><b>${_("Log In")}</b></a>
                         % endif
                     % endif
                   </li>
