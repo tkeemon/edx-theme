@@ -2,70 +2,16 @@
 <%!
 from django.utils.translation import ugettext as _
 from openedx.core.djangolib.markup import HTML
-
 %>
 
+<%namespace name="gymcms" file="./util/gymcms.mako" />
 <%namespace name='static' file='static_content.html'/>
 <h2 class="hd hd-2 problem-header">
   ${ problem['name'] }
 </h2>
 <div class="problem-progress"></div>
 
-<div class="passed_modal hidden final-exam-status" aria-hidden="true" id="course_passed_message">
-  <div class="row">
-    <div class="col-md-12">
-      <br />
-      <h2>Congratulations!</h2>
-      <p>Congrats on completing the course and passing the final exam. You really know your stuff!</p>
-
-      <p>Now show off to your network by sharing your badge on LinkedIn. You can access it right from your <a class="gymlink" href="/dashboard">Dashboard</a>.</p>
-
-
-      <div class="survey">
-        <p>Before you head on to your next achievement, could you please take a moment to share your thoughts with us on a quick survey? Your feedback will help shape our future courses and let us know how <em>we’re</em> doing.</p>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <a class="gym-button text-center col-md-2 col-md-offset-5" href="https://www.surveymonkey.com/s/JYJPMSS" target="_blank">
-      Take Our Survey
-    </a>
-  </div>
-</div>
-
-<div class="try_again_modal hidden final-exam-status" aria-hidden"true">
-  <div class="row">
-    <div class="col-md-12">
-      <br />
-      <h2>YOU'RE CLOSE!</h2>
-      <p>We're thrilled you’ve made it this far. You’ve scored a <span class="exam-score-container"></span> on the exam. To pass you need to get greater than an 85.</p>
-
-      <p>Lucky for you, you've still got one more chance to pass. This would be a great time to go back and review the course material. Take a look at things you may have struggled with and have another go when you feel prepared. </p>
-
-      <p>Good luck!</p>
-
-    </div>
-  </div>
-</div>
-
-<div class="failed_modal hidden final-exam-status" aria-hidden="true">
-  <div class="row">
-    <div class="col-md-12">
-      <br />
-      <h2>AW, SHUCKS.</h2>
-      <p>Don’t worry, you deserve a lot of credit for finishing the course! Only 1 in 10 students who takes an online course like this actually ever finishes, so your commitment puts you in an elite crowd.</p>
-
-      <div class="survey">
-        <p>We’re thrilled you’ve joined us and would love your feedback to make our courses even better. If you could take a moment to share your thoughts with us on a quick survey, it would help shape our future offerings.</p>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <a class="gym-button text-center col-md-2 col-md-offset-5" href="https://www.surveymonkey.com/s/JYJPMSS" target="_blank">
-      Take Our Survey
-    </a>
-  </div>
-</div>
+${gymcms.render('final-exam-modal-top')}
 
 <div class="problem" aria-relevant="all">
   <div aria-live="polite">
@@ -78,7 +24,7 @@ from openedx.core.djangolib.markup import HTML
     <div class="problem-hint" aria-live="polite"></div>
     % endif
     % if check_button:
-    <button class="gym-button natural check ${ check_button }" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
+    <button class="gym-button natural check ${ check_button }" id="chec-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
     % endif
     % if demand_hint_possible:
     <button class="gym-button natural hint-button" data-value="${_('Hint')}">${_('Hint')}</button>
@@ -102,6 +48,8 @@ from openedx.core.djangolib.markup import HTML
     % endif
   </div>
 </div>
+
+${gymcms.render('final-exam-modal')}
 
 <script>
   $(function(){
@@ -131,6 +79,14 @@ from openedx.core.djangolib.markup import HTML
         show_problem_progress();
       }
     }
+  
+    function scrollToResultsMessage() {
+      $('#course_passed_message')[0].scrollIntoView();
+    }
+
+    $('#check-button').click(function() {
+      scrollToResultsMessage();
+    });
 
     var show_problem_progress = function(){
 
@@ -157,22 +113,19 @@ from openedx.core.djangolib.markup import HTML
 
       var passing_score = 85;
 
-      if (progress_string.length > 0)
-      {
+      if (progress_string.length > 0) {
         //Gymnasium.RecordExamGrade =  function(email, courseId, grade, callback)
         % if (user.is_authenticated()):
           var email = "${user.email}";
           var courseID = $('#__course_number__').text();
           
-          if (email && courseID && score)
-          {
+          if (email && courseID && score) {
             // Gymnasium.RecordExamGrade(email, courseID, score);
           }
         %endif
 
         //we have a score
-        if (score >= passing_score)
-        {
+        if (score >= passing_score) {
           //we passed! show passing div
           $(".passed_modal").removeClass('hidden');
           $(".try_again_modal").addClass('hidden');
@@ -186,19 +139,13 @@ from openedx.core.djangolib.markup import HTML
             success:  function(data) {
             }
           });
-
-        }
-        else
-        {
+        } else {
           //we failed :( see if we have another attempt
-          if (attempts_remaining > 0)
-          {
+          if (attempts_remaining > 0) {
             $(".passed_modal").addClass('hidden');
             $(".try_again_modal").removeClass('hidden');
             $(".failed_modal").addClass('hidden');
-          }
-          else
-          {
+          } else {
             $(".passed_modal").addClass('hidden');
             $(".try_again_modal").addClass('hidden');
             $(".failed_modal").removeClass('hidden');
