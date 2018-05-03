@@ -334,6 +334,12 @@ body.register,
 	a:link:visited,
 	a:active,
 	a:link:active,
+	p a,
+	p a:link,
+	p a:visited,
+	a.gymlink,
+	a.gymlink:link,
+	a.gymlink:visited
 	{		
 		color: $gym-orange;
 		font-family:$theme-serif-font;
@@ -352,7 +358,10 @@ body.register,
 	.dashboard .my-courses .course .info>hgroup h3 span:hover,
 	.dashboard .my-courses .course .info>hgroup h3 span:focus,
 	p a:link:hover,
-	p a:hover
+	p a:hover,
+	a.gymlink:hover,
+	a.gymlink:link:hover,
+	a.gymlink:visited:hover
 	{
 		border-bottom:1px solid $gym-orange;
 		color:$gym-orange;
