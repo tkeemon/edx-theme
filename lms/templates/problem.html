@@ -24,7 +24,7 @@ ${gymcms.render('final-exam-modal-top')}
     <div class="problem-hint" aria-live="polite"></div>
     % endif
     % if check_button:
-    <button class="gym-button natural check ${ check_button }" id="chec-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
+    <button class="gym-button natural check ${ check_button }" id="check-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
     % endif
     % if demand_hint_possible:
     <button class="gym-button natural hint-button" data-value="${_('Hint')}">${_('Hint')}</button>
