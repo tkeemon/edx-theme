@@ -24,7 +24,7 @@ ${gymcms.render('final-exam-modal-top')}
     <div class="problem-hint" aria-live="polite"></div>
     % endif
     % if check_button:
-    <button class="gym-button natural check ${ check_button }" id="chec-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
+    <button class="gym-button natural check ${ check_button }" id="check-button" data-checking="${ check_button_checking }" data-value="${ check_button }"><span class="check-label">${ check_button }</span><span class="sr"> ${_("your answer")}</span></button>
     % endif
     % if demand_hint_possible:
     <button class="gym-button natural hint-button" data-value="${_('Hint')}">${_('Hint')}</button>
@@ -58,11 +58,26 @@ ${gymcms.render('final-exam-modal')}
 
   $(function(){
 
-    if ($('.problem-header').text().trim() === "Final Exam")
-    {
-      var progress_status_check = setInterval(check_status, 200); 
+    const COURSE_TYPES = {
+      FULL_COURSE: 'FULL_COURSE',
+      GYM_SHORT: 'GYM_SHORT',
+    };
+
+    const COURSE_ID = parseInt($('#__course_number__').text(), 10);
+    const COURSE_TYPE = COURSE_ID >= 100 ? COURSE_TYPES.FULL_COURSE : COURSE_TYPES.GYM_SHORT;
+    let PASSING_SCORE = 85;
+
+    if (COURSE_TYPE === COURSE_TYPES.FULL_COURSE) {
+      // full courses have a passing grade of 85
+      PASSING_SCORE = 85;
+    } else {
+      // gym shorts have a passing grade of 80
+      PASSING_SCORE = 80;
     }
-    else {
+
+    if ($('.problem-header').text().trim() === "Final Exam") {
+      var progress_status_check = setInterval(check_status, 200); 
+    } else {
       return;
     }
 
@@ -111,21 +126,18 @@ ${gymcms.render('final-exam-modal')}
       var attempts_remaining = attempts_total - attempts_used;
 
 
-      var passing_score = 85;
-
       if (progress_string.length > 0) {
-        //Gymnasium.RecordExamGrade =  function(email, courseId, grade, callback)
+        //Gymnasium.RecordExamGrade =  function(email, COURSE_ID, grade, callback)
         % if (user.is_authenticated()):
           var email = "${user.email}";
-          var courseID = $('#__course_number__').text();
           
-          if (email && courseID && score) {
-            // Gymnasium.RecordExamGrade(email, courseID, score);
+          if (email && COURSE_ID && score) {
+            // Gymnasium.RecordExamGrade(email, COURSE_ID, score);
           }
         %endif
 
         //we have a score
-        if (score >= passing_score) {
+        if (score >= PASSING_SCORE) {
           //we passed! show passing div
           $(".passed_modal").removeClass('hidden');
           $(".try_again_modal").addClass('hidden');
@@ -143,11 +155,11 @@ ${gymcms.render('final-exam-modal')}
           //we failed :( see if we have another attempt
           if (attempts_remaining > 0) {
             $(".passed_modal").addClass('hidden');
-            $(".try_again_modal").removeClass('hidden');
+            $(".try_again_modal." + COURSE_TYPE).removeClass('hidden');
             $(".failed_modal").addClass('hidden');
           } else {
             $(".passed_modal").addClass('hidden');
-            $(".try_again_modal").addClass('hidden');
+            $(".try_again_modal." + COURSE_TYPE).addClass('hidden');
             $(".failed_modal").removeClass('hidden');
           }
         }

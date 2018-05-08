@@ -34,6 +34,12 @@ from student.helpers import (
 
 <%namespace name='static' file='../static_content.html'/>
 
+% if int(course_overview.display_number_with_default) >= 100:
+  <% credential_type="certificate" %>
+% else: 
+  <% credential_type="badge" %>
+% endif
+
 <li class="course-item">
   % if settings.FEATURES.get('ENABLE_VERIFIED_CERTIFICATES'):
     % if enrollment.mode == "verified":
@@ -115,7 +121,7 @@ from student.helpers import (
             <li>
               <li class="action action-certificate">
               <a href="${cert_status['download_url']}"
-                title="${_('View your certificate')}">
+                title="${_('View your ')}${credential_type}">
                 ${_("My {cert_name_short}").format(cert_name_short=cert_name_short)}</a></li>
             </li>
           % endif
