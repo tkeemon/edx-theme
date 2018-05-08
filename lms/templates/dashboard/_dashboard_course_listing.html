@@ -34,11 +34,16 @@ from student.helpers import (
 
 <%namespace name='static' file='../static_content.html'/>
 
-% if int(course_overview.display_number_with_default) >= 100:
-  <% credential_type="certificate" %>
-% else: 
-  <% credential_type="badge" %>
-% endif
+<% 
+  try: 
+    if int(course_overview.display_number_with_default) >= 100:
+      credential_type="certificate"
+    else: 
+      credential_type="badge"
+    endif
+  except ValueError:
+    credential_type="certificate"
+%>
 
 <li class="course-item">
   % if settings.FEATURES.get('ENABLE_VERIFIED_CERTIFICATES'):
