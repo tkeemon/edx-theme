@@ -1,34 +1,20 @@
 % if settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']:
-  % if user.is_authenticated():
     <%
-      # grab market from user profile
-      market = user.profile.market
+      market = None
+      if user.is_authenticated():
+        # grab market from user profile
+        market = user.profile.market
+      endif
     %>
-    <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
-      id="jobs-microservice-frame"
-      class="gymnasium-resizable-iframe"
-      style="width: 1px;min-width: 100%;border:0;"
-    ></iframe>
-    % else:
-    <div class="jobs-microservice-container"></div>
+  
+  <iframe src="${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}/${market}"
+    id="jobs-microservice-frame"
+    class="gymnasium-resizable-iframe gymnasium-jobs-microservice-iframe"
+    style="width: 1px;min-width: 100%;border:0;"
+  ></iframe>
+  
+  % if not user.is_authenticated():
     <script>
-      const injectJobsIframes = (url) => {
-        // create an iframe within the container div with the supplied URL as its target
-        const frame = $(
-          '<iframe>',
-          {
-            src: url,
-            id: 'jobs-microservice-frame',
-            class: 'gymnasium-resizable-iframe',
-            style: 'width: 1px; min-width: 100%; border:0'
-          },
-        );
-
-        $('.jobs-microservice-container').append(frame);
-        iFrameResize({ log:false }, '.gymnasium-resizable-iframe');
-      };
-
-      const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}";
       if (navigator.geolocation) {
         // Geolocation is enabled - use this to get location
         navigator.geolocation.getCurrentPosition(
@@ -36,15 +22,12 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             if (latitude && longitude) {
-              injectJobsIframes(baseUrl + "/" + latitude + "/" + longitude);
-              // populate an iframe with lat and long in the url
+              const baseUrl = "${settings.APPSEMBLER_FEATURES['JOBS_MODULE_BASE_URL']}";
+              const microserviceUrl = baseUrl + "/" + latitude + "/" + longitude;
+
+              $('.gymnasium-jobs-microservice-iframe').attr('src', microserviceUrl);
             }
-          }, (err) =>{
-            // getCurrentPosition returned an error for some reason.
-            // populate an iframe with no market or lat/long
-            debugger;
-            injectJobsIframes(baseUrl);
-          }
+          },
         );
       }
     </script>
