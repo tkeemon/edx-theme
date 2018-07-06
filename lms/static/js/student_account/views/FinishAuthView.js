@@ -51,8 +51,6 @@
                   enrollmentAction: $.url( '?enrollment_action' ),
                   courseId: $.url( '?course_id' ),
                   courseMode: $.url( '?course_mode' ),
-                  courseNum: $.url('?course_num'),
-                  courseName: $.url('?course_name'),
                   emailOptIn: $.url( '?email_opt_in' ),
                   purchaseWorkflow: $.url( '?purchase_workflow' )
               };
@@ -62,8 +60,6 @@
                   }
               }
               this.courseId = queryParams.courseId;
-              this.courseNum = queryParams.courseNum;
-              this.courseName = queryParams.courseName;
               this.enrollmentAction = queryParams.enrollmentAction;
               this.courseMode = queryParams.courseMode;
               this.emailOptIn = queryParams.emailOptIn;
@@ -152,7 +148,6 @@
                   if (Intercom) {
                     var metadata = {
                       "course_id" : courseNum,
-                      "course_name" : this.courseName,
                     };
 
                     // track this enrollment in intercom
