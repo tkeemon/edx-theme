@@ -51,8 +51,6 @@
                   enrollmentAction: $.url( '?enrollment_action' ),
                   courseId: $.url( '?course_id' ),
                   courseMode: $.url( '?course_mode' ),
-                  courseNum: $.url('?course_num'),
-                  courseName: $.url('?course_name'),
                   emailOptIn: $.url( '?email_opt_in' ),
                   purchaseWorkflow: $.url( '?purchase_workflow' )
               };
@@ -62,8 +60,6 @@
                   }
               }
               this.courseId = queryParams.courseId;
-              this.courseNum = queryParams.courseNum;
-              this.courseName = queryParams.courseName;
               this.enrollmentAction = queryParams.enrollmentAction;
               this.courseMode = queryParams.courseMode;
               this.emailOptIn = queryParams.emailOptIn;
@@ -126,14 +122,36 @@
           enrollment: function() {
               var redirectUrl = this.nextUrl;
 
+              // util function to grab a standardized courseId from the string edX uses
+              // outputs in the form of 'GYM-XXX';
+              var getCourseNumFromId = function(courseId) {
+                var prefix = 'GYM-';
+                // some basic fault handling
+                if (!courseId || typeof courseId !== 'string' ) return;
+              
+                var courseNum = courseId.toUpperCase();
+                
+                if (courseNum.startsWith('GYM')) {
+                  // handle courseIds with old structure of GYM/XXX/0
+                  courseNum = prefix + courseNum.substring(4, 7);
+                } else if (courseNum.startsWith('COURSE-V1:')) {
+                  // handle courseIds with new structure of course-v1:GYM+014+0
+                  courseNum = prefix + courseNum.substring(14, 17);
+                }
+                  
+                return courseNum;
+              }
+              
+              let courseNum = getCourseNumFromId(this.courseId);
+
               if ( this.enrollmentAction === 'enroll' && this.courseId ) {
                   if (Intercom) {
                     var metadata = {
-                      "course_id" : this.courseNum || this.courseId,
-                      "course_name" : this.courseName,
+                      "course_id" : courseNum,
                     };
 
-                    Intercom('trackEvent', 'GYM' + (this.courseNum || this.courseId) +'-enroll' , metadata);
+                    // track this enrollment in intercom
+                    Intercom('trackEvent', courseNum + '-enroll' , metadata);
                   }
                   this.updateTaskDescription(gettext("Enrolling you in the selected course"));
                   var courseId = decodeURIComponent( this.courseId ); 
