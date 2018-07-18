@@ -1,5 +1,13 @@
 version: 2
 jobs:
+  build: 
+    working_directory: ~/edx-theme
+    docker: 
+      - image: circleci/python2.7-jessie-node
+    steps: 
+      - checkout
+      - run: echo '[edxapp-server]' > ~/inventory
+      - run: echo $STAGING_SERVER >> ~/inventory
   deploy: 
     working_directory: ~/edx-theme
     docker: 
@@ -9,8 +17,5 @@ jobs:
         - develop
         - /feature.*/
     steps:
-      - checkout
-      - run: echo '[edxapp-server]' > ~/inventory
-      - run: echo $STAGING_SERVER >> ~/inventory
       - run: deactivate && ~/edx-theme/deploy/deploy_staging.sh
       # - tiemout: 1200 # increase timeout from 10 to 20 mins
