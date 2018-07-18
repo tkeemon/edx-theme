@@ -3,7 +3,7 @@ jobs:
   build: 
     working_directory: ~/edx-theme
     docker: 
-      - image: circleci/python2.7-jessie-node
+      - image: circleci/python:2.7
     steps: 
       - checkout
       - run: echo '[edxapp-server]' > ~/inventory
@@ -11,7 +11,7 @@ jobs:
   deploy: 
     working_directory: ~/edx-theme
     docker: 
-      - image: circleci/python:2.7-jessie-node
+      - image: circleci/python:2.7
     branches:
       only: 
         - develop
