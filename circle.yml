@@ -13,4 +13,4 @@ jobs:
       - run: echo '[edxapp-server]' > ~/inventory
       - run: echo $STAGING_SERVER >> ~/inventory
       - run: deactivate && ~/edx-theme/deploy/deploy_staging.sh
-        - tiemout: 1200 # increase timeout from 10 to 20 mins
+      # - tiemout: 1200 # increase timeout from 10 to 20 mins
