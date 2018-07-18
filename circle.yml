@@ -17,5 +17,7 @@ jobs:
         - develop
         - /feature.*/
     steps:
-      - run: deactivate && ~/edx-theme/deploy/deploy_staging.sh
-          tiemout: 1200 # increase timeout from 10 to 20 mins
+      - run: 
+        name: Deploy to staging
+        command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
+        no_output_timeout: 30m
