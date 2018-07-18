@@ -18,6 +18,6 @@ jobs:
         - /feature.*/
     steps:
       - run: 
-        name: Deploy to staging
-        command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
-        no_output_timeout: 30m
+          name: Deploy to staging
+          command: deactivate && ~/edx-theme/deploy/deploy_staging.sh
+          no_output_timeout: 30m
